@@ -1,0 +1,8 @@
+Erster Prototyp mit einem Kasten als Charakter und 3 Farben für verschiedene Animationen (Grau = idle, Grün = running, Rot = jumping) ein paar Platformen und einem Gegner am Ende.
+Wenn man den gener anspringt kriegt der Spieler schaden (lässt sich auch um drehen)
+
+
+Was erledigt werden sollte:
+-Generell die Animationen organisieren
+-Ein wenig Leveldesign -> etwas zum Laufen und Springen
+-Lebensbalken/Lebenswert über Gegner 

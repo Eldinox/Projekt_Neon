@@ -1,0 +1,5 @@
+*.bin
+**/AutoScreenshot.png
+*.json
+*.ini
+*.log
