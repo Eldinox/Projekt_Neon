@@ -6,3 +6,4 @@ Was erledigt werden sollte:
 -Generell die Animationen organisieren
 -Ein wenig Leveldesign -> etwas zum Laufen und Springen
 -Lebensbalken/Lebenswert über Gegner 
+.
