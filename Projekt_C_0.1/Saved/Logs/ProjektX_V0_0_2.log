@@ -1,0 +1,768 @@
+﻿Log file open, 04/17/18 15:26:44
+LogWindows: Failed to load 'aqProf.dll' (GetLastError=126)
+LogWindows: File 'aqProf.dll' does not exist
+LogWindows: Failed to load 'VSPerf140.dll' (GetLastError=126)
+LogWindows: File 'VSPerf140.dll' does not exist
+LogWindows: Failed to load 'VtuneApi.dll' (GetLastError=126)
+LogWindows: File 'VtuneApi.dll' does not exist
+LogWindows: Failed to load 'VtuneApi32e.dll' (GetLastError=126)
+LogWindows: File 'VtuneApi32e.dll' does not exist
+LogInit: Display: Running engine for game: ProjektX_V0_0
+LogPlatformFile: Not using cached read wrapper
+LogInit: Display: RandInit(170762189) SRandInit(170762189).
+LogTaskGraph: Started task graph with 5 named threads and 8 total threads with 3 sets of task threads.
+LogStats: Stats thread started at 0.125685
+LogD3D11RHI: Aftermath initialized
+LogPluginManager: Mounting plugin Paper2D
+LogPluginManager: Mounting plugin LightPropagationVolume
+LogPluginManager: Mounting plugin CodeLiteSourceCodeAccess
+LogPluginManager: Mounting plugin GitSourceControl
+LogPluginManager: Mounting plugin KDevelopSourceCodeAccess
+LogPluginManager: Mounting plugin NullSourceCodeAccess
+LogPluginManager: Mounting plugin PerforceSourceControl
+LogPluginManager: Mounting plugin SubversionSourceControl
+LogPluginManager: Mounting plugin UObjectPlugin
+LogPluginManager: Mounting plugin VisualStudioSourceCodeAccess
+LogPluginManager: Mounting plugin XCodeSourceCodeAccess
+LogPluginManager: Mounting plugin AssetManagerEditor
+LogPluginManager: Mounting plugin AudioCapture
+LogPluginManager: Mounting plugin FacialAnimation
+LogPluginManager: Mounting plugin GameplayTagsEditor
+LogPluginManager: Mounting plugin MobileLauncherProfileWizard
+LogPluginManager: Mounting plugin PluginBrowser
+LogPluginManager: Mounting plugin SpeedTreeImporter
+LogPluginManager: Mounting plugin AlembicImporter
+LogPluginManager: Mounting plugin CharacterAI
+LogPluginManager: Mounting plugin HTML5Networking
+LogPluginManager: Mounting plugin AndroidMedia
+LogPluginManager: Mounting plugin AvfMedia
+LogPluginManager: Mounting plugin MediaPlayerEditor
+LogPluginManager: Mounting plugin WmfMedia
+LogPluginManager: Mounting plugin TcpMessaging
+LogPluginManager: Mounting plugin UdpMessaging
+LogPluginManager: Mounting plugin LevelSequenceEditor
+LogPluginManager: Mounting plugin MatineeToLevelSequence
+LogPluginManager: Mounting plugin OnlineSubsystemGooglePlay
+LogPluginManager: Mounting plugin OnlineSubsystemIOS
+LogPluginManager: Mounting plugin OnlineSubsystem
+LogPluginManager: Mounting plugin OnlineSubsystemNull
+LogPluginManager: Mounting plugin OnlineSubsystemUtils
+LogPluginManager: Mounting plugin AndroidDeviceProfileSelector
+LogPluginManager: Mounting plugin AndroidMoviePlayer
+LogPluginManager: Mounting plugin AndroidPermission
+LogPluginManager: Mounting plugin AppleMoviePlayer
+LogPluginManager: Mounting plugin ArchVisCharacter
+LogPluginManager: Mounting plugin CableComponent
+LogPluginManager: Mounting plugin CustomMeshComponent
+LogPluginManager: Mounting plugin ExampleDeviceProfileSelector
+LogPluginManager: Mounting plugin GoogleCloudMessaging
+LogPluginManager: Mounting plugin ImmediatePhysics
+LogPluginManager: Mounting plugin IOSDeviceProfileSelector
+LogPluginManager: Mounting plugin LinuxDeviceProfileSelector
+LogPluginManager: Mounting plugin LocationServicesBPLibrary
+LogPluginManager: Mounting plugin MobilePatchingUtils
+LogPluginManager: Mounting plugin OculusVR
+LogPluginManager: Mounting plugin PhysXVehicles
+LogPluginManager: Mounting plugin ProceduralMeshComponent
+LogPluginManager: Mounting plugin RuntimePhysXCooking
+LogPluginManager: Mounting plugin SteamVR
+LogPluginManager: Mounting plugin WindowsMoviePlayer
+LogInit: Using libcurl 7.47.1
+LogInit:  - built for x86_64-pc-win32
+LogInit:  - supports SSL with OpenSSL/1.0.2g
+LogInit:  - supports HTTP deflate (compression) using libz 1.2.8
+LogInit:  - other features:
+LogInit:      CURL_VERSION_SSL
+LogInit:      CURL_VERSION_LIBZ
+LogInit:      CURL_VERSION_IPV6
+LogInit:      CURL_VERSION_ASYNCHDNS
+LogInit:      CURL_VERSION_LARGEFILE
+LogInit:      CURL_VERSION_IDN
+LogInit:  CurlRequestOptions (configurable via config and command line):
+LogInit:  - bVerifyPeer = false  - Libcurl will NOT verify peer certificate
+LogInit:  - bUseHttpProxy = false  - Libcurl will NOT use HTTP proxy
+LogInit:  - bDontReuseConnections = false  - Libcurl will reuse connections
+LogInit:  - CertBundlePath = nullptr  - Libcurl will use whatever was configured at build time.
+LogInit: Build: ++UE4+Release-4.17-CL-3658906
+LogInit: Engine Version: 4.17.2-3658906+++UE4+Release-4.17
+LogInit: Compatible Engine Version: 4.17.0-3573198+++UE4+Release-4.17
+LogInit: Net CL: 3573198
+LogDevObjectVersion: Number of dev versions registered: 16
+LogDevObjectVersion:   Dev-Blueprints (B0D832E4-1F89-4F0D-ACCF-7EB736FD4AA2): 10
+LogDevObjectVersion:   Dev-Build (E1C64328-A22C-4D53-A36C-8E866417BD8C): 0
+LogDevObjectVersion:   Dev-Core (375EC13C-06E4-48FB-B500-84F0262A717E): 2
+LogDevObjectVersion:   Dev-Editor (E4B068ED-F494-42E9-A231-DA0B2E46BB41): 20
+LogDevObjectVersion:   Dev-Framework (CFFC743F-43B0-4480-9391-14DF171D2073): 28
+LogDevObjectVersion:   Dev-Mobile (B02B49B5-BB20-44E9-A304-32B752E40360): 0
+LogDevObjectVersion:   Dev-Networking (A4E4105C-59A1-49B5-A7C5-40C4547EDFEE): 0
+LogDevObjectVersion:   Dev-Online (39C831C9-5AE6-47DC-9A44-9C173E1C8E7C): 0
+LogDevObjectVersion:   Dev-Physics (78F01B33-EBEA-4F98-B9B4-84EACCB95AA2): 0
+LogDevObjectVersion:   Dev-Platform (6631380F-2D4D-43E0-8009-CF276956A95A): 0
+LogDevObjectVersion:   Dev-Rendering (12F88B9F-8875-4AFC-A67C-D90C383ABD29): 19
+LogDevObjectVersion:   Dev-Sequencer (7B5AE74C-D270-4C10-A958-57980B212A5A): 4
+LogDevObjectVersion:   Dev-VR (D7296918-1DD6-4BDD-9DE2-64A83CC13884): 0
+LogDevObjectVersion:   Dev-LoadTimes (C2A15278-BFE7-4AFE-6C17-90FF531DF755): 1
+LogDevObjectVersion:   Private-Geometry (6EACA3D4-40EC-4CC1-B786-8BED09428FC5): 1
+LogDevObjectVersion:   Dev-AnimPhys (29E575DD-E0A3-4627-9D10-D276232CDCEA): 7
+LogInit: Compiled (64-bit): Sep 22 2017 13:47:16
+LogInit: Compiled with Visual C++: 19.00.24215.01
+LogInit: Build Configuration: Development
+LogInit: Branch Name: ++UE4+Release-4.17
+LogInit: Command line:  /Temp/Autosaves/Game/Maps/UEDPCLevel_1_3 -game -PIEVIACONSOLE -ResX=1280 -ResY=720  -Multiprocess -messaging -SessionName="Play in Standalone Game" -windowed 
+LogInit: Base directory: C:/Program Files/Epic Games/UE_4.17/Engine/Binaries/Win64/
+LogInit: Installed Engine Build: 1
+LogInit: Presizing for max 8388607 objects, including 0 objects not considered by GC, pre-allocating 0 bytes for permanent pool.
+LogInit: Object subsystem initialized
+[2018.04.17-13.26.45:221][  0]LogInit: Selected Device Profile: [Windows]
+[2018.04.17-13.26.45:221][  0]LogInit: Applying CVar settings loaded from the selected device profile: [Windows]
+[2018.04.17-13.26.45:252][  0]LogInit: Computer: SHEPARDCOMMANDE
+[2018.04.17-13.26.45:252][  0]LogInit: User: Indra
+[2018.04.17-13.26.45:252][  0]LogInit: CPU Page size=4096, Cores=2
+[2018.04.17-13.26.45:252][  0]LogInit: High frequency timer resolution =2.533198 MHz
+[2018.04.17-13.26.45:253][  0]LogMemory: Memory total: Physical=7.9GB (8GB approx)
+[2018.04.17-13.26.45:253][  0]LogMemory: Platform Memory Stats for Windows
+[2018.04.17-13.26.45:253][  0]LogMemory: Process Physical Memory: 278.52 MB used, 278.52 MB peak
+[2018.04.17-13.26.45:253][  0]LogMemory: Process Virtual Memory: 281.59 MB used, 281.59 MB peak
+[2018.04.17-13.26.45:253][  0]LogMemory: Physical Memory: 2535.95 MB used,  5564.06 MB free, 8100.01 MB total
+[2018.04.17-13.26.45:253][  0]LogMemory: Virtual Memory: 706.20 MB used,  5564.06 MB free, 134217728.00 MB total
+[2018.04.17-13.26.45:601][  0]LogInit: Using OS detected language (de-DE).
+[2018.04.17-13.26.45:601][  0]LogInit: Using OS detected locale (de-DE).
+[2018.04.17-13.26.45:705][  0]LogTextLocalizationManager: No localization for 'de-DE' exists, so 'en' will be used for the language.
+[2018.04.17-13.26.45:706][  0]LogTextLocalizationManager: No localization for 'de-DE' exists, so 'en' will be used for the locale.
+[2018.04.17-13.26.46:739][  0]LogD3D11RHI: D3D11 adapters:
+[2018.04.17-13.26.46:820][  0]LogD3D11RHI:    0. 'NVIDIA GeForce 840M' (Feature Level 11_0)
+[2018.04.17-13.26.46:820][  0]LogD3D11RHI:       4055/0/4050 MB DedicatedVideo/DedicatedSystem/SharedSystem, Outputs:1, VendorId:0x10de
+[2018.04.17-13.26.46:828][  0]LogD3D11RHI:    1. 'Intel(R) HD Graphics Family' (Feature Level 11_0)
+[2018.04.17-13.26.46:828][  0]LogD3D11RHI:       112/0/2048 MB DedicatedVideo/DedicatedSystem/SharedSystem, Outputs:0, VendorId:0x8086
+[2018.04.17-13.26.46:832][  0]LogD3D11RHI:    2. 'Microsoft Basic Render Driver' (Feature Level 11_0)
+[2018.04.17-13.26.46:832][  0]LogD3D11RHI:       0/0/4050 MB DedicatedVideo/DedicatedSystem/SharedSystem, Outputs:0, VendorId:0x1414
+[2018.04.17-13.26.46:832][  0]LogD3D11RHI: Chosen D3D11 Adapter: 0
+[2018.04.17-13.26.46:838][  0]LogD3D11RHI: Creating new Direct3DDevice
+[2018.04.17-13.26.46:838][  0]LogD3D11RHI:     GPU DeviceId: 0x1341 (for the marketing name, search the web for "GPU Device Id")
+[2018.04.17-13.26.46:838][  0]LogWindows: EnumDisplayDevices:
+[2018.04.17-13.26.46:838][  0]LogWindows:    0. 'Intel(R) HD Graphics Family' (P:1 D:1)
+[2018.04.17-13.26.46:838][  0]LogWindows:    1. 'Intel(R) HD Graphics Family' (P:0 D:0)
+[2018.04.17-13.26.46:839][  0]LogWindows:    2. 'Intel(R) HD Graphics Family' (P:0 D:0)
+[2018.04.17-13.26.46:839][  0]LogWindows: DebugString: GetVideoDriverDetailsInvalid PrimaryIsNotTheChoosenAdapter GetVideoDriverDetailsInvalid PrimaryIsNotTheChoosenAdapter GetVideoDriverDetailsInvalid PrimaryIsNotTheChoosenAdapter FoundDriverCount:0 
+[2018.04.17-13.26.46:839][  0]LogD3D11RHI:     Adapter Name: NVIDIA GeForce 840M
+[2018.04.17-13.26.46:839][  0]LogD3D11RHI:   Driver Version: Unknown (internal:Unknown, unified:Unknown)
+[2018.04.17-13.26.46:839][  0]LogD3D11RHI:      Driver Date: Unknown
+[2018.04.17-13.26.46:839][  0]LogRHI: Texture pool is 1361 MB (70% of 1945 MB)
+[2018.04.17-13.26.46:876][  0]LogD3D11RHI: Async texture creation enabled
+[2018.04.17-13.26.46:896][  0]LogD3D11RHI: GPU Timing Frequency: 1000.000000 (Debug: 2 2)
+[2018.04.17-13.26.46:897][  0]LogShaderCompilers: Guid format shader working directory is -64 characters bigger than the processId version (../../../../../../Users/Indra/Documents/Unreal Projects/Projekt-B-Projekt-X/Projekt-B-Projekt-X/ProjektX_V0_1/Intermediate/Shaders/WorkingDirectory/10872/).
+[2018.04.17-13.26.46:897][  0]LogShaderCompilers: Cleaned the shader compiler working directory 'C:/Users/Indra/AppData/Local/Temp/UnrealShaderWorkingDir/E82356704C67B67FCBC690949FAC3504/'.
+[2018.04.17-13.26.46:897][  0]LogShaderCompilers: Display: Using Local Shader Compiler.
+[2018.04.17-13.26.48:991][  0]LogTemp: Display: Loaded TP WindowsClientTargetPlatform
+[2018.04.17-13.26.49:097][  0]LogTemp: Display: Loaded TP WindowsNoEditorTargetPlatform
+[2018.04.17-13.26.49:219][  0]LogTemp: Display: Loaded TP WindowsServerTargetPlatform
+[2018.04.17-13.26.49:314][  0]LogTemp: Display: Loaded TP WindowsTargetPlatform
+[2018.04.17-13.26.49:314][  0]LogTargetPlatformManager: Display: Building Assets For Windows
+[2018.04.17-13.26.50:023][  0]LogDerivedDataCache: Display: Max Cache Size: 512 MB
+[2018.04.17-13.26.50:467][  0]LogDerivedDataCache: Loaded boot cache 0.44s 93MB C:/Users/Indra/AppData/Local/UnrealEngine/4.17/DerivedDataCache/Boot.ddc.
+[2018.04.17-13.26.50:467][  0]LogDerivedDataCache: Display: Loaded Boot cache: C:/Users/Indra/AppData/Local/UnrealEngine/4.17/DerivedDataCache/Boot.ddc
+[2018.04.17-13.26.50:467][  0]LogDerivedDataCache: FDerivedDataBackendGraph:  Pak pak cache file ../../../../../../Users/Indra/Documents/Unreal Projects/Projekt-B-Projekt-X/Projekt-B-Projekt-X/ProjektX_V0_1/DerivedDataCache/DDC.ddp not found, will not use a pak cache.
+[2018.04.17-13.26.50:467][  0]LogDerivedDataCache: Unable to find inner node Pak for hierarchical cache Hierarchy.
+[2018.04.17-13.26.50:468][  0]LogDerivedDataCache: FDerivedDataBackendGraph:  CompressedPak pak cache file ../../../../../../Users/Indra/Documents/Unreal Projects/Projekt-B-Projekt-X/Projekt-B-Projekt-X/ProjektX_V0_1/DerivedDataCache/Compressed.ddp not found, will not use a pak cache.
+[2018.04.17-13.26.50:468][  0]LogDerivedDataCache: Unable to find inner node CompressedPak for hierarchical cache Hierarchy.
+[2018.04.17-13.26.50:487][  0]LogDerivedDataCache: Display: Pak cache opened for reading ../../../Engine/DerivedDataCache/Compressed.ddp.
+[2018.04.17-13.26.50:499][  0]LogDerivedDataCache: Using Local data cache path C:/Users/Indra/AppData/Local/UnrealEngine/Common/DerivedDataCache: Writable
+[2018.04.17-13.26.50:513][  0]LogMaterial: Verifying Global Shaders for PCD3D_SM5
+[2018.04.17-13.26.50:513][  0]LogSlate: Using Freetype 2.6.0
+[2018.04.17-13.26.50:520][  0]LogSlate: SlateFontCache - WITH_FREETYPE: 1, WITH_HARFBUZZ: 1
+[2018.04.17-13.26.50:520][  0]LogSlate: SlateFontCache - WITH_FREETYPE: 1, WITH_HARFBUZZ: 1
+[2018.04.17-13.26.51:394][  0]LogAssetRegistry: FAssetRegistry took 0.0068 seconds to start up
+[2018.04.17-13.26.51:429][  0]LogPackageLocalizationCache: Processed 5 localized package path(s) for 1 prioritized culture(s) in 0.006343 seconds
+[2018.04.17-13.26.51:526][  0]LogInit: Selected Device Profile: [Windows]
+[2018.04.17-13.26.51:921][  0]LogSimplygon: Simplygon DLL not present - disabling.
+[2018.04.17-13.26.51:969][  0]LogMeshReduction: Using SimplygonSwarm for distributed automatic mesh merging
+[2018.04.17-13.26.51:969][  0]LogMeshReduction: Using QuadricMeshReduction for automatic static mesh reduction
+[2018.04.17-13.26.51:969][  0]LogMeshReduction: No automatic skeletal mesh reduction module available
+[2018.04.17-13.26.51:969][  0]LogMeshReduction: No automatic mesh merging module available
+[2018.04.17-13.26.51:969][  0]LogMeshMerging: No automatic mesh merging module available
+[2018.04.17-13.26.51:971][  0]LogContentStreaming: Texture pool size is 1000.00 MB
+[2018.04.17-13.26.52:467][  0]LogNetVersion: ProjektX_V0_0 , NetCL: 3573198, EngineNetVer: 2, GameNetVer: 0 (Checksum: 2444259609)
+[2018.04.17-13.26.52:790][  0]LogInit: WinSock: version 1.1 (2.2), MaxSocks=32767, MaxUdp=65467
+[2018.04.17-13.26.54:734][  0]LogMoviePlayer: Initializing movie player
+[2018.04.17-13.26.55:217][  0]LogCollectionManager: Loaded 0 collections in 0.001540 seconds
+[2018.04.17-13.26.55:274][  0]LogFileCache: Scanning file cache for directory 'C:/Users/Indra/Documents/Unreal Projects/Projekt-B-Projekt-X/Projekt-B-Projekt-X/ProjektX_V0_1/Saved/Collections/' took 0.01s
+[2018.04.17-13.26.55:274][  0]LogFileCache: Scanning file cache for directory 'C:/Users/Indra/Documents/Unreal Projects/Projekt-B-Projekt-X/Projekt-B-Projekt-X/ProjektX_V0_1/Content/Developers/Indra/Collections/' took 0.01s
+[2018.04.17-13.26.55:274][  0]LogFileCache: Scanning file cache for directory 'C:/Users/Indra/Documents/Unreal Projects/Projekt-B-Projekt-X/Projekt-B-Projekt-X/ProjektX_V0_1/Content/Collections/' took 0.01s
+[2018.04.17-13.26.55:275][  0]LogCollectionManager: Rebuilt the object cache for 0 collections in 0.000001 seconds (found 0 objects)
+[2018.04.17-13.26.55:275][  0]LogCollectionManager: Fixed up redirectors for 0 collections in 0.000227 seconds (updated 0 objects)
+[2018.04.17-13.26.55:573][  0]LogTcpMessaging: Initializing TcpMessaging bridge
+[2018.04.17-13.26.55:617][  0]LogUdpMessaging: Initializing bridge on interface 0.0.0.0:0 to multicast group 230.0.0.1:6666.
+[2018.04.17-13.26.56:143][  0]SourceControl: Source control is disabled
+[2018.04.17-13.26.56:143][  0]SourceControl: Source control is disabled
+[2018.04.17-13.26.56:191][  0]SourceControl: Source control is disabled
+[2018.04.17-13.26.56:476][  0]LogAndroidPermission: UAndroidPermissionCallbackProxy::GetInstance
+[2018.04.17-13.26.56:730][  0]LogOcInput: OculusInput pre-init called
+[2018.04.17-13.26.56:835][  0]LogUObjectArray: 38661 objects as part of root set at end of initial load.
+[2018.04.17-13.26.56:835][  0]LogUObjectAllocator: 8461320 out of 0 bytes used by permanent object pool.
+[2018.04.17-13.26.56:835][  0]LogUObjectArray: CloseDisregardForGC: 0/0 objects in disregard for GC pool
+[2018.04.17-13.26.56:966][  0]LogEngine: Initializing Engine...
+[2018.04.17-13.26.56:968][  0]LogHMD: Failed to initialize OpenVR with code 110
+[2018.04.17-13.26.57:185][  0]LogStats: UGameplayTagsManager::ConstructGameplayTagTree: Construct from data asset -  0.000 s
+[2018.04.17-13.26.57:185][  0]LogStats: UGameplayTagsManager::ConstructGameplayTagTree: GameplayTagTreeChangedEvent.Broadcast -  0.000 s
+[2018.04.17-13.26.57:196][  0]LogInit: XAudio2 using 'Lautsprecher (Realtek High Definition Audio)' : 2 channels at 48 kHz using 32 bits per sample (channel mask 0x3)
+[2018.04.17-13.26.57:229][  0]LogInit: FAudioDevice initialized.
+[2018.04.17-13.26.57:258][  0]LogInit: Texture streaming: Enabled
+[2018.04.17-13.26.57:284][  0]LogMaterial: Uniform references updated for custom material expression Custom.
+[2018.04.17-13.26.57:594][  0]LogSlateStyle: Warning: Unable to find Slate Widget Style 'NormalText'. Using FTextBlockStyle defaults instead.
+[2018.04.17-13.26.57:595][  0]LogSlateStyle: Warning: Unable to find Slate Widget Style 'SpinBox'. Using FSpinBoxStyle defaults instead.
+[2018.04.17-13.26.57:846][  0]LogInit: Display: Game Engine Initialized.
+[2018.04.17-13.26.57:846][  0]LogGameplayTags: Display: UGameplayTagsManager::DoneAddingNativeTags. DelegateIsBound: 0
+[2018.04.17-13.26.58:016][  0]LogInit: Display: Starting Game.
+[2018.04.17-13.26.58:016][  0]LogNet: Browse: /Temp/Autosaves/Game/Maps/UEDPCLevel_1_3?Name=Player
+[2018.04.17-13.26.58:016][  0]LogLoad: LoadMap: /Temp/Autosaves/Game/Maps/UEDPCLevel_1_3?Name=Player
+[2018.04.17-13.26.58:043][  0]LogMemory: Platform Memory Stats for Windows
+[2018.04.17-13.26.58:043][  0]LogMemory: Process Physical Memory: 822.89 MB used, 951.45 MB peak
+[2018.04.17-13.26.58:043][  0]LogMemory: Process Virtual Memory: 929.05 MB used, 1011.92 MB peak
+[2018.04.17-13.26.58:043][  0]LogMemory: Physical Memory: 3075.68 MB used,  5024.32 MB free, 8100.01 MB total
+[2018.04.17-13.26.58:043][  0]LogMemory: Virtual Memory: 1602.18 MB used,  5024.32 MB free, 134217728.00 MB total
+[2018.04.17-13.26.58:043][  0]LogMemory: 
+[2018.04.17-13.26.58:043][  0]Allocator Stats for TBB: (not implemented)
+[2018.04.17-13.27.11:942][  0]LogAIModule: Creating AISystem for world Level_1_3
+[2018.04.17-13.27.11:943][  0]LogLoad: Game class is '2DSideScrollerGameMode_C'
+[2018.04.17-13.27.11:967][  0]LogWorld: Bringing World /Temp/Autosaves/Game/Maps/UEDPCLevel_1_3.Level_1_3 up for play (max tick rate 0) at 2018.04.17-15.27.11
+[2018.04.17-13.27.11:977][  0]LogWorld: Bringing up level for play took: 0.032544
+[2018.04.17-13.27.11:995][  0]LogBlueprintUserMessages: [BP_Camera_3] X=-2686.133 Y=1000.000 Z=-730.448
+[2018.04.17-13.27.11:996][  0]LogLoad: Took 13.980078 seconds to LoadMap(/Temp/Autosaves/Game/Maps/UEDPCLevel_1_3)
+[2018.04.17-13.27.12:773][  0]LogRenderer: Reallocating scene render targets to support 1280x720 Format 10 NumSamples 1 (Frame:1).
+[2018.04.17-13.27.12:773][  0]LogLoad: (Engine Initialization) Total time: 31.04 seconds
+[2018.04.17-13.27.12:773][  0]LogLoad: (Engine Initialization) Total Blueprint compile time: 0.00 seconds
+[2018.04.17-13.27.12:774][  0]LogExternalProfiler: No external profilers were discovered.  External profiling features will not be available.
+[2018.04.17-13.27.12:828][  1]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.13:049][  2]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.13:066][  3]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.13:083][  4]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.13:132][  5]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.13:149][  6]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.13:171][  7]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.13:188][  8]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.13:203][  9]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.13:220][ 10]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.13:236][ 11]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.13:252][ 12]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.13:268][ 13]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.13:284][ 14]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.13:301][ 15]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.13:316][ 16]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.13:332][ 17]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.13:348][ 18]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.13:364][ 19]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.13:381][ 20]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.13:397][ 21]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.13:415][ 22]LogScript: Warning: Accessed None trying to read property CallFunc_SpawnSoundAttached_ReturnValue4
+	Bob_C /Temp/Autosaves/Game/Maps/UEDPCLevel_1_3.Level_1_3:PersistentLevel.Bob_C_0
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ExecuteUbergraph_Bob:0DF4
+[2018.04.17-13.27.13:415][ 22]LogScript: Warning: Script call stack:
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ReceiveTick
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ExecuteUbergraph_Bob
+	Function /Game/Blueprints/Bob/Bob.Bob_C:UpdateAnimation
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ExecuteUbergraph_Bob
+
+[2018.04.17-13.27.13:431][ 23]LogScript: Warning: Accessed None trying to read property CallFunc_SpawnSoundAttached_ReturnValue4
+	Bob_C /Temp/Autosaves/Game/Maps/UEDPCLevel_1_3.Level_1_3:PersistentLevel.Bob_C_0
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ExecuteUbergraph_Bob:0DF4
+[2018.04.17-13.27.13:431][ 23]LogScript: Warning: Script call stack:
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ReceiveTick
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ExecuteUbergraph_Bob
+	Function /Game/Blueprints/Bob/Bob.Bob_C:UpdateAnimation
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ExecuteUbergraph_Bob
+
+[2018.04.17-13.27.13:447][ 24]LogScript: Warning: Accessed None trying to read property CallFunc_SpawnSoundAttached_ReturnValue4
+	Bob_C /Temp/Autosaves/Game/Maps/UEDPCLevel_1_3.Level_1_3:PersistentLevel.Bob_C_0
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ExecuteUbergraph_Bob:0DF4
+[2018.04.17-13.27.13:447][ 24]LogScript: Warning: Script call stack:
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ReceiveTick
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ExecuteUbergraph_Bob
+	Function /Game/Blueprints/Bob/Bob.Bob_C:UpdateAnimation
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ExecuteUbergraph_Bob
+
+[2018.04.17-13.27.13:462][ 25]LogScript: Warning: Accessed None trying to read property CallFunc_SpawnSoundAttached_ReturnValue4
+	Bob_C /Temp/Autosaves/Game/Maps/UEDPCLevel_1_3.Level_1_3:PersistentLevel.Bob_C_0
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ExecuteUbergraph_Bob:0DF4
+[2018.04.17-13.27.13:462][ 25]LogScript: Warning: Script call stack:
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ReceiveTick
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ExecuteUbergraph_Bob
+	Function /Game/Blueprints/Bob/Bob.Bob_C:UpdateAnimation
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ExecuteUbergraph_Bob
+
+[2018.04.17-13.27.13:477][ 26]LogScript: Warning: Accessed None trying to read property CallFunc_SpawnSoundAttached_ReturnValue4
+	Bob_C /Temp/Autosaves/Game/Maps/UEDPCLevel_1_3.Level_1_3:PersistentLevel.Bob_C_0
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ExecuteUbergraph_Bob:0DF4
+[2018.04.17-13.27.13:477][ 26]LogScript: Warning: Script call stack:
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ReceiveTick
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ExecuteUbergraph_Bob
+	Function /Game/Blueprints/Bob/Bob.Bob_C:UpdateAnimation
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ExecuteUbergraph_Bob
+
+[2018.04.17-13.27.13:493][ 27]LogScript: Warning: Accessed None trying to read property CallFunc_SpawnSoundAttached_ReturnValue4
+	Bob_C /Temp/Autosaves/Game/Maps/UEDPCLevel_1_3.Level_1_3:PersistentLevel.Bob_C_0
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ExecuteUbergraph_Bob:0DF4
+[2018.04.17-13.27.13:493][ 27]LogScript: Warning: Script call stack:
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ReceiveTick
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ExecuteUbergraph_Bob
+	Function /Game/Blueprints/Bob/Bob.Bob_C:UpdateAnimation
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ExecuteUbergraph_Bob
+
+[2018.04.17-13.27.13:510][ 28]LogScript: Warning: Accessed None trying to read property CallFunc_SpawnSoundAttached_ReturnValue4
+	Bob_C /Temp/Autosaves/Game/Maps/UEDPCLevel_1_3.Level_1_3:PersistentLevel.Bob_C_0
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ExecuteUbergraph_Bob:0DF4
+[2018.04.17-13.27.13:510][ 28]LogScript: Warning: Script call stack:
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ReceiveTick
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ExecuteUbergraph_Bob
+	Function /Game/Blueprints/Bob/Bob.Bob_C:UpdateAnimation
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ExecuteUbergraph_Bob
+
+[2018.04.17-13.27.13:526][ 29]LogScript: Warning: Accessed None trying to read property CallFunc_SpawnSoundAttached_ReturnValue4
+	Bob_C /Temp/Autosaves/Game/Maps/UEDPCLevel_1_3.Level_1_3:PersistentLevel.Bob_C_0
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ExecuteUbergraph_Bob:0DF4
+[2018.04.17-13.27.13:526][ 29]LogScript: Warning: Script call stack:
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ReceiveTick
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ExecuteUbergraph_Bob
+	Function /Game/Blueprints/Bob/Bob.Bob_C:UpdateAnimation
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ExecuteUbergraph_Bob
+
+[2018.04.17-13.27.13:542][ 30]LogScript: Warning: Accessed None trying to read property CallFunc_SpawnSoundAttached_ReturnValue4
+	Bob_C /Temp/Autosaves/Game/Maps/UEDPCLevel_1_3.Level_1_3:PersistentLevel.Bob_C_0
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ExecuteUbergraph_Bob:0DF4
+[2018.04.17-13.27.13:542][ 30]LogScript: Warning: Script call stack:
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ReceiveTick
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ExecuteUbergraph_Bob
+	Function /Game/Blueprints/Bob/Bob.Bob_C:UpdateAnimation
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ExecuteUbergraph_Bob
+
+[2018.04.17-13.27.13:558][ 31]LogScript: Warning: Accessed None trying to read property CallFunc_SpawnSoundAttached_ReturnValue4
+	Bob_C /Temp/Autosaves/Game/Maps/UEDPCLevel_1_3.Level_1_3:PersistentLevel.Bob_C_0
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ExecuteUbergraph_Bob:0DF4
+[2018.04.17-13.27.13:558][ 31]LogScript: Warning: Script call stack:
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ReceiveTick
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ExecuteUbergraph_Bob
+	Function /Game/Blueprints/Bob/Bob.Bob_C:UpdateAnimation
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ExecuteUbergraph_Bob
+
+[2018.04.17-13.27.13:574][ 32]LogScript: Warning: Accessed None trying to read property CallFunc_SpawnSoundAttached_ReturnValue4
+	Bob_C /Temp/Autosaves/Game/Maps/UEDPCLevel_1_3.Level_1_3:PersistentLevel.Bob_C_0
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ExecuteUbergraph_Bob:0DF4
+[2018.04.17-13.27.13:574][ 32]LogScript: Warning: Script call stack:
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ReceiveTick
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ExecuteUbergraph_Bob
+	Function /Game/Blueprints/Bob/Bob.Bob_C:UpdateAnimation
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ExecuteUbergraph_Bob
+
+[2018.04.17-13.27.13:590][ 33]LogScript: Warning: Accessed None trying to read property CallFunc_SpawnSoundAttached_ReturnValue4
+	Bob_C /Temp/Autosaves/Game/Maps/UEDPCLevel_1_3.Level_1_3:PersistentLevel.Bob_C_0
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ExecuteUbergraph_Bob:0DF4
+[2018.04.17-13.27.13:590][ 33]LogScript: Warning: Script call stack:
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ReceiveTick
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ExecuteUbergraph_Bob
+	Function /Game/Blueprints/Bob/Bob.Bob_C:UpdateAnimation
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ExecuteUbergraph_Bob
+
+[2018.04.17-13.27.13:606][ 34]LogScript: Warning: Accessed None trying to read property CallFunc_SpawnSoundAttached_ReturnValue4
+	Bob_C /Temp/Autosaves/Game/Maps/UEDPCLevel_1_3.Level_1_3:PersistentLevel.Bob_C_0
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ExecuteUbergraph_Bob:0DF4
+[2018.04.17-13.27.13:606][ 34]LogScript: Warning: Script call stack:
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ReceiveTick
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ExecuteUbergraph_Bob
+	Function /Game/Blueprints/Bob/Bob.Bob_C:UpdateAnimation
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ExecuteUbergraph_Bob
+
+[2018.04.17-13.27.13:623][ 35]LogScript: Warning: Accessed None trying to read property CallFunc_SpawnSoundAttached_ReturnValue4
+	Bob_C /Temp/Autosaves/Game/Maps/UEDPCLevel_1_3.Level_1_3:PersistentLevel.Bob_C_0
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ExecuteUbergraph_Bob:0DF4
+[2018.04.17-13.27.13:623][ 35]LogScript: Warning: Script call stack:
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ReceiveTick
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ExecuteUbergraph_Bob
+	Function /Game/Blueprints/Bob/Bob.Bob_C:UpdateAnimation
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ExecuteUbergraph_Bob
+
+[2018.04.17-13.27.13:639][ 36]LogScript: Warning: Accessed None trying to read property CallFunc_SpawnSoundAttached_ReturnValue4
+	Bob_C /Temp/Autosaves/Game/Maps/UEDPCLevel_1_3.Level_1_3:PersistentLevel.Bob_C_0
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ExecuteUbergraph_Bob:0DF4
+[2018.04.17-13.27.13:639][ 36]LogScript: Warning: Script call stack:
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ReceiveTick
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ExecuteUbergraph_Bob
+	Function /Game/Blueprints/Bob/Bob.Bob_C:UpdateAnimation
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ExecuteUbergraph_Bob
+
+[2018.04.17-13.27.13:656][ 37]LogScript: Warning: Accessed None trying to read property CallFunc_SpawnSoundAttached_ReturnValue4
+	Bob_C /Temp/Autosaves/Game/Maps/UEDPCLevel_1_3.Level_1_3:PersistentLevel.Bob_C_0
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ExecuteUbergraph_Bob:0DF4
+[2018.04.17-13.27.13:656][ 37]LogScript: Warning: Script call stack:
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ReceiveTick
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ExecuteUbergraph_Bob
+	Function /Game/Blueprints/Bob/Bob.Bob_C:UpdateAnimation
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ExecuteUbergraph_Bob
+
+[2018.04.17-13.27.13:671][ 38]LogScript: Warning: Accessed None trying to read property CallFunc_SpawnSoundAttached_ReturnValue4
+	Bob_C /Temp/Autosaves/Game/Maps/UEDPCLevel_1_3.Level_1_3:PersistentLevel.Bob_C_0
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ExecuteUbergraph_Bob:0DF4
+[2018.04.17-13.27.13:671][ 38]LogScript: Warning: Script call stack:
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ReceiveTick
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ExecuteUbergraph_Bob
+	Function /Game/Blueprints/Bob/Bob.Bob_C:UpdateAnimation
+	Function /Game/Blueprints/Bob/Bob.Bob_C:ExecuteUbergraph_Bob
+
+[2018.04.17-13.27.17:030][244]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.17:046][245]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.17:062][246]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.17:078][247]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.17:093][248]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.17:109][249]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.17:125][250]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.17:141][251]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.17:158][252]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.17:174][253]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.17:190][254]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.17:206][255]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.17:222][256]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.17:238][257]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.17:254][258]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.17:270][259]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.17:287][260]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.17:303][261]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.17:319][262]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.17:335][263]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.17:351][264]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.17:367][265]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.17:383][266]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.17:399][267]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.17:416][268]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.17:432][269]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.17:448][270]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.17:464][271]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.17:481][272]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.17:497][273]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.17:513][274]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.17:529][275]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.20:497][459]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.20:514][460]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.20:529][461]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.20:545][462]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.20:562][463]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.20:578][464]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.20:594][465]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.20:611][466]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.20:628][467]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.20:643][468]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.20:659][469]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.20:675][470]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.20:690][471]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.20:707][472]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.20:723][473]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.20:739][474]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.20:755][475]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.20:771][476]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.20:788][477]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.20:804][478]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.20:820][479]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.20:836][480]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.20:852][481]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.20:868][482]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.20:884][483]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.20:900][484]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.20:916][485]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.20:933][486]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.21:013][491]LogScript: Warning: Accessed None trying to read property CallFunc_SpawnSoundAttached_ReturnValue2
+	Batman_C /Temp/Autosaves/Game/Maps/UEDPCLevel_1_3.Level_1_3:PersistentLevel.Batman_821
+	Function /Game/Blueprints/Enemies/Batman.Batman_C:ExecuteUbergraph_Batman:0230
+[2018.04.17-13.27.21:014][491]LogScript: Warning: Script call stack:
+	Function /Game/Blueprints/Enemies/Batman.Batman_C:ReceiveTick
+	Function /Game/Blueprints/Enemies/Batman.Batman_C:ExecuteUbergraph_Batman
+
+[2018.04.17-13.27.23:525][646]LogScript: Warning: Attempted to access AudioComponent_10 via property CallFunc_SpawnSoundAttached_ReturnValue2, but AudioComponent_10 is pending kill
+	Batman_C /Temp/Autosaves/Game/Maps/UEDPCLevel_1_3.Level_1_3:PersistentLevel.Batman_821
+	Function /Game/Blueprints/Enemies/Batman.Batman_C:ExecuteUbergraph_Batman:0230
+[2018.04.17-13.27.23:525][646]LogScript: Warning: Script call stack:
+	Function /Game/Blueprints/Enemies/Batman.Batman_C:ReceiveTick
+	Function /Game/Blueprints/Enemies/Batman.Batman_C:ExecuteUbergraph_Batman
+
+[2018.04.17-13.27.25:089][743]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.25:105][744]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.25:121][745]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.25:138][746]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.25:154][747]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.25:170][748]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.25:186][749]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.25:202][750]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.25:218][751]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.25:234][752]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.25:251][753]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.25:267][754]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.25:283][755]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.25:299][756]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.25:315][757]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.25:331][758]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.25:348][759]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.25:364][760]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.25:380][761]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.25:396][762]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.25:412][763]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.25:428][764]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.25:444][765]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.25:461][766]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.25:476][767]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.25:493][768]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.25:510][769]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.25:526][770]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.25:542][771]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.25:558][772]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.25:573][773]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.25:590][774]LogBlueprintUserMessages: [Bob_C_0] falle
+[2018.04.17-13.27.26:042][802]LogScript: Warning: Attempted to access AudioComponent_11 via property CallFunc_SpawnSoundAttached_ReturnValue2, but AudioComponent_11 is pending kill
+	Batman_C /Temp/Autosaves/Game/Maps/UEDPCLevel_1_3.Level_1_3:PersistentLevel.Batman_821
+	Function /Game/Blueprints/Enemies/Batman.Batman_C:ExecuteUbergraph_Batman:0230
+[2018.04.17-13.27.26:042][802]LogScript: Warning: Script call stack:
+	Function /Game/Blueprints/Enemies/Batman.Batman_C:ReceiveTick
+	Function /Game/Blueprints/Enemies/Batman.Batman_C:ExecuteUbergraph_Batman
+
+[2018.04.17-13.27.28:558][958]LogScript: Warning: Attempted to access AudioComponent_16 via property CallFunc_SpawnSoundAttached_ReturnValue2, but AudioComponent_16 is pending kill
+	Batman_C /Temp/Autosaves/Game/Maps/UEDPCLevel_1_3.Level_1_3:PersistentLevel.Batman_821
+	Function /Game/Blueprints/Enemies/Batman.Batman_C:ExecuteUbergraph_Batman:0230
+[2018.04.17-13.27.28:558][958]LogScript: Warning: Script call stack:
+	Function /Game/Blueprints/Enemies/Batman.Batman_C:ReceiveTick
+	Function /Game/Blueprints/Enemies/Batman.Batman_C:ExecuteUbergraph_Batman
+
+[2018.04.17-13.27.31:059][113]LogScript: Warning: Attempted to access AudioComponent_23 via property CallFunc_SpawnSoundAttached_ReturnValue2, but AudioComponent_23 is pending kill
+	Batman_C /Temp/Autosaves/Game/Maps/UEDPCLevel_1_3.Level_1_3:PersistentLevel.Batman_821
+	Function /Game/Blueprints/Enemies/Batman.Batman_C:ExecuteUbergraph_Batman:0230
+[2018.04.17-13.27.31:059][113]LogScript: Warning: Script call stack:
+	Function /Game/Blueprints/Enemies/Batman.Batman_C:ReceiveTick
+	Function /Game/Blueprints/Enemies/Batman.Batman_C:ExecuteUbergraph_Batman
+
+[2018.04.17-13.27.33:559][268]LogScript: Warning: Attempted to access AudioComponent_28 via property CallFunc_SpawnSoundAttached_ReturnValue2, but AudioComponent_28 is pending kill
+	Batman_C /Temp/Autosaves/Game/Maps/UEDPCLevel_1_3.Level_1_3:PersistentLevel.Batman_821
+	Function /Game/Blueprints/Enemies/Batman.Batman_C:ExecuteUbergraph_Batman:0230
+[2018.04.17-13.27.33:559][268]LogScript: Warning: Script call stack:
+	Function /Game/Blueprints/Enemies/Batman.Batman_C:ReceiveTick
+	Function /Game/Blueprints/Enemies/Batman.Batman_C:ExecuteUbergraph_Batman
+
+[2018.04.17-13.27.36:059][423]LogScript: Warning: Attempted to access AudioComponent_31 via property CallFunc_SpawnSoundAttached_ReturnValue2, but AudioComponent_31 is pending kill
+	Batman_C /Temp/Autosaves/Game/Maps/UEDPCLevel_1_3.Level_1_3:PersistentLevel.Batman_821
+	Function /Game/Blueprints/Enemies/Batman.Batman_C:ExecuteUbergraph_Batman:0230
+[2018.04.17-13.27.36:060][423]LogScript: Warning: Script call stack:
+	Function /Game/Blueprints/Enemies/Batman.Batman_C:ReceiveTick
+	Function /Game/Blueprints/Enemies/Batman.Batman_C:ExecuteUbergraph_Batman
+
+[2018.04.17-13.27.38:560][578]LogScript: Warning: Attempted to access AudioComponent_35 via property CallFunc_SpawnSoundAttached_ReturnValue2, but AudioComponent_35 is pending kill
+	Batman_C /Temp/Autosaves/Game/Maps/UEDPCLevel_1_3.Level_1_3:PersistentLevel.Batman_821
+	Function /Game/Blueprints/Enemies/Batman.Batman_C:ExecuteUbergraph_Batman:0230
+[2018.04.17-13.27.38:560][578]LogScript: Warning: Script call stack:
+	Function /Game/Blueprints/Enemies/Batman.Batman_C:ReceiveTick
+	Function /Game/Blueprints/Enemies/Batman.Batman_C:ExecuteUbergraph_Batman
+
+[2018.04.17-13.27.39:964][665]LogBlueprintUserMessages: [NormalFastAttack_C_0] 1.0
+[2018.04.17-13.27.39:964][665]LogBlueprintUserMessages: [Bob_C_0] Hello
+[2018.04.17-13.27.40:577][703]LogBlueprintUserMessages: [NormalStackAttack_C_0] 20.0
+[2018.04.17-13.27.41:060][733]LogScript: Warning: Attempted to access AudioComponent_38 via property CallFunc_SpawnSoundAttached_ReturnValue2, but AudioComponent_38 is pending kill
+	Batman_C /Temp/Autosaves/Game/Maps/UEDPCLevel_1_3.Level_1_3:PersistentLevel.Batman_821
+	Function /Game/Blueprints/Enemies/Batman.Batman_C:ExecuteUbergraph_Batman:0230
+[2018.04.17-13.27.41:061][733]LogScript: Warning: Script call stack:
+	Function /Game/Blueprints/Enemies/Batman.Batman_C:ReceiveTick
+	Function /Game/Blueprints/Enemies/Batman.Batman_C:ExecuteUbergraph_Batman
+
+[2018.04.17-13.27.43:561][888]LogScript: Warning: Attempted to access AudioComponent_43 via property CallFunc_SpawnSoundAttached_ReturnValue2, but AudioComponent_43 is pending kill
+	Batman_C /Temp/Autosaves/Game/Maps/UEDPCLevel_1_3.Level_1_3:PersistentLevel.Batman_821
+	Function /Game/Blueprints/Enemies/Batman.Batman_C:ExecuteUbergraph_Batman:0230
+[2018.04.17-13.27.43:561][888]LogScript: Warning: Script call stack:
+	Function /Game/Blueprints/Enemies/Batman.Batman_C:ReceiveTick
+	Function /Game/Blueprints/Enemies/Batman.Batman_C:ExecuteUbergraph_Batman
+
+[2018.04.17-13.27.46:062][ 43]LogScript: Warning: Attempted to access AudioComponent_45 via property CallFunc_SpawnSoundAttached_ReturnValue2, but AudioComponent_45 is pending kill
+	Batman_C /Temp/Autosaves/Game/Maps/UEDPCLevel_1_3.Level_1_3:PersistentLevel.Batman_821
+	Function /Game/Blueprints/Enemies/Batman.Batman_C:ExecuteUbergraph_Batman:0230
+[2018.04.17-13.27.46:062][ 43]LogScript: Warning: Script call stack:
+	Function /Game/Blueprints/Enemies/Batman.Batman_C:ReceiveTick
+	Function /Game/Blueprints/Enemies/Batman.Batman_C:ExecuteUbergraph_Batman
+
+[2018.04.17-13.27.48:579][199]LogScript: Warning: Attempted to access AudioComponent_46 via property CallFunc_SpawnSoundAttached_ReturnValue2, but AudioComponent_46 is pending kill
+	Batman_C /Temp/Autosaves/Game/Maps/UEDPCLevel_1_3.Level_1_3:PersistentLevel.Batman_821
+	Function /Game/Blueprints/Enemies/Batman.Batman_C:ExecuteUbergraph_Batman:0230
+[2018.04.17-13.27.48:579][199]LogScript: Warning: Script call stack:
+	Function /Game/Blueprints/Enemies/Batman.Batman_C:ReceiveTick
+	Function /Game/Blueprints/Enemies/Batman.Batman_C:ExecuteUbergraph_Batman
+
+[2018.04.17-13.27.51:081][353]LogScript: Warning: Attempted to access AudioComponent_48 via property CallFunc_SpawnSoundAttached_ReturnValue2, but AudioComponent_48 is pending kill
+	Batman_C /Temp/Autosaves/Game/Maps/UEDPCLevel_1_3.Level_1_3:PersistentLevel.Batman_821
+	Function /Game/Blueprints/Enemies/Batman.Batman_C:ExecuteUbergraph_Batman:0230
+[2018.04.17-13.27.51:081][353]LogScript: Warning: Script call stack:
+	Function /Game/Blueprints/Enemies/Batman.Batman_C:ReceiveTick
+	Function /Game/Blueprints/Enemies/Batman.Batman_C:ExecuteUbergraph_Batman
+
+[2018.04.17-13.27.53:582][508]LogScript: Warning: Attempted to access AudioComponent_49 via property CallFunc_SpawnSoundAttached_ReturnValue2, but AudioComponent_49 is pending kill
+	Batman_C /Temp/Autosaves/Game/Maps/UEDPCLevel_1_3.Level_1_3:PersistentLevel.Batman_821
+	Function /Game/Blueprints/Enemies/Batman.Batman_C:ExecuteUbergraph_Batman:0230
+[2018.04.17-13.27.53:582][508]LogScript: Warning: Script call stack:
+	Function /Game/Blueprints/Enemies/Batman.Batman_C:ReceiveTick
+	Function /Game/Blueprints/Enemies/Batman.Batman_C:ExecuteUbergraph_Batman
+
+[2018.04.17-13.27.53:871][524]LogWindowsTextInputMethodSystem: Display: IME system now deactivated.
+[2018.04.17-13.27.53:871][524]LogWindowsTextInputMethodSystem: Display: IME system now deactivated.
+[2018.04.17-13.27.53:880][524]LogWindowsTextInputMethodSystem: Display: IME system now deactivated.
+[2018.04.17-13.27.53:881][524]LogWindowsTextInputMethodSystem: Display: IME system now deactivated.
+[2018.04.17-13.27.53:891][524]LogEngine: All Windows Closed
+[2018.04.17-13.27.53:891][524]LogWindows: FPlatformMisc::RequestExit(0)
+[2018.04.17-13.27.54:007][525]LogExit: Preparing to exit.
+[2018.04.17-13.27.54:007][525]LogMoviePlayer: Shutting down movie player
+[2018.04.17-13.27.55:120][525]LogExit: Game engine shut down
+[2018.04.17-13.27.55:671][525]LogExit: Object subsystem successfully closed.
+[2018.04.17-13.27.55:700][525]LogD3D11RHI: Shutdown
+[2018.04.17-13.27.55:701][525]LogD3D11RHI: CleanupD3DDevice
+[2018.04.17-13.27.55:706][525]LogD3D11RHI: ~FD3D11DynamicRHI
+[2018.04.17-13.27.55:741][525]LogModuleManager: Shutting down and abandoning module SequenceRecorderSections (304)
+[2018.04.17-13.27.55:741][525]LogModuleManager: Shutting down and abandoning module SequenceRecorder (302)
+[2018.04.17-13.27.55:741][525]LogModuleManager: Shutting down and abandoning module AutomationController (300)
+[2018.04.17-13.27.55:741][525]LogModuleManager: Shutting down and abandoning module AutomationWorker (298)
+[2018.04.17-13.27.55:741][525]LogModuleManager: Shutting down and abandoning module AIModule (296)
+[2018.04.17-13.27.55:742][525]LogModuleManager: Shutting down and abandoning module GameplayDebugger (295)
+[2018.04.17-13.27.55:742][525]LogModuleManager: Shutting down and abandoning module AITestSuite (293)
+[2018.04.17-13.27.55:742][525]LogModuleManager: Shutting down and abandoning module WmfMediaFactory (290)
+[2018.04.17-13.27.55:742][525]LogModuleManager: Shutting down and abandoning module AvfMediaFactory (288)
+[2018.04.17-13.27.55:742][525]LogModuleManager: Shutting down and abandoning module AndroidMediaFactory (286)
+[2018.04.17-13.27.55:742][525]LogModuleManager: Shutting down and abandoning module Media (285)
+[2018.04.17-13.27.55:742][525]LogModuleManager: Shutting down and abandoning module CharacterAI (282)
+[2018.04.17-13.27.55:742][525]LogModuleManager: Shutting down and abandoning module SessionServices (280)
+[2018.04.17-13.27.55:742][525]LogModuleManager: Shutting down and abandoning module MovieSceneCapture (278)
+[2018.04.17-13.27.55:742][525]LogModuleManager: Shutting down and abandoning module MovieSceneTracks (276)
+[2018.04.17-13.27.55:742][525]LogModuleManager: Shutting down and abandoning module MovieScene (274)
+[2018.04.17-13.27.55:742][525]LogModuleManager: Shutting down and abandoning module GeometryCache (272)
+[2018.04.17-13.27.55:743][525]LogModuleManager: Shutting down and abandoning module GeometryCacheEd (271)
+[2018.04.17-13.27.55:743][525]LogModuleManager: Shutting down and abandoning module Niagara (268)
+[2018.04.17-13.27.55:743][525]LogModuleManager: Shutting down and abandoning module NiagaraEditor (267)
+[2018.04.17-13.27.55:743][525]LogModuleManager: Shutting down and abandoning module StreamingPauseRendering (264)
+[2018.04.17-13.27.55:743][525]LogModuleManager: Shutting down and abandoning module PortalServices (262)
+[2018.04.17-13.27.55:743][525]LogModuleManager: Shutting down and abandoning module PortalRpc (260)
+[2018.04.17-13.27.55:743][525]LogModuleManager: Shutting down and abandoning module MessagingRpc (258)
+[2018.04.17-13.27.55:743][525]LogModuleManager: Shutting down and abandoning module ProfilerService (256)
+[2018.04.17-13.27.55:804][525]LogModuleManager: Shutting down and abandoning module TaskGraph (254)
+[2018.04.17-13.27.55:804][525]LogModuleManager: Shutting down and abandoning module SteamVRController (252)
+[2018.04.17-13.27.55:804][525]LogModuleManager: Shutting down and abandoning module ProceduralMeshComponent (250)
+[2018.04.17-13.27.55:804][525]LogModuleManager: Shutting down and abandoning module OculusInput (248)
+[2018.04.17-13.27.55:804][525]LogModuleManager: Shutting down and abandoning module MobilePatchingUtils (246)
+[2018.04.17-13.27.55:804][525]LogModuleManager: Shutting down and abandoning module CustomMeshComponent (244)
+[2018.04.17-13.27.55:804][525]LogModuleManager: Shutting down and abandoning module CableComponent (242)
+[2018.04.17-13.27.55:804][525]LogModuleManager: Shutting down and abandoning module ArchVisCharacter (240)
+[2018.04.17-13.27.55:804][525]LogModuleManager: Shutting down and abandoning module AndroidPermission (238)
+[2018.04.17-13.27.55:804][525]LogModuleManager: Shutting down and abandoning module HTML5Networking (234)
+[2018.04.17-13.27.55:804][525]LogModuleManager: Shutting down and abandoning module VisualStudioSourceCodeAccess (232)
+[2018.04.17-13.27.55:805][525]LogModuleManager: Shutting down and abandoning module DesktopPlatform (231)
+[2018.04.17-13.27.55:805][525]LogModuleManager: Shutting down and abandoning module HotReload (229)
+[2018.04.17-13.27.55:805][525]LogModuleManager: Shutting down and abandoning module UObjectPlugin (226)
+[2018.04.17-13.27.55:805][525]LogModuleManager: Shutting down and abandoning module SubversionSourceControl (224)
+[2018.04.17-13.27.55:805][525]LogModuleManager: Shutting down and abandoning module PerforceSourceControl (222)
+[2018.04.17-13.27.55:805][525]LogModuleManager: Shutting down and abandoning module SourceControl (221)
+[2018.04.17-13.27.55:805][525]LogModuleManager: Shutting down and abandoning module RuntimePhysXCooking (218)
+[2018.04.17-13.27.55:805][525]LogModuleManager: Shutting down and abandoning module PhysXVehiclesEditor (216)
+[2018.04.17-13.27.55:806][525]LogModuleManager: Shutting down and abandoning module PhysXVehicles (214)
+[2018.04.17-13.27.55:806][525]LogModuleManager: Shutting down and abandoning module LocationServicesBPLibrary (212)
+[2018.04.17-13.27.55:806][525]LogModuleManager: Shutting down and abandoning module ImmediatePhysicsEditor (210)
+[2018.04.17-13.27.55:806][525]LogModuleManager: Shutting down and abandoning module ImmediatePhysics (208)
+[2018.04.17-13.27.55:806][525]LogModuleManager: Shutting down and abandoning module UdpMessaging (206)
+[2018.04.17-13.27.55:907][525]LogModuleManager: Shutting down and abandoning module TcpMessaging (204)
+[2018.04.17-13.27.56:008][525]LogModuleManager: Shutting down and abandoning module GameplayTagsEditor (202)
+[2018.04.17-13.27.56:008][525]LogModuleManager: Shutting down and abandoning module FacialAnimation (200)
+[2018.04.17-13.27.56:008][525]LogModuleManager: Shutting down and abandoning module AssetManagerEditor (198)
+[2018.04.17-13.27.56:008][525]LogModuleManager: Shutting down and abandoning module GraphEditor (197)
+[2018.04.17-13.27.56:008][525]LogModuleManager: Shutting down and abandoning module ContentBrowser (195)
+[2018.04.17-13.27.56:009][525]LogModuleManager: Shutting down and abandoning module CollectionManager (194)
+[2018.04.17-13.27.56:009][525]LogDirectoryWatcher: A directory notification for 'C:/Users/Indra/Documents/Unreal Projects/Projekt-B-Projekt-X/Projekt-B-Projekt-X/ProjektX_V0_1/Content/Collections/' was aborted.
+[2018.04.17-13.27.56:009][525]LogDirectoryWatcher: A directory notification for 'C:/Users/Indra/Documents/Unreal Projects/Projekt-B-Projekt-X/Projekt-B-Projekt-X/ProjektX_V0_1/Content/Developers/Indra/Collections/' was aborted.
+[2018.04.17-13.27.56:009][525]LogDirectoryWatcher: A directory notification for 'C:/Users/Indra/Documents/Unreal Projects/Projekt-B-Projekt-X/Projekt-B-Projekt-X/ProjektX_V0_1/Saved/Collections/' was aborted.
+[2018.04.17-13.27.56:009][525]LogModuleManager: Shutting down and abandoning module DirectoryWatcher (193)
+[2018.04.17-13.27.56:010][525]LogModuleManager: Shutting down and abandoning module LightPropagationVolumeRuntime (188)
+[2018.04.17-13.27.56:010][525]LogModuleManager: Shutting down and abandoning module Paper2D (186)
+[2018.04.17-13.27.56:010][525]LogModuleManager: Shutting down and abandoning module WindowsMoviePlayer (184)
+[2018.04.17-13.27.56:010][525]LogModuleManager: Shutting down and abandoning module WmfMedia (182)
+[2018.04.17-13.27.56:014][525]LogModuleManager: Shutting down and abandoning module PacketHandler (180)
+[2018.04.17-13.27.56:014][525]LogModuleManager: Shutting down and abandoning module ClothingSystemEditor (178)
+[2018.04.17-13.27.56:014][525]LogModuleManager: Shutting down and abandoning module ClothingSystemRuntime (176)
+[2018.04.17-13.27.56:014][525]LogModuleManager: Shutting down and abandoning module Overlay (174)
+[2018.04.17-13.27.56:014][525]LogModuleManager: Shutting down and abandoning module OverlayEditor (173)
+[2018.04.17-13.27.56:014][525]LogModuleManager: Shutting down and abandoning module MediaAssets (170)
+[2018.04.17-13.27.56:014][525]LogModuleManager: Shutting down and abandoning module VREditor (168)
+[2018.04.17-13.27.56:014][525]LogModuleManager: Shutting down and abandoning module StringTableEditor (166)
+[2018.04.17-13.27.56:014][525]LogModuleManager: Shutting down and abandoning module GameplayTasksEditor (164)
+[2018.04.17-13.27.56:014][525]LogModuleManager: Shutting down and abandoning module BehaviorTreeEditor (162)
+[2018.04.17-13.27.56:014][525]LogModuleManager: Shutting down and abandoning module FunctionalTesting (160)
+[2018.04.17-13.27.56:014][525]LogModuleManager: Shutting down and abandoning module CollisionAnalyzer (158)
+[2018.04.17-13.27.56:014][525]LogModuleManager: Shutting down and abandoning module WorkspaceMenuStructure (157)
+[2018.04.17-13.27.56:014][525]LogModuleManager: Shutting down and abandoning module UMG (154)
+[2018.04.17-13.27.56:015][525]LogModuleManager: Shutting down and abandoning module UMGEditor (153)
+[2018.04.17-13.27.56:015][525]LogModuleManager: Shutting down and abandoning module Sequencer (152)
+[2018.04.17-13.27.56:015][525]LogModuleManager: Shutting down and abandoning module MessageLog (149)
+[2018.04.17-13.27.56:015][525]LogModuleManager: Shutting down and abandoning module SlateReflector (144)
+[2018.04.17-13.27.56:015][525]LogModuleManager: Shutting down and abandoning module Slate (142)
+[2018.04.17-13.27.56:015][525]LogModuleManager: Shutting down and abandoning module EditorStyle (140)
+[2018.04.17-13.27.56:022][525]LogModuleManager: Shutting down and abandoning module MRMesh (138)
+[2018.04.17-13.27.56:022][525]LogModuleManager: Shutting down and abandoning module Messaging (136)
+[2018.04.17-13.27.56:022][525]LogModuleManager: Shutting down and abandoning module SourceCodeAccess (134)
+[2018.04.17-13.27.56:022][525]LogModuleManager: Shutting down and abandoning module HeadMountedDisplay (132)
+[2018.04.17-13.27.56:022][525]LogModuleManager: Shutting down and abandoning module XAudio2 (130)
+[2018.04.17-13.27.56:022][525]LogModuleManager: Shutting down and abandoning module Networking (128)
+[2018.04.17-13.27.56:022][525]LogModuleManager: Shutting down and abandoning module Core (124)
+[2018.04.17-13.27.56:023][525]LogModuleManager: Shutting down and abandoning module KismetCompiler (122)
+[2018.04.17-13.27.56:023][525]LogModuleManager: Shutting down and abandoning module LevelSequence (120)
+[2018.04.17-13.27.56:023][525]LogModuleManager: Shutting down and abandoning module MeshUtilities (118)
+[2018.04.17-13.27.56:023][525]LogModuleManager: Shutting down and abandoning module MeshMergeUtilities (117)
+[2018.04.17-13.27.56:023][525]LogModuleManager: Shutting down and abandoning module MeshReductionInterface (116)
+[2018.04.17-13.27.56:023][525]LogModuleManager: Shutting down and abandoning module SimplygonSwarm (115)
+[2018.04.17-13.27.56:023][525]LogModuleManager: Shutting down and abandoning module SimplygonMeshReduction (113)
+[2018.04.17-13.27.56:023][525]LogModuleManager: Shutting down and abandoning module QuadricMeshReduction (111)
+[2018.04.17-13.27.56:023][525]LogModuleManager: Shutting down and abandoning module MaterialBaking (107)
+[2018.04.17-13.27.56:023][525]LogModuleManager: Shutting down and abandoning module DerivedDataCache (102)
+[2018.04.17-13.27.56:040][525]LogDerivedDataCache: Shutdown
+[2018.04.17-13.27.56:041][525]LogModuleManager: Shutting down and abandoning module TargetPlatform (100)
+[2018.04.17-13.27.56:041][525]LogModuleManager: Shutting down and abandoning module VulkanShaderFormat (99)
+[2018.04.17-13.27.56:041][525]LogModuleManager: Shutting down and abandoning module ShaderFormatVectorVM (97)
+[2018.04.17-13.27.56:041][525]LogModuleManager: Shutting down and abandoning module ShaderFormatOpenGL (95)
+[2018.04.17-13.27.56:041][525]LogModuleManager: Shutting down and abandoning module ShaderFormatD3D (93)
+[2018.04.17-13.27.56:041][525]LogModuleManager: Shutting down and abandoning module MetalShaderFormat (91)
+[2018.04.17-13.27.56:041][525]LogModuleManager: Shutting down and abandoning module TextureFormatUncompressed (89)
+[2018.04.17-13.27.56:041][525]LogModuleManager: Shutting down and abandoning module TextureFormatPVR (87)
+[2018.04.17-13.27.56:041][525]LogModuleManager: Shutting down and abandoning module TextureFormatDXT (85)
+[2018.04.17-13.27.56:041][525]LogModuleManager: Shutting down and abandoning module TextureFormatIntelISPCTexComp (83)
+[2018.04.17-13.27.56:041][525]LogModuleManager: Shutting down and abandoning module TextureFormatASTC (81)
+[2018.04.17-13.27.56:041][525]LogModuleManager: Shutting down and abandoning module ImageWrapper (80)
+[2018.04.17-13.27.56:041][525]LogModuleManager: Shutting down and abandoning module TextureFormatAndroid (77)
+[2018.04.17-13.27.56:042][525]LogModuleManager: Shutting down and abandoning module AudioFormatOpus (75)
+[2018.04.17-13.27.56:042][525]LogModuleManager: Shutting down and abandoning module AudioFormatOgg (73)
+[2018.04.17-13.27.56:042][525]LogModuleManager: Shutting down and abandoning module AudioFormatADPCM (71)
+[2018.04.17-13.27.56:042][525]LogModuleManager: Shutting down and abandoning module WindowsTargetPlatform (69)
+[2018.04.17-13.27.56:042][525]LogModuleManager: Shutting down and abandoning module WindowsServerTargetPlatform (67)
+[2018.04.17-13.27.56:042][525]LogModuleManager: Shutting down and abandoning module WindowsNoEditorTargetPlatform (65)
+[2018.04.17-13.27.56:042][525]LogModuleManager: Shutting down and abandoning module WindowsClientTargetPlatform (63)
+[2018.04.17-13.27.56:042][525]LogModuleManager: Shutting down and abandoning module InputCore (60)
+[2018.04.17-13.27.56:042][525]LogModuleManager: Shutting down and abandoning module Settings (58)
+[2018.04.17-13.27.56:042][525]LogModuleManager: Shutting down and abandoning module PhysXCooking (56)
+[2018.04.17-13.27.56:042][525]LogModuleManager: Shutting down and abandoning module SteamVR (54)
+[2018.04.17-13.27.56:042][525]LogModuleManager: Shutting down and abandoning module OculusHMD (52)
+[2018.04.17-13.27.56:042][525]LogModuleManager: Shutting down and abandoning module ExampleDeviceProfileSelector (50)
+[2018.04.17-13.27.56:042][525]LogModuleManager: Shutting down and abandoning module OnlineBlueprintSupport (48)
+[2018.04.17-13.27.56:042][525]LogModuleManager: Shutting down and abandoning module OnlineSubsystem (44)
+[2018.04.17-13.27.56:042][525]LogOnline: Display: Unloading online subsystem: NULL
+[2018.04.17-13.27.56:043][525]LogModuleManager: Shutting down and abandoning module XMPP (43)
+[2018.04.17-13.27.56:043][525]LogModuleManager: Shutting down and abandoning module HTTP (41)
+[2018.04.17-13.27.56:072][525]LogModuleManager: Shutting down and abandoning module SSL (40)
+[2018.04.17-13.27.56:077][525]LogModuleManager: Shutting down and abandoning module AnimationModifiers (36)
+[2018.04.17-13.27.56:077][525]LogModuleManager: Shutting down and abandoning module PropertyEditor (35)
+[2018.04.17-13.27.56:078][525]LogModuleManager: Shutting down and abandoning module AudioEditor (32)
+[2018.04.17-13.27.56:078][525]LogModuleManager: Shutting down and abandoning module TextureCompressor (30)
+[2018.04.17-13.27.56:078][525]LogModuleManager: Shutting down and abandoning module ShaderCore (28)
+[2018.04.17-13.27.56:078][525]LogModuleManager: Shutting down and abandoning module Landscape (26)
+[2018.04.17-13.27.56:078][525]LogModuleManager: Shutting down and abandoning module SlateRHIRenderer (24)
+[2018.04.17-13.27.56:079][525]LogModuleManager: Shutting down and abandoning module OpenGLDrv (22)
+[2018.04.17-13.27.56:079][525]LogModuleManager: Shutting down and abandoning module D3D11RHI (20)
+[2018.04.17-13.27.56:079][525]LogModuleManager: Shutting down and abandoning module AnimGraphRuntime (18)
+[2018.04.17-13.27.56:079][525]LogModuleManager: Shutting down and abandoning module Renderer (16)
+[2018.04.17-13.27.56:080][525]LogModuleManager: Shutting down and abandoning module Engine (14)
+[2018.04.17-13.27.56:080][525]LogModuleManager: Shutting down and abandoning module CoreUObject (12)
+[2018.04.17-13.27.56:080][525]LogModuleManager: Shutting down and abandoning module NetworkFile (10)
+[2018.04.17-13.27.56:080][525]LogModuleManager: Shutting down and abandoning module CookedIterativeFile (8)
+[2018.04.17-13.27.56:080][525]LogModuleManager: Shutting down and abandoning module StreamingFile (6)
+[2018.04.17-13.27.56:081][525]LogModuleManager: Shutting down and abandoning module SandboxFile (4)
+[2018.04.17-13.27.56:081][525]LogModuleManager: Shutting down and abandoning module PakFile (2)
+[2018.04.17-13.27.56:085][525]LogExit: Exiting.
+[2018.04.17-13.27.56:091][525]Log file closed, 04/17/18 15:27:56
