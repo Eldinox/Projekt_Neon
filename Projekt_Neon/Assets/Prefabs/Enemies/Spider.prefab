@@ -57,7 +57,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5736979133748935298}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 98.92, y: -65.09, z: -0.046680577}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children:
@@ -125,12 +125,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d9d3ae8e51f6644492b3110cc242e6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
-  damage: 1
+  health: 30
+  damage: 10
   speed: 0
   attackCooldown: 5
+  activateDistance: 0
+  spottingRange: 0
   player: {fileID: 0}
-  distance: 0
+  state: 
+  facingRight: 0
+  attacking: 0
+  chasing: 0
   stopDistance: 30
   projectile: {fileID: 4892269657921473828, guid: ac04d95189a8beb43b1280ea77af024f,
     type: 3}

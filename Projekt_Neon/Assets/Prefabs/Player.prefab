@@ -132,7 +132,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: 67b978bff2ca21f4b853e248da0d59c5, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &5835729271506262812
 MonoBehaviour:
@@ -146,13 +146,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c659b21321324bd428b75876b09868ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 100
   speed: 15
   jumpForce: 20
   jumpAmount: 1
   jumpTime: 0.2
   knockbackForce: 0.07
   knockbackDuration: 0.5
+  dashSpeed: 1
+  startDashTime: 5
   groundCheck: {fileID: 5835729271349878043}
   checkRadius: 0.5
   whatIsGround:

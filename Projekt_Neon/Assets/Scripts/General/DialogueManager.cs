@@ -22,6 +22,8 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(Dialogue dialogue)
     {
         anim.SetBool("isOpen", true);
+
+        GameObject.Find("Player").GetComponent<Player>().inDialogue = true;
         
         names = dialogue.names;
         nameText.text = names[0];
@@ -75,5 +77,6 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue()
     {
         anim.SetBool("isOpen", false);
+        GameObject.Find("Player").GetComponent<Player>().inDialogue = false;
     }
 }

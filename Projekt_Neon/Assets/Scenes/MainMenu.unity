@@ -335,10 +335,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: "To Do List/Dinge die wir kl\xE4ren m\xFCssen"
   textList:
-  - s: Lebensbalken und Death
-    state: 2
-    show: 0
-    deleteQuestion: 0
   - s: Summoner Enemy
     state: 2
     show: 0
@@ -350,6 +346,11 @@ MonoBehaviour:
   - s: 'Knockback bei Kollision
 
       Hat eigentlich funktioniert aber dann ging Bob auf Mondflug'
+    state: 2
+    show: 0
+    deleteQuestion: 0
+  - s: "Inaktiv w\xE4hrend Dialog\nSpider und Rusher m\xFCssen wie Bob warten w\xE4hrend
+      ein Dialog l\xE4uft"
     state: 2
     show: 0
     deleteQuestion: 0
@@ -369,6 +370,27 @@ MonoBehaviour:
     state: 3
     show: 0
     deleteQuestion: 0
+  - s: "Was passiert wenn Bob stirbt?\nL\xE4dt die gesamte Scene neu? Bleiben tote
+      Monster tot und \neingesammelte Gegenst\xE4nde eingesammelt? Wird beim Respawn\nder
+      Stand beim Scene-Wechsel geladen oder gibt es Speicherpunkte\nzu denen er zur\xFCckgesetzt
+      wird? Respawnt er mit vollem Leben?"
+    state: 3
+    show: 0
+    deleteQuestion: 0
+  - s: Why this Bich slidin like on ice??
+    state: 1
+    show: 0
+    deleteQuestion: 0
+  - s: "Dash Bug nach Respawn\nNach dem Respawn teleportiert der Dash einen zur\xFCck
+      zum Startpunkt.\nWei\xDF noch nicht wieso."
+    state: 1
+    show: 0
+    deleteQuestion: 0
+  - s: "Lebensbalken und Death\nLebensbalken mit Animation, Bei 0 HP erscheint Deathscreen
+      mit \nM\xF6glichkeit zum respawnen."
+    state: 4
+    show: 0
+    deleteQuestion: 0
   - s: "Dialog Funktion\nBeliebig langer Dialog mit mehreren Personen an beliebigen
       Stellen \noder durch NPC\xB4s ausgel\xF6st funktioniert sehr gut. Bild des sprechenden\nCharakters
       einblenden?."
@@ -386,7 +408,11 @@ MonoBehaviour:
     deleteQuestion: 0
   - s: 'Spider Angriff*
 
-      Kleine Anpassungen (am besten bei einem Treffen)'
+      Kleine Anpassungen (am besten bei einem Treffen)
+
+      Projectile Script sollte noch aufgeteilt werden damit nicht jedes Projektil
+
+      das gleiche Script benutzt.'
     state: 4
     show: 0
     deleteQuestion: 0
@@ -396,6 +422,10 @@ MonoBehaviour:
     deleteQuestion: 0
   - s: "Example Level\nBlanko Level mit allen n\xF6tigen Dingen um ein Level zu bauen
       fertig."
+    state: 4
+    show: 0
+    deleteQuestion: 0
+  - s: "Respawn nach Tod*\nFragen noch kl\xE4ren (siehe oben)"
     state: 4
     show: 0
     deleteQuestion: 0

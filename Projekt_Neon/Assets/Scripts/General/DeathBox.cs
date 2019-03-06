@@ -8,8 +8,10 @@ public class DeathBox : MonoBehaviour
     {
     	if(collision.tag == "Player")
     	{
-    		Destroy(collision.gameObject);
+    		collision.gameObject.SetActive(false);
+            collision.gameObject.GetComponent<Player>().dead = true;
             //Open Menu after death
+            GameObject.Find("DeathScreen").GetComponent<Animator>().SetBool("death", true);
     	}
     }
 }

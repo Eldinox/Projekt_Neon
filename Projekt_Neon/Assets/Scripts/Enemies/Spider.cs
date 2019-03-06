@@ -19,7 +19,7 @@ public class Spider : Enemy
     // Update is called once per frame
     void Update()
     {
-        if(player != null)
+        if(player.GetComponent<Player>().dead == false)
         {
         	if(Vector2.Distance(transform.position, player.position) > stopDistance)
         	{
@@ -33,15 +33,16 @@ public class Spider : Enemy
                     attackTime = Time.time + attackCooldown;
                 }
             }
+            if(facingRight == false && player.transform.position.x > transform.position.x)
+            {
+                Flip();
+            }
+            else if(facingRight == true && player.transform.position.x < transform.position.x)
+            {
+                Flip();
+            }
         }
-        if(facingRight == false && player.transform.position.x > transform.position.x)
-        {
-            Flip();
-        }
-        else if(facingRight == true && player.transform.position.x < transform.position.x)
-        {
-            Flip();
-        }
+        
     }
 
     IEnumerator Attack()

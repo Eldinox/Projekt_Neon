@@ -16,7 +16,7 @@ GameObject:
   m_Layer: 10
   m_Name: Rusher
   m_TagString: Enemy
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -94,20 +94,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1be9ddca5d6d38643b877e423cefd245, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
-  damage: 1
+  health: 40
+  damage: 20
   speed: 7
   attackCooldown: 5
   activateDistance: 50
   spottingRange: 20
   player: {fileID: 0}
-  distance: 0
+  state: 
   facingRight: 0
   attacking: 0
+  chasing: 0
   stopDistance: 13
   attackSpeed: 2
   dashSpeed: 60
   knockbackForce: 10
+  patrolSpots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  startWaitTime: 2
 --- !u!50 &6937830448007329256
 Rigidbody2D:
   serializedVersion: 4

@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
     public float knockbackDuration;
     public float dashSpeed;
     public float startDashTime;
+    public bool dead;
+    public bool inDialogue;
     
     public Transform groundCheck;
     public float checkRadius;
@@ -27,6 +29,7 @@ public class Player : MonoBehaviour
     private bool facingRight = true;
     private bool isGrounded;
     private bool isJumping;
+    private bool enteredLeft = true;
     private int extraJumps;
     private float jumpTimeCounter;
     private float dashTime;
@@ -60,82 +63,92 @@ public class Player : MonoBehaviour
         {
             spawnPoint = GameObject.Find("PlayerSpawnEnd").transform;
             transform.position = spawnPoint.position;
+            enteredLeft = false;
         }
         else if(transform.position.x > spawnPoint.position.x)
         {
             transform.position = spawnPoint.position;
+            enteredLeft = true;
         }
+
+        GameObject.Find("HealthBar").GetComponent<HealthBar>().UpdateHealth(health);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(isGrounded == true)
+        if(!inDialogue)
         {
-            extraJumps = jumpAmount;
-        }
-
-        if(Input.GetKeyDown(KeyCode.W) && extraJumps > 0)
-        {
-            isJumping = true;
-            jumpTimeCounter = jumpTime;
-            rb.velocity = Vector2.up * jumpForce;
-            extraJumps--;
-        }
-        if(Input.GetKey(KeyCode.W) && isJumping == true)
-        {
-            if(jumpTimeCounter > 0)
+            if(isGrounded == true)
             {
+                extraJumps = jumpAmount;
+            }
+
+            if(Input.GetKeyDown(KeyCode.W) && extraJumps > 0)
+            {
+                isJumping = true;
+                jumpTimeCounter = jumpTime;
                 rb.velocity = Vector2.up * jumpForce;
-                jumpTimeCounter -= Time.deltaTime;
+                extraJumps--;
             }
-            else
+            if(Input.GetKey(KeyCode.W) && isJumping == true)
             {
-                isJumping = false;
-            }
-        }
-        if(Input.GetKeyUp(KeyCode.W))
-        {
-            isJumping = false;
-        }
-
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            if(dashTime > 0)
-            {
-                dashTime -= Time.deltaTime;
-
-                if(facingRight)
+                if(jumpTimeCounter > 0)
                 {
-                    StartCoroutine(Dash(1));
+                    rb.velocity = Vector2.up * jumpForce;
+                    jumpTimeCounter -= Time.deltaTime;
                 }
                 else
                 {
-                    StartCoroutine(Dash(-1));
+                    isJumping = false;
                 }
             }
-        }
-        if(Input.GetKeyUp(KeyCode.Space))
-        {
-            dashTime = startDashTime;
+            if(Input.GetKeyUp(KeyCode.W))
+            {
+                isJumping = false;
+            }
+
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                if(dashTime > 0)
+                {
+                    dashTime -= Time.deltaTime;
+
+                    if(facingRight)
+                    {
+                        StartCoroutine(Dash(1));
+                    }
+                    else
+                    {
+                        StartCoroutine(Dash(-1));
+                    }
+                }
+            }
+            if(Input.GetKeyUp(KeyCode.Space))
+            {
+                dashTime = startDashTime;
+            }
         }
     }
 
     private void FixedUpdate()
     {
-    	isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
+    	if(!inDialogue)
+        {
+            isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
         
-        //Input.GetAxisRaw("Horizontal"); <- damit Player sofort anhält (kein sliden)
-        moveInput = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
+            //Input.GetAxisRaw("Horizontal"); <- damit Player sofort anhält (kein sliden)
+            moveInput = Input.GetAxis("Horizontal");
+            rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
 
-        if(facingRight == false && moveInput > 0)
-        {
-            Flip();
-        }
-        else if(facingRight == true && moveInput < 0)
-        {
-            Flip();
+            if(facingRight == false && moveInput > 0)
+            {
+                Flip();
+            }
+            else if(facingRight == true && moveInput < 0)
+            {
+                Flip();
+            }
         }
     }
 
@@ -150,8 +163,30 @@ public class Player : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
-        Debug.Log(health);
+        GameObject.Find("HealthBar").GetComponent<HealthBar>().UpdateHealth(health);
+
+        if(health < 1)
+        {
+            dead = true;
+            this.gameObject.SetActive(false);
+            GameObject.Find("DeathScreen").GetComponent<Animator>().SetTrigger("death");
+        }
     }
+
+    public void RespawnAfterDeath()
+    {
+        //Scene activeScene = SceneManager.GetActiveScene();
+        //SceneManager.LoadScene(activeScene.name);
+
+        if(enteredLeft)transform.position = GameObject.Find("PlayerSpawnStart").transform.position;
+        else if(!enteredLeft)transform.position = GameObject.Find("PlayerSpawnEnd").transform.position;
+        health = 100;
+        dead = false;
+        GameObject.Find("HealthBar").GetComponent<HealthBar>().UpdateHealth(health);
+        GameObject.Find("DeathScreen").GetComponent<Animator>().SetBool("death", false);
+        this.gameObject.SetActive(true);
+    }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.CompareTag("Enemy"))
@@ -159,6 +194,7 @@ public class Player : MonoBehaviour
             //StartCoroutine(Knockback(collision.transform));
         }
     }
+
     public IEnumerator Knockback(Transform direction)
     {
         float timer = 0;

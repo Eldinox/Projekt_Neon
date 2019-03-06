@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - DamageBox
   - Ground
+  - Canvas
   layers:
   - Default
   - TransparentFX

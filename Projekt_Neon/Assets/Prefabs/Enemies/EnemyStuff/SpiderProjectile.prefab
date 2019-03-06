@@ -122,7 +122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   lifeTime: 1
-  damage: 1
+  damage: 10
   drop1: {fileID: 4892269657921473828, guid: 038a9e2b10a2fd34c9179c828d077f19, type: 3}
   drop2: {fileID: 4892269657921473828, guid: c59a8a0088c725445b571b3b16c8eede, type: 3}
   drop3: {fileID: 4892269657921473828, guid: 2eac575f3dff2a54ab766ee0beb12361, type: 3}
