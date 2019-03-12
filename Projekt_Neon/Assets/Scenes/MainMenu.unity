@@ -335,14 +335,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: "To Do List/Dinge die wir kl\xE4ren m\xFCssen"
   textList:
-  - s: Summoner Enemy
-    state: 2
-    show: 0
-    deleteQuestion: 0
-  - s: Jumper Enemy
-    state: 2
-    show: 0
-    deleteQuestion: 0
   - s: 'Knockback bei Kollision
 
       Hat eigentlich funktioniert aber dann ging Bob auf Mondflug'
@@ -384,6 +376,14 @@ MonoBehaviour:
   - s: "Dash Bug nach Respawn\nNach dem Respawn teleportiert der Dash einen zur\xFCck
       zum Startpunkt.\nWei\xDF noch nicht wieso."
     state: 1
+    show: 0
+    deleteQuestion: 0
+  - s: Jumper Enemy
+    state: 4
+    show: 0
+    deleteQuestion: 0
+  - s: Summoner Enemy
+    state: 4
     show: 0
     deleteQuestion: 0
   - s: "Lebensbalken und Death\nLebensbalken mit Animation, Bei 0 HP erscheint Deathscreen
