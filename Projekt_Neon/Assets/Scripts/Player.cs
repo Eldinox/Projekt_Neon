@@ -50,7 +50,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        extraJumps = jumpAmount;
+        //extraJumps = jumpAmount;
         dashTime = startDashTime;
         SceneManager.activeSceneChanged += ChangedActiveScene;
     }
@@ -79,7 +79,7 @@ public class Player : MonoBehaviour
     {
         if(!inDialogue)
         {
-            if(isGrounded == true)
+            /*if(isGrounded == true)
             {
                 extraJumps = jumpAmount;
             }
@@ -106,7 +106,7 @@ public class Player : MonoBehaviour
             if(Input.GetKeyUp(KeyCode.W))
             {
                 isJumping = false;
-            }
+            }*/
 
             if(Input.GetKeyDown(KeyCode.Space))
             {
@@ -135,7 +135,7 @@ public class Player : MonoBehaviour
     {
     	if(!inDialogue)
         {
-            isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
+            /*isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
         
             //Input.GetAxisRaw("Horizontal"); <- damit Player sofort anhält (kein sliden)
             moveInput = Input.GetAxis("Horizontal");
@@ -148,7 +148,7 @@ public class Player : MonoBehaviour
             else if(facingRight == true && moveInput < 0)
             {
                 Flip();
-            }
+            }*/
         }
     }
 
@@ -209,13 +209,15 @@ public class Player : MonoBehaviour
     }
     public IEnumerator Dash(int direction)
     {
-        GetComponent<PolygonCollider2D>().enabled = false;
+        GetComponent<CapsuleCollider2D>().enabled = false;
+        rb.bodyType = RigidbodyType2D.Dynamic;
         for(int i = 0; i < 10; i++)
         {
             transform.position = Vector2.Lerp(transform.position, new Vector2(transform.position.x + direction, transform.position.y), dashSpeed);
 
             yield return null;
         }
-        GetComponent<PolygonCollider2D>().enabled = true;
+        rb.bodyType = RigidbodyType2D.Dynamic;
+        GetComponent<CapsuleCollider2D>().enabled = true;
     }
 }

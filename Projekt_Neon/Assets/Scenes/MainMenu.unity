@@ -346,6 +346,11 @@ MonoBehaviour:
     state: 2
     show: 0
     deleteQuestion: 0
+  - s: "Scripts durch Vorlagen ersetzen\nPlayer Controller, Parallax und Camera Follow
+      haben vorgefertigte \nScripts die wir benutzen sollten"
+    state: 2
+    show: 0
+    deleteQuestion: 0
   - s: 'Rusher Cooldown
 
       Was macht Rusher, wenn sein Angriff auf Cooldown,
