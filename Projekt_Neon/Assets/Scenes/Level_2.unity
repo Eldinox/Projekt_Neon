@@ -2421,6 +2421,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5835729271506262814, guid: f49b0d3784b089d40b9858181dc39c46,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f49b0d3784b089d40b9858181dc39c46, type: 3}
 --- !u!1 &1385604300
@@ -2967,6 +2972,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Jumper
+      objectReference: {fileID: 0}
+    - target: {fileID: 4615742530930035699, guid: cd6ac80518680f94f9acc1a09caca8cf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4615742530930035657, guid: cd6ac80518680f94f9acc1a09caca8cf,
         type: 3}
@@ -3524,7 +3534,7 @@ PrefabInstance:
     - target: {fileID: 4669641391270143755, guid: ecc91800530adfc49bbe878052f024cd,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1531506899098164424, guid: ecc91800530adfc49bbe878052f024cd,
         type: 3}
