@@ -9,7 +9,7 @@ public class SideKickFollow : MonoBehaviour
     private Transform PlayerPosition;
     private Rigidbody2D SideKickPosition;
     private GameObject Player;
-    public float speed = 10;
+    public float speed = 12;
     public float distanceToPlayer;
  
 
