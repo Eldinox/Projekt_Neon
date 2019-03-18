@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     public float jumpForce;
     public int jumpAmount;
     public float jumpTime;
+    public float fireballCooldownTime;
     public float knockbackForce;
     public float knockbackDuration;
     public float dashSpeed;
@@ -24,6 +25,8 @@ public class Player : MonoBehaviour
     public float checkRadius;
     public LayerMask whatIsGround;
     public Transform spawnPoint;
+    public GameObject fireball;
+    public GameObject shotPoint;
     
     private float moveInput;
     private bool facingRight = true;
@@ -33,6 +36,7 @@ public class Player : MonoBehaviour
     private int extraJumps;
     private float jumpTimeCounter;
     private float dashTime;
+    private float fireballCooldown;
 
     private Rigidbody2D rb;
 
@@ -50,7 +54,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        //extraJumps = jumpAmount;
+        extraJumps = jumpAmount;
         dashTime = startDashTime;
         SceneManager.activeSceneChanged += ChangedActiveScene;
     }
@@ -77,9 +81,16 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /* if(moveInput == 0)
+        {
+            float correctionValue = rb.velocity.x;
+            rb.velocity = new Vector2(rb.velocity.x * -2, rb.velocity.y);
+        }
+        Debug.Log(rb.velocity.x);*/
+        
         if(!inDialogue)
         {
-            /*if(isGrounded == true)
+            if(isGrounded == true)
             {
                 extraJumps = jumpAmount;
             }
@@ -90,6 +101,11 @@ public class Player : MonoBehaviour
                 jumpTimeCounter = jumpTime;
                 rb.velocity = Vector2.up * jumpForce;
                 extraJumps--;
+            }
+            if(Input.GetKey(KeyCode.F) && Time.time >= fireballCooldown)
+            {
+                Instantiate(fireball, shotPoint.transform.position, shotPoint.transform.rotation);
+                fireballCooldown = Time.time + fireballCooldownTime;
             }
             if(Input.GetKey(KeyCode.W) && isJumping == true)
             {
@@ -106,7 +122,7 @@ public class Player : MonoBehaviour
             if(Input.GetKeyUp(KeyCode.W))
             {
                 isJumping = false;
-            }*/
+            }
 
             if(Input.GetKeyDown(KeyCode.Space))
             {
@@ -129,16 +145,21 @@ public class Player : MonoBehaviour
                 dashTime = startDashTime;
             }
         }
+        else
+        {
+            rb.velocity = new Vector2(0, rb.velocity.y);
+        }
     }
 
     private void FixedUpdate()
     {
-    	if(!inDialogue)
+    	moveInput = Input.GetAxis("Horizontal");
+        if(!inDialogue)
         {
-            /*isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
+            isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
         
             //Input.GetAxisRaw("Horizontal"); <- damit Player sofort anhält (kein sliden)
-            moveInput = Input.GetAxis("Horizontal");
+            
             rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
 
             if(facingRight == false && moveInput > 0)
@@ -148,7 +169,7 @@ public class Player : MonoBehaviour
             else if(facingRight == true && moveInput < 0)
             {
                 Flip();
-            }*/
+            }
         }
     }
 
@@ -210,14 +231,12 @@ public class Player : MonoBehaviour
     public IEnumerator Dash(int direction)
     {
         GetComponent<CapsuleCollider2D>().enabled = false;
-        rb.bodyType = RigidbodyType2D.Dynamic;
         for(int i = 0; i < 10; i++)
         {
             transform.position = Vector2.Lerp(transform.position, new Vector2(transform.position.x + direction, transform.position.y), dashSpeed);
 
             yield return null;
         }
-        rb.bodyType = RigidbodyType2D.Dynamic;
         GetComponent<CapsuleCollider2D>().enabled = true;
     }
 }

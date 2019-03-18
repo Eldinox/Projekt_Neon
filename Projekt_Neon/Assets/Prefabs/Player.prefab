@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2037204156248613012
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8207485745778476806}
+  m_Layer: 9
+  m_Name: ShotPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8207485745778476806
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2037204156248613012}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0.82, y: -0.2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5835729270777619602}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!1 &5835729271349878042
 GameObject:
   m_ObjectHideFlags: 0
@@ -63,6 +93,7 @@ Transform:
   m_LocalScale: {x: 1, y: 0.8, z: 1}
   m_Children:
   - {fileID: 5835729271349878043}
+  - {fileID: 8207485745778476806}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -122,7 +153,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5835729271506262810}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
@@ -130,7 +161,7 @@ Rigidbody2D:
   m_LinearDrag: 2
   m_AngularDrag: 5
   m_GravityScale: 10
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 67b978bff2ca21f4b853e248da0d59c5, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -152,6 +183,7 @@ MonoBehaviour:
   jumpForce: 20
   jumpAmount: 1
   jumpTime: 0.2
+  fireballCooldownTime: 3
   knockbackForce: 0.07
   knockbackDuration: 0.5
   dashSpeed: 1
@@ -164,6 +196,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   spawnPoint: {fileID: 0}
+  fireball: {fileID: 8780221343884162902, guid: 288bbe76a9b905640b01c0c226f27794,
+    type: 3}
+  shotPoint: {fileID: 2037204156248613012}
 --- !u!114 &3633123282400696525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,7 +206,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5835729271506262810}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 16e7272247d23fe48a0fa9d10828c94f, type: 3}
   m_Name: 

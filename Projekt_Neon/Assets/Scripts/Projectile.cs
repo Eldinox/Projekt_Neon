@@ -43,6 +43,13 @@ public class Projectile : MonoBehaviour
     void Update()
     {
         //Für gradlinige Projektile ohne Gravity
+        if(this.gameObject.name == "BobFireball(Clone)")
+        {
+            int direction = 0;
+            if(player.transform.position.x > transform.position.x)direction = -1;
+            else direction = 1;
+            rb.velocity = new Vector2(speed * direction, 0);
+        }
     }
 
     void DestroyProjectile()
@@ -65,9 +72,10 @@ public class Projectile : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
     	if(collision.tag == "Ground")DestroyProjectile();
-        if(this.gameObject.name == "PlayerProjectile(Clone)" && collision.tag == "Enemy")
+        if(this.gameObject.name == "BobFireball(Clone)" && collision.tag == "Enemy")
         {
-            //Player Projectile macht Schaden an Gegnern
+            collision.GetComponent<Enemy>().TakeDamage(damage);
+            DestroyProjectile();
         }
         else if(this.gameObject.name == "SpiderProjectile(Clone)" && collision.tag == "Player" ||
             this.gameObject.name == "SpiderDrop1(Clone)" && collision.tag == "Player" ||
