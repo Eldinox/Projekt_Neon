@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     public float knockbackDuration;
     public float dashSpeed;
     public float startDashTime;
+    public float combatTime;
     public bool dead;
     public bool inDialogue;
     
@@ -27,6 +28,9 @@ public class Player : MonoBehaviour
     public Transform spawnPoint;
     public GameObject fireball;
     public GameObject shotPoint;
+    public GameObject dagger;
+    public GameObject daggerPos1;
+    public GameObject daggerPos2;
     
     private float moveInput;
     private bool facingRight = true;
@@ -37,6 +41,7 @@ public class Player : MonoBehaviour
     private float jumpTimeCounter;
     private float dashTime;
     private float fireballCooldown;
+    private float combatTimer;
 
     private Rigidbody2D rb;
 
@@ -94,7 +99,18 @@ public class Player : MonoBehaviour
             {
                 extraJumps = jumpAmount;
             }
-
+            /*Dolch ziehen wenn im Kampf, wegstecken nach Combat-Zeit
+            if(Time.time >= combatTimer)
+            {
+                dagger.transform.position = daggerPos1.transform.position;
+                dagger.transform.rotation = daggerPos1.transform.rotation;
+            }
+            if(Input.GetMouseButton(0))
+            {
+                dagger.transform.position = daggerPos2.transform.position;
+                dagger.transform.rotation = daggerPos2.transform.rotation;
+                combatTimer = Time.time + combatTime;
+            }*/
             if(Input.GetKeyDown(KeyCode.W) && extraJumps > 0)
             {
                 isJumping = true;
@@ -230,13 +246,19 @@ public class Player : MonoBehaviour
     }
     public IEnumerator Dash(int direction)
     {
-        GetComponent<CapsuleCollider2D>().enabled = false;
-        for(int i = 0; i < 10; i++)
+        if(GameObject.Find("DashBar").GetComponent<DashBar>().CheckDash())
         {
-            transform.position = Vector2.Lerp(transform.position, new Vector2(transform.position.x + direction, transform.position.y), dashSpeed);
+            GameObject.Find("DashBar").GetComponent<DashBar>().UpdateDashbar();
+            GetComponent<CapsuleCollider2D>().enabled = false;
+            for(int i = 0; i < 10; i++)
+            {
+                transform.position = Vector2.Lerp(transform.position, new Vector2(transform.position.x + direction, transform.position.y), dashSpeed);
 
-            yield return null;
+                yield return null;
+            }
+            GetComponent<CapsuleCollider2D>().enabled = true;
         }
-        GetComponent<CapsuleCollider2D>().enabled = true;
+        
+        
     }
 }
