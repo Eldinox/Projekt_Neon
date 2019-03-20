@@ -8,6 +8,7 @@ TagManager:
   - DamageBox
   - Ground
   - Canvas
+  - Coin
   layers:
   - Default
   - TransparentFX

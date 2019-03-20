@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     public float combatTime;
     public bool dead;
     public bool inDialogue;
+    public int coinAmount;
     
     public Transform groundCheck;
     public float checkRadius;
@@ -44,6 +45,7 @@ public class Player : MonoBehaviour
     private float combatTimer;
 
     private Rigidbody2D rb;
+    private bool[] coins;
 
     void Awake()
     {
@@ -53,6 +55,8 @@ public class Player : MonoBehaviour
             Destroy(this.gameObject);
         }
         DontDestroyOnLoad(this.gameObject);
+
+        coins = new bool[coinAmount];
     }
 
     // Start is called before the first frame update
@@ -209,6 +213,15 @@ public class Player : MonoBehaviour
             this.gameObject.SetActive(false);
             GameObject.Find("DeathScreen").GetComponent<Animator>().SetTrigger("death");
         }
+    }
+
+    public void UpdateCoins(int number)
+    {
+        coins[number] = true;
+        /*for(int i = 0; i < coins.Length; i++)
+        {
+            Debug.Log(coins[i]);
+        }*/
     }
 
     public void RespawnAfterDeath()
