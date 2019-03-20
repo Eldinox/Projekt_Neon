@@ -122,6 +122,7 @@ public class Player : MonoBehaviour
             {
                 Instantiate(fireball, shotPoint.transform.position, shotPoint.transform.rotation);
                 fireballCooldown = Time.time + fireballCooldownTime;
+                GameObject.Find("FireballIconCD").GetComponent<CooldownDisplay>().StartCD(fireballCooldownTime);
             }
             if(Input.GetKey(KeyCode.W) && isJumping == true)
             {
