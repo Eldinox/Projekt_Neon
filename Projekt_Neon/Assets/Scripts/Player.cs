@@ -22,6 +22,10 @@ public class Player : MonoBehaviour
     public bool dead;
     public bool inDialogue;
     public int coinAmount;
+    public int collectedCoins;
+    public int collectedSticks;
+    public int collectedStones;
+    public string[] inventoryItems;
     
     public Transform groundCheck;
     public float checkRadius;
@@ -43,7 +47,7 @@ public class Player : MonoBehaviour
     private float dashTime;
     private float fireballCooldown;
     private float combatTimer;
-
+    
     private Rigidbody2D rb;
     private bool[] coins;
 
@@ -57,6 +61,10 @@ public class Player : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
 
         coins = new bool[coinAmount];
+        inventoryItems = new string[5];
+        collectedCoins = 0;
+        collectedSticks = 0;
+        collectedStones = 0;
     }
 
     // Start is called before the first frame update

@@ -62,6 +62,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   number: 0
+  coinIcon: {fileID: 6624286512764356013, guid: e758a8fed95742b43a5c705f54148c4b,
+    type: 3}
 --- !u!1 &2105463982920145796
 GameObject:
   m_ObjectHideFlags: 0
