@@ -27,18 +27,18 @@ public class Coin : MonoBehaviour
             {
                 if(inventory.isFull[i] == false)
                 {
-                    GameObject.Find("Player").GetComponent<Player>().inventoryItems[i] = gameObject.name;
+                    GameObject.Find("Player").GetComponent<Inventory>().inventoryItems[i] = gameObject.name;
                     Instantiate(coinIcon, inventory.slots[i].transform, false);
-                    GameObject.Find("Player").GetComponent<Player>().collectedCoins++;
-                    GameObject.Find("ItemAmount" + i.ToString()).GetComponent<TextMeshProUGUI>().text = GameObject.Find("Player").GetComponent<Player>().collectedCoins.ToString();
+                    GameObject.Find("Player").GetComponent<Inventory>().collectedCoins++;
+                    GameObject.Find("ItemAmount" + i.ToString()).GetComponent<TextMeshProUGUI>().text = GameObject.Find("Player").GetComponent<Inventory>().collectedCoins.ToString();
                     GameObject.Find("CoinIcon(Clone)").transform.position = inventory.slots[i].transform.position;
                     inventory.isFull[i] = true;
                     break;
                 }
-                else if(GameObject.Find("Player").GetComponent<Player>().inventoryItems[i] == gameObject.name)
+                else if(GameObject.Find("Player").GetComponent<Inventory>().inventoryItems[i] == gameObject.name)
                 {
-                    GameObject.Find("Player").GetComponent<Player>().collectedCoins++;
-                    GameObject.Find("ItemAmount" + i.ToString()).GetComponent<TextMeshProUGUI>().text = GameObject.Find("Player").GetComponent<Player>().collectedCoins.ToString();
+                    GameObject.Find("Player").GetComponent<Inventory>().collectedCoins++;
+                    GameObject.Find("ItemAmount" + i.ToString()).GetComponent<TextMeshProUGUI>().text = GameObject.Find("Player").GetComponent<Inventory>().collectedCoins.ToString();
                     break;
                 }
             }

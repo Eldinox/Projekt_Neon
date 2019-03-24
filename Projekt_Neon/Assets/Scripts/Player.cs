@@ -22,10 +22,6 @@ public class Player : MonoBehaviour
     public bool dead;
     public bool inDialogue;
     public int coinAmount;
-    public int collectedCoins;
-    public int collectedSticks;
-    public int collectedStones;
-    public string[] inventoryItems;
     
     public Transform groundCheck;
     public float checkRadius;
@@ -49,6 +45,7 @@ public class Player : MonoBehaviour
     private float combatTimer;
     
     private Rigidbody2D rb;
+    private Animator statusAnim;
     private bool[] coins;
 
     void Awake()
@@ -61,10 +58,6 @@ public class Player : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
 
         coins = new bool[coinAmount];
-        inventoryItems = new string[5];
-        collectedCoins = 0;
-        collectedSticks = 0;
-        collectedStones = 0;
     }
 
     // Start is called before the first frame update
@@ -123,6 +116,11 @@ public class Player : MonoBehaviour
                 dagger.transform.rotation = daggerPos2.transform.rotation;
                 combatTimer = Time.time + combatTime;
             }*/
+            if(Input.GetKeyDown(KeyCode.Tab))
+            {
+                statusAnim = GameObject.Find("PlayerStatus").GetComponent<Animator>();;
+                statusAnim.SetBool("isOpen", !statusAnim.GetBool("isOpen"));
+            }
             if(Input.GetKeyDown(KeyCode.W) && extraJumps > 0)
             {
                 isJumping = true;

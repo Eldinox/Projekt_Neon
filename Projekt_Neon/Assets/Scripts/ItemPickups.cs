@@ -26,35 +26,35 @@ public class ItemPickups : MonoBehaviour
                 
                 if(inventory.isFull[i] == false)
                 {
-                    GameObject.Find("Player").GetComponent<Player>().inventoryItems[i] = gameObject.name;
+                    GameObject.Find("Player").GetComponent<Inventory>().inventoryItems[i] = gameObject.name;
                     if(gameObject.name == "Stick")
                     {
                         Instantiate(drop, inventory.slots[i].transform, false);
-                        GameObject.Find("Player").GetComponent<Player>().collectedSticks++;
-                        GameObject.Find("ItemAmount" + i.ToString()).GetComponent<TextMeshProUGUI>().text = GameObject.Find("Player").GetComponent<Player>().collectedSticks.ToString();
+                        GameObject.Find("Player").GetComponent<Inventory>().collectedSticks++;
+                        GameObject.Find("ItemAmount" + i.ToString()).GetComponent<TextMeshProUGUI>().text = GameObject.Find("Player").GetComponent<Inventory>().collectedSticks.ToString();
                         GameObject.Find("StickIcon(Clone)").transform.position = inventory.slots[i].transform.position;
                     }
                     else if(gameObject.name == "Stone")
                     {
                         Instantiate(drop, inventory.slots[i].transform, false);
-                        GameObject.Find("Player").GetComponent<Player>().collectedStones++;
-                        GameObject.Find("ItemAmount" + i.ToString()).GetComponent<TextMeshProUGUI>().text = GameObject.Find("Player").GetComponent<Player>().collectedStones.ToString();
+                        GameObject.Find("Player").GetComponent<Inventory>().collectedStones++;
+                        GameObject.Find("ItemAmount" + i.ToString()).GetComponent<TextMeshProUGUI>().text = GameObject.Find("Player").GetComponent<Inventory>().collectedStones.ToString();
                         GameObject.Find("StoneIcon(Clone)").transform.position = inventory.slots[i].transform.position;
                     }
                     inventory.isFull[i] = true;
                     break;
                 }
-                else if(GameObject.Find("Player").GetComponent<Player>().inventoryItems[i] == gameObject.name)
+                else if(GameObject.Find("Player").GetComponent<Inventory>().inventoryItems[i] == gameObject.name)
                 {
                     if(gameObject.name == "Stick")
                     {
-                        GameObject.Find("Player").GetComponent<Player>().collectedSticks++;
-                        GameObject.Find("ItemAmount" + i.ToString()).GetComponent<TextMeshProUGUI>().text = GameObject.Find("Player").GetComponent<Player>().collectedSticks.ToString();
+                        GameObject.Find("Player").GetComponent<Inventory>().collectedSticks++;
+                        GameObject.Find("ItemAmount" + i.ToString()).GetComponent<TextMeshProUGUI>().text = GameObject.Find("Player").GetComponent<Inventory>().collectedSticks.ToString();
                     }
                     else if(gameObject.name == "Stone")
                     {
-                        GameObject.Find("Player").GetComponent<Player>().collectedStones++;
-                        GameObject.Find("ItemAmount" + i.ToString()).GetComponent<TextMeshProUGUI>().text = GameObject.Find("Player").GetComponent<Player>().collectedStones.ToString();
+                        GameObject.Find("Player").GetComponent<Inventory>().collectedStones++;
+                        GameObject.Find("ItemAmount" + i.ToString()).GetComponent<TextMeshProUGUI>().text = GameObject.Find("Player").GetComponent<Inventory>().collectedStones.ToString();
                     }
                     break;
                 }

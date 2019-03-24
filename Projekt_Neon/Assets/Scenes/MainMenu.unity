@@ -335,6 +335,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: "To Do List/Dinge die wir kl\xE4ren m\xFCssen"
   textList:
+  - s: Combo System
+    state: 2
+    show: 0
+    deleteQuestion: 0
   - s: 'Knockback bei Kollision
 
       Hat eigentlich funktioniert aber dann ging Bob auf Mondflug'
@@ -359,18 +363,18 @@ MonoBehaviour:
     state: 3
     show: 0
     deleteQuestion: 0
+  - s: "Was passiert wenn Bob stirbt?\nL\xE4dt die gesamte Scene neu? Bleiben tote
+      Monster tot und \neingesammelte Gegenst\xE4nde eingesammelt? Wird beim Respawn\nder
+      Stand beim Scene-Wechsel geladen oder gibt es Speicherpunkte\nzu denen er zur\xFCckgesetzt
+      wird? Respawnt er mit vollem Leben?"
+    state: 3
+    show: 0
+    deleteQuestion: 0
   - s: 'Spider Cooldown
 
       Was macht die Spinne zwischen Angriffen?
 
       Neu positionieren? Chillen?'
-    state: 3
-    show: 0
-    deleteQuestion: 0
-  - s: "Was passiert wenn Bob stirbt?\nL\xE4dt die gesamte Scene neu? Bleiben tote
-      Monster tot und \neingesammelte Gegenst\xE4nde eingesammelt? Wird beim Respawn\nder
-      Stand beim Scene-Wechsel geladen oder gibt es Speicherpunkte\nzu denen er zur\xFCckgesetzt
-      wird? Respawnt er mit vollem Leben?"
     state: 3
     show: 0
     deleteQuestion: 0
@@ -381,6 +385,12 @@ MonoBehaviour:
   - s: "Dash Bug nach Respawn\nNach dem Respawn teleportiert der Dash einen zur\xFCck
       zum Startpunkt.\nWei\xDF noch nicht wieso."
     state: 1
+    show: 0
+    deleteQuestion: 0
+  - s: 'Keep Inventory
+
+      Keep Inventory content whenn switching Scene'
+    state: 4
     show: 0
     deleteQuestion: 0
   - s: Jumper Enemy
