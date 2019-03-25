@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
     public bool dead;
     public bool inDialogue;
     public int coinAmount;
+    public float timeBetweenCombos;
     
     public Transform groundCheck;
     public float checkRadius;
@@ -43,6 +44,8 @@ public class Player : MonoBehaviour
     private float dashTime;
     private float fireballCooldown;
     private float combatTimer;
+    private int comboNumber;
+    private float comboTime;
     
     private Rigidbody2D rb;
     private Animator statusAnim;
@@ -91,20 +94,13 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /* if(moveInput == 0)
-        {
-            float correctionValue = rb.velocity.x;
-            rb.velocity = new Vector2(rb.velocity.x * -2, rb.velocity.y);
-        }
-        Debug.Log(rb.velocity.x);*/
-        
         if(!inDialogue)
         {
             if(isGrounded == true)
             {
                 extraJumps = jumpAmount;
             }
-            /*Dolch ziehen wenn im Kampf, wegstecken nach Combat-Zeit
+            //Dolch ziehen wenn im Kampf, wegstecken nach Combat-Zeit
             if(Time.time >= combatTimer)
             {
                 dagger.transform.position = daggerPos1.transform.position;
@@ -115,7 +111,19 @@ public class Player : MonoBehaviour
                 dagger.transform.position = daggerPos2.transform.position;
                 dagger.transform.rotation = daggerPos2.transform.rotation;
                 combatTimer = Time.time + combatTime;
-            }*/
+
+                if(Time.time > comboTime)
+                {
+                    if(facingRight)
+                    {
+                        StartCoroutine(LightAttack(1));
+                    }
+                    else
+                    {
+                        StartCoroutine(LightAttack(-1));
+                    }
+                }
+            }
             if(Input.GetKeyDown(KeyCode.Tab))
             {
                 statusAnim = GameObject.Find("PlayerStatus").GetComponent<Animator>();;
@@ -278,7 +286,19 @@ public class Player : MonoBehaviour
             }
             GetComponent<CapsuleCollider2D>().enabled = true;
         }
-        
-        
+    }
+    public IEnumerator LightAttack(int direction)
+    {
+        comboTime = Time.time + timeBetweenCombos;
+        if(comboNumber < 3)comboNumber++;
+        else comboNumber = 1;
+
+        for(int i = 0; i < 3; i++)
+        {
+            transform.position = Vector2.Lerp(transform.position, new Vector2(transform.position.x + direction, transform.position.y), dashSpeed);
+        }
+
+        Debug.Log(comboNumber);
+        yield return null;
     }
 }
