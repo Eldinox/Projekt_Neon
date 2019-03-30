@@ -295,8 +295,11 @@ public class Player : MonoBehaviour
 
         for(int i = 0; i < 3; i++)
         {
-            transform.position = Vector2.Lerp(transform.position, new Vector2(transform.position.x + direction, transform.position.y), dashSpeed);
+            //transform.position = Vector2.Lerp(transform.position, new Vector2(transform.position.x + direction, transform.position.y), dashSpeed);
         }
+
+        Animator anim = this.GetComponent<Animator>();
+        anim.SetTrigger("T1_LightAttack");
 
         Debug.Log(comboNumber);
         yield return null;

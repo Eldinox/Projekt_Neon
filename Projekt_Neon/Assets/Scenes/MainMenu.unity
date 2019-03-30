@@ -387,6 +387,12 @@ MonoBehaviour:
     state: 1
     show: 0
     deleteQuestion: 0
+  - s: 'Feuerball Richtungswechsel
+
+      Feuerball wechselt die Richtung wenn man hinter ihn dasht'
+    state: 1
+    show: 0
+    deleteQuestion: 0
   - s: 'Keep Inventory
 
       Keep Inventory content whenn switching Scene'
