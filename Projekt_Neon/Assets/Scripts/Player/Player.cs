@@ -46,11 +46,14 @@ public class Player : MonoBehaviour
     private float combatTimer;
     private int comboNumber;
     private float comboTime;
+    private int combo1;
+    private int combo2;
     
     private Rigidbody2D rb;
     private Animator statusAnim;
     private bool[] coins;
 
+    private Animator anim;
     void Awake()
     {
         GameObject[] objs = GameObject.FindGameObjectsWithTag("Player");
@@ -70,6 +73,7 @@ public class Player : MonoBehaviour
         extraJumps = jumpAmount;
         dashTime = startDashTime;
         SceneManager.activeSceneChanged += ChangedActiveScene;
+        anim = GetComponent<Animator>();
     }
 
     private void ChangedActiveScene(Scene current, Scene next)
@@ -105,6 +109,7 @@ public class Player : MonoBehaviour
             {
                 dagger.transform.position = daggerPos1.transform.position;
                 dagger.transform.rotation = daggerPos1.transform.rotation;
+                comboNumber = 0;
             }
             if(Input.GetMouseButton(0))
             {
@@ -121,6 +126,24 @@ public class Player : MonoBehaviour
                     else
                     {
                         StartCoroutine(LightAttack(-1));
+                    }
+                }
+            }
+            if(Input.GetMouseButton(1))
+            {
+                dagger.transform.position = daggerPos2.transform.position;
+                dagger.transform.rotation = daggerPos2.transform.rotation;
+                combatTimer = Time.time + combatTime;
+
+                if(Time.time > comboTime)
+                {
+                    if(facingRight)
+                    {
+                        StartCoroutine(HeavyAttack(1));
+                    }
+                    else
+                    {
+                        StartCoroutine(HeavyAttack(-1));
                     }
                 }
             }
@@ -189,6 +212,14 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
     	moveInput = Input.GetAxis("Horizontal");
+        if (moveInput == 0)
+        {
+            anim.SetBool("isRunning",false);
+        }
+        else
+        {
+            anim.SetBool("isRunning",true);
+        }
         if(!inDialogue)
         {
             isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
@@ -299,8 +330,59 @@ public class Player : MonoBehaviour
         }
 
         Animator anim = this.GetComponent<Animator>();
-        anim.SetTrigger("T1_LightAttack");
+        if(comboNumber == 3)
+        {
+            if(combo1 == 1 && combo2 == 1)
+            {
+                anim.SetTrigger("T1_LightAttack3");
+            }
+            else
+            {
+                anim.SetTrigger("T1_LightAttack");
+            }
+            combo1 = 0;
+            combo2 = 0;
+        }
+        else
+        {
+            if(comboNumber == 1) combo1 = 1;
+            else if(comboNumber == 2) combo2 = 1;
+            anim.SetTrigger("T1_LightAttack");
+        }
+        Debug.Log(comboNumber);
+        yield return null;
+    }
+    public IEnumerator HeavyAttack(int direction)
+    {
+        comboTime = Time.time + timeBetweenCombos;
+        if(comboNumber < 3)comboNumber++;
+        else comboNumber = 1;
 
+        for(int i = 0; i < 3; i++)
+        {
+            //transform.position = Vector2.Lerp(transform.position, new Vector2(transform.position.x + direction, transform.position.y), dashSpeed);
+        }
+
+        Animator anim = this.GetComponent<Animator>();
+        if(comboNumber == 3)
+        {
+            if(combo1 == 1 && combo2 == 1)
+            {
+                anim.SetTrigger("T1_HeavyAttack_weit");
+            }
+            else
+            {
+                anim.SetTrigger("T1_HeavyAttack");
+            }
+            combo1 = 0;
+            combo2 = 0;
+        }
+        else
+        {
+            if(comboNumber == 1) combo1 = 2;
+            else if(comboNumber == 2) combo2 = 2;
+            anim.SetTrigger("T1_HeavyAttack");
+        }
         Debug.Log(comboNumber);
         yield return null;
     }
