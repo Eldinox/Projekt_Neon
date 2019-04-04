@@ -103,6 +103,11 @@ public class Player : MonoBehaviour
             if(isGrounded == true)
             {
                 extraJumps = jumpAmount;
+                anim.SetBool("isJumping", false);
+            }
+            else
+            {
+                anim.SetBool("isJumping", true);
             }
             //Dolch ziehen wenn im Kampf, wegstecken nach Combat-Zeit
             if(Time.time >= combatTimer)
@@ -154,6 +159,7 @@ public class Player : MonoBehaviour
             }
             if(Input.GetKeyDown(KeyCode.W) && extraJumps > 0)
             {
+                anim.SetTrigger("takeOf");
                 isJumping = true;
                 jumpTimeCounter = jumpTime;
                 rb.velocity = Vector2.up * jumpForce;
@@ -168,7 +174,7 @@ public class Player : MonoBehaviour
             if(Input.GetKey(KeyCode.W) && isJumping == true)
             {
                 if(jumpTimeCounter > 0)
-                {
+                {  
                     rb.velocity = Vector2.up * jumpForce;
                     jumpTimeCounter -= Time.deltaTime;
                 }
