@@ -1499,9 +1499,9 @@ MonoBehaviour:
   playerTransform: {fileID: 0}
   speed: 1
   minX: 7.5
-  maxX: 191.5
-  minY: -3.5
-  maxY: 25
+  maxX: 320
+  minY: -11
+  maxY: 40
   yOffset: 8
 --- !u!4 &1087449526
 Transform:
@@ -1511,7 +1511,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1087449524}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.3, y: 0.3, z: 0}
+  m_LocalPosition: {x: 157, y: -11.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 519420032}
