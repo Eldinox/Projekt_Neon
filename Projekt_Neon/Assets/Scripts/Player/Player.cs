@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
@@ -48,6 +49,7 @@ public class Player : MonoBehaviour
     private float comboTime;
     private int combo1;
     private int combo2;
+    private int form; //0=normal, 1=strong, 2=ranged
     
     private Rigidbody2D rb;
     private Animator statusAnim;
@@ -152,6 +154,42 @@ public class Player : MonoBehaviour
                     }
                 }
             }
+            if(Input.GetKeyDown(KeyCode.Q))
+            {
+                if(form == 0)
+                {
+                    form = 2;
+                    GameObject.Find("FormDisplay").GetComponent<TextMeshProUGUI>().text = "Ranged";
+                }
+                else if(form == 1)
+                {
+                    form = 0;
+                    GameObject.Find("FormDisplay").GetComponent<TextMeshProUGUI>().text = "Normal";
+                }
+                else if(form == 2)
+                {
+                    form = 1;
+                    GameObject.Find("FormDisplay").GetComponent<TextMeshProUGUI>().text = "Strong";
+                }
+            }
+            if(Input.GetKeyDown(KeyCode.E))
+            {
+                if(form == 1)
+                {
+                    form = 2;
+                    GameObject.Find("FormDisplay").GetComponent<TextMeshProUGUI>().text = "Ranged";
+                }
+                else if(form == 2)
+                {
+                    form = 0;
+                    GameObject.Find("FormDisplay").GetComponent<TextMeshProUGUI>().text = "Normal";
+                }
+                else if(form == 0)
+                {
+                    form = 1;
+                    GameObject.Find("FormDisplay").GetComponent<TextMeshProUGUI>().text = "Strong";
+                }
+            }
             if(Input.GetKeyDown(KeyCode.Tab))
             {
                 statusAnim = GameObject.Find("PlayerStatus").GetComponent<Animator>();;
@@ -167,7 +205,18 @@ public class Player : MonoBehaviour
             }
             if(Input.GetKey(KeyCode.F) && Time.time >= fireballCooldown)
             {
-                Instantiate(fireball, shotPoint.transform.position, shotPoint.transform.rotation);
+                if(form == 0) //Heal
+                {
+                    TakeDamage(-10);
+                }
+                else if(form == 1)
+                {
+
+                }
+                else if(form == 2)
+                {
+                    Instantiate(fireball, shotPoint.transform.position, shotPoint.transform.rotation);
+                }
                 fireballCooldown = Time.time + fireballCooldownTime;
                 GameObject.Find("FireballIconCD").GetComponent<CooldownDisplay>().StartCD(fireballCooldownTime);
             }
@@ -256,14 +305,18 @@ public class Player : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
-        GameObject.Find("HealthBar").GetComponent<HealthBar>().UpdateHealth(health);
-
+        
         if(health < 1)
         {
             dead = true;
             this.gameObject.SetActive(false);
             GameObject.Find("DeathScreen").GetComponent<Animator>().SetTrigger("death");
         }
+        else if(health > 100)
+        {
+            health = 100;
+        }
+        GameObject.Find("HealthBar").GetComponent<HealthBar>().UpdateHealth(health);
     }
 
     public void UpdateCoins(int number)
@@ -330,31 +383,30 @@ public class Player : MonoBehaviour
         if(comboNumber < 3)comboNumber++;
         else comboNumber = 1;
 
-        for(int i = 0; i < 3; i++)
+        /* for(int i = 0; i < 3; i++)
         {
-            //transform.position = Vector2.Lerp(transform.position, new Vector2(transform.position.x + direction, transform.position.y), dashSpeed);
-        }
+            transform.position = Vector2.Lerp(transform.position, new Vector2(transform.position.x + direction, transform.position.y), dashSpeed);
+        }*/
 
         Animator anim = this.GetComponent<Animator>();
-        if(comboNumber == 3)
+
+        if(form == 0)
         {
-            if(combo1 == 1 && combo2 == 1)
+            if(comboNumber == 3)
             {
-                anim.SetTrigger("T1_LightAttack3");
+                if(combo1 == 1 && combo2 == 1) anim.SetTrigger("T1_LightAttack3");
+                else anim.SetTrigger("T1_LightAttack");
+                combo1 = 0;
+                combo2 = 0;
             }
             else
             {
+                if(comboNumber == 1) combo1 = 1;
+                else if(comboNumber == 2) combo2 = 1;
                 anim.SetTrigger("T1_LightAttack");
             }
-            combo1 = 0;
-            combo2 = 0;
         }
-        else
-        {
-            if(comboNumber == 1) combo1 = 1;
-            else if(comboNumber == 2) combo2 = 1;
-            anim.SetTrigger("T1_LightAttack");
-        }
+        
         Debug.Log(comboNumber);
         yield return null;
     }
@@ -364,31 +416,25 @@ public class Player : MonoBehaviour
         if(comboNumber < 3)comboNumber++;
         else comboNumber = 1;
 
-        for(int i = 0; i < 3; i++)
-        {
-            //transform.position = Vector2.Lerp(transform.position, new Vector2(transform.position.x + direction, transform.position.y), dashSpeed);
-        }
-
         Animator anim = this.GetComponent<Animator>();
-        if(comboNumber == 3)
+
+        if(form == 0)
         {
-            if(combo1 == 1 && combo2 == 1)
+            if(comboNumber == 3)
             {
-                anim.SetTrigger("T1_HeavyAttack_weit");
+                if(combo1 == 1 && combo2 == 1) anim.SetTrigger("T1_HeavyAttack_weit");
+                else anim.SetTrigger("T1_HeavyAttack");
+                combo1 = 0;
+                combo2 = 0;
             }
             else
             {
+                if(comboNumber == 1) combo1 = 2;
+                else if(comboNumber == 2) combo2 = 2;
                 anim.SetTrigger("T1_HeavyAttack");
             }
-            combo1 = 0;
-            combo2 = 0;
         }
-        else
-        {
-            if(comboNumber == 1) combo1 = 2;
-            else if(comboNumber == 2) combo2 = 2;
-            anim.SetTrigger("T1_HeavyAttack");
-        }
+        
         Debug.Log(comboNumber);
         yield return null;
     }

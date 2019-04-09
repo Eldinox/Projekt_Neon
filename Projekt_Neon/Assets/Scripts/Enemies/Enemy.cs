@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Enemy : MonoBehaviour
 {
@@ -37,9 +38,13 @@ public class Enemy : MonoBehaviour
     {
     	health -= damageAmount;
 
+        GameObject.Find("DamageDisplay").GetComponent<TextMeshProUGUI>().text = damageAmount.ToString();
+        Invoke("Displaytime", 0.3f);
+
     	if(health <= 0)
     	{
-    		Destroy(this.gameObject);
+    		//GameObject.Find("DamageDisplay").GetComponent<TextMeshProUGUI>().text = "";
+            Invoke("Death", 0.3f);
     	}
     }
 
@@ -49,5 +54,15 @@ public class Enemy : MonoBehaviour
         Vector3 Scaler = transform.localScale;
         Scaler.x *= -1;
         transform.localScale = Scaler;
+    }
+
+    private void Displaytime()
+    {
+        GameObject.Find("DamageDisplay").GetComponent<TextMeshProUGUI>().text = "";
+    }
+
+    private void Death()
+    {
+        Destroy(this.gameObject);
     }
 }

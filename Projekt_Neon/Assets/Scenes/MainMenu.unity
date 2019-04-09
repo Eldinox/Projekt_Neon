@@ -355,6 +355,11 @@ MonoBehaviour:
     state: 2
     show: 0
     deleteQuestion: 0
+  - s: "Player Animation\nJump -> Attack fehlt noch. Attack wird erst nach dem Landen
+      ausgef\xFChrt"
+    state: 2
+    show: 0
+    deleteQuestion: 0
   - s: 'Rusher Cooldown
 
       Was macht Rusher, wenn sein Angriff auf Cooldown,
