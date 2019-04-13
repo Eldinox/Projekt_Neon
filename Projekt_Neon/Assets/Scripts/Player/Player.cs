@@ -211,7 +211,7 @@ public class Player : MonoBehaviour
                 }
                 else if(form == 1)
                 {
-
+                    anim.SetTrigger("T2_SpecialAttack");
                 }
                 else if(form == 2)
                 {
@@ -395,6 +395,7 @@ public class Player : MonoBehaviour
             if(comboNumber == 3)
             {
                 if(combo1 == 1 && combo2 == 1) anim.SetTrigger("T1_LightAttack3");
+                else if(combo1 == 2 && combo2 == 2) anim.SetTrigger("T1_BigAttack3");
                 else anim.SetTrigger("T1_LightAttack");
                 combo1 = 0;
                 combo2 = 0;
@@ -404,6 +405,38 @@ public class Player : MonoBehaviour
                 if(comboNumber == 1) combo1 = 1;
                 else if(comboNumber == 2) combo2 = 1;
                 anim.SetTrigger("T1_LightAttack");
+            }
+        }
+        else if(form == 1)
+        {
+            if(comboNumber == 3)
+            {
+                if(combo1 == 2 && combo2 == 2) anim.SetTrigger("T2_PowerWave");
+                else anim.SetTrigger("T2_LightAttack");
+                combo1 = 0;
+                combo2 = 0;
+            }
+            else
+            {
+                if(comboNumber == 1) combo1 = 1;
+                else if(comboNumber == 2) combo2 = 1;
+                anim.SetTrigger("T2_LightAttack");
+            }
+        }
+        else if(form == 2)
+        {
+            if(comboNumber == 3)
+            {
+                //if(combo1 == 2 && combo2 == 2) anim.SetTrigger("T2_PowerWave");
+                //else anim.SetTrigger("T2_LightAttack");
+                combo1 = 0;
+                combo2 = 0;
+            }
+            else
+            {
+                if(comboNumber == 1) combo1 = 1;
+                else if(comboNumber == 2) combo2 = 1;
+                //anim.SetTrigger("T2_LightAttack");
             }
         }
         
@@ -432,6 +465,40 @@ public class Player : MonoBehaviour
                 if(comboNumber == 1) combo1 = 2;
                 else if(comboNumber == 2) combo2 = 2;
                 anim.SetTrigger("T1_HeavyAttack");
+            }
+        }
+        else if(form == 1)
+        {
+            if(comboNumber == 3)
+            {
+                if(combo1 == 2 && combo2 == 2) anim.SetTrigger("T2_HeavyAttack3");
+                else if(combo1 == 1 && combo2 == 1) anim.SetTrigger("T2_OverheadAttack");
+                else anim.SetTrigger("T2_HeavyAttack");
+                combo1 = 0;
+                combo2 = 0;
+            }
+            else
+            {
+                if(comboNumber == 1) combo1 = 2;
+                else if(comboNumber == 2) combo2 = 2;
+                anim.SetTrigger("T2_HeavyAttack");
+            }
+        }
+        else if(form == 2)
+        {
+            if(comboNumber == 3)
+            {
+                if(combo1 == 2 && combo2 == 2) anim.SetTrigger("T3_HeavyAttack3");
+                //else if(combo1 == 1 && combo2 == 1) anim.SetTrigger("T2_OverheadAttack");
+                //else anim.SetTrigger("T2_HeavyAttack");
+                combo1 = 0;
+                combo2 = 0;
+            }
+            else
+            {
+                if(comboNumber == 1) combo1 = 2;
+                else if(comboNumber == 2) combo2 = 2;
+                //anim.SetTrigger("T2_HeavyAttack");
             }
         }
         
