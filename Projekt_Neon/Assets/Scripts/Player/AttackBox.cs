@@ -10,8 +10,17 @@ public class AttackBox : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Enemy"))
         {
-            collision.GetComponent<Enemy>().TakeDamage(damage);
+            //Verschiedene Angriffe für verschiedene Effekte
+            if(GameObject.Find("Player").GetComponent<Player>().attackState == "Powerwave")
+            {
+                collision.GetComponent<Enemy>().Stun(5);
+            }
+            else
+            {
+                collision.GetComponent<Enemy>().TakeDamage(damage);
+            }
         }
         //Unterschiedlicher Schaden für verschiedene Feinde würde hier hin kommen
+        //.CompareTag("Rusher")) -> damage x2;
     }
 }

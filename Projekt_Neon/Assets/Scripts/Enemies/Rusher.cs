@@ -29,7 +29,7 @@ public class Rusher : Enemy
     // Update is called once per frame
     void Update()
     {
-        if(player != null && Vector2.Distance(transform.position, player.position) < activateDistance)
+        if(player != null && Vector2.Distance(transform.position, player.position) < activateDistance && stunned == false)
         {
             if(facingRight == false && attacking == false && player.transform.position.x > transform.position.x)
             {

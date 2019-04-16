@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
     public float attackCooldown;
     public float activateDistance;
     public float spottingRange;
-    
+    public bool stunned;
     
     [HideInInspector]
     public Transform player;
@@ -46,6 +46,29 @@ public class Enemy : MonoBehaviour
     		//GameObject.Find("DamageDisplay").GetComponent<TextMeshProUGUI>().text = "";
             Invoke("Death", 0.3f);
     	}
+    }
+
+    public void KnockDown(float duration)
+    {
+        stunned = true;
+        //Hier code für visuellen knockdown
+        GameObject.Find("DamageDisplay").GetComponent<TextMeshProUGUI>().text = "down";
+        Invoke("Displaytime", duration);
+        Invoke("Stuntime", duration);
+    }
+
+    public void Stun(float duration)
+    {
+        stunned = true;
+        //Hier code für visuellen stun
+        GameObject.Find("DamageDisplay").GetComponent<TextMeshProUGUI>().text = "@@@";
+        Invoke("Displaytime", duration);
+        Invoke("Stuntime", duration);
+    }
+
+    private void Stuntime()
+    {
+        stunned = false;
     }
 
     public void Flip()

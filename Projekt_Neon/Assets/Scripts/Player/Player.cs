@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
     public bool inDialogue;
     public int coinAmount;
     public float timeBetweenCombos;
+    public string attackState;
     
     public Transform groundCheck;
     public float checkRadius;
@@ -389,7 +390,7 @@ public class Player : MonoBehaviour
         }*/
 
         Animator anim = this.GetComponent<Animator>();
-
+        attackState = "";
         if(form == 0)
         {
             if(comboNumber == 3)
@@ -411,7 +412,11 @@ public class Player : MonoBehaviour
         {
             if(comboNumber == 3)
             {
-                if(combo1 == 2 && combo2 == 2) anim.SetTrigger("T2_PowerWave");
+                if(combo1 == 2 && combo2 == 2)
+                {
+                    attackState = "Powerwave";
+                    anim.SetTrigger("T2_PowerWave");
+                } 
                 else anim.SetTrigger("T2_LightAttack");
                 combo1 = 0;
                 combo2 = 0;
@@ -450,7 +455,7 @@ public class Player : MonoBehaviour
         else comboNumber = 1;
 
         Animator anim = this.GetComponent<Animator>();
-
+        attackState = "";
         if(form == 0)
         {
             if(comboNumber == 3)
