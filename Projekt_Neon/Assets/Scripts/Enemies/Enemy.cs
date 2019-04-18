@@ -1,31 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
 
 public class Enemy : MonoBehaviour
 {
-    public int health;
+    [Header("Gegner Variablen")]
+    public float startHealth;
     public int damage;
     public float speed;
     public float attackCooldown;
     public float activateDistance;
     public float spottingRange;
-    public bool stunned;
+    
+    public Image healthBar;
     
     [HideInInspector]
     public Transform player;
     [HideInInspector]
     public string state;
 
+    [Header("Gegner Bools")]
     public bool facingRight = false;
     public bool attacking = false;
     public bool chasing = false;
-    
+    public bool stunned = false;
+
+    private float health;
+
     // Start is called before the first frame update
     public virtual void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        health = startHealth;
     }
 
     // Update is called once per frame
@@ -34,9 +42,11 @@ public class Enemy : MonoBehaviour
         //distance = Vector2.Distance(transform.position, player.position);
     }
 
-    public void TakeDamage(int damageAmount)
+    public void TakeDamage(float damageAmount)
     {
     	health -= damageAmount;
+        Debug.Log(health + " / " + startHealth);
+        healthBar.fillAmount = health / startHealth;
 
         GameObject.Find("DamageDisplay").GetComponent<TextMeshProUGUI>().text = damageAmount.ToString();
         Invoke("Displaytime", 0.3f);

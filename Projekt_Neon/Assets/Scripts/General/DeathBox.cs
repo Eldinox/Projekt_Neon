@@ -13,5 +13,9 @@ public class DeathBox : MonoBehaviour
             //Open Menu after death
             GameObject.Find("DeathScreen").GetComponent<Animator>().SetBool("death", true);
     	}
+        else if(collision.tag == "Enemy")
+        {
+            Destroy(collision.gameObject);
+        }
     }
 }
