@@ -27,6 +27,8 @@ public class Enemy : MonoBehaviour
     public bool chasing = false;
     public bool stunned = false;
 
+    private Animator anim ;
+
     private float health;
 
     // Start is called before the first frame update
@@ -34,6 +36,7 @@ public class Enemy : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         health = startHealth;
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -44,10 +47,11 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(float damageAmount)
     {
+        
     	health -= damageAmount;
-        Debug.Log(health + " / " + startHealth);
+        //Debug.Log(health + " / " + startHealth);
         healthBar.fillAmount = health / startHealth;
-
+        anim.SetTrigger("getHit");
         GameObject.Find("DamageDisplay").GetComponent<TextMeshProUGUI>().text = damageAmount.ToString();
         Invoke("Displaytime", 0.3f);
 
