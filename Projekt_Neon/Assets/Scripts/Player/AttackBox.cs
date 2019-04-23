@@ -15,6 +15,11 @@ public class AttackBox : MonoBehaviour
             {
                 collision.GetComponent<Enemy>().Stun(5);
             }
+            else if(GameObject.Find("Player").GetComponent<Player>().attackState == "Uppercut")
+            {
+                collision.GetComponent<Enemy>().Stun(5);
+                //collision.
+            }
             else
             {
                 collision.GetComponent<Enemy>().TakeDamage(damage);
