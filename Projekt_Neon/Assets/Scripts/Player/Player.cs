@@ -25,6 +25,8 @@ public class Player : MonoBehaviour
     public int coinAmount;
     public float timeBetweenCombos;
     public string attackState;
+    public bool aircombat;
+    public bool isGrounded;
     
     public Transform groundCheck;
     public float checkRadius;
@@ -38,7 +40,6 @@ public class Player : MonoBehaviour
     
     private float moveInput;
     private bool facingRight = true;
-    private bool isGrounded;
     private bool isJumping;
     private bool enteredLeft = true;
     private int extraJumps;
@@ -432,7 +433,11 @@ public class Player : MonoBehaviour
         {
             if(comboNumber == 3)
             {
-                if(combo1 == 2 && combo2 == 2) anim.SetTrigger("T3_Groundslam");
+                if(combo1 == 2 && combo2 == 2)
+                {
+                    attackState = "Groundslam";
+                    anim.SetTrigger("T3_Groundslam");
+                } 
                 else anim.SetTrigger("T3_LightAttack");
                 combo1 = 0;
                 combo2 = 0;
@@ -508,6 +513,7 @@ public class Player : MonoBehaviour
                 if(comboNumber == 1) combo1 = 2;
                 else if(comboNumber == 2) combo2 = 2;
                 anim.SetTrigger("T3_HeavyAttack");
+                attackState = "T3Attack";
             }
         }
         
