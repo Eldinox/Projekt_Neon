@@ -56,7 +56,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;
     private Animator statusAnim;
     private bool[] coins;
-
+    private GameObject gm;
     private Animator anim;
     void Awake()
     {
@@ -78,6 +78,7 @@ public class Player : MonoBehaviour
         dashTime = startDashTime;
         SceneManager.activeSceneChanged += ChangedActiveScene;
         anim = GetComponent<Animator>();
+        gm = GameObject.Find("GameManager");
     }
 
     private void ChangedActiveScene(Scene current, Scene next)
@@ -306,8 +307,18 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        var gmGetScript = gm.GetComponent<FeedbackDisplay>();
         health -= damage;
-        anim.SetTrigger("getHitBob");
+        if(gmGetScript.getHitAnimation)
+        {
+            anim.SetTrigger("getHitBob");
+        }
+        if(gmGetScript.getHitColoring)
+        {
+            anim.SetTrigger("bobColorChange");
+
+        }
+        
         if(health < 1)
         {
             dead = true;
