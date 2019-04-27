@@ -61,7 +61,9 @@ public class Enemy : MonoBehaviour
         {
             anim.SetTrigger("changeColor");
         }
-
+       
+        
+        GameObject.Find("HitSparksBlau1").GetComponent<SpriteRenderer>().enabled = false;
         
         GameObject.Find("DamageDisplay").GetComponent<TextMeshProUGUI>().text = damageAmount.ToString();
         Invoke("Displaytime", 0.3f);
