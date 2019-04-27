@@ -28,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4669641391270143755}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 170, y: 20.6, z: 0}
-  m_LocalScale: {x: 300, y: 350, z: 1}
+  m_LocalPosition: {x: 170.879, y: 21.839, z: 0}
+  m_LocalScale: {x: 475.8, y: 597.8, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -141,17 +141,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec40a4de0919f7c4a8fa549509ba94fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 30
+  startHealth: 0
   damage: 10
   speed: 10
   attackCooldown: 5
   activateDistance: 2000
   spottingRange: 30
+  healthBar: {fileID: 0}
   player: {fileID: 0}
   state: 
   facingRight: 0
   attacking: 0
   chasing: 0
+  stunned: 0
   stopDistance: 20
   knockbackForce: 0
   patrolSpots: []
