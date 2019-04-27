@@ -6212,7 +6212,7 @@ PrefabInstance:
     - target: {fileID: 5940187324613316485, guid: 416d42989f2447a43a65805bfac09a5c,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.35998535
+      value: -0.36010742
       objectReference: {fileID: 0}
     - target: {fileID: 8386462507246631445, guid: 416d42989f2447a43a65805bfac09a5c,
         type: 3}
@@ -8522,7 +8522,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2073968667}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 72b54b6b3c472ea45b6edc7d808f90c2, type: 2}
   m_CullingMode: 0
