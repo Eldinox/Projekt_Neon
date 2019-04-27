@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6937830448007329258}
   - component: {fileID: 6937830448007329256}
   - component: {fileID: 8774882430567401104}
+  - component: {fileID: 2714994019548233445}
   m_Layer: 10
   m_Name: Rusher
   m_TagString: Enemy
@@ -99,7 +100,7 @@ MonoBehaviour:
   damage: 20
   speed: 7
   attackCooldown: 5
-  activateDistance: 50
+  activateDistance: 250
   spottingRange: 20
   healthBar: {fileID: 6785080537607213834}
   player: {fileID: 0}
@@ -166,6 +167,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 18.645195, y: 22.84713}
   m_EdgeRadius: 0
+--- !u!95 &2714994019548233445
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6937830448007329255}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 383ad55aa04f2464e9ecfcf09cd97187, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1009988807
 PrefabInstance:
   m_ObjectHideFlags: 0

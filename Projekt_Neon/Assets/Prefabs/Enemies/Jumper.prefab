@@ -158,7 +158,7 @@ MonoBehaviour:
   startHealth: 0
   damage: 25
   speed: 8
-  attackCooldown: 6
+  attackCooldown: 3
   activateDistance: 50
   spottingRange: 0
   healthBar: {fileID: 0}
