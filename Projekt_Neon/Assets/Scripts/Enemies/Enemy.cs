@@ -26,6 +26,7 @@ public class Enemy : MonoBehaviour
     public bool attacking = false;
     public bool chasing = false;
     public bool stunned = false;
+    private GameObject gm;
 
     private Animator anim ;
 
@@ -35,6 +36,7 @@ public class Enemy : MonoBehaviour
     public virtual void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        gm = GameObject.Find("GameManager");
         health = startHealth;
         anim = GetComponent<Animator>();
     }
@@ -47,11 +49,20 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(float damageAmount)
     {
-        
+        var gmGetScript = gm.GetComponent<FeedbackDisplay>();
     	health -= damageAmount;
         //Debug.Log(health + " / " + startHealth);
         healthBar.fillAmount = health / startHealth;
-        anim.SetTrigger("getHit");
+        if (gmGetScript.getHitAnimation)
+        {
+            anim.SetTrigger("getHit");
+        }
+        if (gmGetScript.getHitColoring)
+        {
+            anim.SetTrigger("changeColor");
+        }
+
+        
         GameObject.Find("DamageDisplay").GetComponent<TextMeshProUGUI>().text = damageAmount.ToString();
         Invoke("Displaytime", 0.3f);
 
@@ -60,6 +71,7 @@ public class Enemy : MonoBehaviour
     		//GameObject.Find("DamageDisplay").GetComponent<TextMeshProUGUI>().text = "";
             Invoke("Death", 0.3f);
     	}
+        
     }
 
     public void KnockDown(float duration)
