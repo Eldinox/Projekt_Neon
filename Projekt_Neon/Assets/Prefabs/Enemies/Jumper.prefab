@@ -30,7 +30,7 @@ RectTransform:
   m_GameObject: {fileID: 4615742530930035699}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 150, y: 200, z: 1}
+  m_LocalScale: {x: 258.87, y: 345.16, z: 1.7258}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -155,16 +155,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a92a192124fd2cb4cb57ecd941fc9c36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  startHealth: 0
   damage: 25
   speed: 8
   attackCooldown: 6
   activateDistance: 50
   spottingRange: 0
+  healthBar: {fileID: 0}
   player: {fileID: 0}
   state: 
   facingRight: 0
   attacking: 0
   chasing: 0
+  stunned: 0
   stopDistance: 10
   jumpForce: 35
