@@ -306,7 +306,7 @@ public class Player : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
-        
+        anim.SetTrigger("getHitBob");
         if(health < 1)
         {
             dead = true;
