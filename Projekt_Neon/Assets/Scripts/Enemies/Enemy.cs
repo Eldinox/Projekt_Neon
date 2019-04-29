@@ -13,8 +13,8 @@ public class Enemy : MonoBehaviour
     public float attackCooldown;
     public float activateDistance;
     public float spottingRange;
-    
-    public Image healthBar;
+    public GameObject enemyCanvas;
+    public Image healthBarImage;
     
     [HideInInspector]
     public Transform player;
@@ -26,6 +26,7 @@ public class Enemy : MonoBehaviour
     public bool attacking = false;
     public bool chasing = false;
     public bool stunned = false;
+
     private GameObject gm;
 
     private Animator anim ;
@@ -51,13 +52,15 @@ public class Enemy : MonoBehaviour
     {
         var gmGetScript = gm.GetComponent<FeedbackDisplay>();
     	health -= damageAmount;
-        //Debug.Log(health + " / " + startHealth);
-        healthBar.fillAmount = health / startHealth;
-        if (gmGetScript.getHitAnimation)
+        if(gmGetScript.healthBars)
+        {
+            healthBarImage.fillAmount = health / startHealth;
+        }
+        if(gmGetScript.getHitAnimation)
         {
             anim.SetTrigger("getHit");
         }
-        if (gmGetScript.getHitColoring)
+        if(gmGetScript.getHitColoring)
         {
             anim.SetTrigger("changeColor");
         }
@@ -65,7 +68,7 @@ public class Enemy : MonoBehaviour
         
         GameObject.Find("HitSparksBlau1").GetComponent<SpriteRenderer>().enabled = false;
         
-        GameObject.Find("DamageDisplay").GetComponent<TextMeshProUGUI>().text = damageAmount.ToString();
+        if(gmGetScript.damageNumberDisplay)enemyCanvas.GetComponentInChildren<TextMeshProUGUI>().text = damageAmount.ToString();
         Invoke("Displaytime", 0.3f);
 
     	if(health <= 0)
@@ -80,7 +83,8 @@ public class Enemy : MonoBehaviour
     {
         stunned = true;
         //Hier code für visuellen knockdown
-        GameObject.Find("DamageDisplay").GetComponent<TextMeshProUGUI>().text = "down";
+        var gmGetScript = gm.GetComponent<FeedbackDisplay>();
+        if(gmGetScript.damageNumberDisplay)enemyCanvas.GetComponentInChildren<TextMeshProUGUI>().text = "down";
         Invoke("Displaytime", duration);
         Invoke("Stuntime", duration);
     }
@@ -89,7 +93,8 @@ public class Enemy : MonoBehaviour
     {
         stunned = true;
         //Hier code für visuellen stun
-        GameObject.Find("DamageDisplay").GetComponent<TextMeshProUGUI>().text = "@@@";
+        var gmGetScript = gm.GetComponent<FeedbackDisplay>();
+        if(gmGetScript.damageNumberDisplay)enemyCanvas.GetComponentInChildren<TextMeshProUGUI>().text = "@@@";
         Invoke("Displaytime", duration);
         Invoke("Stuntime", duration);
     }
@@ -105,11 +110,14 @@ public class Enemy : MonoBehaviour
         Vector3 Scaler = transform.localScale;
         Scaler.x *= -1;
         transform.localScale = Scaler;
+        if(facingRight)enemyCanvas.transform.rotation = Quaternion.Euler(0, 180, 0);
+        else enemyCanvas.transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 
     private void Displaytime()
     {
-        GameObject.Find("DamageDisplay").GetComponent<TextMeshProUGUI>().text = "";
+        var gmGetScript = gm.GetComponent<FeedbackDisplay>();
+        if(gmGetScript.damageNumberDisplay)enemyCanvas.GetComponentInChildren<TextMeshProUGUI>().text = "";
     }
 
     private void Death()

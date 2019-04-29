@@ -5,7 +5,7 @@ public class CameraFollow : MonoBehaviour
     public Transform playerTarget;
     public float smoothSpeed = 2f;
     public float offsetValue = 10f;
-    public Vector3 offset = new Vector3(0,0,-1);
+    public Vector3 offset = new Vector3(0, 7, -1);
     
     void Start()
     {
@@ -18,9 +18,9 @@ public class CameraFollow : MonoBehaviour
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
         transform.position = smoothedPosition;
 
-        if(Input.GetKey(KeyCode.Keypad8))offset.y = offsetValue;
-        else if(Input.GetKey(KeyCode.Keypad2))offset.y = -offsetValue;
-        else offset.y = 0;
+        if(Input.GetKey(KeyCode.Keypad8))offset.y = offsetValue + offsetValue/2;
+        else if(Input.GetKey(KeyCode.Keypad2))offset.y = -offsetValue + offsetValue/2;
+        else offset.y = 7;
         if(Input.GetKey(KeyCode.Keypad6))offset.x = offsetValue;
         else if(Input.GetKey(KeyCode.Keypad4))offset.x = -offsetValue;
         else offset.x = 0;
