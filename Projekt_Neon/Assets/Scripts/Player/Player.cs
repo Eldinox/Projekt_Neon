@@ -383,7 +383,7 @@ public class Player : MonoBehaviour
             GetComponent<CapsuleCollider2D>().enabled = false;
             for(int i = 0; i < 10; i++)
             {
-                transform.position = Vector2.Lerp(transform.position, new Vector2(transform.position.x + direction, transform.position.y), dashSpeed);
+                transform.position = Vector2.Lerp(transform.position, new Vector2(transform.position.x + direction, transform.position.y + 0.1f), dashSpeed);
 
                 yield return null;
             }
