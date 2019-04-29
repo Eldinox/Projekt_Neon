@@ -59,7 +59,7 @@ Transform:
   m_GameObject: {fileID: 5736979133748935298}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 98.92, y: -65.09, z: -0.046680577}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.3}
   m_Children:
   - {fileID: 2246851746509722804}
   - {fileID: 5796411144301326275}
@@ -132,7 +132,8 @@ MonoBehaviour:
   attackCooldown: 5
   activateDistance: 0
   spottingRange: 0
-  healthBar: {fileID: 6785080538381602857}
+  enemyCanvas: {fileID: 1064493212662583436}
+  healthBarImage: {fileID: 6785080538381602857}
   player: {fileID: 0}
   state: 
   facingRight: 0
@@ -319,6 +320,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d45256ee7146f27438c152c176607136, type: 3}
+--- !u!1 &1064493212662583436 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1064493212359075688, guid: d45256ee7146f27438c152c176607136,
+    type: 3}
+  m_PrefabInstance: {fileID: 317421540}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &5796411144301326275 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5796411144077400103, guid: d45256ee7146f27438c152c176607136,
