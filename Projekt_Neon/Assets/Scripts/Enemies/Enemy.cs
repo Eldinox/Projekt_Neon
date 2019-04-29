@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour
     private GameObject gm;
 
     private Animator anim ;
-
+    private SpriteRenderer hitSparks ;
     private float health;
 
     // Start is called before the first frame update
@@ -40,6 +40,7 @@ public class Enemy : MonoBehaviour
         gm = GameObject.Find("GameManager");
         health = startHealth;
         anim = GetComponent<Animator>();
+        hitSparks = GameObject.Find("HitSparksBlau1").GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -64,9 +65,12 @@ public class Enemy : MonoBehaviour
         {
             anim.SetTrigger("changeColor");
         }
-       
-        
-        GameObject.Find("HitSparksBlau1").GetComponent<SpriteRenderer>().enabled = false;
+         if(gmGetScript.hitSparks)
+        {
+           Invoke("showHitSparks",0.2f);
+        }
+
+    
         
         if(gmGetScript.damageNumberDisplay)enemyCanvas.GetComponentInChildren<TextMeshProUGUI>().text = damageAmount.ToString();
         Invoke("Displaytime", 0.3f);
@@ -118,7 +122,14 @@ public class Enemy : MonoBehaviour
         var gmGetScript = gm.GetComponent<FeedbackDisplay>();
         if(gmGetScript.damageNumberDisplay)enemyCanvas.GetComponentInChildren<TextMeshProUGUI>().text = "";
     }
+    private IEnumerator showHitSparks()
+    {
+            hitSparks.enabled = true;
+            yield return new WaitForSeconds(.2f);
+            hitSparks.enabled = false;
+            yield return null;
 
+    }
     private void Death()
     {
         Destroy(this.gameObject);

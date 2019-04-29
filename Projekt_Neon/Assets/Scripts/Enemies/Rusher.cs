@@ -17,6 +17,8 @@ public class Rusher : Enemy
     private int randomSpot;
     private float waitTime;
 
+    private SpriteRenderer hitSparks;
+
     public override void Start()
     {
         base.Start();
@@ -24,6 +26,7 @@ public class Rusher : Enemy
         Physics2D.queriesStartInColliders = false;
         randomSpot = Random.Range(0, patrolSpots.Length);
         waitTime = startWaitTime;
+        hitSparks = GameObject.Find("HitSparksBlau1").GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -104,16 +107,21 @@ public class Rusher : Enemy
         chasing = false;
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    private IEnumerator OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.CompareTag("Player"))
         {
             Vector2 difference = new Vector2(transform.position.x, transform.position.y) - new Vector2(collision.transform.position.x, collision.transform.position.y);
             difference = difference.normalized * knockbackForce;
             rb.AddForce(difference, ForceMode2D.Impulse);
-            
+            Debug.Log("rusherhit");
             player.GetComponent<Player>().TakeDamage(damage);
+            hitSparks.enabled = true;
+            yield return new WaitForSeconds(.2f);
+            hitSparks.enabled = false;
+            yield return null;
             //player.GetComponent<Player>().Knockback(transform.position);
         }
     }
+
 }
