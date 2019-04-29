@@ -4620,7 +4620,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3122662200989592341
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5040,6 +5040,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 540560885}
     m_Modifications:
+    - target: {fileID: 3490388503540693761, guid: b25323b9d2e770b42bf8ff626e82bd64,
+        type: 3}
+      propertyPath: m_Name
+      value: InventorySlot4
+      objectReference: {fileID: 0}
     - target: {fileID: 8666665675018504393, guid: b25323b9d2e770b42bf8ff626e82bd64,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5145,11 +5150,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 3490388503540693761, guid: b25323b9d2e770b42bf8ff626e82bd64,
-        type: 3}
-      propertyPath: m_Name
-      value: InventorySlot4
-      objectReference: {fileID: 0}
     - target: {fileID: 8509207225346977052, guid: b25323b9d2e770b42bf8ff626e82bd64,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -5175,6 +5175,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 540560885}
     m_Modifications:
+    - target: {fileID: 8511022647606653254, guid: 49922ee664fdaef4eb9df6bf26894296,
+        type: 3}
+      propertyPath: m_Name
+      value: InventorySlot1
+      objectReference: {fileID: 0}
     - target: {fileID: 8206512205158292916, guid: 49922ee664fdaef4eb9df6bf26894296,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5280,11 +5285,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 8511022647606653254, guid: 49922ee664fdaef4eb9df6bf26894296,
-        type: 3}
-      propertyPath: m_Name
-      value: InventorySlot1
-      objectReference: {fileID: 0}
     - target: {fileID: 8759015575170619512, guid: 49922ee664fdaef4eb9df6bf26894296,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -5310,6 +5310,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 540560885}
     m_Modifications:
+    - target: {fileID: 7923813607366039708, guid: b5a14faf1a78b284bad043fde5c681dc,
+        type: 3}
+      propertyPath: m_Name
+      value: InventorySlot0
+      objectReference: {fileID: 0}
     - target: {fileID: 7923813607366039699, guid: b5a14faf1a78b284bad043fde5c681dc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5415,11 +5420,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 7923813607366039708, guid: b5a14faf1a78b284bad043fde5c681dc,
-        type: 3}
-      propertyPath: m_Name
-      value: InventorySlot0
-      objectReference: {fileID: 0}
     - target: {fileID: 7923813607499763645, guid: b5a14faf1a78b284bad043fde5c681dc,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -5445,6 +5445,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 540560885}
     m_Modifications:
+    - target: {fileID: 3531479749208888921, guid: 930147d38f2332c47b5ec38630c6fcaa,
+        type: 3}
+      propertyPath: m_Name
+      value: InventorySlot5
+      objectReference: {fileID: 0}
     - target: {fileID: 7029641409898449019, guid: 930147d38f2332c47b5ec38630c6fcaa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5549,11 +5554,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3531479749208888921, guid: 930147d38f2332c47b5ec38630c6fcaa,
-        type: 3}
-      propertyPath: m_Name
-      value: InventorySlot5
       objectReference: {fileID: 0}
     - target: {fileID: 834471615854844488, guid: 930147d38f2332c47b5ec38630c6fcaa,
         type: 3}

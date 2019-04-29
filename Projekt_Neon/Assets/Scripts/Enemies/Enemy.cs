@@ -73,8 +73,7 @@ public class Enemy : MonoBehaviour
 
     	if(health <= 0)
     	{
-    		//GameObject.Find("DamageDisplay").GetComponent<TextMeshProUGUI>().text = "";
-            Invoke("Death", 0.3f);
+    		Invoke("Death", 0.3f);
     	}
         
     }
