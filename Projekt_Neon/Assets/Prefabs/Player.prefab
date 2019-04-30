@@ -438,6 +438,7 @@ MonoBehaviour:
   daggerPos2: {fileID: 1630042971452816230}
   bobNormalform: {fileID: 0}
   facingRight: 1
+  sprites: []
 --- !u!70 &1646070080263158026
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1783,12 +1784,12 @@ PrefabInstance:
     - target: {fileID: 6198011393383172398, guid: 2634aa9d5a3917249b940ca9210b6d59,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.004852
+      value: -0.46
       objectReference: {fileID: 0}
     - target: {fileID: 6198011393383172398, guid: 2634aa9d5a3917249b940ca9210b6d59,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.9037547
+      value: 0.34
       objectReference: {fileID: 0}
     - target: {fileID: 6198011393383172398, guid: 2634aa9d5a3917249b940ca9210b6d59,
         type: 3}
@@ -1833,6 +1834,16 @@ PrefabInstance:
     - target: {fileID: 6198011393383172398, guid: 2634aa9d5a3917249b940ca9210b6d59,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2161847505965329258, guid: 2634aa9d5a3917249b940ca9210b6d59,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2161847505965329258, guid: 2634aa9d5a3917249b940ca9210b6d59,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
