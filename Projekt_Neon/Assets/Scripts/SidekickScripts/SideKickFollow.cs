@@ -37,6 +37,7 @@ public class SideKickFollow : MonoBehaviour
 
         if (Vector2.Distance(transform.position, Player.transform.position)> distanceToPlayer)
         {
+            
             //anim.enabled = !anim.enabled;
             transform.position = Vector2.MoveTowards(transform.position, Player.transform.position+ new Vector3(X,Y, 0), speed * Time.deltaTime);
            // Debug.Log(Player.transform.position);
