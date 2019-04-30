@@ -60,6 +60,13 @@ public class Player : MonoBehaviour
     private bool[] coins;
     private GameObject gm;
     private Animator anim;
+    private GameObject hitSparksBob;
+    private string spriteNames = "HitSparksRed";
+    public Sprite[] sprites ;
+    private SpriteRenderer hitSparksR ;
+    
+
+    
     void Awake()
     {
         GameObject[] objs = GameObject.FindGameObjectsWithTag("Player");
@@ -81,6 +88,9 @@ public class Player : MonoBehaviour
         SceneManager.activeSceneChanged += ChangedActiveScene;
         anim = GetComponent<Animator>();
         gm = GameObject.Find("GameManager");
+        hitSparksBob = this.transform.Find("HitSparksRedBob").gameObject;
+        hitSparksR= hitSparksBob.GetComponent<SpriteRenderer>();
+        sprites = Resources.LoadAll<Sprite>(spriteNames);
     }
 
     private void ChangedActiveScene(Scene current, Scene next)
@@ -332,6 +342,13 @@ public class Player : MonoBehaviour
             anim.SetTrigger("bobColorChange");
 
         }
+        if(gmGetScript.hitSparks)
+        {
+            Debug.Log ("lengthsprtiebob "+sprites.Length);
+           hitSparksR.sprite = sprites[(int)Random.Range(1.0f, 3.0f)];
+           hitSparksR.enabled = true;
+           Invoke("showHitSparks",0.2f);
+        }
         
         if(health < 1)
         {
@@ -344,6 +361,11 @@ public class Player : MonoBehaviour
             health = 100;
         }
         GameObject.Find("HealthBar").GetComponent<HealthBar>().UpdateHealth(health);
+    }
+
+        private void showHitSparks()
+    {
+        hitSparksR.enabled = false;
     }
 
     public void UpdateCoins(int number)
