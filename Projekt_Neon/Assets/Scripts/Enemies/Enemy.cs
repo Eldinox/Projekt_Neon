@@ -34,6 +34,7 @@ public class Enemy : MonoBehaviour
     private float health;
     private string spriteNames = "HitSparksBlue";
     public Sprite[] sprites ;
+    
     // Start is called before the first frame update
     public virtual void Start()
     {

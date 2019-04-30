@@ -59,19 +59,23 @@ public class Projectile : MonoBehaviour
     }
     void DestroyProjectileNaturally()
     {
-    	Destroy(gameObject);
+    	Debug.Log("ibujadsf");
+        
         if(this.gameObject.name == "SpiderProjectile(Clone)")
         {
             Instantiate(drop1, transform.position, Quaternion.identity);
             Instantiate(drop2, transform.position, Quaternion.identity);
             Instantiate(drop3, transform.position, Quaternion.identity);
         }
+        
+        Destroy(gameObject);
     	//Instantiate(explosion, transform.position, Quaternion.identity);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-    	if(collision.tag == "Ground")DestroyProjectile();
+    	if(this.gameObject.name == "SpiderProjectile(Clone)" && collision.tag == "Ground")DestroyProjectileNaturally();
+        else if(collision.tag == "Ground")DestroyProjectile();
         if(this.gameObject.name == "BobFireball(Clone)" && collision.tag == "Enemy")
         {
             collision.GetComponent<Enemy>().TakeDamage(damage);

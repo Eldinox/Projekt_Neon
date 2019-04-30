@@ -37,6 +37,8 @@ public class Player : MonoBehaviour
     public GameObject dagger;
     public GameObject daggerPos1;
     public GameObject daggerPos2;
+
+    public GameObject bobNormalform;
     
     private float moveInput;
     public  bool facingRight = true;
@@ -163,16 +165,22 @@ public class Player : MonoBehaviour
                 {
                     form = 2;
                     GameObject.Find("FormDisplay").GetComponent<TextMeshProUGUI>().text = "Ranged";
+                    GameObject.Find("Bob_Ranger").GetComponent<SpriteRenderer>().enabled = true;
+                    bobNormalform.SetActive(false);
                 }
                 else if(form == 1)
                 {
                     form = 0;
                     GameObject.Find("FormDisplay").GetComponent<TextMeshProUGUI>().text = "Normal";
+                    GameObject.Find("Bob_Damage").GetComponent<SpriteRenderer>().enabled = false;
+                    bobNormalform.SetActive(true);
                 }
                 else if(form == 2)
                 {
                     form = 1;
                     GameObject.Find("FormDisplay").GetComponent<TextMeshProUGUI>().text = "Strong";
+                    GameObject.Find("Bob_Ranger").GetComponent<SpriteRenderer>().enabled = false;
+                    GameObject.Find("Bob_Damage").GetComponent<SpriteRenderer>().enabled = true;
                 }
             }
             if(Input.GetKeyDown(KeyCode.E))
@@ -181,16 +189,22 @@ public class Player : MonoBehaviour
                 {
                     form = 2;
                     GameObject.Find("FormDisplay").GetComponent<TextMeshProUGUI>().text = "Ranged";
+                    GameObject.Find("Bob_Ranger").GetComponent<SpriteRenderer>().enabled = true;
+                    GameObject.Find("Bob_Damage").GetComponent<SpriteRenderer>().enabled = false;
                 }
                 else if(form == 2)
                 {
                     form = 0;
                     GameObject.Find("FormDisplay").GetComponent<TextMeshProUGUI>().text = "Normal";
+                    GameObject.Find("Bob_Ranger").GetComponent<SpriteRenderer>().enabled = false;
+                    bobNormalform.SetActive(true);
                 }
                 else if(form == 0)
                 {
                     form = 1;
                     GameObject.Find("FormDisplay").GetComponent<TextMeshProUGUI>().text = "Strong";
+                    GameObject.Find("Bob_Damage").GetComponent<SpriteRenderer>().enabled = true;
+                    bobNormalform.SetActive(false);
                 }
             }
             if(Input.GetKeyDown(KeyCode.Tab))
