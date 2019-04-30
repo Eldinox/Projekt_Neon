@@ -39,7 +39,7 @@ public class Player : MonoBehaviour
     public GameObject daggerPos2;
     
     private float moveInput;
-    private bool facingRight = true;
+    public  bool facingRight = true;
     private bool isJumping;
     private bool enteredLeft = true;
     private int extraJumps;

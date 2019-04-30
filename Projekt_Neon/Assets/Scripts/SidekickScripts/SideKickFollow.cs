@@ -15,7 +15,8 @@ public class SideKickFollow : MonoBehaviour
     public float Y ;
     public float distanceToPlayer;
     private bool test1;
- 
+    private bool facingRight = false;
+    private SpriteRenderer sideKickSPR;
 
 
 
@@ -23,15 +24,16 @@ public class SideKickFollow : MonoBehaviour
     {
     
         Player = GameObject.Find("Player");
- 
-
+        sideKickSPR = this.transform.Find("Sidekick_2").gameObject.GetComponent<SpriteRenderer>();
+        
 
     }
 
-    // Update is called once per frame
+    // Debug.Log("facingRight"+Update is called once per frame
     void FixedUpdate()
-    {   
-
+    {  
+        var getScriptPlayer = Player.GetComponent<Player>();
+        facingRight = getScriptPlayer.facingRight; 
 
         if (Vector2.Distance(transform.position, Player.transform.position)> distanceToPlayer)
         {
@@ -40,9 +42,19 @@ public class SideKickFollow : MonoBehaviour
            // Debug.Log(Player.transform.position);
         }
 
+         if(facingRight == false )
+            {
+                sideKickSPR.flipX = true;
+            }
+            else if(facingRight == true)
+            {
+                sideKickSPR.flipX = false;
+            }
+
 
 
     }
+
 
 
 }
