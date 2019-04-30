@@ -28,11 +28,12 @@ public class Enemy : MonoBehaviour
     public bool stunned = false;
 
     private GameObject gm;
-
+    private GameObject hitSparks;
     private Animator anim ;
-    private SpriteRenderer hitSparks ;
+    private SpriteRenderer hitSparksR ;
     private float health;
-
+    private string spriteNames = "HitSparksBlue";
+    public Sprite[] sprites ;
     // Start is called before the first frame update
     public virtual void Start()
     {
@@ -40,7 +41,10 @@ public class Enemy : MonoBehaviour
         gm = GameObject.Find("GameManager");
         health = startHealth;
         anim = GetComponent<Animator>();
-        hitSparks = GameObject.Find("HitSparksBlau1").GetComponent<SpriteRenderer>();
+   
+        hitSparks = this.transform.Find("HitSparksBlau1").gameObject;
+        hitSparksR= hitSparks.GetComponent<SpriteRenderer>();
+        sprites = Resources.LoadAll<Sprite>(spriteNames);
     }
 
     // Update is called once per frame
@@ -67,7 +71,11 @@ public class Enemy : MonoBehaviour
         }
          if(gmGetScript.hitSparks)
         {
+           Debug.Log ("lengthsprtie"+sprites.Length);
+           hitSparksR.sprite = sprites[(int)Random.Range(1.0f, 3.0f)];
+           hitSparksR.enabled = true;
            Invoke("showHitSparks",0.2f);
+
         }
 
     
@@ -122,13 +130,9 @@ public class Enemy : MonoBehaviour
         var gmGetScript = gm.GetComponent<FeedbackDisplay>();
         if(gmGetScript.damageNumberDisplay)enemyCanvas.GetComponentInChildren<TextMeshProUGUI>().text = "";
     }
-    private IEnumerator showHitSparks()
+    private void showHitSparks()
     {
-            hitSparks.enabled = true;
-            yield return new WaitForSeconds(.2f);
-            hitSparks.enabled = false;
-            yield return null;
-
+        hitSparksR.enabled = false;
     }
     private void Death()
     {

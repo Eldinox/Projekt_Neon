@@ -380,14 +380,14 @@ public class Player : MonoBehaviour
         if(GameObject.Find("DashBar").GetComponent<DashBar>().CheckDash())
         {
             GameObject.Find("DashBar").GetComponent<DashBar>().UpdateDashbar();
-            GetComponent<CapsuleCollider2D>().enabled = false;
+            gameObject.layer = LayerMask.NameToLayer("PlayerDash");
             for(int i = 0; i < 10; i++)
             {
                 transform.position = Vector2.Lerp(transform.position, new Vector2(transform.position.x + direction, transform.position.y + 0.1f), dashSpeed);
 
                 yield return null;
             }
-            GetComponent<CapsuleCollider2D>().enabled = true;
+            gameObject.layer = LayerMask.NameToLayer("Player");
         }
     }
     public IEnumerator LightAttack(int direction)
