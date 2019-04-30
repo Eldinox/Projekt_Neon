@@ -11,7 +11,8 @@ public class SideKickFollow : MonoBehaviour
     private GameObject Player;
 
     public float speed;
-
+    public float X ;
+    public float Y ;
     public float distanceToPlayer;
     private bool test1;
  
@@ -35,7 +36,7 @@ public class SideKickFollow : MonoBehaviour
         if (Vector2.Distance(transform.position, Player.transform.position)> distanceToPlayer)
         {
             //anim.enabled = !anim.enabled;
-            transform.position = Vector2.MoveTowards(transform.position, Player.transform.position+ new Vector3(0,3, 0), speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, Player.transform.position+ new Vector3(X,Y, 0), speed * Time.deltaTime);
            // Debug.Log(Player.transform.position);
         }
 
