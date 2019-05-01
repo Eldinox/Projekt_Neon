@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 1447794801401730955}
   - component: {fileID: 6442626868043289344}
   - component: {fileID: 3056071618539658104}
+  - component: {fileID: 2073968673}
   m_Layer: 10
   m_Name: Spider
   m_TagString: Enemy
@@ -130,7 +131,7 @@ MonoBehaviour:
   startHealth: 80
   damage: 15
   speed: 0
-  attackCooldown: 5
+  attackCooldown: 3
   activateDistance: 0
   spottingRange: 0
   enemyCanvas: {fileID: 1064493212662583436}
@@ -193,6 +194,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 9.372965, y: 5.9143066}
   m_EdgeRadius: 0
+--- !u!95 &2073968673
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5736979133748935298}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 72b54b6b3c472ea45b6edc7d808f90c2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &317421540
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -361,12 +381,12 @@ PrefabInstance:
     - target: {fileID: 6884026477571303136, guid: 161da52400066fa4f828addfec33f278,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.3
+      value: -0.25
       objectReference: {fileID: 0}
     - target: {fileID: 6884026477571303136, guid: 161da52400066fa4f828addfec33f278,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.8
+      value: 0.31
       objectReference: {fileID: 0}
     - target: {fileID: 6884026477571303136, guid: 161da52400066fa4f828addfec33f278,
         type: 3}
@@ -412,6 +432,32 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6884026477571303136, guid: 161da52400066fa4f828addfec33f278,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.479332
+      objectReference: {fileID: 0}
+    - target: {fileID: 6884026477571303136, guid: 161da52400066fa4f828addfec33f278,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.3633579
+      objectReference: {fileID: 0}
+    - target: {fileID: 6884026477571303136, guid: 161da52400066fa4f828addfec33f278,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.17805
+      objectReference: {fileID: 0}
+    - target: {fileID: 7771524426039667800, guid: 161da52400066fa4f828addfec33f278,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bbd49bf5fbf0cb24c8f75e38afcbb3c8,
+        type: 3}
+    - target: {fileID: 7771524426039667800, guid: 161da52400066fa4f828addfec33f278,
+        type: 3}
+      propertyPath: m_FlipX
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 161da52400066fa4f828addfec33f278, type: 3}
