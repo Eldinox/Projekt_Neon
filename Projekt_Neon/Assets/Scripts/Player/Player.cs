@@ -67,8 +67,6 @@ public class Player : MonoBehaviour
     public Sprite[] sprites ;
     private SpriteRenderer hitSparksR ;
     
-
-    
     void Awake()
     {
         GameObject[] objs = GameObject.FindGameObjectsWithTag("Player");
@@ -250,7 +248,7 @@ public class Player : MonoBehaviour
             {
                 if(form == 0) //Heal
                 {
-                    TakeDamage(-100);
+                    TakeDamage(-10);
                 }
                 else if(form == 1)
                 {

@@ -10,6 +10,7 @@ TagManager:
   - Canvas
   - Coin
   - AttackBox
+  - Sidekick
   layers:
   - Default
   - TransparentFX
