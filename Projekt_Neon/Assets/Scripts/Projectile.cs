@@ -29,11 +29,11 @@ public class Projectile : MonoBehaviour
         }
         else if(this.gameObject.name == "SpiderDrop1(Clone)")
         {
-            rb.AddForce(new Vector2(-20, 0), ForceMode2D.Impulse);
+            rb.AddForce(new Vector2(-25, 0), ForceMode2D.Impulse);
         }
         else if(this.gameObject.name == "SpiderDrop3(Clone)")
         {
-            rb.AddForce(new Vector2(20, 0), ForceMode2D.Impulse);
+            rb.AddForce(new Vector2(25, 0), ForceMode2D.Impulse);
         }
         
         Invoke("DestroyProjectileNaturally", lifeTime);
@@ -49,6 +49,8 @@ public class Projectile : MonoBehaviour
             if(player.transform.position.x > transform.position.x)direction = -1;
             else direction = 1;
             rb.velocity = new Vector2(speed * direction, 0);
+            
+            //if(transform.position.x )
         }
     }
 

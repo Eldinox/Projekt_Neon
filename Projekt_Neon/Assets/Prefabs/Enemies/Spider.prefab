@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startHealth: 100
-  damage: 10
+  damage: 35
   speed: 0
   attackCooldown: 5
   activateDistance: 0
@@ -411,11 +411,6 @@ PrefabInstance:
     - target: {fileID: 6884026477571303136, guid: 161da52400066fa4f828addfec33f278,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7771524426039667800, guid: 161da52400066fa4f828addfec33f278,
-        type: 3}
-      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

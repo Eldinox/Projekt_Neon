@@ -43,7 +43,6 @@ public class AttackBox : MonoBehaviour
                 collision.GetComponent<Rigidbody2D>().AddForce(-transform.up * 3500);
                 collision.GetComponent<Rigidbody2D>().gravityScale = 10;
                 GameObject.Find("Player").GetComponent<Rigidbody2D>().gravityScale = 10;
-                Debug.Log("SLAM");
             }
             else
             {
@@ -56,7 +55,7 @@ public class AttackBox : MonoBehaviour
 
     private void Aircombat()
     {
-       colEnemy.GetComponent<Rigidbody2D>().gravityScale = 10;
+        colEnemy.GetComponent<Rigidbody2D>().gravityScale = 10;
         GameObject.Find("Player").GetComponent<Rigidbody2D>().gravityScale = 10;
     }
 }

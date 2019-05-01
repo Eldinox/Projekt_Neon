@@ -115,7 +115,8 @@ public class Rusher : Enemy
             difference = difference.normalized * knockbackForce;
             rb.AddForce(difference, ForceMode2D.Impulse);
             Debug.Log("rusherhit");
-            player.GetComponent<Player>().TakeDamage(damage);
+            if(attacking)player.GetComponent<Player>().TakeDamage(damage);  //Beim Angriff
+            else player.GetComponent<Player>().TakeDamage(15);              //Bei Berührung
             //player.GetComponent<Player>().Knockback(transform.position);
         }
     }
