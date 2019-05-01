@@ -30,7 +30,7 @@ public class HealthBar : MonoBehaviour
     void Update()
     {
         Rect uvRect = healthbarImage.uvRect;
-        uvRect.x -= .1f * Time.deltaTime;
+        uvRect.x -= 0.1f * Time.deltaTime;
         healthbarImage.uvRect = uvRect;
 
         Vector2 barMaskSizeDelta = barMaskTransform.sizeDelta;

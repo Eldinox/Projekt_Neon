@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class AttackBox : MonoBehaviour
 {
-    public int damage;
+    public int lightNormalDamage;
+    public int heavyNormalDamage;
+    public int lightRangedDamage;
+    public int heavyRangedDamage;
+    public int lightStrongDamage;
+    public int heavyStrongDamage;
 
     private Collider2D colEnemy;
     
@@ -13,9 +18,14 @@ public class AttackBox : MonoBehaviour
         if(collision.gameObject.CompareTag("Enemy"))
         {
             //Verschiedene Angriffe für verschiedene Effekte
-            if(GameObject.Find("Player").GetComponent<Player>().attackState == "Powerwave")
+            if(GameObject.Find("Player").GetComponent<Player>().attackState == "T1Light3")
+            {
+                collision.GetComponent<Enemy>().TakeDamage(lightNormalDamage * 0.75f);
+            }
+            else if(GameObject.Find("Player").GetComponent<Player>().attackState == "Powerwave")
             {
                 collision.GetComponent<Enemy>().Stun(2);
+                collision.GetComponent<Enemy>().TakeDamage(lightStrongDamage);
             }
             else if(GameObject.Find("Player").GetComponent<Player>().attackState == "Uppercut")
             {
@@ -46,7 +56,7 @@ public class AttackBox : MonoBehaviour
             }
             else
             {
-                collision.GetComponent<Enemy>().TakeDamage(damage);
+                collision.GetComponent<Enemy>().TakeDamage(lightNormalDamage);
             }
         }
         //Unterschiedlicher Schaden für verschiedene Feinde würde hier hin kommen
