@@ -95,8 +95,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  lifeTime: 1
-  damage: 10
+  lifeTime: 2
+  damage: 15
   drop1: {fileID: 0}
   drop2: {fileID: 0}
   drop3: {fileID: 0}

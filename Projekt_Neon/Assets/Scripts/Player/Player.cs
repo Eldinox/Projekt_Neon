@@ -109,13 +109,14 @@ public class Player : MonoBehaviour
             enteredLeft = true;
         }
 
+        GameObject.Find("SideKick").transform.position = new Vector3(transform.position.x - 3, transform.position.y + 5, transform.position.z);
         GameObject.Find("HealthBar").GetComponent<HealthBar>().UpdateHealth(health);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(!inDialogue)
+        if(!inDialogue && !dead)
         {
             if(isGrounded == true)
             {
@@ -308,16 +309,18 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
     	moveInput = Input.GetAxis("Horizontal");
-        if (moveInput == 0)
+        
+        if(!inDialogue && !dead)
         {
-            anim.SetBool("isRunning",false);
-        }
-        else
-        {
-            anim.SetBool("isRunning",true);
-        }
-        if(!inDialogue)
-        {
+            if (moveInput == 0)
+            {
+                anim.SetBool("isRunning",false);
+            }
+            else
+            {
+                anim.SetBool("isRunning",true);
+            }
+            
             isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
         
             //Input.GetAxisRaw("Horizontal"); <- damit Player sofort anhält (kein sliden)
@@ -359,15 +362,15 @@ public class Player : MonoBehaviour
         if(gmGetScript.hitSparks)
         {
             Debug.Log ("lengthsprtiebob "+sprites.Length);
-           hitSparksR.sprite = sprites[(int)Random.Range(1.0f, 3.0f)];
-           hitSparksR.enabled = true;
-           Invoke("showHitSparks",0.2f);
+            hitSparksR.sprite = sprites[(int)Random.Range(1.0f, 3.0f)];
+            hitSparksR.enabled = true;
+            Invoke("showHitSparks",0.2f);
         }
         
         if(health < 1)
         {
             dead = true;
-            this.gameObject.SetActive(false);
+            //this.gameObject.SetActive(false);
             GameObject.Find("DeathScreen").GetComponent<Animator>().SetTrigger("death");
         }
         else if(health > 100)
@@ -393,8 +396,8 @@ public class Player : MonoBehaviour
 
     public void RespawnAfterDeath()
     {
-        //Scene activeScene = SceneManager.GetActiveScene();
-        //SceneManager.LoadScene(activeScene.name);
+        Scene activeScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(activeScene.name);
 
         if(enteredLeft)transform.position = GameObject.Find("PlayerSpawnStart").transform.position;
         else if(!enteredLeft)transform.position = GameObject.Find("PlayerSpawnEnd").transform.position;
