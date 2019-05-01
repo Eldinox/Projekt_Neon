@@ -39,6 +39,8 @@ public class Player : MonoBehaviour
     public GameObject daggerPos2;
 
     public GameObject bobNormalform;
+    public GameObject bobRangeform;
+    public GameObject bobDamageform;
     
     private float moveInput;
     public  bool facingRight = true;
@@ -53,7 +55,7 @@ public class Player : MonoBehaviour
     private float comboTime;
     private int combo1;
     private int combo2;
-    private int form; //0=normal, 1=strong, 2=ranged
+    private int form = 0; //0=normal, 1=strong, 2=ranged
     
     private Rigidbody2D rb;
     private Animator statusAnim;
@@ -173,24 +175,35 @@ public class Player : MonoBehaviour
             {
                 if(form == 0)
                 {
+                    Debug.Log("From normal to range");
                     form = 2;
                     GameObject.Find("FormDisplay").GetComponent<TextMeshProUGUI>().text = "Ranged";
-                    GameObject.Find("Bob_Ranger").GetComponent<SpriteRenderer>().enabled = true;
+                    bobDamageform.SetActive(false);
+                    bobRangeform.SetActive(true);
                     bobNormalform.SetActive(false);
+                    dagger.SetActive(false);
+                    var bobnormal  = this.transform.Find("Bob2").gameObject;
+                    //bobnormal.GetComponent<IKManager2D>().enabled = false;
                 }
                 else if(form == 1)
                 {
+                    Debug.Log("From damage to normal");
                     form = 0;
                     GameObject.Find("FormDisplay").GetComponent<TextMeshProUGUI>().text = "Normal";
-                    GameObject.Find("Bob_Damage").GetComponent<SpriteRenderer>().enabled = false;
+                    bobDamageform.SetActive(false);
                     bobNormalform.SetActive(true);
+                    bobRangeform.SetActive(false);             
+                    dagger.SetActive(true);
                 }
                 else if(form == 2)
                 {
+                    Debug.Log("From range to damage");
                     form = 1;
                     GameObject.Find("FormDisplay").GetComponent<TextMeshProUGUI>().text = "Strong";
-                    GameObject.Find("Bob_Ranger").GetComponent<SpriteRenderer>().enabled = false;
-                    GameObject.Find("Bob_Damage").GetComponent<SpriteRenderer>().enabled = true;
+                    bobNormalform.SetActive(false);
+                    bobRangeform.SetActive(false);
+                    bobDamageform.SetActive(true);
+                    dagger.SetActive(false);
                 }
             }
             if(Input.GetKeyDown(KeyCode.E))
@@ -199,22 +212,25 @@ public class Player : MonoBehaviour
                 {
                     form = 2;
                     GameObject.Find("FormDisplay").GetComponent<TextMeshProUGUI>().text = "Ranged";
-                    GameObject.Find("Bob_Ranger").GetComponent<SpriteRenderer>().enabled = true;
-                    GameObject.Find("Bob_Damage").GetComponent<SpriteRenderer>().enabled = false;
+                    bobRangeform.SetActive(true);
+                    bobDamageform.SetActive(false);
+                    dagger.SetActive(false);
                 }
                 else if(form == 2)
                 {
                     form = 0;
                     GameObject.Find("FormDisplay").GetComponent<TextMeshProUGUI>().text = "Normal";
-                    GameObject.Find("Bob_Ranger").GetComponent<SpriteRenderer>().enabled = false;
+                    bobRangeform.SetActive(false);
                     bobNormalform.SetActive(true);
+                    dagger.SetActive(true);
                 }
                 else if(form == 0)
                 {
                     form = 1;
                     GameObject.Find("FormDisplay").GetComponent<TextMeshProUGUI>().text = "Strong";
-                    GameObject.Find("Bob_Damage").GetComponent<SpriteRenderer>().enabled = true;
+                    bobDamageform.SetActive(true);
                     bobNormalform.SetActive(false);
+                    dagger.SetActive(false);
                 }
             }
             if(Input.GetKeyDown(KeyCode.Tab))
@@ -417,7 +433,7 @@ public class Player : MonoBehaviour
         {
             GameObject.Find("DashBar").GetComponent<DashBar>().UpdateDashbar();
             gameObject.layer = LayerMask.NameToLayer("PlayerDash");
-            for(int i = 0; i < 10; i++)
+            for(int i = 0; i < 15; i++)
             {
                 transform.position = Vector2.Lerp(transform.position, new Vector2(transform.position.x + direction, transform.position.y + 0.1f), dashSpeed);
 

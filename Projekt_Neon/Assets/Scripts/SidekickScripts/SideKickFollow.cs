@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using TMPro;
 
 public class SideKickFollow : MonoBehaviour
 {
@@ -34,7 +35,14 @@ public class SideKickFollow : MonoBehaviour
     {  
         var getScriptPlayer = Player.GetComponent<Player>();
         facingRight = getScriptPlayer.facingRight; 
-
+        if( GameObject.Find("FormDisplay").GetComponent<TextMeshProUGUI>().text == "Strong")
+        {
+            Y = 12;
+        }
+        else
+        {
+            Y = 8;
+        }
         if (Vector2.Distance(transform.position, Player.transform.position)> distanceToPlayer)
         {
             
