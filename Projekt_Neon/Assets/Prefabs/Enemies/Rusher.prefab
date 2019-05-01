@@ -98,11 +98,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startHealth: 100
-  damage: 20
+  damage: 45
   speed: 7
   attackCooldown: 5
   activateDistance: 250
-  spottingRange: 20
+  spottingRange: 30
   enemyCanvas: {fileID: 1064493212959839151}
   healthBarImage: {fileID: 6785080537607213834}
   player: {fileID: 0}
@@ -112,11 +112,16 @@ MonoBehaviour:
   chasing: 0
   stunned: 0
   sprites: []
-  stopDistance: 13
+  stopDistance: 18
   attackSpeed: 2
-  dashSpeed: 60
+  dashSpeed: 100
   knockbackForce: 10
-  patrolSpots: []
+  patrolSpots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   startWaitTime: 2
 --- !u!50 &6937830448007329256
 Rigidbody2D:
@@ -321,56 +326,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -0.000049591064
       objectReference: {fileID: 0}
-    - target: {fileID: 9117263415272025957, guid: d45256ee7146f27438c152c176607136,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8746777475339651786, guid: d45256ee7146f27438c152c176607136,
-        type: 3}
-      propertyPath: m_Name
-      value: EnemyDamageDisplay
-      objectReference: {fileID: 0}
-    - target: {fileID: 6785080538073769933, guid: d45256ee7146f27438c152c176607136,
-        type: 3}
-      propertyPath: m_FillAmount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1508537106100124798, guid: d45256ee7146f27438c152c176607136,
-        type: 3}
-      propertyPath: m_text
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1508537106100124798, guid: d45256ee7146f27438c152c176607136,
-        type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1508537106100124798, guid: d45256ee7146f27438c152c176607136,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1508537106100124798, guid: d45256ee7146f27438c152c176607136,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1508537106100124798, guid: d45256ee7146f27438c152c176607136,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1508537106100124798, guid: d45256ee7146f27438c152c176607136,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1508537106100124798, guid: d45256ee7146f27438c152c176607136,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d45256ee7146f27438c152c176607136, type: 3}
 --- !u!1 &1064493212959839151 stripped
@@ -462,11 +417,6 @@ PrefabInstance:
     - target: {fileID: 6884026477571303136, guid: 161da52400066fa4f828addfec33f278,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7771524426039667800, guid: 161da52400066fa4f828addfec33f278,
-        type: 3}
-      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

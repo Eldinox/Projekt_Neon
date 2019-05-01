@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startHealth: 20
-  damage: 10
+  damage: 20
   speed: 8
   attackCooldown: 3
   activateDistance: 50
@@ -272,11 +272,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 3.0604303
-      objectReference: {fileID: 0}
-    - target: {fileID: 7771524426039667800, guid: 161da52400066fa4f828addfec33f278,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 161da52400066fa4f828addfec33f278, type: 3}
@@ -427,16 +422,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1508537106100124798, guid: d45256ee7146f27438c152c176607136,
-        type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1508537106100124798, guid: d45256ee7146f27438c152c176607136,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6395555960698877743, guid: d45256ee7146f27438c152c176607136,
         type: 3}

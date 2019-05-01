@@ -433,7 +433,7 @@ public class Player : MonoBehaviour
         {
             GameObject.Find("DashBar").GetComponent<DashBar>().UpdateDashbar();
             gameObject.layer = LayerMask.NameToLayer("PlayerDash");
-            for(int i = 0; i < 10; i++)
+            for(int i = 0; i < 15; i++)
             {
                 transform.position = Vector2.Lerp(transform.position, new Vector2(transform.position.x + direction, transform.position.y + 0.1f), dashSpeed);
 

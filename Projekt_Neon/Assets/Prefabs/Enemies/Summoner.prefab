@@ -179,7 +179,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 10
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -224,11 +224,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startHealth: 100
-  damage: 10
+  damage: 15
   speed: 10
   attackCooldown: 5
   activateDistance: 250
-  spottingRange: 30
+  spottingRange: 35
   enemyCanvas: {fileID: 4005929907147811366}
   healthBarImage: {fileID: 7456632934319991427}
   player: {fileID: 0}
@@ -359,46 +359,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1508537106100124798, guid: d45256ee7146f27438c152c176607136,
-        type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1508537106100124798, guid: d45256ee7146f27438c152c176607136,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1508537106100124798, guid: d45256ee7146f27438c152c176607136,
-        type: 3}
-      propertyPath: m_text
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1508537106100124798, guid: d45256ee7146f27438c152c176607136,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1508537106100124798, guid: d45256ee7146f27438c152c176607136,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1508537106100124798, guid: d45256ee7146f27438c152c176607136,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1508537106100124798, guid: d45256ee7146f27438c152c176607136,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1508537106100124798, guid: d45256ee7146f27438c152c176607136,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d45256ee7146f27438c152c176607136, type: 3}

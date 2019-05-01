@@ -64,7 +64,8 @@ public class Jumper : Enemy
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            player.GetComponent<Player>().TakeDamage(damage);
+            if(attacking)player.GetComponent<Player>().TakeDamage(damage);
+            else player.GetComponent<Player>().TakeDamage(15);
         }
     }
 }
