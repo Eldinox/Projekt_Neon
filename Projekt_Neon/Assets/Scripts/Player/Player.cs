@@ -39,6 +39,8 @@ public class Player : MonoBehaviour
     public GameObject daggerPos2;
 
     public GameObject bobNormalform;
+    public GameObject bobRangeform;
+    public GameObject bobDamageform;
     
     private float moveInput;
     public  bool facingRight = true;
@@ -53,7 +55,7 @@ public class Player : MonoBehaviour
     private float comboTime;
     private int combo1;
     private int combo2;
-    private int form; //0=normal, 1=strong, 2=ranged
+    private int form = 0; //0=normal, 1=strong, 2=ranged
     
     private Rigidbody2D rb;
     private Animator statusAnim;
@@ -173,24 +175,35 @@ public class Player : MonoBehaviour
             {
                 if(form == 0)
                 {
+                    Debug.Log("From normal to range");
                     form = 2;
                     GameObject.Find("FormDisplay").GetComponent<TextMeshProUGUI>().text = "Ranged";
-                    GameObject.Find("Bob_Ranger").GetComponent<SpriteRenderer>().enabled = true;
+                    bobDamageform.SetActive(false);
+                    bobRangeform.SetActive(true);
                     bobNormalform.SetActive(false);
+                    dagger.SetActive(false);
+                    var bobnormal  = this.transform.Find("Bob2").gameObject;
+                    //bobnormal.GetComponent<IKManager2D>().enabled = false;
                 }
                 else if(form == 1)
                 {
+                    Debug.Log("From damage to normal");
                     form = 0;
                     GameObject.Find("FormDisplay").GetComponent<TextMeshProUGUI>().text = "Normal";
-                    GameObject.Find("Bob_Damage").GetComponent<SpriteRenderer>().enabled = false;
+                    bobDamageform.SetActive(false);
                     bobNormalform.SetActive(true);
+                    bobRangeform.SetActive(false);             
+                    dagger.SetActive(true);
                 }
                 else if(form == 2)
                 {
+                    Debug.Log("From range to damage");
                     form = 1;
                     GameObject.Find("FormDisplay").GetComponent<TextMeshProUGUI>().text = "Strong";
-                    GameObject.Find("Bob_Ranger").GetComponent<SpriteRenderer>().enabled = false;
-                    GameObject.Find("Bob_Damage").GetComponent<SpriteRenderer>().enabled = true;
+                    bobNormalform.SetActive(false);
+                    bobRangeform.SetActive(false);
+                    bobDamageform.SetActive(true);
+                    dagger.SetActive(false);
                 }
             }
             if(Input.GetKeyDown(KeyCode.E))
@@ -199,22 +212,25 @@ public class Player : MonoBehaviour
                 {
                     form = 2;
                     GameObject.Find("FormDisplay").GetComponent<TextMeshProUGUI>().text = "Ranged";
-                    GameObject.Find("Bob_Ranger").GetComponent<SpriteRenderer>().enabled = true;
-                    GameObject.Find("Bob_Damage").GetComponent<SpriteRenderer>().enabled = false;
+                    bobRangeform.SetActive(true);
+                    bobDamageform.SetActive(false);
+                    dagger.SetActive(false);
                 }
                 else if(form == 2)
                 {
                     form = 0;
                     GameObject.Find("FormDisplay").GetComponent<TextMeshProUGUI>().text = "Normal";
-                    GameObject.Find("Bob_Ranger").GetComponent<SpriteRenderer>().enabled = false;
+                    bobRangeform.SetActive(false);
                     bobNormalform.SetActive(true);
+                    dagger.SetActive(true);
                 }
                 else if(form == 0)
                 {
                     form = 1;
                     GameObject.Find("FormDisplay").GetComponent<TextMeshProUGUI>().text = "Strong";
-                    GameObject.Find("Bob_Damage").GetComponent<SpriteRenderer>().enabled = true;
+                    bobDamageform.SetActive(true);
                     bobNormalform.SetActive(false);
+                    dagger.SetActive(false);
                 }
             }
             if(Input.GetKeyDown(KeyCode.Tab))
@@ -234,7 +250,7 @@ public class Player : MonoBehaviour
             {
                 if(form == 0) //Heal
                 {
-                    TakeDamage(-10);
+                    TakeDamage(-100);
                 }
                 else if(form == 1)
                 {
@@ -443,9 +459,21 @@ public class Player : MonoBehaviour
         {
             if(comboNumber == 3)
             {
-                if(combo1 == 1 && combo2 == 1) anim.SetTrigger("T1_LightAttack3");
-                else if(combo1 == 2 && combo2 == 2) anim.SetTrigger("T1_BigAttack3");
-                else anim.SetTrigger("T1_LightAttack");
+                if(combo1 == 1 && combo2 == 1)
+                {
+                    attackState = "T1Light3";
+                    anim.SetTrigger("T1_LightAttack3");
+                } 
+                else if(combo1 == 2 && combo2 == 2)
+                {
+                    attackState = "T1Big";
+                    anim.SetTrigger("T1_BigAttack3");
+                } 
+                else
+                {
+                    attackState = "T1Light";
+                    anim.SetTrigger("T1_LightAttack");
+                } 
                 combo1 = 0;
                 combo2 = 0;
             }
@@ -453,6 +481,7 @@ public class Player : MonoBehaviour
             {
                 if(comboNumber == 1) combo1 = 1;
                 else if(comboNumber == 2) combo2 = 1;
+                attackState = "T1Light";
                 anim.SetTrigger("T1_LightAttack");
             }
         }
@@ -465,7 +494,11 @@ public class Player : MonoBehaviour
                     attackState = "Powerwave";
                     anim.SetTrigger("T2_PowerWave");
                 } 
-                else anim.SetTrigger("T2_LightAttack");
+                else
+                {
+                    attackState = "T2Light";
+                    anim.SetTrigger("T2_LightAttack");
+                } 
                 combo1 = 0;
                 combo2 = 0;
             }
@@ -473,6 +506,7 @@ public class Player : MonoBehaviour
             {
                 if(comboNumber == 1) combo1 = 1;
                 else if(comboNumber == 2) combo2 = 1;
+                attackState = "T2Light";
                 anim.SetTrigger("T2_LightAttack");
             }
         }
@@ -485,7 +519,11 @@ public class Player : MonoBehaviour
                     attackState = "Groundslam";
                     anim.SetTrigger("T3_Groundslam");
                 } 
-                else anim.SetTrigger("T3_LightAttack");
+                else
+                {
+                    attackState = "T3Light";
+                    anim.SetTrigger("T3_LightAttack");
+                } 
                 combo1 = 0;
                 combo2 = 0;
             }
@@ -493,6 +531,7 @@ public class Player : MonoBehaviour
             {
                 if(comboNumber == 1) combo1 = 1;
                 else if(comboNumber == 2) combo2 = 1;
+                attackState = "T3Light";
                 anim.SetTrigger("T3_LightAttack");
             }
         }
@@ -512,8 +551,16 @@ public class Player : MonoBehaviour
         {
             if(comboNumber == 3)
             {
-                if(combo1 == 1 && combo2 == 1) anim.SetTrigger("T1_HeavyAttack_weit");
-                else anim.SetTrigger("T1_HeavyAttack");
+                if(combo1 == 1 && combo2 == 1)
+                {
+                    attackState = "Weit";
+                    anim.SetTrigger("T1_HeavyAttack_weit");
+                } 
+                else 
+                {
+                    attackState = "T1Heavy";
+                    anim.SetTrigger("T1_HeavyAttack");
+                }
                 combo1 = 0;
                 combo2 = 0;
             }
@@ -521,6 +568,7 @@ public class Player : MonoBehaviour
             {
                 if(comboNumber == 1) combo1 = 2;
                 else if(comboNumber == 2) combo2 = 2;
+                attackState = "T1Heavy";
                 anim.SetTrigger("T1_HeavyAttack");
             }
         }
@@ -528,9 +576,21 @@ public class Player : MonoBehaviour
         {
             if(comboNumber == 3)
             {
-                if(combo1 == 2 && combo2 == 2) anim.SetTrigger("T2_HeavyAttack3");
-                else if(combo1 == 1 && combo2 == 1) anim.SetTrigger("T2_OverheadAttack");
-                else anim.SetTrigger("T2_HeavyAttack");
+                if(combo1 == 2 && combo2 == 2)
+                {
+                    attackState = "T2Heavy3";
+                    anim.SetTrigger("T2_HeavyAttack3");
+                } 
+                else if(combo1 == 1 && combo2 == 1)
+                {
+                    attackState = "Overhead";
+                    anim.SetTrigger("T2_OverheadAttack");
+                } 
+                else
+                {
+                    attackState = "T2Heavy";
+                    anim.SetTrigger("T2_HeavyAttack");
+                } 
                 combo1 = 0;
                 combo2 = 0;
             }
@@ -538,6 +598,7 @@ public class Player : MonoBehaviour
             {
                 if(comboNumber == 1) combo1 = 2;
                 else if(comboNumber == 2) combo2 = 2;
+                attackState = "T2Heavy";
                 anim.SetTrigger("T2_HeavyAttack");
             }
         }
@@ -545,13 +606,21 @@ public class Player : MonoBehaviour
         {
             if(comboNumber == 3)
             {
-                if(combo1 == 2 && combo2 == 2) anim.SetTrigger("T3_HeavyAttack3");
+                if(combo1 == 2 && combo2 == 2)
+                {
+                    attackState = "T3Heavy3";
+                    anim.SetTrigger("T3_HeavyAttack3");
+                } 
                 else if(combo1 == 1 && combo2 == 1)
                 {
-                    anim.SetTrigger("T3_Uppercut");
                     attackState = "Uppercut";
+                    anim.SetTrigger("T3_Uppercut");
                 } 
-                else anim.SetTrigger("T3_HeavyAttack");
+                else
+                {
+                    attackState = "T3Heavy";
+                    anim.SetTrigger("T3_HeavyAttack");
+                } 
                 combo1 = 0;
                 combo2 = 0;
             }
@@ -559,8 +628,8 @@ public class Player : MonoBehaviour
             {
                 if(comboNumber == 1) combo1 = 2;
                 else if(comboNumber == 2) combo2 = 2;
+                attackState = "T3Heavy";
                 anim.SetTrigger("T3_HeavyAttack");
-                attackState = "T3Attack";
             }
         }
         

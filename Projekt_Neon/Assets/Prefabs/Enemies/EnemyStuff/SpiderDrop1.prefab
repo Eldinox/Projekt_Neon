@@ -122,7 +122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   lifeTime: 3
-  damage: 10
+  damage: 35
   drop1: {fileID: 0}
   drop2: {fileID: 0}
   drop3: {fileID: 0}

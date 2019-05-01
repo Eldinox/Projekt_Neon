@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a92a192124fd2cb4cb57ecd941fc9c36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHealth: 20
+  startHealth: 40
   damage: 20
   speed: 8
   attackCooldown: 3
@@ -413,12 +413,12 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.08
       objectReference: {fileID: 0}
-    - target: {fileID: 8746777475339651786, guid: d45256ee7146f27438c152c176607136,
+    - target: {fileID: 8119604373432454300, guid: d45256ee7146f27438c152c176607136,
         type: 3}
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 8119604373432454300, guid: d45256ee7146f27438c152c176607136,
+    - target: {fileID: 8746777475339651786, guid: d45256ee7146f27438c152c176607136,
         type: 3}
       propertyPath: m_Layer
       value: 10
