@@ -964,7 +964,7 @@ PrefabInstance:
     - target: {fileID: 6937830448007329258, guid: 6930c0b3af24f0c4eb605eaafcfbd205,
         type: 3}
       propertyPath: startHealth
-      value: 1000
+      value: 125
       objectReference: {fileID: 0}
     - target: {fileID: 6937830448007329258, guid: 6930c0b3af24f0c4eb605eaafcfbd205,
         type: 3}
@@ -999,7 +999,7 @@ PrefabInstance:
     - target: {fileID: 6937830448007329253, guid: 6930c0b3af24f0c4eb605eaafcfbd205,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6685457017102799510, guid: 6930c0b3af24f0c4eb605eaafcfbd205,
         type: 3}
