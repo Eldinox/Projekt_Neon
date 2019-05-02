@@ -253,6 +253,7 @@ public class Player : MonoBehaviour
                 }
                 else if(form == 1)
                 {
+                    attackState = "Groundsmash";
                     anim.SetTrigger("T2_SpecialAttack");
                 }
                 else if(form == 2)
