@@ -62,6 +62,7 @@ public class Player : MonoBehaviour
     private bool[] coins;
     private GameObject gm;
     private Animator anim;
+    private Animator BobNormalAnimator;
     private GameObject hitSparksBob;
     private string spriteNames = "HitSparksRed";
     public Sprite[] sprites ;
@@ -87,6 +88,7 @@ public class Player : MonoBehaviour
         dashTime = startDashTime;
         SceneManager.activeSceneChanged += ChangedActiveScene;
         anim = GetComponent<Animator>();
+        BobNormalAnimator = bobNormalform.GetComponent<Animator>();
         gm = GameObject.Find("GameManager");
         hitSparksBob = this.transform.Find("HitSparksRedBob").gameObject;
         hitSparksR= hitSparksBob.GetComponent<SpriteRenderer>();
@@ -121,11 +123,11 @@ public class Player : MonoBehaviour
             if(isGrounded == true)
             {
                 extraJumps = jumpAmount;
-                anim.SetBool("isJumping", false);
+                BobNormalAnimator.SetBool("isJumping", false);
             }
             else
             {
-                anim.SetBool("isJumping", true);
+                BobNormalAnimator.SetBool("isJumping", true);
             }
             //Dolch ziehen wenn im Kampf, wegstecken nach Combat-Zeit
             if(Time.time >= combatTimer)
@@ -239,7 +241,7 @@ public class Player : MonoBehaviour
             }
             if(Input.GetKeyDown(KeyCode.W) && extraJumps > 0)
             {
-                anim.SetTrigger("takeOf");
+                BobNormalAnimator.SetTrigger("takeOf");
                 isJumping = true;
                 jumpTimeCounter = jumpTime;
                 rb.velocity = Vector2.up * jumpForce;
@@ -315,11 +317,11 @@ public class Player : MonoBehaviour
         {
             if (moveInput == 0)
             {
-                anim.SetBool("isRunning",false);
+                BobNormalAnimator.SetBool("isRunning",false);
             }
             else
             {
-                anim.SetBool("isRunning",true);
+                BobNormalAnimator.SetBool("isRunning",true);
             }
             
             isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
@@ -464,17 +466,17 @@ public class Player : MonoBehaviour
                 if(combo1 == 1 && combo2 == 1)
                 {
                     attackState = "T1Light3";
-                    anim.SetTrigger("T1_LightAttack3");
+                    BobNormalAnimator.SetTrigger("T1_LightAttack3");
                 } 
                 else if(combo1 == 2 && combo2 == 2)
                 {
                     attackState = "T1Big";
-                    anim.SetTrigger("T1_BigAttack3");
+                    BobNormalAnimator.SetTrigger("T1_BigAttack3");
                 } 
                 else
                 {
                     attackState = "T1Light";
-                    anim.SetTrigger("T1_LightAttack");
+                    BobNormalAnimator.SetTrigger("T1_LightAttack");
                 } 
                 combo1 = 0;
                 combo2 = 0;
@@ -484,7 +486,7 @@ public class Player : MonoBehaviour
                 if(comboNumber == 1) combo1 = 1;
                 else if(comboNumber == 2) combo2 = 1;
                 attackState = "T1Light";
-                anim.SetTrigger("T1_LightAttack");
+                BobNormalAnimator.SetTrigger("T1_LightAttack");
             }
         }
         else if(form == 1)
@@ -556,12 +558,12 @@ public class Player : MonoBehaviour
                 if(combo1 == 1 && combo2 == 1)
                 {
                     attackState = "Weit";
-                    anim.SetTrigger("T1_HeavyAttack_weit");
+                    BobNormalAnimator.SetTrigger("T1_HeavyAttack_weit");
                 } 
                 else 
                 {
                     attackState = "T1Heavy";
-                    anim.SetTrigger("T1_HeavyAttack");
+                    BobNormalAnimator.SetTrigger("T1_HeavyAttack");
                 }
                 combo1 = 0;
                 combo2 = 0;
@@ -571,7 +573,7 @@ public class Player : MonoBehaviour
                 if(comboNumber == 1) combo1 = 2;
                 else if(comboNumber == 2) combo2 = 2;
                 attackState = "T1Heavy";
-                anim.SetTrigger("T1_HeavyAttack");
+                BobNormalAnimator.SetTrigger("T1_HeavyAttack");
             }
         }
         else if(form == 1)
