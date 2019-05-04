@@ -3480,8 +3480,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c03b743a214b79b4a9e73b724efd9bc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  getHitAnimation: 0
-  getHitColoring: 1
+  getHitAnimation: 1
+  getHitColoring: 0
   healthBars: 1
   damageNumberDisplay: 1
   hitSparks: 1
