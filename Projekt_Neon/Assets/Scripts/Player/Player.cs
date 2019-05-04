@@ -127,11 +127,24 @@ public class Player : MonoBehaviour
             if(isGrounded == true)
             {
                 extraJumps = jumpAmount;
-                BobNormalAnimator.SetBool("isJumping", false);
+                switch(form)
+                {
+                    case 0 : BobNormalAnimator.SetBool("isJumping", false);
+                    break;
+                    case 2 : BobRangeAnimator.SetBool("isJumping", false);
+                    break;
+                }
+                
             }
             else
             {
-                BobNormalAnimator.SetBool("isJumping", true);
+                switch(form)
+                {
+                    case 0 : BobNormalAnimator.SetBool("isJumping", true);
+                    break;
+                    case 2 : BobRangeAnimator.SetBool("isJumping", true);
+                    break;
+                }
             }
             //Dolch ziehen wenn im Kampf, wegstecken nach Combat-Zeit
             if(Time.time >= combatTimer)
@@ -245,7 +258,13 @@ public class Player : MonoBehaviour
             }
             if(Input.GetKeyDown(KeyCode.W) && extraJumps > 0)
             {
-                BobNormalAnimator.SetTrigger("takeOf");
+                switch(form)
+                {
+                    case 0 : BobNormalAnimator.SetTrigger("takeOf");
+                    break;
+                    case 2 : BobRangeAnimator.SetTrigger("takeOf");
+                    break;
+                }
                 isJumping = true;
                 jumpTimeCounter = jumpTime;
                 rb.velocity = Vector2.up * jumpForce;
@@ -321,11 +340,25 @@ public class Player : MonoBehaviour
         {
             if (moveInput == 0)
             {
-                BobNormalAnimator.SetBool("isRunning",false);
+                switch (form)
+                {
+                    case 0 : BobNormalAnimator.SetBool("isRunning",false);
+                    break;
+                    case 2 : BobRangeAnimator.SetBool("isRunning",false);
+                    break;
+                }
+               
             }
             else
             {
-                BobNormalAnimator.SetBool("isRunning",true);
+                switch (form)
+                {
+                    case 0 : BobNormalAnimator.SetBool("isRunning",true);
+                    break;
+                    case 2 : BobRangeAnimator.SetBool("isRunning",true);
+                    break;
+                }
+                
             }
             
             isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
