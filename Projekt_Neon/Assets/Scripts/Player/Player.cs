@@ -131,6 +131,8 @@ public class Player : MonoBehaviour
                 {
                     case 0 : BobNormalAnimator.SetBool("isJumping", false);
                     break;
+                    case 1 : BobStrongAnimator.SetBool("isJumping",false);
+                    break;
                     case 2 : BobRangeAnimator.SetBool("isJumping", false);
                     break;
                 }
@@ -141,6 +143,8 @@ public class Player : MonoBehaviour
                 switch(form)
                 {
                     case 0 : BobNormalAnimator.SetBool("isJumping", true);
+                    break;
+                    case 1 : BobStrongAnimator.SetBool("isJumping",true);
                     break;
                     case 2 : BobRangeAnimator.SetBool("isJumping", true);
                     break;
@@ -262,6 +266,8 @@ public class Player : MonoBehaviour
                 {
                     case 0 : BobNormalAnimator.SetTrigger("takeOf");
                     break;
+                    case 1 : BobStrongAnimator.SetTrigger("takeOf");
+                    break;
                     case 2 : BobRangeAnimator.SetTrigger("takeOf");
                     break;
                 }
@@ -344,6 +350,8 @@ public class Player : MonoBehaviour
                 {
                     case 0 : BobNormalAnimator.SetBool("isRunning",false);
                     break;
+                    case 1 : BobStrongAnimator.SetBool("isRunning",false);
+                    break;
                     case 2 : BobRangeAnimator.SetBool("isRunning",false);
                     break;
                 }
@@ -354,6 +362,8 @@ public class Player : MonoBehaviour
                 switch (form)
                 {
                     case 0 : BobNormalAnimator.SetBool("isRunning",true);
+                    break;
+                    case 1 : BobStrongAnimator.SetBool("isRunning",true);
                     break;
                     case 2 : BobRangeAnimator.SetBool("isRunning",true);
                     break;
@@ -392,11 +402,27 @@ public class Player : MonoBehaviour
         health -= damage;
         if(gmGetScript.getHitAnimation)
         {
-            anim.SetTrigger("getHitBob");
+             switch(form)
+                {
+                    case 0 : BobNormalAnimator.SetTrigger("getHitBob");
+                    break;
+                    case 1 : BobStrongAnimator.SetTrigger("getHitBob");
+                    break;
+                    case 2 : BobRangeAnimator.SetTrigger("getHitBob");
+                    break;
+                }
         }
         if(gmGetScript.getHitColoring)
         {
-            anim.SetTrigger("bobColorChange");
+            switch(form)
+                {
+                    case 0 : BobNormalAnimator.SetTrigger("bobColorChange");
+                    break;
+                    case 1 : BobStrongAnimator.SetTrigger("bobColorChange");
+                    break;
+                    case 2 : BobRangeAnimator.SetTrigger("bobColorChange");
+                    break;
+                }
 
         }
         if(gmGetScript.hitSparks)
