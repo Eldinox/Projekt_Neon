@@ -8,6 +8,7 @@ public class Summoner : Enemy
     public float knockbackForce;
     public Transform[] patrolSpots;
     public float startWaitTime;
+    public int jumpersInScene;
 
     private float attackTime;
     private Rigidbody2D rb;
@@ -23,6 +24,18 @@ public class Summoner : Enemy
         rb = GetComponent<Rigidbody2D>();
         randomSpot = Random.Range(0, patrolSpots.Length);
         waitTime = startWaitTime;
+
+        /*GameObject[] allObjs = Object.FindObjectsOfType(typeof(GameObject)) as GameObject[];
+
+        List<GameObject> jumpers = new List<GameObject>();
+        foreach(GameObject obj in allObjs)
+        {
+            if(obj.name.Contains("Jumper"))
+            {
+                jumpers.Add(obj);
+            }
+        }
+        jumpersInScene = (jumpers.ToArray()).Length;*/
     }
 
     // Update is called once per frame
@@ -87,14 +100,29 @@ public class Summoner : Enemy
 
     IEnumerator Attack()
     {
-        attacking = true;
-        int attackDirection = 0;
-        if(player.transform.position.x < transform.position.x)attackDirection = -10;
-        else attackDirection = 10;
-        yield return new WaitForSeconds(1);
-        Instantiate(jumper, new Vector2(transform.position.x + attackDirection, transform.position.y), transform.rotation);
-        yield return new WaitForSeconds(.5f);
-        attacking = false;
+        int jumpersSpawned;
+        GameObject[] allObjs = Object.FindObjectsOfType(typeof(GameObject)) as GameObject[];
+        List<GameObject> jumpers = new List<GameObject>();
+        foreach(GameObject obj in allObjs)
+        {
+            if(obj.name == "Jumper(Clone)")
+            {
+                jumpers.Add(obj);
+            }
+        }
+        jumpersSpawned = (jumpers.ToArray()).Length;
+        
+        if(jumpersSpawned < 6)
+        {
+            attacking = true;
+            int attackDirection = 0;
+            if(player.transform.position.x < transform.position.x)attackDirection = -6;
+            else attackDirection = 6;
+            yield return new WaitForSeconds(1);
+            Instantiate(jumper, new Vector2(transform.position.x + attackDirection, transform.position.y), transform.rotation);
+            yield return new WaitForSeconds(.5f);
+            attacking = false;
+        }
     }
     IEnumerator Chase()
     {

@@ -117,7 +117,7 @@ public class Rusher : Enemy
             Debug.Log("rusherhit");
             if(attacking)player.GetComponent<Player>().TakeDamage(damage);  //Beim Angriff
             else player.GetComponent<Player>().TakeDamage(15);              //Bei Berührung
-            //player.GetComponent<Player>().Knockback(transform.position);
+            //player.GetComponent<Rigidbody2D>().velocity = new Vector2(-.3f, .2f) * 10;
         }
     }
 

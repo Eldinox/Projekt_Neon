@@ -177,7 +177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startHealth: 40
   damage: 20
-  speed: 8
+  speed: 5
   attackCooldown: 3
   activateDistance: 50
   spottingRange: 0
@@ -438,17 +438,17 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.08
       objectReference: {fileID: 0}
+    - target: {fileID: 6395555960698877743, guid: d45256ee7146f27438c152c176607136,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8119604373432454300, guid: d45256ee7146f27438c152c176607136,
         type: 3}
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8746777475339651786, guid: d45256ee7146f27438c152c176607136,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6395555960698877743, guid: d45256ee7146f27438c152c176607136,
         type: 3}
       propertyPath: m_Layer
       value: 10
