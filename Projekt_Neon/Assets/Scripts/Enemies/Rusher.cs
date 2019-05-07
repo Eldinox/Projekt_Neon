@@ -32,7 +32,7 @@ public class Rusher : Enemy
     // Update is called once per frame
     void Update()
     {
-        if(player != null && Vector2.Distance(transform.position, player.position) < activateDistance && stunned == false)
+        if(!dead && Vector2.Distance(transform.position, player.position) < activateDistance && stunned == false)
         {
             if(facingRight == false && attacking == false && player.transform.position.x > transform.position.x)
             {
@@ -95,7 +95,7 @@ public class Rusher : Enemy
         if(player.transform.position.x < transform.position.x)direction = -1;
         else direction = 1;
         yield return new WaitForSeconds(1);
-        rb.velocity = new Vector2(direction, 0) * dashSpeed;
+        if(!dead) rb.velocity = new Vector2(direction, 0) * dashSpeed;
         yield return new WaitForSeconds(.5f);
         attacking = false;
     }
