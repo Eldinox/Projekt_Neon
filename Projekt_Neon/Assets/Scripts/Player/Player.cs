@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
     public string attackState;
     public bool aircombat;
     public bool isGrounded;
+
     
     public Transform groundCheck;
     public float checkRadius;
