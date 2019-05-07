@@ -19,7 +19,7 @@ public class Spider : Enemy
     // Update is called once per frame
     void Update()
     {
-        if(player.GetComponent<Player>().dead == false && stunned == false)
+        if(player.GetComponent<Player>().dead == false && stunned == false && !dead)
         {
         	if(Vector2.Distance(transform.position, player.position) > stopDistance)
         	{

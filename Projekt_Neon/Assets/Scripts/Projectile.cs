@@ -61,9 +61,7 @@ public class Projectile : MonoBehaviour
     }
     void DestroyProjectileNaturally()
     {
-    	Debug.Log("ibujadsf");
-        
-        if(this.gameObject.name == "SpiderProjectile(Clone)")
+    	if(this.gameObject.name == "SpiderProjectile(Clone)")
         {
             Instantiate(drop1, transform.position, Quaternion.identity);
             Instantiate(drop2, transform.position, Quaternion.identity);

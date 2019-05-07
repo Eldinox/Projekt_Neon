@@ -26,14 +26,15 @@ public class Enemy : MonoBehaviour
     public bool attacking = false;
     public bool chasing = false;
     public bool stunned = false;
+    public bool dead = false;
 
     private GameObject gm;
     private GameObject hitSparks;
-    private Animator anim ;
-    private SpriteRenderer hitSparksR ;
+    private Animator anim;
+    private SpriteRenderer hitSparksR;
     private float health;
     private string spriteNames = "HitSparksBlue";
-    public Sprite[] sprites ;
+    public Sprite[] sprites;
     
     // Start is called before the first frame update
     public virtual void Start()
@@ -70,9 +71,9 @@ public class Enemy : MonoBehaviour
         {
             anim.SetTrigger("changeColor");
         }
-         if(gmGetScript.hitSparks)
+        if(gmGetScript.hitSparks)
         {
-           Debug.Log ("lengthsprtie"+sprites.Length);
+           //Debug.Log ("lengthsprtie"+sprites.Length);
            hitSparksR.sprite = sprites[(int)Random.Range(1.0f, 3.0f)];
            hitSparksR.enabled = true;
            Invoke("showHitSparks",0.2f);
@@ -86,9 +87,10 @@ public class Enemy : MonoBehaviour
 
     	if(health <= 0)
     	{
-    		Invoke("Death", 0.3f);
+    		gameObject.layer = LayerMask.NameToLayer("EnemyDead");
+            dead = true;
+            Invoke("Delete", 3);
     	}
-        
     }
 
     public void KnockDown(float duration)
@@ -135,7 +137,7 @@ public class Enemy : MonoBehaviour
     {
         hitSparksR.enabled = false;
     }
-    private void Death()
+    private void Delete()
     {
         Destroy(this.gameObject);
     }

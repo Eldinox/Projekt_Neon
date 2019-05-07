@@ -136,7 +136,6 @@ public class Player : MonoBehaviour
                     case 2 : BobRangeAnimator.SetBool("isJumping", false);
                     break;
                 }
-                
             }
             else
             {
@@ -157,7 +156,7 @@ public class Player : MonoBehaviour
                 dagger.transform.rotation = daggerPos1.transform.rotation;
                 comboNumber = 0;
             }
-            if(Input.GetMouseButton(0))
+            if(Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.JoystickButton2))
             {
                 dagger.transform.position = daggerPos2.transform.position;
                 dagger.transform.rotation = daggerPos2.transform.rotation;
@@ -175,7 +174,7 @@ public class Player : MonoBehaviour
                     }
                 }
             }
-            if(Input.GetMouseButton(1))
+            if(Input.GetMouseButton(1) || Input.GetKeyDown(KeyCode.JoystickButton3))
             {
                 dagger.transform.position = daggerPos2.transform.position;
                 dagger.transform.rotation = daggerPos2.transform.rotation;
@@ -193,42 +192,51 @@ public class Player : MonoBehaviour
                     }
                 }
             }
-            if(Input.GetKeyDown(KeyCode.Q))
+            if(Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.JoystickButton4))
             {
                 if(form == 0)
                 {
-                    Debug.Log("From normal to range");
+                    //Debug.Log("From normal to range");
                     form = 2;
-                    GameObject.Find("FormDisplay").GetComponent<TextMeshProUGUI>().text = "Ranged";
+                    //GameObject.Find("FormDisplay").GetComponent<TextMeshProUGUI>().text = "Ranged";
                     bobDamageform.SetActive(false);
                     bobRangeform.SetActive(true);
                     bobNormalform.SetActive(false);
                     dagger.SetActive(false);
                     var bobnormal  = this.transform.Find("Bob2").gameObject;
                     //bobnormal.GetComponent<IKManager2D>().enabled = false;
+                    BobRangeAnimator.SetBool("isRunning", false);
+                    speed = 19;
+                    jumpForce = 23;
                 }
                 else if(form == 1)
                 {
-                    Debug.Log("From damage to normal");
+                    //Debug.Log("From damage to normal");
                     form = 0;
-                    GameObject.Find("FormDisplay").GetComponent<TextMeshProUGUI>().text = "Normal";
+                    //GameObject.Find("FormDisplay").GetComponent<TextMeshProUGUI>().text = "Normal";
                     bobDamageform.SetActive(false);
                     bobNormalform.SetActive(true);
                     bobRangeform.SetActive(false);             
                     dagger.SetActive(true);
+                    BobNormalAnimator.SetBool("isRunning", false);
+                    speed = 17;
+                    jumpForce = 21;
                 }
                 else if(form == 2)
                 {
-                    Debug.Log("From range to damage");
+                    //Debug.Log("From range to damage");
                     form = 1;
-                    GameObject.Find("FormDisplay").GetComponent<TextMeshProUGUI>().text = "Strong";
+                    //GameObject.Find("FormDisplay").GetComponent<TextMeshProUGUI>().text = "Strong";
                     bobNormalform.SetActive(false);
                     bobRangeform.SetActive(false);
                     bobDamageform.SetActive(true);
                     dagger.SetActive(false);
+                    BobStrongAnimator.SetBool("isRunning", false);
+                    speed = 12;
+                    jumpForce = 15;
                 }
             }
-            if(Input.GetKeyDown(KeyCode.E))
+            if(Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.JoystickButton5))
             {
                 if(form == 1)
                 {
@@ -237,6 +245,9 @@ public class Player : MonoBehaviour
                     bobRangeform.SetActive(true);
                     bobDamageform.SetActive(false);
                     dagger.SetActive(false);
+                    BobRangeAnimator.SetBool("isRunning", false);
+                    speed = 19;
+                    jumpForce = 23;
                 }
                 else if(form == 2)
                 {
@@ -245,6 +256,9 @@ public class Player : MonoBehaviour
                     bobRangeform.SetActive(false);
                     bobNormalform.SetActive(true);
                     dagger.SetActive(true);
+                    BobNormalAnimator.SetBool("isRunning", false);
+                    speed = 17;
+                    jumpForce = 21;
                 }
                 else if(form == 0)
                 {
@@ -253,14 +267,17 @@ public class Player : MonoBehaviour
                     bobDamageform.SetActive(true);
                     bobNormalform.SetActive(false);
                     dagger.SetActive(false);
+                    BobStrongAnimator.SetBool("isRunning", false);
+                    speed = 12;
+                    jumpForce = 15;
                 }
             }
-            if(Input.GetKeyDown(KeyCode.Tab))
+            if(Input.GetKeyDown(KeyCode.Tab) || Input.GetKeyDown(KeyCode.JoystickButton6))
             {
                 statusAnim = GameObject.Find("PlayerStatus").GetComponent<Animator>();;
                 statusAnim.SetBool("isOpen", !statusAnim.GetBool("isOpen"));
             }
-            if(Input.GetKeyDown(KeyCode.W) && extraJumps > 0)
+            if(Input.GetKeyDown(KeyCode.W) && extraJumps > 0 || Input.GetKeyDown(KeyCode.JoystickButton0) && extraJumps > 0)
             {
                 switch(form)
                 {
@@ -276,11 +293,11 @@ public class Player : MonoBehaviour
                 rb.velocity = Vector2.up * jumpForce;
                 extraJumps--;
             }
-            if(Input.GetKey(KeyCode.F) && Time.time >= fireballCooldown)
+            if(Input.GetKey(KeyCode.F) && Time.time >= fireballCooldown || Input.GetKeyDown(KeyCode.JoystickButton1) && Time.time >= fireballCooldown)
             {
                 if(form == 0) //Heal
                 {
-                    TakeDamage(-10);
+                    StartCoroutine(Healing(1));
                 }
                 else if(form == 1)
                 {
@@ -294,7 +311,7 @@ public class Player : MonoBehaviour
                 fireballCooldown = Time.time + fireballCooldownTime;
                 GameObject.Find("FireballIconCD").GetComponent<CooldownDisplay>().StartCD(fireballCooldownTime);
             }
-            if(Input.GetKey(KeyCode.W) && isJumping == true)
+            if(Input.GetKey(KeyCode.W) && isJumping == true || Input.GetKey(KeyCode.JoystickButton0) && isJumping == true)
             {
                 if(jumpTimeCounter > 0)
                 {  
@@ -306,7 +323,7 @@ public class Player : MonoBehaviour
                     isJumping = false;
                 }
             }
-            if(Input.GetKeyUp(KeyCode.W))
+            if(Input.GetKeyUp(KeyCode.W) && Input.GetKeyUp(KeyCode.JoystickButton0))
             {
                 isJumping = false;
             }
@@ -326,6 +343,10 @@ public class Player : MonoBehaviour
                         StartCoroutine(Dash(-1));
                     }
                 }
+            }
+            if(Input.GetAxis("Triggers") != 0)
+            {
+                StartCoroutine(Dash(Input.GetAxis("Triggers")));
             }
             if(Input.GetKeyUp(KeyCode.Space))
             {
@@ -427,7 +448,7 @@ public class Player : MonoBehaviour
         }
         if(gmGetScript.hitSparks)
         {
-            Debug.Log ("lengthsprtiebob "+sprites.Length);
+            //Debug.Log ("lengthsprtiebob "+sprites.Length);
             hitSparksR.sprite = sprites[(int)Random.Range(1.0f, 3.0f)];
             hitSparksR.enabled = true;
             Invoke("showHitSparks",0.2f);
@@ -482,6 +503,21 @@ public class Player : MonoBehaviour
         }
     }
 
+    private IEnumerator Healing(int heal)
+    {
+        for(int i = 0; i < 20; i++)
+        {
+            health += heal;
+        
+            if(health > 100)
+            {
+                health = 100;
+            }
+            GameObject.Find("HealthBar").GetComponent<HealthBar>().UpdateHealth(health);
+            yield return new WaitForSeconds(.1f);
+        }
+        //yield return null;
+    }
     public IEnumerator Knockback(Transform direction)
     {
         float timer = 0;
@@ -494,7 +530,7 @@ public class Player : MonoBehaviour
         }
         yield return 0;
     }
-    public IEnumerator Dash(int direction)
+    public IEnumerator Dash(float direction)
     {
         if(GameObject.Find("DashBar").GetComponent<DashBar>().CheckDash())
         {
