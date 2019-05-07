@@ -349,7 +349,7 @@ public class Player : MonoBehaviour
             {
                 StartCoroutine(Dash(Input.GetAxis("Triggers")));
             }
-            if(Input.GetKeyUp(KeyCode.Space))
+            if(Input.GetKeyUp(KeyCode.Space) || Input.GetAxis("Triggers") == 0)
             {
                 dashTime = startDashTime;
             }
