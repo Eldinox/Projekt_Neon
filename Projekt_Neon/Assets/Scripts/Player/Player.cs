@@ -307,6 +307,7 @@ public class Player : MonoBehaviour
                 }
                 else if(form == 2)
                 {
+                    BobRangeAnimator.SetTrigger("fireball");
                     Instantiate(fireball, shotPoint.transform.position, shotPoint.transform.rotation);
                 }
                 fireballCooldown = Time.time + fireballCooldownTime;
