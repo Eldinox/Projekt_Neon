@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
     public string attackState;
     public bool aircombat;
     public bool isGrounded;
-
+    public int form = 0; //0=normal, 1=strong, 2=ranged
     
     public Transform groundCheck;
     public float checkRadius;
@@ -56,7 +56,6 @@ public class Player : MonoBehaviour
     private float comboTime;
     private int combo1;
     private int combo2;
-    private int form = 0; //0=normal, 1=strong, 2=ranged
     
     private Rigidbody2D rb;
     private Animator statusAnim;

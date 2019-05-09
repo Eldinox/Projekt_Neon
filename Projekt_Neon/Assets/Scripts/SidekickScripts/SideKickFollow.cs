@@ -43,7 +43,7 @@ public class SideKickFollow : MonoBehaviour
     {  
         var getScriptPlayer = Player.GetComponent<Player>();
         facingRight = getScriptPlayer.facingRight; 
-        if( GameObject.Find("FormDisplay").GetComponent<TextMeshProUGUI>().text == "Strong")
+        if( GameObject.Find("Player").GetComponent<Player>().form == 1)
         {
             Y = 12;
         }
