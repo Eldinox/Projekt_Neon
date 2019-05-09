@@ -70,7 +70,10 @@ public class Player : MonoBehaviour
     private string spriteNames = "HitSparksRed";
     public Sprite[] sprites ;
     private SpriteRenderer hitSparksR ;
-    
+
+    private GameObject[] bobNormalAllObjs;
+    private GameObject[] bobStrongAllObjs;
+    private GameObject[] bobRangeAllObjs;
     void Awake()
     {
         GameObject[] objs = GameObject.FindGameObjectsWithTag("Player");
@@ -98,6 +101,12 @@ public class Player : MonoBehaviour
         hitSparksBob = this.transform.Find("HitSparksRedBob").gameObject;
         hitSparksR= hitSparksBob.GetComponent<SpriteRenderer>();
         sprites = Resources.LoadAll<Sprite>(spriteNames);
+        bobNormalAllObjs = GameObject.FindGameObjectsWithTag("BobNormal");
+        bobRangeAllObjs = GameObject.FindGameObjectsWithTag("BobRange");
+        bobStrongAllObjs = GameObject.FindGameObjectsWithTag("BobStrong");
+                    ActivateBobSprites(bobStrongAllObjs,false);
+                    ActivateBobSprites(bobNormalAllObjs,true);
+                    ActivateBobSprites(bobRangeAllObjs,false);
     }
 
     private void ChangedActiveScene(Scene current, Scene next)
@@ -199,12 +208,10 @@ public class Player : MonoBehaviour
                 {
                     //Debug.Log("From normal to range");
                     form = 2;
-                    //GameObject.Find("FormDisplay").GetComponent<TextMeshProUGUI>().text = "Ranged";
-                    bobDamageform.SetActive(false);
-                    bobRangeform.SetActive(true);
-                    bobNormalform.SetActive(false);
-                    dagger.SetActive(false);
-                    var bobnormal  = this.transform.Find("Bob2").gameObject;
+                    ActivateBobSprites(bobStrongAllObjs,false);
+                    ActivateBobSprites(bobRangeAllObjs,true); 
+                    ActivateBobSprites(bobNormalAllObjs,false);
+                    //var bobnormal  = this.transform.Find("Bob2").gameObject;
                     //bobnormal.GetComponent<IKManager2D>().enabled = false;
                     BobRangeAnimator.SetBool("isRunning", false);
                     speed = 19;
@@ -213,12 +220,10 @@ public class Player : MonoBehaviour
                 else if(form == 1)
                 {
                     //Debug.Log("From damage to normal");
-                    form = 0;
-                    //GameObject.Find("FormDisplay").GetComponent<TextMeshProUGUI>().text = "Normal";
-                    bobDamageform.SetActive(false);
-                    bobNormalform.SetActive(true);
-                    bobRangeform.SetActive(false);             
-                    dagger.SetActive(true);
+                    form = 0;              
+                    ActivateBobSprites(bobStrongAllObjs,false);
+                    ActivateBobSprites(bobNormalAllObjs,true);
+                    ActivateBobSprites(bobRangeAllObjs,false);                                                
                     BobNormalAnimator.SetBool("isRunning", false);
                     speed = 17;
                     jumpForce = 21;
@@ -228,10 +233,10 @@ public class Player : MonoBehaviour
                     //Debug.Log("From range to damage");
                     form = 1;
                     //GameObject.Find("FormDisplay").GetComponent<TextMeshProUGUI>().text = "Strong";
-                    bobNormalform.SetActive(false);
-                    bobRangeform.SetActive(false);
-                    bobDamageform.SetActive(true);
-                    dagger.SetActive(false);
+                    ActivateBobSprites(bobNormalAllObjs,false);
+                    ActivateBobSprites(bobRangeAllObjs,false); 
+                    ActivateBobSprites(bobStrongAllObjs,true);
+                    //dagger.SetActive(false);
                     BobStrongAnimator.SetBool("isRunning", false);
                     speed = 12;
                     jumpForce = 15;
@@ -410,6 +415,14 @@ public class Player : MonoBehaviour
             }
         }
     }
+    private void ActivateBobSprites(GameObject[] bobForm, bool status)
+    {
+        foreach (var obj in bobForm)
+                    {
+                        obj.GetComponent<SpriteRenderer>().enabled = status;
+                    }
+
+    }
 
     void Flip()
     {
@@ -418,7 +431,7 @@ public class Player : MonoBehaviour
         Scaler.x *= -1;
         transform.localScale = Scaler;
     }
-
+    
     public void TakeDamage(int damage)
     {
         var gmGetScript = gm.GetComponent<FeedbackDisplay>();

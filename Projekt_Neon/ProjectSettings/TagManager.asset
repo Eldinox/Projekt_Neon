@@ -11,6 +11,9 @@ TagManager:
   - Coin
   - AttackBox
   - Sidekick
+  - BobNormal
+  - BobRange
+  - BobStrong
   layers:
   - Default
   - TransparentFX
