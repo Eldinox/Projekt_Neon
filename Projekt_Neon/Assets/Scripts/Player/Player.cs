@@ -247,10 +247,10 @@ public class Player : MonoBehaviour
                 if(form == 1)
                 {
                     form = 2;
-                    GameObject.Find("FormDisplay").GetComponent<TextMeshProUGUI>().text = "Ranged";
-                    bobRangeform.SetActive(true);
-                    bobDamageform.SetActive(false);
-                    dagger.SetActive(false);
+                    //GameObject.Find("FormDisplay").GetComponent<TextMeshProUGUI>().text = "Ranged";
+                    ActivateBobSprites(bobNormalAllObjs,false);
+                    ActivateBobSprites(bobRangeAllObjs,true);
+                    ActivateBobSprites(bobStrongAllObjs,false);                   
                     BobRangeAnimator.SetBool("isRunning", false);
                     speed = 19;
                     jumpForce = 23;
@@ -258,9 +258,10 @@ public class Player : MonoBehaviour
                 else if(form == 2)
                 {
                     form = 0;
-                    GameObject.Find("FormDisplay").GetComponent<TextMeshProUGUI>().text = "Normal";
-                    bobRangeform.SetActive(false);
-                    bobNormalform.SetActive(true);
+                    //GameObject.Find("FormDisplay").GetComponent<TextMeshProUGUI>().text = "Normal";
+                    ActivateBobSprites(bobNormalAllObjs,true);
+                    ActivateBobSprites(bobRangeAllObjs,false);
+                    ActivateBobSprites(bobStrongAllObjs,false); 
                     dagger.SetActive(true);
                     BobNormalAnimator.SetBool("isRunning", false);
                     speed = 17;
@@ -269,10 +270,9 @@ public class Player : MonoBehaviour
                 else if(form == 0)
                 {
                     form = 1;
-                    GameObject.Find("FormDisplay").GetComponent<TextMeshProUGUI>().text = "Strong";
-                    bobDamageform.SetActive(true);
-                    bobNormalform.SetActive(false);
-                    dagger.SetActive(false);
+                    ActivateBobSprites(bobNormalAllObjs,false);
+                    ActivateBobSprites(bobRangeAllObjs,false);
+                    ActivateBobSprites(bobStrongAllObjs,true);
                     BobStrongAnimator.SetBool("isRunning", false);
                     speed = 12;
                     jumpForce = 15;
