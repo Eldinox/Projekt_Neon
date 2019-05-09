@@ -41,7 +41,7 @@ public class Summoner : Enemy
     // Update is called once per frame
     void Update()
     {
-        if(!dead && Vector2.Distance(transform.position, player.position) < activateDistance)
+        if(!dead && !stunned && Vector2.Distance(transform.position, player.position) < activateDistance)
         {
             if(facingRight == false && attacking == false && player.transform.position.x > transform.position.x)
             {
@@ -119,7 +119,7 @@ public class Summoner : Enemy
             if(player.transform.position.x < transform.position.x)attackDirection = -6;
             else attackDirection = 6;
             yield return new WaitForSeconds(1);
-            if(!dead) Instantiate(jumper, new Vector2(transform.position.x + attackDirection, transform.position.y), transform.rotation);
+            if(!dead && !stunned) Instantiate(jumper, new Vector2(transform.position.x + attackDirection, transform.position.y), transform.rotation);
             yield return new WaitForSeconds(.5f);
             attacking = false;
         }

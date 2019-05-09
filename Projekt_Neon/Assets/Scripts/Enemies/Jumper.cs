@@ -20,7 +20,7 @@ public class Jumper : Enemy
     // Update is called once per frame
     void Update()
     {
-        if(!dead && Vector2.Distance(transform.position, player.position) < activateDistance)
+        if(!dead && !stunned && Vector2.Distance(transform.position, player.position) < activateDistance)
         {
             if(facingRight == false && attacking == false && player.transform.position.x > transform.position.x)
             {
@@ -78,7 +78,7 @@ public class Jumper : Enemy
         if(player.transform.position.x < transform.position.x)direction = -.2f;
         else direction = .2f;
 
-        if(!dead) rb.velocity = new Vector2(direction, 2) * jumpForce;
+        if(!dead && !stunned) rb.velocity = new Vector2(direction, 2) * jumpForce;
     }
 
     void OnCollisionEnter2D(Collision2D collision)

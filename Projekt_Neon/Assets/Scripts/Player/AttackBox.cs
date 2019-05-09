@@ -50,11 +50,11 @@ public class AttackBox : MonoBehaviour
             }
             else if(GameObject.Find("Player").GetComponent<Player>().attackState == "Groundsmash")
             {
-                collision.GetComponent<Enemy>().Stun(2);
+                collision.GetComponent<Enemy>().Stun(3);
             }
             else if(GameObject.Find("Player").GetComponent<Player>().attackState == "Powerwave")
             {
-                collision.GetComponent<Enemy>().Stun(2);
+                collision.GetComponent<Enemy>().Stun(3);
                 collision.GetComponent<Enemy>().TakeDamage(35);
             }
             else if(GameObject.Find("Player").GetComponent<Player>().attackState == "T3Heavy3")
@@ -63,7 +63,7 @@ public class AttackBox : MonoBehaviour
             }
             else if(GameObject.Find("Player").GetComponent<Player>().attackState == "Overhead")
             {
-                collision.GetComponent<Enemy>().Stun(2);
+                collision.GetComponent<Enemy>().Stun(3);
                 collision.GetComponent<Enemy>().TakeDamage(50);
             }
             //Rangedform
@@ -71,7 +71,7 @@ public class AttackBox : MonoBehaviour
             {
                 if(collision.GetComponent<Enemy>().stunned == false)
                 {
-                    collision.GetComponent<Enemy>().Stun(2);
+                    collision.GetComponent<Enemy>().Stun(3);
                     collision.GetComponent<Rigidbody2D>().AddForce(transform.up * 3500);
                     GameObject.Find("Player").GetComponent<Rigidbody2D>().AddForce(transform.up * 2500);
                     GameObject.Find("Player").GetComponent<Player>().aircombat = true;
@@ -89,7 +89,7 @@ public class AttackBox : MonoBehaviour
             }
             else if(GameObject.Find("Player").GetComponent<Player>().attackState == "Groundslam")
             {
-                collision.GetComponent<Enemy>().Stun(2);
+                collision.GetComponent<Enemy>().Stun(3);
                 collision.GetComponent<Rigidbody2D>().AddForce(-transform.up * 3500);
                 collision.GetComponent<Rigidbody2D>().gravityScale = 10;
                 GameObject.Find("Player").GetComponent<Rigidbody2D>().gravityScale = 10;

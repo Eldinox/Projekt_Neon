@@ -308,6 +308,7 @@ public class Player : MonoBehaviour
                 {
                     attackState = "Groundsmash";
                     BobStrongAnimator.SetTrigger("T2_SpecialAttack");
+                    if(!isGrounded)StartCoroutine(Dash(0, -.7f));
                 }
                 else if(form == 2)
                 {
@@ -342,17 +343,17 @@ public class Player : MonoBehaviour
 
                     if(facingRight)
                     {
-                        StartCoroutine(Dash(1));
+                        StartCoroutine(Dash(1, .1f));
                     }
                     else
                     {
-                        StartCoroutine(Dash(-1));
+                        StartCoroutine(Dash(-1, .1f));
                     }
                 }
             }
             if(Input.GetAxis("Triggers") != 0)
             {
-                StartCoroutine(Dash(Input.GetAxis("Triggers")));
+                StartCoroutine(Dash(Input.GetAxis("Triggers"), .1f));
             }
             if(Input.GetKeyUp(KeyCode.Space) || Input.GetAxis("Triggers") == 0)
             {
@@ -434,7 +435,9 @@ public class Player : MonoBehaviour
     public void TakeDamage(int damage)
     {
         var gmGetScript = gm.GetComponent<FeedbackDisplay>();
-        health -= damage;
+        if(form == 1) health -= damage / 2;
+        else health -= damage;
+        
         if(gmGetScript.getHitAnimation)
         {
              switch(form)
@@ -544,7 +547,7 @@ public class Player : MonoBehaviour
         }
         yield return 0;
     }
-    public IEnumerator Dash(float direction)
+    public IEnumerator Dash(float directionX, float directionY)
     {
         if(GameObject.Find("DashBar").GetComponent<DashBar>().CheckDash())
         {
@@ -552,7 +555,7 @@ public class Player : MonoBehaviour
             gameObject.layer = LayerMask.NameToLayer("PlayerDash");
             for(int i = 0; i < 15; i++)
             {
-                transform.position = Vector2.Lerp(transform.position, new Vector2(transform.position.x + direction, transform.position.y + 0.1f), dashSpeed);
+                transform.position = Vector2.Lerp(transform.position, new Vector2(transform.position.x + directionX, transform.position.y + directionY), dashSpeed);
 
                 yield return null;
             }

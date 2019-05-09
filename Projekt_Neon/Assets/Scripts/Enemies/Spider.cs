@@ -19,7 +19,7 @@ public class Spider : Enemy
     // Update is called once per frame
     void Update()
     {
-        if(player.GetComponent<Player>().dead == false && stunned == false && !dead)
+        if(player.GetComponent<Player>().dead == false && !stunned && !dead)
         {
         	if(Vector2.Distance(transform.position, player.position) > stopDistance)
         	{
@@ -48,7 +48,7 @@ public class Spider : Enemy
     IEnumerator Attack()
     {
         yield return new WaitForSeconds(.5f);
-        Instantiate(projectile, shotPoint.position, transform.rotation);
+        if(!stunned)Instantiate(projectile, shotPoint.position, transform.rotation);
     }
 
     void OnCollisionEnter2D(Collision2D collision)
