@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
     public LayerMask whatIsGround;
     public Transform spawnPoint;
     public GameObject fireball;
+    public GameObject powerwave;
     public GameObject shotPoint;
     public GameObject dagger;
     public GameObject daggerPos1;
@@ -56,6 +57,7 @@ public class Player : MonoBehaviour
     private float comboTime;
     private int combo1;
     private int combo2;
+    private bool dashed;
     
     private Rigidbody2D rb;
     private Animator statusAnim;
@@ -67,8 +69,9 @@ public class Player : MonoBehaviour
     private Animator BobStrongAnimator;
     private GameObject hitSparksBob;
     private string spriteNames = "HitSparksRed";
-    public Sprite[] sprites ;
-    private SpriteRenderer hitSparksR ;
+    public Sprite[] sprites;
+    private SpriteRenderer hitSparksR;
+    private GameObject deathMenuFirstButton;
 
     private GameObject[] bobNormalAllObjs;
     private GameObject[] bobStrongAllObjs;
@@ -91,6 +94,7 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         extraJumps = jumpAmount;
         dashTime = startDashTime;
+        deathMenuFirstButton = GameObject.Find("RespawnButton");
         SceneManager.activeSceneChanged += ChangedActiveScene;
         anim = GetComponent<Animator>();
         BobNormalAnimator = bobNormalform.GetComponent<Animator>();
@@ -335,9 +339,9 @@ public class Player : MonoBehaviour
                 isJumping = false;
             }
 
-            if(Input.GetKeyDown(KeyCode.Space))
+            if(Input.GetKeyDown(KeyCode.Space) || Input.GetAxis("Triggers") > 0)
             {
-                if(dashTime > 0)
+                if(dashTime > 0 && !dashed)
                 {
                     dashTime -= Time.deltaTime;
 
@@ -349,15 +353,13 @@ public class Player : MonoBehaviour
                     {
                         StartCoroutine(Dash(-1, .1f));
                     }
+                    dashed = true;
                 }
-            }
-            if(Input.GetAxis("Triggers") != 0)
-            {
-                StartCoroutine(Dash(Input.GetAxis("Triggers"), .1f));
             }
             if(Input.GetKeyUp(KeyCode.Space) || Input.GetAxis("Triggers") == 0)
             {
                 dashTime = startDashTime;
+                dashed = false;
             }
         }
         else
@@ -418,9 +420,9 @@ public class Player : MonoBehaviour
     private void ActivateBobSprites(GameObject[] bobForm, bool status)
     {
         foreach (var obj in bobForm)
-                    {
-                        obj.GetComponent<SpriteRenderer>().enabled = status;
-                    }
+        {
+            obj.GetComponent<SpriteRenderer>().enabled = status;
+        }
 
     }
 
@@ -475,7 +477,10 @@ public class Player : MonoBehaviour
         {
             dead = true;
             //this.gameObject.SetActive(false);
+            //GameObject.Find("DeathCanvas").SetActive(true);
             GameObject.Find("DeathScreen").GetComponent<Animator>().SetTrigger("death");
+            
+            //GameObject.Find("EventSystem").GetComponent<EventSystem>().SetSelectedGameObject(deathMenuFirstButton, null);
         }
         else if(health > 100)
         {
@@ -484,7 +489,7 @@ public class Player : MonoBehaviour
         GameObject.Find("HealthBar").GetComponent<HealthBar>().UpdateHealth(health);
     }
 
-        private void showHitSparks()
+    private void showHitSparks()
     {
         hitSparksR.enabled = false;
     }
@@ -612,6 +617,7 @@ public class Player : MonoBehaviour
                 if(combo1 == 2 && combo2 == 2)
                 {
                     attackState = "Powerwave";
+                    Instantiate(powerwave, new Vector2(shotPoint.transform.position.x, shotPoint.transform.position.y - 1), shotPoint.transform.rotation);
                     BobStrongAnimator.SetTrigger("T2_PowerWave");
                 } 
                 else

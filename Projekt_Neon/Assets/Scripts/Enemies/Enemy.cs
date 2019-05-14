@@ -57,6 +57,11 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(float damageAmount)
     {
+        if(gameObject.name.Contains("Spider"))
+        {
+            Stun(1);
+        }
+        
         var gmGetScript = gm.GetComponent<FeedbackDisplay>();
     	health -= damageAmount;
         if(gmGetScript.healthBars)
