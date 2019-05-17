@@ -30,9 +30,10 @@ public class Player : MonoBehaviour
     public int form = 0; //0=normal, 1=strong, 2=ranged
     
     public Transform groundCheck;
+    public Transform spawnPoint;
+    public Transform respawnPoint;
     public float checkRadius;
     public LayerMask whatIsGround;
-    public Transform spawnPoint;
     public GameObject fireball;
     public GameObject powerwave;
     public GameObject shotPoint;
@@ -58,6 +59,7 @@ public class Player : MonoBehaviour
     private int combo1;
     private int combo2;
     private bool dashed;
+    private bool respawning;
     
     private Rigidbody2D rb;
     private Animator statusAnim;
@@ -114,22 +116,25 @@ public class Player : MonoBehaviour
 
     private void ChangedActiveScene(Scene current, Scene next)
     {
-        spawnPoint = GameObject.Find("PlayerSpawnStart").transform;
-
-        if(transform.position.x < spawnPoint.position.x)
+        if(!respawning)
         {
-            spawnPoint = GameObject.Find("PlayerSpawnEnd").transform;
-            transform.position = spawnPoint.position;
-            enteredLeft = false;
+            spawnPoint = GameObject.Find("PlayerSpawnStart").transform;
+            if(transform.position.x < spawnPoint.position.x)
+            {
+                spawnPoint = GameObject.Find("PlayerSpawnEnd").transform;
+                transform.position = spawnPoint.position;
+                enteredLeft = false;
+            }
+            else if(transform.position.x > spawnPoint.position.x)
+            {
+                transform.position = spawnPoint.position;
+                enteredLeft = true;
+            }
+            GameObject.Find("SideKick").transform.position = new Vector3(transform.position.x - 3, transform.position.y + 5, transform.position.z);
+            GameObject.Find("HealthBar").GetComponent<HealthBar>().UpdateHealth(health);
         }
-        else if(transform.position.x > spawnPoint.position.x)
-        {
-            transform.position = spawnPoint.position;
-            enteredLeft = true;
-        }
-
-        GameObject.Find("SideKick").transform.position = new Vector3(transform.position.x - 3, transform.position.y + 5, transform.position.z);
-        GameObject.Find("HealthBar").GetComponent<HealthBar>().UpdateHealth(health);
+        
+        respawning = false;
     }
 
     // Update is called once per frame
@@ -508,8 +513,10 @@ public class Player : MonoBehaviour
         Scene activeScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(activeScene.name);
 
-        if(enteredLeft)transform.position = GameObject.Find("PlayerSpawnStart").transform.position;
-        else if(!enteredLeft)transform.position = GameObject.Find("PlayerSpawnEnd").transform.position;
+        /*if(enteredLeft)transform.position = GameObject.Find("PlayerSpawnStart").transform.position;
+        else if(!enteredLeft)transform.position = GameObject.Find("PlayerSpawnEnd").transform.position;*/
+        respawning = true;
+        transform.position = respawnPoint.transform.position;
         health = 100;
         dead = false;
         GameObject.Find("HealthBar").GetComponent<HealthBar>().UpdateHealth(health);

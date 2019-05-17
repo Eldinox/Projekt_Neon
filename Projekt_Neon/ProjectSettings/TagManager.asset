@@ -14,6 +14,7 @@ TagManager:
   - BobNormal
   - BobRange
   - BobStrong
+  - RespawnPoint
   layers:
   - Default
   - TransparentFX

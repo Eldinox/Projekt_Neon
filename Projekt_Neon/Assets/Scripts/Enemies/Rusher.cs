@@ -26,7 +26,6 @@ public class Rusher : Enemy
         Physics2D.queriesStartInColliders = false;
         randomSpot = Random.Range(0, patrolSpots.Length);
         waitTime = startWaitTime;
-       
     }
 
     // Update is called once per frame
