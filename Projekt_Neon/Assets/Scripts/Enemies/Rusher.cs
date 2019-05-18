@@ -74,7 +74,7 @@ public class Rusher : Enemy
                 if(patrolSpots[randomSpot].position.x > transform.position.x && facingRight == false)Flip();
                 else if(patrolSpots[randomSpot].position.x < transform.position.x && facingRight == true)Flip();
 
-                if(Vector2.Distance(transform.position, patrolSpots[randomSpot].position) < 5)
+                if(Vector2.Distance(transform.position, patrolSpots[randomSpot].position) < 3)
                 {
                     if(waitTime <= 0)
                     {
@@ -124,7 +124,6 @@ public class Rusher : Enemy
             Debug.Log("rusherhit");
             if(attacking)player.GetComponent<Player>().TakeDamage(damage);  //Beim Angriff
             else player.GetComponent<Player>().TakeDamage(15);              //Bei Berührung
-            //player.GetComponent<Rigidbody2D>().velocity = new Vector2(-.3f, .2f) * 10;
         }
     }
 

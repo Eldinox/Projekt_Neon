@@ -490,8 +490,6 @@ public class Player : MonoBehaviour
             //this.gameObject.SetActive(false);
             //GameObject.Find("DeathCanvas").SetActive(true);
             GameObject.Find("DeathScreen").GetComponent<Animator>().SetTrigger("death");
-            
-            //GameObject.Find("EventSystem").GetComponent<EventSystem>().SetSelectedGameObject(deathMenuFirstButton, null);
         }
         else if(health > 100)
         {
