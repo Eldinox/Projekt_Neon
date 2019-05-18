@@ -78,8 +78,8 @@ public class Enemy : MonoBehaviour
         }
         if(gmGetScript.hitSparks)
         {
-           //Debug.Log ("lengthsprtie"+sprites.Length);
-           hitSparksR.sprite = sprites[(int)Random.Range(1.0f, 3.0f)];
+           Debug.Log ("lengthsprtie"+sprites.Length);
+           hitSparksR.sprite = sprites[(int)Random.Range(0.0f, 5.0f)];
            hitSparksR.enabled = true;
            Invoke("showHitSparks",0.2f);
 

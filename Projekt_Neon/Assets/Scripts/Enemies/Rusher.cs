@@ -16,6 +16,7 @@ public class Rusher : Enemy
     private int direction;
     private int randomSpot;
     private float waitTime;
+    private Animator anim;
 
 
 
@@ -26,6 +27,7 @@ public class Rusher : Enemy
         Physics2D.queriesStartInColliders = false;
         randomSpot = Random.Range(0, patrolSpots.Length);
         waitTime = startWaitTime;
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -66,6 +68,7 @@ public class Rusher : Enemy
             }
             else
             {
+                anim.SetBool("isWalking",true);
                 Debug.DrawLine(transform.position, transform.position + transform.right * spottingRange, Color.green);
                 transform.position = Vector2.MoveTowards(transform.position, patrolSpots[randomSpot].position, speed/4 * Time.deltaTime);
                 if(patrolSpots[randomSpot].position.x > transform.position.x && facingRight == false)Flip();
@@ -80,6 +83,7 @@ public class Rusher : Enemy
                     }
                     else
                     {
+                        anim.SetBool("isWalking",false);
                         waitTime -= Time.deltaTime;
                     }
                 }
@@ -94,7 +98,11 @@ public class Rusher : Enemy
         if(player.transform.position.x < transform.position.x)direction = -1;
         else direction = 1;
         yield return new WaitForSeconds(1);
-        if(!dead && !stunned) rb.velocity = new Vector2(direction, 0) * dashSpeed;
+        if(!dead && !stunned) 
+        {
+            rb.velocity = new Vector2(direction, 0) * dashSpeed;
+            Debug.Log("Baam");
+        }
         yield return new WaitForSeconds(.5f);
         attacking = false;
     }
