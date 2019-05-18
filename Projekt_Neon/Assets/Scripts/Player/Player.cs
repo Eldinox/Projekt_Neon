@@ -488,7 +488,7 @@ public class Player : MonoBehaviour
         {
             dead = true;
             //this.gameObject.SetActive(false);
-            //GameObject.Find("DeathCanvas").SetActive(true);
+            GameObject.Find("DeathCanvas").GetComponent<CanvasGroup>().interactable = true;
             GameObject.Find("DeathScreen").GetComponent<Animator>().SetTrigger("death");
         }
         else if(health > 100)
@@ -519,6 +519,7 @@ public class Player : MonoBehaviour
 
         /*if(enteredLeft)transform.position = GameObject.Find("PlayerSpawnStart").transform.position;
         else if(!enteredLeft)transform.position = GameObject.Find("PlayerSpawnEnd").transform.position;*/
+        GameObject.Find("DeathCanvas").GetComponent<CanvasGroup>().interactable = false;
         respawning = true;
         health = 100;
         dead = false;
