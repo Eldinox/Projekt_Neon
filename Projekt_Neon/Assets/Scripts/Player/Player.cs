@@ -445,6 +445,8 @@ public class Player : MonoBehaviour
     
     public void TakeDamage(int damage)
     {
+        rb.velocity = new Vector2(-10, .5f) * 20;
+        
         var gmGetScript = gm.GetComponent<FeedbackDisplay>();
         if(form == 1) health -= damage / 2;
         else health -= damage;

@@ -15,6 +15,7 @@ TagManager:
   - BobRange
   - BobStrong
   - RespawnPoint
+  - BossPillar
   layers:
   - Default
   - TransparentFX
