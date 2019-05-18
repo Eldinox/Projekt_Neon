@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
     
     public Transform groundCheck;
     public Transform spawnPoint;
-    public Transform respawnPoint;
+    public string respawnPoint;
     public float checkRadius;
     public LayerMask whatIsGround;
     public GameObject fireball;
@@ -132,6 +132,10 @@ public class Player : MonoBehaviour
             }
             GameObject.Find("SideKick").transform.position = new Vector3(transform.position.x - 3, transform.position.y + 5, transform.position.z);
             GameObject.Find("HealthBar").GetComponent<HealthBar>().UpdateHealth(health);
+        }
+        else
+        {
+            transform.position = GameObject.Find("RespawnPoint").transform.position;
         }
         
         respawning = false;
@@ -510,17 +514,17 @@ public class Player : MonoBehaviour
 
     public void RespawnAfterDeath()
     {
-        Scene activeScene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(activeScene.name);
+        //Scene activeScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(respawnPoint);
 
         /*if(enteredLeft)transform.position = GameObject.Find("PlayerSpawnStart").transform.position;
         else if(!enteredLeft)transform.position = GameObject.Find("PlayerSpawnEnd").transform.position;*/
         respawning = true;
-        transform.position = respawnPoint.transform.position;
         health = 100;
         dead = false;
         GameObject.Find("HealthBar").GetComponent<HealthBar>().UpdateHealth(health);
         GameObject.Find("DeathScreen").GetComponent<Animator>().SetBool("death", false);
+        
         this.gameObject.SetActive(true);
     }
 
