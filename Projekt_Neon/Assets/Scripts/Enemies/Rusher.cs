@@ -55,8 +55,6 @@ public class Rusher : Enemy
 
             if(state == "attacking")
             {
-                
-                 Debug.Log("attaking");
                 if(Time.time >= attackTime)
                 { 
                     StartCoroutine(Attack());
@@ -65,12 +63,14 @@ public class Rusher : Enemy
             }
             else if(state == "chasing")
             {
+                Debug.Log("isChasing");
                 Debug.DrawLine(transform.position, transform.position + transform.right * spottingRange, Color.green);
                 transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
             }
             else
             {
                 anim.SetBool("isWalking",true);
+                Debug.Log("isWalking");
                 Debug.DrawLine(transform.position, transform.position + transform.right * spottingRange, Color.green);
                 transform.position = Vector2.MoveTowards(transform.position, patrolSpots[randomSpot].position, speed/4 * Time.deltaTime);
                 if(patrolSpots[randomSpot].position.x > transform.position.x && facingRight == false)Flip();
