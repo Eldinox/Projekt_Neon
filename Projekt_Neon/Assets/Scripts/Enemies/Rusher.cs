@@ -55,8 +55,10 @@ public class Rusher : Enemy
 
             if(state == "attacking")
             {
+                
+                 Debug.Log("attaking");
                 if(Time.time >= attackTime)
-                {
+                { 
                     StartCoroutine(Attack());
                     attackTime = Time.time + attackCooldown;
                 }
@@ -83,9 +85,10 @@ public class Rusher : Enemy
                     }
                     else
                     {
-                        anim.SetBool("isWalking",false);
+                       
                         waitTime -= Time.deltaTime;
                     }
+                     anim.SetBool("isWalking",false);
                 }
             }
         }
@@ -93,15 +96,18 @@ public class Rusher : Enemy
 
     IEnumerator Attack()
     {
+        
         attacking = true;
         int direction = 0;
         if(player.transform.position.x < transform.position.x)direction = -1;
         else direction = 1;
+        anim.SetBool("isAttacking",true);
         yield return new WaitForSeconds(1);
+        anim.SetBool("isAttacking",false);
         if(!dead && !stunned) 
         {
             rb.velocity = new Vector2(direction, 0) * dashSpeed;
-            Debug.Log("Baam");
+           
         }
         yield return new WaitForSeconds(.5f);
         attacking = false;
