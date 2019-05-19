@@ -144,6 +144,14 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.JoystickButton0) && inDialogue)
+        {
+            FindObjectOfType<DialogueManager>().DisplayNextSentence();
+        }
+        if(Input.GetKeyDown(KeyCode.JoystickButton0) && dead)
+        {
+            RespawnAfterDeath();
+        }
         if(!inDialogue && !dead)
         {
             if(isGrounded == true)
