@@ -19,7 +19,6 @@ public class Rusher : Enemy
     private Animator anim;
 
 
-
     public override void Start()
     {
         base.Start();
@@ -91,6 +90,11 @@ public class Rusher : Enemy
                      anim.SetBool("isWalking",false);
                 }
             }
+        }
+        if (dead)
+        {
+            Debug.Log("dead");
+            anim.SetTrigger("isDead");
         }
     }
 
