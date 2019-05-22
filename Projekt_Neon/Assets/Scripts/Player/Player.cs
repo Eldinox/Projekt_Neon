@@ -60,6 +60,7 @@ public class Player : MonoBehaviour
     private int combo2;
     private bool dashed;
     private bool respawning;
+    private int jumpCounter;
     
     private Rigidbody2D rb;
     private Animator statusAnim;
@@ -93,6 +94,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        jumpCounter = 0;
         rb = GetComponent<Rigidbody2D>();
         extraJumps = jumpAmount;
         dashTime = startDashTime;
@@ -235,7 +237,7 @@ public class Player : MonoBehaviour
                     //bobnormal.GetComponent<IKManager2D>().enabled = false;
                     BobRangeAnimator.SetBool("isRunning", false);
                     speed = 19;
-                    jumpForce = 23;
+                    jumpForce = 38; //23
                 }
                 else if(form == 1)
                 {
@@ -246,7 +248,7 @@ public class Player : MonoBehaviour
                     ActivateBobSprites(bobRangeAllObjs,false);                                                
                     BobNormalAnimator.SetBool("isRunning", false);
                     speed = 17;
-                    jumpForce = 21;
+                    jumpForce = 35; //21
                 }
                 else if(form == 2)
                 {
@@ -259,7 +261,7 @@ public class Player : MonoBehaviour
                     //dagger.SetActive(false);
                     BobStrongAnimator.SetBool("isRunning", false);
                     speed = 12;
-                    jumpForce = 15;
+                    jumpForce = 33; //15
                 }
             }
             if(Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.JoystickButton5))
@@ -341,14 +343,18 @@ public class Player : MonoBehaviour
             }
             if(Input.GetKey(KeyCode.W) && isJumping == true || Input.GetKey(KeyCode.JoystickButton0) && isJumping == true)
             {
-                if(jumpTimeCounter > 0)
+                if(/* jumpTimeCounter*/ jumpCounter< 2)
                 {  
                     rb.velocity = Vector2.up * jumpForce;
-                    jumpTimeCounter -= Time.deltaTime;
+                    //jumpTimeCounter -= Time.deltaTime;
+                    jumpCounter++;
+                    Debug.Log("1Jump");
                 }
                 else
                 {
                     isJumping = false;
+                    jumpCounter = 0;
+                    Debug.Log("SecondJump");
                 }
             }
             if(Input.GetKeyUp(KeyCode.W) && Input.GetKeyUp(KeyCode.JoystickButton0))
