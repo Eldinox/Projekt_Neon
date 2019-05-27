@@ -36,6 +36,7 @@ public class Player : MonoBehaviour
     public LayerMask whatIsGround;
     public GameObject fireball;
     public GameObject powerwave;
+    public GameObject powerwavebox;
     public GameObject shotPoint;
     public GameObject dagger;
     public GameObject daggerPos1;
@@ -61,6 +62,7 @@ public class Player : MonoBehaviour
     private bool dashed;
     private bool respawning;
     private int jumpCounter;
+    public bool knocked;
     
     private Rigidbody2D rb;
     private Animator statusAnim;
@@ -158,6 +160,7 @@ public class Player : MonoBehaviour
         {
             if(isGrounded == true)
             {
+                knocked = false;
                 extraJumps = jumpAmount;
                 switch(form)
                 {
@@ -428,7 +431,7 @@ public class Player : MonoBehaviour
         
             //Input.GetAxisRaw("Horizontal"); <- damit Player sofort anhält (kein sliden)
             
-            rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
+            if(!knocked)rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
 
             if(facingRight == false && moveInput > 0)
             {
@@ -459,7 +462,8 @@ public class Player : MonoBehaviour
     
     public void TakeDamage(int damage)
     {
-        rb.velocity = new Vector2(-10, .5f) * 20;
+        //knocked = true;
+        //rb.velocity = new Vector2(-10, .5f) * 20;
         
         var gmGetScript = gm.GetComponent<FeedbackDisplay>();
         if(form == 1) health -= damage / 2;
@@ -566,17 +570,10 @@ public class Player : MonoBehaviour
         }
         //yield return null;
     }
-    public IEnumerator Knockback(Transform direction)
+    public void Knockback(int direction)
     {
-        float timer = 0;
-        
-        while(knockbackDuration > timer)
-        {
-            timer += Time.deltaTime;
-            rb.AddForce(new Vector2(direction.position.x * knockbackForce * 100, direction.position.y * knockbackForce), ForceMode2D.Impulse);
-            Flip();
-        }
-        yield return 0;
+        knocked = true;
+        rb.velocity = new Vector2(direction, 2) * 30 / 2;
     }
     public IEnumerator Dash(float directionX, float directionY)
     {
@@ -644,6 +641,7 @@ public class Player : MonoBehaviour
                 {
                     attackState = "Powerwave";
                     Instantiate(powerwave, new Vector2(shotPoint.transform.position.x, shotPoint.transform.position.y - 1), shotPoint.transform.rotation);
+                    Instantiate(powerwavebox, new Vector2(shotPoint.transform.position.x, shotPoint.transform.position.y - 1), shotPoint.transform.rotation);
                     BobStrongAnimator.SetTrigger("T2_PowerWave");
                 } 
                 else

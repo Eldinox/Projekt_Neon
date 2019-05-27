@@ -139,9 +139,6 @@ public class Summoner : Enemy
             Vector2 difference = new Vector2(transform.position.x, transform.position.y) - new Vector2(collision.transform.position.x, collision.transform.position.y);
             difference = difference.normalized * knockbackForce;
             rb.AddForce(difference, ForceMode2D.Impulse);
-            
-            player.GetComponent<Player>().TakeDamage(damage);
-            //player.GetComponent<Player>().Knockback(transform.position);
         }
     }
 }

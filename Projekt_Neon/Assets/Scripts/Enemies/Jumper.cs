@@ -86,7 +86,7 @@ public class Jumper : Enemy
         if(collision.gameObject.CompareTag("Player"))
         {
             if(attacking)player.GetComponent<Player>().TakeDamage(damage);
-            else player.GetComponent<Player>().TakeDamage(15);
+            player.GetComponent<Player>().TakeDamage(15);
             float direction;
             if(collision.transform.position.x < transform.position.x)direction = .3f;
             else direction = -.3f;
