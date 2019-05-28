@@ -55,7 +55,7 @@ public class Spider : Enemy
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            player.GetComponent<Player>().TakeDamage(15);
+           
         }
     }
 }
