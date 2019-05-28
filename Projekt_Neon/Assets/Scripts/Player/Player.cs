@@ -70,6 +70,7 @@ public class Player : MonoBehaviour
     private int jumps = 0;
     public bool knocked;
     
+    private bool doubleJump;
     private Rigidbody2D rb;
     private Animator statusAnim;
     private bool[] coins;
@@ -102,6 +103,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        doubleJump = false;
         //jumpCounter = 0;
         rb = GetComponent<Rigidbody2D>();
         extraJumps = jumpAmount;
@@ -173,6 +175,7 @@ public class Player : MonoBehaviour
                 switch(form)
                 {
                     case 0 : BobNormalAnimator.SetBool("isJumping", false);
+                    doubleJump = false;
                     break;
                     case 1 : BobStrongAnimator.SetBool("isJumping",false);
                     break;
@@ -184,7 +187,17 @@ public class Player : MonoBehaviour
             {
                 switch(form)
                 {
-                    case 0 : BobNormalAnimator.SetBool("isJumping", true);
+                    case 0 : 
+                    if (doubleJump)
+                    {
+                        BobNormalAnimator.SetTrigger("doubleJump");
+                    }
+                    else
+                    {
+                      BobNormalAnimator.SetBool("isJumping", true);  
+                    }
+                    
+                     
                     break;
                     case 1 : BobStrongAnimator.SetBool("isJumping",true);
                     break;
@@ -442,6 +455,7 @@ public class Player : MonoBehaviour
         
             //Input.GetAxisRaw("Horizontal"); <- damit Player sofort anhält (kein sliden)
             if(isJumping)BobJump();
+            else doubleJump = false;
 
             if(!knocked)rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
 
@@ -466,14 +480,25 @@ public class Player : MonoBehaviour
 
     private void BobJump()
     {
-        if(isGrounded) jumps = 0;
-        if(isGrounded || jumps < maxJumpCount)
+        Debug.Log("doubleJump: "+doubleJump);
+        if(isGrounded)
         {
+            jumps = 0;
+            doubleJump =false;
+
+
+        } 
+        if(isGrounded || jumps < maxJumpCount)
+        {        
+            if(jumps == 1)
+            {
+                doubleJump = true;
+            }
             rb.velocity = Vector2.up * jumpForce;
             jumps++;
             isGrounded = false;
         }
-        isJumping = false;  
+        isJumping = false;      
 
     }
     void Flip()
