@@ -94,7 +94,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        jumpCounter = 0;
+        //jumpCounter = 0;
         rb = GetComponent<Rigidbody2D>();
         extraJumps = jumpAmount;
         dashTime = startDashTime;
@@ -248,7 +248,7 @@ public class Player : MonoBehaviour
                     ActivateBobSprites(bobRangeAllObjs,false);                                                
                     BobNormalAnimator.SetBool("isRunning", false);
                     speed = 17;
-                    jumpForce = 35; //21
+                    jumpForce = 45; //21
                 }
                 else if(form == 2)
                 {
@@ -343,18 +343,18 @@ public class Player : MonoBehaviour
             }
             if(Input.GetKey(KeyCode.W) && isJumping == true || Input.GetKey(KeyCode.JoystickButton0) && isJumping == true)
             {
-                if(/* jumpTimeCounter*/ jumpCounter< 2)
+                if(jumpTimeCounter < 2)
                 {  
                     rb.velocity = Vector2.up * jumpForce;
-                    //jumpTimeCounter -= Time.deltaTime;
-                    jumpCounter++;
+                    jumpTimeCounter -= Time.deltaTime;
+                    //jumpCounter++;
                     Debug.Log("1Jump");
                 }
                 else
                 {
                     isJumping = false;
-                    jumpCounter = 0;
-                    Debug.Log("SecondJump");
+                    //jumpCounter = 0;
+                    //Debug.Log("SecondJump");
                 }
             }
             if(Input.GetKeyUp(KeyCode.W) && Input.GetKeyUp(KeyCode.JoystickButton0))
