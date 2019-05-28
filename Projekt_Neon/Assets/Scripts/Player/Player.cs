@@ -11,7 +11,12 @@ public class Player : MonoBehaviour
     
     //Feste Werte
     public float speed;
-    public float jumpForce;
+    private float jumpForce;
+
+    public float jumpForceNormal;
+    public float jumpForceRange;
+    public float jumpForceTank;
+
     public int jumpAmount;
     public float jumpTime;
     public float fireballCooldownTime;
@@ -61,7 +66,8 @@ public class Player : MonoBehaviour
     private int combo2;
     private bool dashed;
     private bool respawning;
-    private int jumpCounter;
+    public int maxJumpCount;
+    private int jumps = 0;
     public bool knocked;
     
     private Rigidbody2D rb;
@@ -99,6 +105,8 @@ public class Player : MonoBehaviour
         //jumpCounter = 0;
         rb = GetComponent<Rigidbody2D>();
         extraJumps = jumpAmount;
+        jumpForce = 40;
+        maxJumpCount = 2;
         dashTime = startDashTime;
         deathMenuFirstButton = GameObject.Find("RespawnButton");
         SceneManager.activeSceneChanged += ChangedActiveScene;
@@ -161,7 +169,7 @@ public class Player : MonoBehaviour
             if(isGrounded == true)
             {
                 knocked = false;
-                extraJumps = jumpAmount;
+                //extraJumps = jumpAmount;
                 switch(form)
                 {
                     case 0 : BobNormalAnimator.SetBool("isJumping", false);
@@ -240,7 +248,7 @@ public class Player : MonoBehaviour
                     //bobnormal.GetComponent<IKManager2D>().enabled = false;
                     BobRangeAnimator.SetBool("isRunning", false);
                     speed = 19;
-                    jumpForce = 38; //23
+                    jumpForce = jumpForceRange; //23
                 }
                 else if(form == 1)
                 {
@@ -251,7 +259,7 @@ public class Player : MonoBehaviour
                     ActivateBobSprites(bobRangeAllObjs,false);                                                
                     BobNormalAnimator.SetBool("isRunning", false);
                     speed = 17;
-                    jumpForce = 45; //21
+                    jumpForce = jumpForceNormal; //21
                 }
                 else if(form == 2)
                 {
@@ -264,7 +272,7 @@ public class Player : MonoBehaviour
                     //dagger.SetActive(false);
                     BobStrongAnimator.SetBool("isRunning", false);
                     speed = 12;
-                    jumpForce = 33; //15
+                    jumpForce = jumpForceTank; //15
                 }
             }
             if(Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.JoystickButton5))
@@ -278,7 +286,7 @@ public class Player : MonoBehaviour
                     ActivateBobSprites(bobStrongAllObjs,false);                   
                     BobRangeAnimator.SetBool("isRunning", false);
                     speed = 19;
-                    jumpForce = 23;
+                    jumpForce = jumpForceRange;
                 }
                 else if(form == 2)
                 {
@@ -290,7 +298,7 @@ public class Player : MonoBehaviour
                     dagger.SetActive(true);
                     BobNormalAnimator.SetBool("isRunning", false);
                     speed = 17;
-                    jumpForce = 21;
+                    jumpForce = jumpForceNormal;
                 }
                 else if(form == 0)
                 {
@@ -300,7 +308,7 @@ public class Player : MonoBehaviour
                     ActivateBobSprites(bobStrongAllObjs,true);
                     BobStrongAnimator.SetBool("isRunning", false);
                     speed = 12;
-                    jumpForce = 15;
+                    jumpForce = jumpForceTank;
                 }
             }
             if(Input.GetKeyDown(KeyCode.Tab) || Input.GetKeyDown(KeyCode.JoystickButton6))
@@ -308,7 +316,7 @@ public class Player : MonoBehaviour
                 statusAnim = GameObject.Find("PlayerStatus").GetComponent<Animator>();;
                 statusAnim.SetBool("isOpen", !statusAnim.GetBool("isOpen"));
             }
-            if(Input.GetKeyDown(KeyCode.W) && extraJumps > 0 || Input.GetKeyDown(KeyCode.JoystickButton0) && extraJumps > 0)
+            if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.JoystickButton0))
             {
                 switch(form)
                 {
@@ -320,9 +328,9 @@ public class Player : MonoBehaviour
                     break;
                 }
                 isJumping = true;
-                jumpTimeCounter = jumpTime;
+                /*/jumpTimeCounter = jumpTime;
                 rb.velocity = Vector2.up * jumpForce;
-                extraJumps--;
+                extraJumps--;*/
             }
             if(Input.GetKey(KeyCode.F) && Time.time >= fireballCooldown || Input.GetKeyDown(KeyCode.JoystickButton1) && Time.time >= fireballCooldown)
             {
@@ -344,7 +352,7 @@ public class Player : MonoBehaviour
                 fireballCooldown = Time.time + fireballCooldownTime;
                 GameObject.Find("FireballIconCD").GetComponent<CooldownDisplay>().StartCD(fireballCooldownTime);
             }
-            if(Input.GetKey(KeyCode.W) && isJumping == true || Input.GetKey(KeyCode.JoystickButton0) && isJumping == true)
+           /*  if(Input.GetKey(KeyCode.W) && isJumping == true || Input.GetKey(KeyCode.JoystickButton0) && isJumping == true)
             {
                 if(jumpTimeCounter < 2)
                 {  
@@ -360,10 +368,13 @@ public class Player : MonoBehaviour
                     //Debug.Log("SecondJump");
                 }
             }
+            }*/
+            /*
             if(Input.GetKeyUp(KeyCode.W) && Input.GetKeyUp(KeyCode.JoystickButton0))
             {
                 isJumping = false;
             }
+             */
 
             if(Input.GetKeyDown(KeyCode.Space) || Input.GetAxis("Triggers") > 0)
             {
@@ -430,7 +441,8 @@ public class Player : MonoBehaviour
             isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
         
             //Input.GetAxisRaw("Horizontal"); <- damit Player sofort anhält (kein sliden)
-            
+            if(isJumping)BobJump();
+
             if(!knocked)rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
 
             if(facingRight == false && moveInput > 0)
@@ -452,6 +464,18 @@ public class Player : MonoBehaviour
 
     }
 
+    private void BobJump()
+    {
+        if(isGrounded) jumps = 0;
+        if(isGrounded || jumps < maxJumpCount)
+        {
+            rb.velocity = Vector2.up * jumpForce;
+            jumps++;
+            isGrounded = false;
+        }
+        isJumping = false;  
+
+    }
     void Flip()
     {
         facingRight = !facingRight;
@@ -689,6 +713,8 @@ public class Player : MonoBehaviour
         Debug.Log(comboNumber);
         yield return null;
     }
+
+
     public IEnumerator HeavyAttack(int direction)
     {
         comboTime = Time.time + timeBetweenCombos;
