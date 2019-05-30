@@ -8,6 +8,7 @@ public class Jumper : Enemy
     public float jumpForce;
     
     private Rigidbody2D rb;
+
     private float attackTime;
     private float jumpTime;
     
@@ -15,11 +16,13 @@ public class Jumper : Enemy
     {
     	base.Start();
         rb = GetComponent<Rigidbody2D>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        //transform.Rotate(transform.position.x, transform.position.y, transform.position.z*Time.deltaTime);
         if(!dead && !stunned && Vector2.Distance(transform.position, player.position) < activateDistance)
         {
             if(facingRight == false && attacking == false && player.transform.position.x > transform.position.x)
@@ -66,6 +69,8 @@ public class Jumper : Enemy
         else direction = .2f;
 
         rb.velocity = new Vector2(direction, 2) * jumpForce / 2;
+        
+        Debug.Log("Chase");
 
         yield return null;
     }
@@ -77,8 +82,14 @@ public class Jumper : Enemy
         float direction;
         if(player.transform.position.x < transform.position.x)direction = -.2f;
         else direction = .2f;
+        GameObject.FindWithTag("Jumper").GetComponent<Animator>().SetTrigger("isAttacking");
 
-        if(!dead && !stunned) rb.velocity = new Vector2(direction, 2) * jumpForce;
+        if(!dead && !stunned)
+        {
+            rb.velocity = new Vector2(direction, 2) * jumpForce;
+            
+
+        } 
     }
 
     void OnCollisionEnter2D(Collision2D collision)

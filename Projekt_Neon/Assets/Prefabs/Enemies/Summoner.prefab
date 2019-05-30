@@ -399,6 +399,7 @@ MonoBehaviour:
   attacking: 0
   chasing: 0
   stunned: 0
+  dead: 0
   sprites: []
   stopDistance: 20
   knockbackForce: 0
@@ -409,6 +410,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   startWaitTime: 2
+  jumpersInScene: 0
   jumper: {fileID: 3162087004526731076, guid: 81d4b3c36056c59449a38a44d6223b5c, type: 3}
 --- !u!95 &1911141641
 Animator:

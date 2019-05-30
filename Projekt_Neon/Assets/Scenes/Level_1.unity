@@ -835,6 +835,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rusher
       objectReference: {fileID: 0}
+    - target: {fileID: 6937830448007329255, guid: 6930c0b3af24f0c4eb605eaafcfbd205,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6937830448007329252, guid: 6930c0b3af24f0c4eb605eaafcfbd205,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5324,7 +5329,7 @@ PrefabInstance:
     - target: {fileID: 4669641391270143755, guid: ecc91800530adfc49bbe878052f024cd,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1531506899098164424, guid: ecc91800530adfc49bbe878052f024cd,
         type: 3}
@@ -8883,7 +8888,7 @@ PrefabInstance:
     - target: {fileID: 5736979133748935298, guid: 8078d64b79fbf344bab8c13e4e85b952,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1859052327108882301, guid: 8078d64b79fbf344bab8c13e4e85b952,
         type: 3}
@@ -8939,6 +8944,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2277007729488960201, guid: 8078d64b79fbf344bab8c13e4e85b952,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1508537106333207450, guid: 8078d64b79fbf344bab8c13e4e85b952,
         type: 3}
@@ -10161,36 +10171,6 @@ PrefabInstance:
       propertyPath: m_LocalRotation.w
       value: -0.999111
       objectReference: {fileID: 0}
-    - target: {fileID: 1646070080263158027, guid: c7c51b4da827c6940bf857eec7a48a33,
-        type: 3}
-      propertyPath: jumpForce
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 1646070080263158027, guid: c7c51b4da827c6940bf857eec7a48a33,
-        type: 3}
-      propertyPath: jumpAmount
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1646070080263158027, guid: c7c51b4da827c6940bf857eec7a48a33,
-        type: 3}
-      propertyPath: maxJumpCount
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1646070080263158027, guid: c7c51b4da827c6940bf857eec7a48a33,
-        type: 3}
-      propertyPath: jumpForceNormal
-      value: 41
-      objectReference: {fileID: 0}
-    - target: {fileID: 1646070080263158027, guid: c7c51b4da827c6940bf857eec7a48a33,
-        type: 3}
-      propertyPath: jumpForceRange
-      value: 45
-      objectReference: {fileID: 0}
-    - target: {fileID: 1646070080263158027, guid: c7c51b4da827c6940bf857eec7a48a33,
-        type: 3}
-      propertyPath: jumpForceTank
-      value: 35
-      objectReference: {fileID: 0}
     - target: {fileID: 7024651676503508175, guid: c7c51b4da827c6940bf857eec7a48a33,
         type: 3}
       propertyPath: m_LocalRotation.z
@@ -10230,6 +10210,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.9479051
+      objectReference: {fileID: 0}
+    - target: {fileID: 1646070080263158027, guid: c7c51b4da827c6940bf857eec7a48a33,
+        type: 3}
+      propertyPath: jumpForce
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1646070080263158027, guid: c7c51b4da827c6940bf857eec7a48a33,
+        type: 3}
+      propertyPath: jumpAmount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1646070080263158027, guid: c7c51b4da827c6940bf857eec7a48a33,
+        type: 3}
+      propertyPath: maxJumpCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1646070080263158027, guid: c7c51b4da827c6940bf857eec7a48a33,
+        type: 3}
+      propertyPath: jumpForceNormal
+      value: 41
+      objectReference: {fileID: 0}
+    - target: {fileID: 1646070080263158027, guid: c7c51b4da827c6940bf857eec7a48a33,
+        type: 3}
+      propertyPath: jumpForceRange
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1646070080263158027, guid: c7c51b4da827c6940bf857eec7a48a33,
+        type: 3}
+      propertyPath: jumpForceTank
+      value: 35
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7c51b4da827c6940bf857eec7a48a33, type: 3}
