@@ -11,7 +11,12 @@ public class Player : MonoBehaviour
     
     //Feste Werte
     public float speed;
-    public float jumpForce;
+    private float jumpForce;
+
+    public float jumpForceNormal;
+    public float jumpForceRange;
+    public float jumpForceTank;
+
     public int jumpAmount;
     public float jumpTime;
     public float fireballCooldownTime;
@@ -36,6 +41,7 @@ public class Player : MonoBehaviour
     public LayerMask whatIsGround;
     public GameObject fireball;
     public GameObject powerwave;
+    public GameObject powerwavebox;
     public GameObject shotPoint;
     public GameObject dagger;
     public GameObject daggerPos1;
@@ -60,8 +66,11 @@ public class Player : MonoBehaviour
     private int combo2;
     private bool dashed;
     private bool respawning;
-    private int jumpCounter;
+    public int maxJumpCount;
+    private int jumps = 0;
+    public bool knocked;
     
+    private bool doubleJump;
     private Rigidbody2D rb;
     private Animator statusAnim;
     private bool[] coins;
@@ -94,9 +103,12 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        jumpCounter = 0;
+        doubleJump = false;
+        //jumpCounter = 0;
         rb = GetComponent<Rigidbody2D>();
         extraJumps = jumpAmount;
+        jumpForce = 40;
+        maxJumpCount = 2;
         dashTime = startDashTime;
         deathMenuFirstButton = GameObject.Find("RespawnButton");
         SceneManager.activeSceneChanged += ChangedActiveScene;
@@ -158,10 +170,12 @@ public class Player : MonoBehaviour
         {
             if(isGrounded == true)
             {
-                extraJumps = jumpAmount;
+                knocked = false;
+                //extraJumps = jumpAmount;
                 switch(form)
                 {
                     case 0 : BobNormalAnimator.SetBool("isJumping", false);
+                    doubleJump = false;
                     break;
                     case 1 : BobStrongAnimator.SetBool("isJumping",false);
                     break;
@@ -173,7 +187,17 @@ public class Player : MonoBehaviour
             {
                 switch(form)
                 {
-                    case 0 : BobNormalAnimator.SetBool("isJumping", true);
+                    case 0 : 
+                    if (doubleJump)
+                    {
+                        BobNormalAnimator.SetTrigger("doubleJump");
+                    }
+                    else
+                    {
+                      BobNormalAnimator.SetBool("isJumping", true);  
+                    }
+                    
+                     
                     break;
                     case 1 : BobStrongAnimator.SetBool("isJumping",true);
                     break;
@@ -237,7 +261,7 @@ public class Player : MonoBehaviour
                     //bobnormal.GetComponent<IKManager2D>().enabled = false;
                     BobRangeAnimator.SetBool("isRunning", false);
                     speed = 19;
-                    jumpForce = 38; //23
+                    jumpForce = jumpForceRange; //23
                 }
                 else if(form == 1)
                 {
@@ -248,7 +272,7 @@ public class Player : MonoBehaviour
                     ActivateBobSprites(bobRangeAllObjs,false);                                                
                     BobNormalAnimator.SetBool("isRunning", false);
                     speed = 17;
-                    jumpForce = 35; //21
+                    jumpForce = jumpForceNormal; //21
                 }
                 else if(form == 2)
                 {
@@ -261,7 +285,7 @@ public class Player : MonoBehaviour
                     //dagger.SetActive(false);
                     BobStrongAnimator.SetBool("isRunning", false);
                     speed = 12;
-                    jumpForce = 33; //15
+                    jumpForce = jumpForceTank; //15
                 }
             }
             if(Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.JoystickButton5))
@@ -275,7 +299,7 @@ public class Player : MonoBehaviour
                     ActivateBobSprites(bobStrongAllObjs,false);                   
                     BobRangeAnimator.SetBool("isRunning", false);
                     speed = 19;
-                    jumpForce = 23;
+                    jumpForce = jumpForceRange;
                 }
                 else if(form == 2)
                 {
@@ -287,7 +311,7 @@ public class Player : MonoBehaviour
                     dagger.SetActive(true);
                     BobNormalAnimator.SetBool("isRunning", false);
                     speed = 17;
-                    jumpForce = 21;
+                    jumpForce = jumpForceNormal;
                 }
                 else if(form == 0)
                 {
@@ -297,7 +321,7 @@ public class Player : MonoBehaviour
                     ActivateBobSprites(bobStrongAllObjs,true);
                     BobStrongAnimator.SetBool("isRunning", false);
                     speed = 12;
-                    jumpForce = 15;
+                    jumpForce = jumpForceTank;
                 }
             }
             if(Input.GetKeyDown(KeyCode.Tab) || Input.GetKeyDown(KeyCode.JoystickButton6))
@@ -305,7 +329,7 @@ public class Player : MonoBehaviour
                 statusAnim = GameObject.Find("PlayerStatus").GetComponent<Animator>();;
                 statusAnim.SetBool("isOpen", !statusAnim.GetBool("isOpen"));
             }
-            if(Input.GetKeyDown(KeyCode.W) && extraJumps > 0 || Input.GetKeyDown(KeyCode.JoystickButton0) && extraJumps > 0)
+            if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.JoystickButton0))
             {
                 switch(form)
                 {
@@ -317,9 +341,9 @@ public class Player : MonoBehaviour
                     break;
                 }
                 isJumping = true;
-                jumpTimeCounter = jumpTime;
+                /*/jumpTimeCounter = jumpTime;
                 rb.velocity = Vector2.up * jumpForce;
-                extraJumps--;
+                extraJumps--;*/
             }
             if(Input.GetKey(KeyCode.F) && Time.time >= fireballCooldown || Input.GetKeyDown(KeyCode.JoystickButton1) && Time.time >= fireballCooldown)
             {
@@ -341,26 +365,29 @@ public class Player : MonoBehaviour
                 fireballCooldown = Time.time + fireballCooldownTime;
                 GameObject.Find("FireballIconCD").GetComponent<CooldownDisplay>().StartCD(fireballCooldownTime);
             }
-            if(Input.GetKey(KeyCode.W) && isJumping == true || Input.GetKey(KeyCode.JoystickButton0) && isJumping == true)
+           /*  if(Input.GetKey(KeyCode.W) && isJumping == true || Input.GetKey(KeyCode.JoystickButton0) && isJumping == true)
             {
-                if(/* jumpTimeCounter*/ jumpCounter< 2)
+                if(jumpTimeCounter < 2)
                 {  
                     rb.velocity = Vector2.up * jumpForce;
-                    //jumpTimeCounter -= Time.deltaTime;
-                    jumpCounter++;
+                    jumpTimeCounter -= Time.deltaTime;
+                    //jumpCounter++;
                     Debug.Log("1Jump");
                 }
                 else
                 {
                     isJumping = false;
-                    jumpCounter = 0;
-                    Debug.Log("SecondJump");
+                    //jumpCounter = 0;
+                    //Debug.Log("SecondJump");
                 }
             }
+            }*/
+            /*
             if(Input.GetKeyUp(KeyCode.W) && Input.GetKeyUp(KeyCode.JoystickButton0))
             {
                 isJumping = false;
             }
+             */
 
             if(Input.GetKeyDown(KeyCode.Space) || Input.GetAxis("Triggers") > 0)
             {
@@ -427,8 +454,10 @@ public class Player : MonoBehaviour
             isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
         
             //Input.GetAxisRaw("Horizontal"); <- damit Player sofort anhält (kein sliden)
-            
-            rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
+            if(isJumping)BobJump();
+            else doubleJump = false;
+
+            if(!knocked)rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
 
             if(facingRight == false && moveInput > 0)
             {
@@ -449,6 +478,29 @@ public class Player : MonoBehaviour
 
     }
 
+    private void BobJump()
+    {
+        Debug.Log("doubleJump: "+doubleJump);
+        if(isGrounded)
+        {
+            jumps = 0;
+            doubleJump =false;
+
+
+        } 
+        if(isGrounded || jumps < maxJumpCount)
+        {        
+            if(jumps == 1)
+            {
+                doubleJump = true;
+            }
+            rb.velocity = Vector2.up * jumpForce;
+            jumps++;
+            isGrounded = false;
+        }
+        isJumping = false;      
+
+    }
     void Flip()
     {
         facingRight = !facingRight;
@@ -459,7 +511,8 @@ public class Player : MonoBehaviour
     
     public void TakeDamage(int damage)
     {
-        rb.velocity = new Vector2(-10, .5f) * 20;
+        //knocked = true;
+        //rb.velocity = new Vector2(-10, .5f) * 20;
         
         var gmGetScript = gm.GetComponent<FeedbackDisplay>();
         if(form == 1) health -= damage / 2;
@@ -566,17 +619,10 @@ public class Player : MonoBehaviour
         }
         //yield return null;
     }
-    public IEnumerator Knockback(Transform direction)
+    public void Knockback(int direction)
     {
-        float timer = 0;
-        
-        while(knockbackDuration > timer)
-        {
-            timer += Time.deltaTime;
-            rb.AddForce(new Vector2(direction.position.x * knockbackForce * 100, direction.position.y * knockbackForce), ForceMode2D.Impulse);
-            Flip();
-        }
-        yield return 0;
+        knocked = true;
+        rb.velocity = new Vector2(direction, 2) * 30 / 2;
     }
     public IEnumerator Dash(float directionX, float directionY)
     {
@@ -644,6 +690,7 @@ public class Player : MonoBehaviour
                 {
                     attackState = "Powerwave";
                     Instantiate(powerwave, new Vector2(shotPoint.transform.position.x, shotPoint.transform.position.y - 1), shotPoint.transform.rotation);
+                    Instantiate(powerwavebox, new Vector2(shotPoint.transform.position.x, shotPoint.transform.position.y - 1), shotPoint.transform.rotation);
                     BobStrongAnimator.SetTrigger("T2_PowerWave");
                 } 
                 else
@@ -691,6 +738,8 @@ public class Player : MonoBehaviour
         Debug.Log(comboNumber);
         yield return null;
     }
+
+
     public IEnumerator HeavyAttack(int direction)
     {
         comboTime = Time.time + timeBetweenCombos;

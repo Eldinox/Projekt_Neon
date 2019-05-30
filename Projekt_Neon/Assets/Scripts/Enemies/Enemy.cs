@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
     
     [HideInInspector]
     public Transform player;
-    [HideInInspector]
+    //[HideInInspector]
     public string state;
 
     [Header("Gegner Bools")]

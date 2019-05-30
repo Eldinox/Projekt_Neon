@@ -534,7 +534,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   speed: 17
-  jumpForce: 21
+  jumpForceNormal: 41
+  jumpForceRange: 45
+  jumpForceTank: 35
   jumpAmount: 1
   jumpTime: 0.4
   fireballCooldownTime: 3
@@ -542,7 +544,7 @@ MonoBehaviour:
   knockbackDuration: 0
   dashSpeed: 1
   startDashTime: 5
-  combatTime: 3
+  combatTime: 1.5
   dead: 0
   inDialogue: 0
   coinAmount: 5
@@ -562,6 +564,8 @@ MonoBehaviour:
     type: 3}
   powerwave: {fileID: 6967040413537661336, guid: da72b44b50422c14ca8fc61d41b4b254,
     type: 3}
+  powerwavebox: {fileID: 7989251304752147540, guid: 5ac849842e72a244c9c66b244441b47f,
+    type: 3}
   shotPoint: {fileID: 1646070079413398967}
   dagger: {fileID: 5020869101006976190}
   daggerPos1: {fileID: 4635932412644457185}
@@ -570,6 +574,8 @@ MonoBehaviour:
   bobRangeform: {fileID: 6063719011087011461}
   bobDamageform: {fileID: 1730177406714427220}
   facingRight: 1
+  maxJumpCount: 0
+  knocked: 0
   sprites: []
 --- !u!70 &1646070080263158026
 CapsuleCollider2D:
@@ -1388,13 +1394,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5020869101006976190}
-  m_LocalRotation: {x: -0, y: -0, z: -0.8235414, w: 0.5672562}
-  m_LocalPosition: {x: 1.009, y: 1, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0.98346055, w: -0.18112278}
+  m_LocalPosition: {x: -0.243, y: 0.927, z: 0}
   m_LocalScale: {x: 1.3668268, y: 1.3668268, z: 1.3668268}
   m_Children: []
   m_Father: {fileID: 7024651676503508197}
   m_RootOrder: 21
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -110.882}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -200.87}
 --- !u!212 &7866690150250476700
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3892,11 +3898,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400042, guid: 3f93e617e1d8a31478068722b6a4b915, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.9643793
+      value: 0.94613487
       objectReference: {fileID: 0}
     - target: {fileID: 400042, guid: 3f93e617e1d8a31478068722b6a4b915, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.26452342
+      value: 0.323773
       objectReference: {fileID: 0}
     - target: {fileID: 400052, guid: 3f93e617e1d8a31478068722b6a4b915, type: 3}
       propertyPath: m_LocalRotation.z
@@ -3960,19 +3966,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400044, guid: 3f93e617e1d8a31478068722b6a4b915, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.11934891
+      value: -0.08378626
       objectReference: {fileID: 0}
     - target: {fileID: 400044, guid: 3f93e617e1d8a31478068722b6a4b915, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.99285245
+      value: 0.9964838
       objectReference: {fileID: 0}
     - target: {fileID: 400046, guid: 3f93e617e1d8a31478068722b6a4b915, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.25986263
+      value: -0.13587566
       objectReference: {fileID: 0}
     - target: {fileID: 400046, guid: 3f93e617e1d8a31478068722b6a4b915, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9656457
+      value: 0.99072593
       objectReference: {fileID: 0}
     - target: {fileID: 400040, guid: 3f93e617e1d8a31478068722b6a4b915, type: 3}
       propertyPath: m_LocalRotation.z
@@ -3988,11 +3994,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400048, guid: 3f93e617e1d8a31478068722b6a4b915, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.07838966
+      value: 0.24311954
       objectReference: {fileID: 0}
     - target: {fileID: 400048, guid: 3f93e617e1d8a31478068722b6a4b915, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.99692285
+      value: -0.9699964
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f93e617e1d8a31478068722b6a4b915, type: 3}

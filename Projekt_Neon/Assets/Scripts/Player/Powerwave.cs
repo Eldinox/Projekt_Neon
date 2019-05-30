@@ -26,12 +26,4 @@ public class Powerwave : MonoBehaviour
     {
         Destroy(this.gameObject);
     }
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.CompareTag("Enemy"))
-        {
-            collision.gameObject.GetComponent<Enemy>().Stun(2);
-        }
-    }
 }

@@ -128,13 +128,12 @@ public class Rusher : Enemy
     {
         if(collision.gameObject.CompareTag("Player"))
         {
+            player.GetComponent<Player>().Knockback(-1);
             Vector2 difference = new Vector2(transform.position.x, transform.position.y) - new Vector2(collision.transform.position.x, collision.transform.position.y);
             difference = difference.normalized * knockbackForce;
             rb.AddForce(difference, ForceMode2D.Impulse);
-            Debug.Log("rusherhit");
-            if(attacking)player.GetComponent<Player>().TakeDamage(damage);  //Beim Angriff
-            else player.GetComponent<Player>().TakeDamage(15);              //Bei Berührung
+            if(attacking)player.GetComponent<Player>().TakeDamage(damage);
+            
         }
     }
-
 }
