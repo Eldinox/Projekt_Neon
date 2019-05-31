@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using TMPro;
 
 public class Player : MonoBehaviour
@@ -260,6 +261,8 @@ public class Player : MonoBehaviour
                     //var bobnormal  = this.transform.Find("Bob2").gameObject;
                     //bobnormal.GetComponent<IKManager2D>().enabled = false;
                     BobRangeAnimator.SetBool("isRunning", false);
+                    GameObject.Find("HealIcon").GetComponent<Image>().enabled = false;
+                    GameObject.Find("FireballIcon").GetComponent<Image>().enabled = true;
                     speed = 19;
                     jumpForce = jumpForceRange; //23
                 }
@@ -271,6 +274,8 @@ public class Player : MonoBehaviour
                     ActivateBobSprites(bobNormalAllObjs,true);
                     ActivateBobSprites(bobRangeAllObjs,false);                                                
                     BobNormalAnimator.SetBool("isRunning", false);
+                    GameObject.Find("GroundslamIcon").GetComponent<Image>().enabled = false;
+                    GameObject.Find("HealIcon").GetComponent<Image>().enabled = true;
                     speed = 17;
                     jumpForce = jumpForceNormal; //21
                 }
@@ -284,6 +289,8 @@ public class Player : MonoBehaviour
                     ActivateBobSprites(bobStrongAllObjs,true);
                     //dagger.SetActive(false);
                     BobStrongAnimator.SetBool("isRunning", false);
+                    GameObject.Find("FireballIcon").GetComponent<Image>().enabled = false;
+                    GameObject.Find("GroundslamIcon").GetComponent<Image>().enabled = true;
                     speed = 12;
                     jumpForce = jumpForceTank; //15
                 }
@@ -298,6 +305,8 @@ public class Player : MonoBehaviour
                     ActivateBobSprites(bobRangeAllObjs,true);
                     ActivateBobSprites(bobStrongAllObjs,false);                   
                     BobRangeAnimator.SetBool("isRunning", false);
+                    GameObject.Find("GroundslamIcon").GetComponent<Image>().enabled = false;
+                    GameObject.Find("FireballIcon").GetComponent<Image>().enabled = true;
                     speed = 19;
                     jumpForce = jumpForceRange;
                 }
@@ -310,6 +319,8 @@ public class Player : MonoBehaviour
                     ActivateBobSprites(bobStrongAllObjs,false); 
                     dagger.SetActive(true);
                     BobNormalAnimator.SetBool("isRunning", false);
+                    GameObject.Find("FireballIcon").GetComponent<Image>().enabled = false;
+                    GameObject.Find("HealIcon").GetComponent<Image>().enabled = true;
                     speed = 17;
                     jumpForce = jumpForceNormal;
                 }
@@ -320,6 +331,8 @@ public class Player : MonoBehaviour
                     ActivateBobSprites(bobRangeAllObjs,false);
                     ActivateBobSprites(bobStrongAllObjs,true);
                     BobStrongAnimator.SetBool("isRunning", false);
+                    GameObject.Find("HealIcon").GetComponent<Image>().enabled = false;
+                    GameObject.Find("GroundslamIcon").GetComponent<Image>().enabled = true;
                     speed = 12;
                     jumpForce = jumpForceTank;
                 }

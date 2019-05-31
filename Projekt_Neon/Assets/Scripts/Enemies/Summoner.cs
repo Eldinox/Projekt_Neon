@@ -119,7 +119,12 @@ public class Summoner : Enemy
             if(player.transform.position.x < transform.position.x)attackDirection = -6;
             else attackDirection = 6;
             yield return new WaitForSeconds(1);
-            if(!dead && !stunned) Instantiate(jumper, new Vector2(transform.position.x + attackDirection, transform.position.y), transform.rotation);
+            if(!dead && !stunned)
+            {
+                Instantiate(jumper, new Vector2(transform.position.x , transform.position.y), transform.rotation);
+                GetComponent<Animator>().SetTrigger("attack");
+
+            } 
             yield return new WaitForSeconds(.5f);
             attacking = false;
         }

@@ -42,7 +42,11 @@ public class Spider : Enemy
                 Flip();
             }
         }
-        
+
+        if (dead)
+        {
+            GameObject.Find("Spider").GetComponent<Animator>().SetTrigger("isDead");
+        }
     }
 
     IEnumerator Attack()

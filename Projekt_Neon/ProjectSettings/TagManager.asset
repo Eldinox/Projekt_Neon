@@ -16,6 +16,7 @@ TagManager:
   - BobStrong
   - RespawnPoint
   - BossPillar
+  - Jumper
   layers:
   - Default
   - TransparentFX

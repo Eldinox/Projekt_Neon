@@ -1,0 +1,207 @@
+fileFormatVersion: 2
+guid: 9ebeb8b2405535f41bc4022ea5bf1acc
+ScriptedImporter:
+  fileIDToRecycleName:
+    100000: Layer 18(pasted)_GO/Layer 18(pasted)_GO
+    100002: Layer 18(pasted)_GO/Layer 18(pasted)_GO/Layer 3 Merged
+    100004: Layer 18(pasted)_GO/Layer 18(pasted)_GO/Layer 17(pasted)
+    100006: Layer 18(pasted)_GO/Layer 18(pasted)_GO/Layer 18(pasted)
+    400000: Layer 18(pasted)_GO/Layer 18(pasted)_GO/Transform
+    400002: Layer 18(pasted)_GO/Layer 18(pasted)_GO/Layer 3 Merged/Transform
+    400004: Layer 18(pasted)_GO/Layer 18(pasted)_GO/Layer 17(pasted)/Transform
+    400006: Layer 18(pasted)_GO/Layer 18(pasted)_GO/Layer 18(pasted)/Transform
+    2800000: Summoner
+    21200000: Layer 18(pasted)_GO/Layer 18(pasted)_GO/Layer 3 Merged/SpriteRenderer
+    21200002: Layer 18(pasted)_GO/Layer 18(pasted)_GO/Layer 17(pasted)/SpriteRenderer
+    21200004: Layer 18(pasted)_GO/Layer 18(pasted)_GO/Layer 18(pasted)/SpriteRenderer
+    21300000: Layer 3 Merged
+    21300002: Layer 17(pasted)
+    21300004: Layer 18(pasted)
+    100100000: Layer 18(pasted)_GO
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: b2a9591990af98743ba3ff7cf1000886, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 1
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    isReadable: 0
+    streamingMipmaps: 1
+    streamingMipmapsPriority: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+  spriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 0, y: 0}
+  mosaicSpriteImportData: []
+  rigSpriteImportData:
+  - name: Layer 3 Merged
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 543
+      height: 276
+    spriteID: 81f8085e45e853a4f827c53918c2f0fd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -249, y: -161}
+  - name: Layer 17(pasted)
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 288
+      width: 277
+      height: 314
+    spriteID: d9ac87a9a73de884285b7242c8c69bc2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -499, y: -137}
+  - name: Layer 18(pasted)
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 610
+      width: 258
+      height: 328
+    spriteID: 41297b354e9ec1b4f89282b07f401259
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -246, y: 184}
+  platformSettings: []
+  mosaicLayers: 1
+  documentPivot: {x: 0, y: 0}
+  documentAlignment: 7
+  importHiddenLayers: 0
+  importedTextureWidth: 1024
+  importedTextureHeight: 1024
+  documentSize: {x: 1000, y: 1000}
+  textureActualWidth: 1024
+  textureActualHeight: 1024
+  spritePackingTag: 
+  resliceFromLayer: 0
+  characterMode: 1
+  mosaicPSDLayers: []
+  rigPSDLayers:
+  - name: Layer 3 Merged
+    spriteName: Layer 3 Merged
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 81f8085e45e853a4f827c53918c2f0fd
+    layerID: 6
+    mosaicPosition: {x: 4, y: 4}
+  - name: Layer 17(pasted)
+    spriteName: Layer 17(pasted)
+    isGroup: 0
+    parentIndex: -1
+    spriteID: d9ac87a9a73de884285b7242c8c69bc2
+    layerID: 5
+    mosaicPosition: {x: 4, y: 288}
+  - name: Layer 18(pasted)
+    spriteName: Layer 18(pasted)
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 41297b354e9ec1b4f89282b07f401259
+    layerID: 4
+    mosaicPosition: {x: 4, y: 610}
+  characterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+  boneGOs: []
+  generateGOHierarchy: 0
