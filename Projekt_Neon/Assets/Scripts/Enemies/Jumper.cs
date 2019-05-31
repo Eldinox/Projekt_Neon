@@ -6,6 +6,7 @@ public class Jumper : Enemy
 {
     public float stopDistance;
     public float jumpForce;
+    public GameObject thisSprite;
     
     private Rigidbody2D rb;
 
@@ -82,13 +83,11 @@ public class Jumper : Enemy
         float direction;
         if(player.transform.position.x < transform.position.x)direction = -.2f;
         else direction = .2f;
-        GameObject.FindWithTag("Jumper").GetComponent<Animator>().SetTrigger("isAttacking");
+        thisSprite.GetComponent<Animator>().SetTrigger("isAttacking");
 
         if(!dead && !stunned)
         {
             rb.velocity = new Vector2(direction, 2) * jumpForce;
-            
-
         } 
     }
 

@@ -293,6 +293,7 @@ MonoBehaviour:
   sprites: []
   stopDistance: 10
   jumpForce: 35
+  thisSprite: {fileID: 2067634255007766450}
 --- !u!95 &4743213717604572916
 Animator:
   serializedVersion: 3
@@ -319,11 +320,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2398491575567804598}
     m_Modifications:
-    - target: {fileID: 1531456344444237978, guid: 161da52400066fa4f828addfec33f278,
-        type: 3}
-      propertyPath: m_Name
-      value: HitSparksBlau1
-      objectReference: {fileID: 0}
     - target: {fileID: 6884026477571303136, guid: 161da52400066fa4f828addfec33f278,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -393,6 +389,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 3.0604303
+      objectReference: {fileID: 0}
+    - target: {fileID: 1531456344444237978, guid: 161da52400066fa4f828addfec33f278,
+        type: 3}
+      propertyPath: m_Name
+      value: HitSparksBlau1
       objectReference: {fileID: 0}
     - target: {fileID: 7771524426039667800, guid: 161da52400066fa4f828addfec33f278,
         type: 3}
