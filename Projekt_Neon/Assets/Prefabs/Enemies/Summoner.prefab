@@ -5100,7 +5100,6 @@ MonoBehaviour:
   chasing: 0
   stunned: 0
   dead: 0
-  sprites: []
   stopDistance: 20
   knockbackForce: 0
   patrolSpots:
@@ -5353,6 +5352,18 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 21200004, guid: 9ebeb8b2405535f41bc4022ea5bf1acc, type: 3}
+      propertyPath: m_SortingOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 21200004, guid: 9ebeb8b2405535f41bc4022ea5bf1acc, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 21200002, guid: 9ebeb8b2405535f41bc4022ea5bf1acc, type: 3}
+      propertyPath: m_SortingOrder
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ebeb8b2405535f41bc4022ea5bf1acc, type: 3}
 --- !u!4 &4222001558311667198 stripped
@@ -5442,6 +5453,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 2.743584
+      objectReference: {fileID: 0}
+    - target: {fileID: 7771524426039667800, guid: 161da52400066fa4f828addfec33f278,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7771524426039667800, guid: 161da52400066fa4f828addfec33f278,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 161da52400066fa4f828addfec33f278, type: 3}

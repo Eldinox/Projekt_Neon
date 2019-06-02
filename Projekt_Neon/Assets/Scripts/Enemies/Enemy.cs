@@ -34,7 +34,9 @@ public class Enemy : MonoBehaviour
     private SpriteRenderer hitSparksR;
     private float health;
     private string spriteNames = "HitSparksBlue";
-    public Sprite[] sprites;
+    private Sprite[] sprites;
+
+    private Sprite stunSprite;
     
     // Start is called before the first frame update
     public virtual void Start()
@@ -47,6 +49,7 @@ public class Enemy : MonoBehaviour
         hitSparks = this.transform.Find("HitSparksBlau1").gameObject;
         hitSparksR= hitSparks.GetComponent<SpriteRenderer>();
         sprites = Resources.LoadAll<Sprite>(spriteNames);
+        stunSprite = Resources.Load<Sprite>("HitSparks_boob3");
     }
 
     // Update is called once per frame
@@ -79,7 +82,8 @@ public class Enemy : MonoBehaviour
         if(gmGetScript.hitSparks)
         {
            Debug.Log ("lengthsprtie"+sprites.Length);
-           hitSparksR.sprite = sprites[(int)Random.Range(0.0f, 5.0f)];
+           Debug.Log("RandomRange"+Random.Range(0, 4));
+           hitSparksR.sprite = sprites[Random.Range(0, 4)];
            hitSparksR.enabled = true;
            Invoke("showHitSparks",0.2f);
 
@@ -106,21 +110,26 @@ public class Enemy : MonoBehaviour
         if(gmGetScript.damageNumberDisplay)enemyCanvas.GetComponentInChildren<TextMeshProUGUI>().text = "down";
         Invoke("Displaytime", duration);
         Invoke("Stuntime", duration);
+
     }
 
     public void Stun(float duration)
     {
         stunned = true;
+        hitSparksR.sprite = stunSprite;
+        hitSparksR.enabled =true;
         //Hier code für visuellen stun
         var gmGetScript = gm.GetComponent<FeedbackDisplay>();
         if(gmGetScript.damageNumberDisplay)enemyCanvas.GetComponentInChildren<TextMeshProUGUI>().text = "@@@";
         Invoke("Displaytime", duration);
         Invoke("Stuntime", duration);
+        
     }
 
     private void Stuntime()
     {
         stunned = false;
+        hitSparksR.enabled =false;
     }
 
     public void Flip()
