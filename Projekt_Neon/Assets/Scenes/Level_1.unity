@@ -15404,8 +15404,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.521
       objectReference: {fileID: 0}
-<<<<<<< HEAD
-=======
     - target: {fileID: 1730177406714063686, guid: c7c51b4da827c6940bf857eec7a48a33,
         type: 3}
       propertyPath: m_LocalRotation.z
@@ -15516,7 +15514,6 @@ PrefabInstance:
       propertyPath: m_LocalRotation.w
       value: 0.9479051
       objectReference: {fileID: 0}
->>>>>>> e331ac698242224753c0ca5068f6a788a215210d
     - target: {fileID: 1646070080263158027, guid: c7c51b4da827c6940bf857eec7a48a33,
         type: 3}
       propertyPath: jumpForce
