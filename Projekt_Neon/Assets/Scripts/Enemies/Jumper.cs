@@ -61,6 +61,11 @@ public class Jumper : Enemy
                 }
             }
         }
+        if(dead)
+        {
+            thisSprite.GetComponent<Animator>().SetTrigger("isDead");
+            GetComponent<Animator>().SetTrigger("isDead");
+        }
     }
 
     IEnumerator Chase()

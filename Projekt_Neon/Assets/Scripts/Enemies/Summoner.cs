@@ -96,6 +96,11 @@ public class Summoner : Enemy
                 }
             }
         }
+
+        if(dead)
+        {
+            GetComponent<Animator>().SetTrigger("isDead");
+        }
     }
 
     IEnumerator Attack()
