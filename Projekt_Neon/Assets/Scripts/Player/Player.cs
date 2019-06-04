@@ -85,10 +85,13 @@ public class Player : MonoBehaviour
     public Sprite[] sprites;
     private SpriteRenderer hitSparksR;
     private GameObject deathMenuFirstButton;
+    private bool iframes;
+    private int iframeCounter;
 
     private GameObject[] bobNormalAllObjs;
     private GameObject[] bobStrongAllObjs;
     private GameObject[] bobRangeAllObjs;
+    
     void Awake()
     {
         GameObject[] objs = GameObject.FindGameObjectsWithTag("Player");
@@ -147,6 +150,13 @@ public class Player : MonoBehaviour
             }
             GameObject.Find("SideKick").transform.position = new Vector3(transform.position.x - 3, transform.position.y + 5, transform.position.z);
             GameObject.Find("HealthBar").GetComponent<HealthBar>().UpdateHealth(health);
+
+            GameObject.Find("HealIcon").GetComponent<Image>().enabled = false;
+            GameObject.Find("GroundslamIcon").GetComponent<Image>().enabled = false;
+            GameObject.Find("FireballIcon").GetComponent<Image>().enabled = false;
+            if(form == 0)GameObject.Find("HealIcon").GetComponent<Image>().enabled = true;
+            else if(form == 1)GameObject.Find("GroundslamIcon").GetComponent<Image>().enabled = true;
+            else if(form == 2)GameObject.Find("FireballIcon").GetComponent<Image>().enabled = true;
         }
         else
         {
@@ -434,7 +444,17 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
     	moveInput = Input.GetAxis("Horizontal");
-        
+
+        if(iframes)
+        {
+            iframeCounter++;
+            if(iframeCounter > 30)
+            {
+                iframes = false;
+                iframeCounter = 0;
+            }
+        }
+
         if(!inDialogue && !dead)
         {
             if (moveInput == 0)
@@ -526,56 +546,60 @@ public class Player : MonoBehaviour
     {
         //knocked = true;
         //rb.velocity = new Vector2(-10, .5f) * 20;
-        
-        var gmGetScript = gm.GetComponent<FeedbackDisplay>();
-        if(form == 1) health -= damage / 2;
-        else health -= damage;
-        
-        if(gmGetScript.getHitAnimation)
+        if(!iframes)
         {
-             switch(form)
-                {
-                    case 0 : BobNormalAnimator.SetTrigger("getHitBob");
-                    break;
-                    case 1 : BobStrongAnimator.SetTrigger("getHitBob");
-                    break;
-                    case 2 : BobRangeAnimator.SetTrigger("getHitBob");
-                    break;
-                }
-        }
-        if(gmGetScript.getHitColoring)
-        {
-            switch(form)
-                {
-                    case 0 : BobNormalAnimator.SetTrigger("bobColorChange");
-                    break;
-                    case 1 : BobStrongAnimator.SetTrigger("bobColorChange");
-                    break;
-                    case 2 : BobRangeAnimator.SetTrigger("bobColorChange");
-                    break;
-                }
+            iframes = true;
+            var gmGetScript = gm.GetComponent<FeedbackDisplay>();
+            if(form == 1) health -= damage / 2;
+            else health -= damage;
 
-        }
-        if(gmGetScript.hitSparks)
-        {
-            //Debug.Log ("lengthsprtiebob "+sprites.Length);
-            hitSparksR.sprite = sprites[(int)Random.Range(0.0f, 5.0f)];
-            hitSparksR.enabled = true;
-            Invoke("showHitSparks",0.2f);
+            if(gmGetScript.getHitAnimation)
+            {
+                 switch(form)
+                    {
+                        case 0 : BobNormalAnimator.SetTrigger("getHitBob");
+                        break;
+                        case 1 : BobStrongAnimator.SetTrigger("getHitBob");
+                        break;
+                        case 2 : BobRangeAnimator.SetTrigger("getHitBob");
+                        break;
+                    }
+            }
+            if(gmGetScript.getHitColoring)
+            {
+                switch(form)
+                    {
+                        case 0 : BobNormalAnimator.SetTrigger("bobColorChange");
+                        break;
+                        case 1 : BobStrongAnimator.SetTrigger("bobColorChange");
+                        break;
+                        case 2 : BobRangeAnimator.SetTrigger("bobColorChange");
+                        break;
+                    }
+
+            }
+            if(gmGetScript.hitSparks)
+            {
+                //Debug.Log ("lengthsprtiebob "+sprites.Length);
+                hitSparksR.sprite = sprites[(int)Random.Range(0.0f, 5.0f)];
+                hitSparksR.enabled = true;
+                Invoke("showHitSparks",0.2f);
+            }
+
+            if(health < 1)
+            {
+                dead = true;
+                //this.gameObject.SetActive(false);
+                GameObject.Find("DeathCanvas").GetComponent<CanvasGroup>().interactable = true;
+                GameObject.Find("DeathScreen").GetComponent<Animator>().SetTrigger("death");
+            }
+            else if(health > 100)
+            {
+                health = 100;
+            }
+            GameObject.Find("HealthBar").GetComponent<HealthBar>().UpdateHealth(health);
         }
         
-        if(health < 1)
-        {
-            dead = true;
-            //this.gameObject.SetActive(false);
-            GameObject.Find("DeathCanvas").GetComponent<CanvasGroup>().interactable = true;
-            GameObject.Find("DeathScreen").GetComponent<Animator>().SetTrigger("death");
-        }
-        else if(health > 100)
-        {
-            health = 100;
-        }
-        GameObject.Find("HealthBar").GetComponent<HealthBar>().UpdateHealth(health);
     }
 
     private void showHitSparks()

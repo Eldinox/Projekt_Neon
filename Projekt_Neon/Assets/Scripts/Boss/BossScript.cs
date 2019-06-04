@@ -7,13 +7,36 @@ public class BossScript : MonoBehaviour
     public GameObject[] pillars;
     public GameObject[] particleSystems;
     private Animator anim;
+
+    [HideInInspector]
+    public Transform player;
+
+    public int state;
     
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         Invoke("System1", 3);
         Invoke("Attack1", 5);
+    }
+
+    void Update()
+    {
+        if(state == 0)
+        {
+            if(Vector2.Distance(transform.position, player.position) < 70)
+            {
+                anim.SetTrigger("StartFight");
+                state = 1;
+            }
+        }
+        if(state == 2)
+        {
+            Invoke("System1", 3);
+            Invoke("Attack1", 5);
+        }
     }
     
     private void Attack1()
