@@ -171,11 +171,11 @@ public class Player : MonoBehaviour
     {
         if (!Input.anyKey && isGrounded)
         {
-            rb.constraints= RigidbodyConstraints2D.FreezeAll;
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
         }
         else
         {
-            rb.constraints= RigidbodyConstraints2D.FreezeRotation;
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
 
         if(Input.GetKeyDown(KeyCode.JoystickButton0) && inDialogue)

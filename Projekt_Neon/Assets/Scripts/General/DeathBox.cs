@@ -9,6 +9,7 @@ public class DeathBox : MonoBehaviour
     	if(collision.tag == "Player")
     	{
     		collision.gameObject.GetComponent<Player>().dead = true;
+            collision.gameObject.GetComponent<Player>().TakeDamage(1000);
             //Open Menu after death
             GameObject.Find("DeathScreen").GetComponent<Animator>().SetBool("death", true);
     	}
