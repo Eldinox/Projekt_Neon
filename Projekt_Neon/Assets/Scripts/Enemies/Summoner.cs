@@ -120,9 +120,9 @@ public class Summoner : Enemy
         if(jumpersSpawned < 6)
         {
             attacking = true;
-            int attackDirection = 0;
-            if(player.transform.position.x < transform.position.x)attackDirection = -6;
-            else attackDirection = 6;
+            //int attackDirection = 0;
+            //if(player.transform.position.x < transform.position.x)attackDirection = -6;
+            //else attackDirection = 6;
             yield return new WaitForSeconds(1);
             if(!dead && !stunned)
             {

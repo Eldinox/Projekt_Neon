@@ -71,15 +71,19 @@ public class AttackBox : MonoBehaviour
             {
                 if(collision.GetComponent<Enemy>().stunned == false)
                 {
-                    collision.GetComponent<Enemy>().Stun(3);
-                    collision.GetComponent<Rigidbody2D>().AddForce(transform.up * 3500);
-                    GameObject.Find("Player").GetComponent<Rigidbody2D>().AddForce(transform.up * 2500);
-                    GameObject.Find("Player").GetComponent<Player>().aircombat = true;
+                    if(collision.gameObject.name != "Jumper" && collision.gameObject.name != "Jumper(Clone)")
+                    {
+                        collision.GetComponent<Enemy>().Stun(3);
+                        collision.GetComponent<Rigidbody2D>().AddForce(transform.up * 3500);
+                        GameObject.Find("Player").GetComponent<Rigidbody2D>().AddForce(transform.up * 2500);
+                        GameObject.Find("Player").GetComponent<Player>().aircombat = true;
+                    }
                 }
             }
             else if(GameObject.Find("Player").GetComponent<Player>().attackState == "T3Light" && GameObject.Find("Player").GetComponent<Player>().isGrounded == false || GameObject.Find("Player").GetComponent<Player>().attackState == "T3Heavy" && GameObject.Find("Player").GetComponent<Player>().isGrounded == false)
             {
                 collision.GetComponent<Enemy>().Stun(1);
+                collision.GetComponent<Enemy>().TakeDamage(lightRangedDamage);
                 collision.GetComponent<Rigidbody2D>().AddForce(transform.up * 200);
                 GameObject.Find("Player").GetComponent<Rigidbody2D>().AddForce(transform.up * 170);
                 collision.GetComponent<Rigidbody2D>().gravityScale = 0.2f;

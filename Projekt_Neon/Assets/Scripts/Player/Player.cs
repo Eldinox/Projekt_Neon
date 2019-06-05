@@ -55,7 +55,7 @@ public class Player : MonoBehaviour
     private float moveInput;
     public  bool facingRight = true;
     private bool isJumping;
-    private bool enteredLeft = true;
+    private bool enteredLeft;
     private int extraJumps;
     private float jumpTimeCounter;
     private float dashTime;
@@ -108,6 +108,10 @@ public class Player : MonoBehaviour
     void Start()
     {
         doubleJump = false;
+        if(!enteredLeft)
+        {
+            enteredLeft = true;
+        }
         //jumpCounter = 0;
         rb = GetComponent<Rigidbody2D>();
         extraJumps = jumpAmount;
@@ -169,9 +173,9 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!Input.anyKey && isGrounded)
+        if(Input.GetAxis("Horizontal") == 0 && isGrounded)
         {
-            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
         }
         else
         {
@@ -372,7 +376,7 @@ public class Player : MonoBehaviour
                     case 2 : BobRangeAnimator.SetTrigger("takeOf");
                     break;
                 }
-
+                
                 isJumping = true;
                 /*/jumpTimeCounter = jumpTime;
                 rb.velocity = Vector2.up * jumpForce;
