@@ -169,6 +169,15 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!Input.anyKey && isGrounded)
+        {
+            rb.constraints= RigidbodyConstraints2D.FreezeAll;
+        }
+        else
+        {
+            rb.constraints= RigidbodyConstraints2D.FreezeRotation;
+        }
+
         if(Input.GetKeyDown(KeyCode.JoystickButton0) && inDialogue)
         {
             FindObjectOfType<DialogueManager>().DisplayNextSentence();
@@ -363,6 +372,7 @@ public class Player : MonoBehaviour
                     case 2 : BobRangeAnimator.SetTrigger("takeOf");
                     break;
                 }
+
                 isJumping = true;
                 /*/jumpTimeCounter = jumpTime;
                 rb.velocity = Vector2.up * jumpForce;
