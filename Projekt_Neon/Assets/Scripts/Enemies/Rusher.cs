@@ -5,7 +5,7 @@ using UnityEngine;
 public class Rusher : Enemy
 {
     public float stopDistance;
-    public float attackSpeed;
+    //public float attackSpeed;
     public float dashSpeed;
     public float knockbackForce;
     public Transform[] patrolSpots;
