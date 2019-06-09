@@ -16,6 +16,7 @@ public class BossScript : MonoBehaviour
 
     public int state;
     private GameObject pillar1;
+    private int attackCount;
     
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,7 @@ public class BossScript : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         animatedPillars = GameObject.FindGameObjectsWithTag("BossPillar");
         animatedPillars2 = GameObject.FindGameObjectsWithTag("BossPillar2");
+        attackCount = 0;
         foreach (var item in animatedPillars)
         {
             item.SetActive(false);
@@ -51,6 +53,11 @@ public class BossScript : MonoBehaviour
             Invoke("System1", 3);
             Invoke("Attack1", 5);
         }
+        if(attackCount == 8)
+        {
+            attackCount = 0;
+            anim.SetTrigger("LongAttack");
+        }
     }
     
     private void Attack1()
@@ -66,6 +73,7 @@ public class BossScript : MonoBehaviour
         {
             item.SetActive(false);
         }
+        attackCount++;
         Invoke("System2", 3);   
         Invoke("Attack2", 5);
     }
@@ -82,6 +90,8 @@ public class BossScript : MonoBehaviour
         {
             item.SetActive(true);
         }
+        attackCount++;
+
         Invoke("System1", 3);
         Invoke("Attack1", 5);
     }
