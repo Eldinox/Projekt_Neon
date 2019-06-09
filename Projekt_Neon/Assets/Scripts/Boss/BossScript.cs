@@ -6,18 +6,32 @@ public class BossScript : MonoBehaviour
 {
     public GameObject[] pillars;
     public GameObject[] particleSystems;
+
+    private GameObject[] animatedPillars;
+    private GameObject[] animatedPillars2;
     private Animator anim;
 
     [HideInInspector]
     public Transform player;
 
     public int state;
+    private GameObject pillar1;
     
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        animatedPillars = GameObject.FindGameObjectsWithTag("BossPillar");
+        animatedPillars2 = GameObject.FindGameObjectsWithTag("BossPillar2");
+        foreach (var item in animatedPillars)
+        {
+            item.SetActive(false);
+        }
+        foreach (var item in animatedPillars2)
+        {
+            item.SetActive(false);
+        }
         Invoke("System1", 3);
         Invoke("Attack1", 5);
     }
@@ -44,7 +58,15 @@ public class BossScript : MonoBehaviour
         anim.SetTrigger("PillarAttack1");
         particleSystems[0].SetActive(false);
         particleSystems[2].SetActive(false);
-        Invoke("System2", 3);
+        foreach (var item in animatedPillars)
+        {
+            item.SetActive(true);
+        }
+         foreach (var item in animatedPillars2)
+        {
+            item.SetActive(false);
+        }
+        Invoke("System2", 3);   
         Invoke("Attack2", 5);
     }
     private void Attack2()
@@ -52,6 +74,14 @@ public class BossScript : MonoBehaviour
         anim.SetTrigger("PillarAttack2");
         particleSystems[1].SetActive(false);
         particleSystems[3].SetActive(false);
+        foreach (var item in animatedPillars)
+        {
+            item.SetActive(false);
+        }
+         foreach (var item in animatedPillars2)
+        {
+            item.SetActive(true);
+        }
         Invoke("System1", 3);
         Invoke("Attack1", 5);
     }
