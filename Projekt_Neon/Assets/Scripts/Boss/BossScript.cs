@@ -17,6 +17,7 @@ public class BossScript : MonoBehaviour
     public int state;
     private GameObject pillar1;
     private int attackCount;
+    public int eyeCountDestroy ;
     
     // Start is called before the first frame update
     void Start()
@@ -53,16 +54,38 @@ public class BossScript : MonoBehaviour
             Invoke("System1", 3);
             Invoke("Attack1", 5);
         }
-        if(attackCount == 3)
+        if(attackCount == 8)
         {
             attackCount = 0;
             anim.SetTrigger("LongAttack");
         }
+        Debug.Log("Eye Destroy "+eyeCountDestroy);
+        if(eyeCountDestroy == 3)
+        {
+            eyeCountDestroy = -1;
+            anim.SetTrigger("LastHit");
+            StartCoroutine(BossDead(anim));
+            state = 4;
+    
+            
+         
+        }
+
+ {
+    // Avoid any reload.
+ }
     }
     
+    private IEnumerator BossDead(Animator anim)
+    {
+        yield return new WaitForSeconds(5);
+        anim.enabled = false;
+        
+    }
     private void Attack1()
     {
         anim.SetTrigger("PillarAttack1");
+        GameObject.Find("Umgebung").GetComponent<Animator>().SetTrigger("shake");
         particleSystems[0].SetActive(false);
         particleSystems[2].SetActive(false);
         foreach (var item in animatedPillars)
@@ -80,6 +103,7 @@ public class BossScript : MonoBehaviour
     private void Attack2()
     {
         anim.SetTrigger("PillarAttack2");
+        GameObject.Find("Umgebung").GetComponent<Animator>().SetTrigger("shake");
         particleSystems[1].SetActive(false);
         particleSystems[3].SetActive(false);
         foreach (var item in animatedPillars)

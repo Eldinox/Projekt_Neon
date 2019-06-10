@@ -11,12 +11,14 @@ public class RotateEye1 : MonoBehaviour
     private GameObject hitSparks;
     private SpriteRenderer hitSparksR;
     private Sprite[] sprites;
+
     // Start is called before the first frame update
     void Start()
     {
         hitSparks = this.transform.Find("HitSparksBlau1").gameObject;
         hitSparksR= hitSparks.GetComponent<SpriteRenderer>();
         sprites = Resources.LoadAll<Sprite>(spriteNames);
+        
         
     }
 
@@ -25,7 +27,6 @@ public class RotateEye1 : MonoBehaviour
     {
         if(turnRight)RotateRight();
         else RotateLeft();
-        
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -42,8 +43,12 @@ public class RotateEye1 : MonoBehaviour
  
         if (health == 0 )
         {
+            var bossGetScript = GameObject.Find("Boss").GetComponent<BossScript>();
+            bossGetScript.eyeCountDestroy++;
             GameObject.Find("Boss").GetComponent<Animator>().SetTrigger("GetHit");
+            //GetComponent<SpriteRenderer>().enabled = false;
             Destroy(gameObject);
+            
         }
     }
 
