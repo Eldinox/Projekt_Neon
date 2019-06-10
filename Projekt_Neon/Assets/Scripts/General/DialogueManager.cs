@@ -22,6 +22,7 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(Dialogue dialogue)
     {
         anim.SetBool("isOpen", true);
+        GameObject.Find("DeathCanvas").GetComponent<CanvasGroup>().blocksRaycasts = false;
 
         GameObject.Find("Player").GetComponent<Player>().inDialogue = true;
         
@@ -77,6 +78,7 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue()
     {
         anim.SetBool("isOpen", false);
+        GameObject.Find("DeathCanvas").GetComponent<CanvasGroup>().blocksRaycasts = true;
         GameObject.Find("Player").GetComponent<Player>().inDialogue = false;
     }
 }

@@ -18,8 +18,6 @@ public class RotateEye1 : MonoBehaviour
         hitSparks = this.transform.Find("HitSparksBlau1").gameObject;
         hitSparksR= hitSparks.GetComponent<SpriteRenderer>();
         sprites = Resources.LoadAll<Sprite>(spriteNames);
-        
-        
     }
 
     // Update is called once per frame

@@ -35,8 +35,8 @@ public class BossScript : MonoBehaviour
         {
             item.SetActive(false);
         }
-        Invoke("System1", 3);
-        Invoke("Attack1", 5);
+        /*Invoke("System1", 3);
+        Invoke("Attack1", 5);*/
     }
 
     void Update()
@@ -45,16 +45,17 @@ public class BossScript : MonoBehaviour
         {
             if(Vector2.Distance(transform.position, player.position) < 70)
             {
-                anim.SetTrigger("StartFight");
-                state = 1;
+                //anim.SetTrigger("StartFight");
+                state = 2;
             }
         }
         if(state == 2)
         {
             Invoke("System1", 3);
             Invoke("Attack1", 5);
+            state = 3;
         }
-        if(attackCount == 8)
+        if(attackCount == 3)
         {
             attackCount = 0;
             anim.SetTrigger("LongAttack");
@@ -66,9 +67,6 @@ public class BossScript : MonoBehaviour
             anim.SetTrigger("LastHit");
             StartCoroutine(BossDead(anim));
             state = 4;
-    
-            
-         
         }
 
  {
@@ -80,44 +78,65 @@ public class BossScript : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
         anim.enabled = false;
-        
+
+        particleSystems[0].SetActive(false);
+        particleSystems[1].SetActive(false);
+        particleSystems[2].SetActive(false);
+        particleSystems[3].SetActive(false);
+
+        foreach (var item in animatedPillars)
+        {
+            item.SetActive(false);
+        }
+        foreach (var item in animatedPillars2)
+        {
+            item.SetActive(false);
+        }
     }
     private void Attack1()
     {
-        anim.SetTrigger("PillarAttack1");
-        GameObject.Find("Umgebung").GetComponent<Animator>().SetTrigger("shake");
-        particleSystems[0].SetActive(false);
-        particleSystems[2].SetActive(false);
-        foreach (var item in animatedPillars)
+        if(eyeCountDestroy >= 0)
         {
-            item.SetActive(true);
+            anim.SetTrigger("PillarAttack1");
+            GameObject.Find("Umgebung").GetComponent<Animator>().SetTrigger("shake");
+            particleSystems[0].SetActive(false);
+            particleSystems[2].SetActive(false);
+            foreach (var item in animatedPillars)
+            {
+                item.SetActive(true);
+            }
+             foreach (var item in animatedPillars2)
+            {
+                item.SetActive(false);
+            }
+            attackCount++;
+            Invoke("System2", 3);   
+            Invoke("Attack2", 5);
+            Debug.Log("attak1");
         }
-         foreach (var item in animatedPillars2)
-        {
-            item.SetActive(false);
-        }
-        attackCount++;
-        Invoke("System2", 3);   
-        Invoke("Attack2", 5);
     }
     private void Attack2()
     {
-        anim.SetTrigger("PillarAttack2");
-        GameObject.Find("Umgebung").GetComponent<Animator>().SetTrigger("shake");
-        particleSystems[1].SetActive(false);
-        particleSystems[3].SetActive(false);
-        foreach (var item in animatedPillars)
+        if(eyeCountDestroy >= 0)
         {
-            item.SetActive(false);
-        }
-         foreach (var item in animatedPillars2)
-        {
-            item.SetActive(true);
-        }
-        attackCount++;
+            anim.SetTrigger("PillarAttack2");
+            GameObject.Find("Umgebung").GetComponent<Animator>().SetTrigger("shake");
+            particleSystems[1].SetActive(false);
+            particleSystems[3].SetActive(false);
+            foreach (var item in animatedPillars)
+            {
+                item.SetActive(false);
+            }
+             foreach (var item in animatedPillars2)
+            {
+                item.SetActive(true);
+            }
+            attackCount++;
 
-        Invoke("System1", 3);
-        Invoke("Attack1", 5);
+            Invoke("System1", 3);
+            Invoke("Attack1", 5);
+            Debug.Log("attak2");
+        }
     }
 
     private void System1()
