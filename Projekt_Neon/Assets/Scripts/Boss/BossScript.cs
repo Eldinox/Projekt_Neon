@@ -53,7 +53,7 @@ public class BossScript : MonoBehaviour
             Invoke("System1", 3);
             Invoke("Attack1", 5);
         }
-        if(attackCount == 8)
+        if(attackCount == 3)
         {
             attackCount = 0;
             anim.SetTrigger("LongAttack");
