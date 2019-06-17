@@ -3906,11 +3906,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400044, guid: 3f93e617e1d8a31478068722b6a4b915, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.5051447
+      value: 0.49801627
       objectReference: {fileID: 0}
     - target: {fileID: 400044, guid: 3f93e617e1d8a31478068722b6a4b915, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.8630347
+      value: -0.8671677
       objectReference: {fileID: 0}
     - target: {fileID: 400046, guid: 3f93e617e1d8a31478068722b6a4b915, type: 3}
       propertyPath: m_LocalRotation.z
@@ -3946,11 +3946,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400042, guid: 3f93e617e1d8a31478068722b6a4b915, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.99223787
+      value: 0.99128574
       objectReference: {fileID: 0}
     - target: {fileID: 400042, guid: 3f93e617e1d8a31478068722b6a4b915, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.124354586
+      value: 0.13172944
       objectReference: {fileID: 0}
     - target: {fileID: 400052, guid: 3f93e617e1d8a31478068722b6a4b915, type: 3}
       propertyPath: m_LocalRotation.z
@@ -3962,11 +3962,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400048, guid: 3f93e617e1d8a31478068722b6a4b915, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.059013486
+      value: -0.059703037
       objectReference: {fileID: 0}
     - target: {fileID: 400048, guid: 3f93e617e1d8a31478068722b6a4b915, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.9982572
+      value: -0.9982162
       objectReference: {fileID: 0}
     - target: {fileID: 400056, guid: 3f93e617e1d8a31478068722b6a4b915, type: 3}
       propertyPath: m_LocalRotation.z
@@ -4007,6 +4007,10 @@ PrefabInstance:
     - target: {fileID: 21200024, guid: 3f93e617e1d8a31478068722b6a4b915, type: 3}
       propertyPath: m_SortingOrder
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 21200026, guid: 3f93e617e1d8a31478068722b6a4b915, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f93e617e1d8a31478068722b6a4b915, type: 3}
