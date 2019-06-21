@@ -5252,8 +5252,7 @@ MonoBehaviour:
   - {fileID: 991036030}
   - {fileID: 1519091672}
   - {fileID: 2044343540}
-  - {fileID: 1502165392}
-  smoothing: 0.5
+  smoothing: 1
 --- !u!1 &524052376
 GameObject:
   m_ObjectHideFlags: 0
