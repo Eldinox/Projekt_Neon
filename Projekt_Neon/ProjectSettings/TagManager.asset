@@ -18,6 +18,7 @@ TagManager:
   - BossPillar
   - Jumper
   - BossPillar2
+  - MusicSoucre
   layers:
   - Default
   - TransparentFX
