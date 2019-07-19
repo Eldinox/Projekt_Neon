@@ -279,6 +279,7 @@ public class Player : MonoBehaviour
                     //Debug.Log("From normal to range");
                     form = 2;
                     ActivateBobSprites(bobStrongAllObjs,false);
+                    changeColor(bobRangeAllObjs);
                     ActivateBobSprites(bobRangeAllObjs,true); 
                     ActivateBobSprites(bobNormalAllObjs,false);
                     //var bobnormal  = this.transform.Find("Bob2").gameObject;
@@ -519,9 +520,32 @@ public class Player : MonoBehaviour
     private void ActivateBobSprites(GameObject[] bobForm, bool status)
     {
         foreach (var obj in bobForm)
-        {
-            obj.GetComponent<SpriteRenderer>().enabled = status;
+        {             
+           obj.GetComponent<SpriteRenderer>().enabled = status;
         }
+
+    }
+
+    private void changeColor(GameObject[] bobForm )
+    {
+        
+        foreach (var obj in bobForm)
+        {             
+        Color randomColor = new Color(
+            Random.Range(0f, 1f), 
+            Random.Range(0f, 1f), 
+            Random.Range(0f, 1f)
+            );
+        obj.GetComponent<SpriteRenderer>().color = randomColor ;
+
+        }   
+
+    }
+
+    private IEnumerator JustWaitFor (float s)
+    {  
+
+        yield return new WaitForSeconds(s);
 
     }
 
