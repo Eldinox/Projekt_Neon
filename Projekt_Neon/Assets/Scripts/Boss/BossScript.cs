@@ -66,6 +66,7 @@ public class BossScript : MonoBehaviour
             eyeCountDestroy = -1;
             anim.SetTrigger("LastHit");
             StartCoroutine(BossDead(anim));
+            GameObject.Find("Limit").SetActive(false);
             state = 4;
         }
 
