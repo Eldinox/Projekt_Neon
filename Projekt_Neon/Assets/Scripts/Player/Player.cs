@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
     public string attackState;
     public bool aircombat;
     public bool isGrounded;
+    public bool dialoguePossible;
     public int form = 0; //0=normal, 1=strong, 2=ranged
     
     public Transform groundCheck;
@@ -182,7 +183,7 @@ public class Player : MonoBehaviour
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
 
-        if(Input.GetKeyDown(KeyCode.JoystickButton0) && inDialogue)
+        if(Input.GetKeyDown(KeyCode.JoystickButton0) && inDialogue || Input.GetKeyDown(KeyCode.W) && inDialogue)
         {
             FindObjectOfType<DialogueManager>().DisplayNextSentence();
         }
@@ -287,6 +288,9 @@ public class Player : MonoBehaviour
                     BobRangeAnimator.SetBool("isRunning", false);
                     GameObject.Find("HealIcon").GetComponent<Image>().enabled = false;
                     GameObject.Find("FireballIcon").GetComponent<Image>().enabled = true;
+                    GameObject.Find("FormValue").GetComponent<TextMeshProUGUI>().text = "Range";
+                    GameObject.Find("SkillValue").GetComponent<TextMeshProUGUI>().text = "Fireball";
+                    GameObject.Find("SkillBeschreibung").GetComponent<TextMeshProUGUI>().text = "Fireball: Schießt einen Feuerball, der allen Feinden in einer Linie Schaden zufügt";
                     speed = 19;
                     jumpForce = jumpForceRange; //23
                 }
@@ -300,6 +304,9 @@ public class Player : MonoBehaviour
                     BobNormalAnimator.SetBool("isRunning", false);
                     GameObject.Find("GroundslamIcon").GetComponent<Image>().enabled = false;
                     GameObject.Find("HealIcon").GetComponent<Image>().enabled = true;
+                    GameObject.Find("FormValue").GetComponent<TextMeshProUGUI>().text = "Normal";
+                    GameObject.Find("SkillValue").GetComponent<TextMeshProUGUI>().text = "Heilung";
+                    GameObject.Find("SkillBeschreibung").GetComponent<TextMeshProUGUI>().text = "Heilung: Stellt über einige Sekunden Lebenspunkte wiederher";
                     speed = 17;
                     jumpForce = jumpForceNormal; //21
                 }
@@ -315,6 +322,9 @@ public class Player : MonoBehaviour
                     BobStrongAnimator.SetBool("isRunning", false);
                     GameObject.Find("FireballIcon").GetComponent<Image>().enabled = false;
                     GameObject.Find("GroundslamIcon").GetComponent<Image>().enabled = true;
+                    GameObject.Find("FormValue").GetComponent<TextMeshProUGUI>().text = "Strong";
+                    GameObject.Find("SkillValue").GetComponent<TextMeshProUGUI>().text = "Bodenschlag";
+                    GameObject.Find("SkillBeschreibung").GetComponent<TextMeshProUGUI>().text = "Bodenschlag: Erschüttert die Erde und wirft Feinde zu Boden";
                     speed = 12;
                     jumpForce = jumpForceTank; //15
                 }
@@ -331,6 +341,9 @@ public class Player : MonoBehaviour
                     BobRangeAnimator.SetBool("isRunning", false);
                     GameObject.Find("GroundslamIcon").GetComponent<Image>().enabled = false;
                     GameObject.Find("FireballIcon").GetComponent<Image>().enabled = true;
+                    GameObject.Find("FormValue").GetComponent<TextMeshProUGUI>().text = "Range";
+                    GameObject.Find("SkillValue").GetComponent<TextMeshProUGUI>().text = "Fireball";
+                    GameObject.Find("SkillBeschreibung").GetComponent<TextMeshProUGUI>().text = "Fireball: Schießt einen Feuerball, der allen Feinden in einer Linie Schaden zufügt";
                     speed = 19;
                     jumpForce = jumpForceRange;
                 }
@@ -345,6 +358,9 @@ public class Player : MonoBehaviour
                     BobNormalAnimator.SetBool("isRunning", false);
                     GameObject.Find("FireballIcon").GetComponent<Image>().enabled = false;
                     GameObject.Find("HealIcon").GetComponent<Image>().enabled = true;
+                    GameObject.Find("FormValue").GetComponent<TextMeshProUGUI>().text = "Normal";
+                    GameObject.Find("SkillValue").GetComponent<TextMeshProUGUI>().text = "Heilung";
+                    GameObject.Find("SkillBeschreibung").GetComponent<TextMeshProUGUI>().text = "Heilung: Stellt über einige Sekunden Lebenspunkte wiederher";
                     speed = 17;
                     jumpForce = jumpForceNormal;
                 }
@@ -357,6 +373,9 @@ public class Player : MonoBehaviour
                     BobStrongAnimator.SetBool("isRunning", false);
                     GameObject.Find("HealIcon").GetComponent<Image>().enabled = false;
                     GameObject.Find("GroundslamIcon").GetComponent<Image>().enabled = true;
+                    GameObject.Find("FormValue").GetComponent<TextMeshProUGUI>().text = "Strong";
+                    GameObject.Find("SkillValue").GetComponent<TextMeshProUGUI>().text = "Bodenschlag";
+                    GameObject.Find("SkillBeschreibung").GetComponent<TextMeshProUGUI>().text = "Bodenschlag: Erschüttert die Erde und wirft Feinde zu Boden";
                     speed = 12;
                     jumpForce = jumpForceTank;
                 }
@@ -366,7 +385,7 @@ public class Player : MonoBehaviour
                 statusAnim = GameObject.Find("PlayerStatus").GetComponent<Animator>();;
                 statusAnim.SetBool("isOpen", !statusAnim.GetBool("isOpen"));
             }
-            if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.JoystickButton0))
+            if(Input.GetKeyDown(KeyCode.W) && !dialoguePossible || Input.GetKeyDown(KeyCode.JoystickButton0) && !dialoguePossible)
             {
                 switch(form)
                 {
@@ -636,6 +655,7 @@ public class Player : MonoBehaviour
                 health = 100;
             }
             GameObject.Find("HealthBar").GetComponent<HealthBar>().UpdateHealth(health);
+            GameObject.Find("HPValue").GetComponent<TextMeshProUGUI>().text = health.ToString();
         }
         
     }
@@ -690,6 +710,7 @@ public class Player : MonoBehaviour
                 health = 100;
             }
             GameObject.Find("HealthBar").GetComponent<HealthBar>().UpdateHealth(health);
+            GameObject.Find("HPValue").GetComponent<TextMeshProUGUI>().text = health.ToString();
             yield return new WaitForSeconds(.1f);
         }
         //yield return null;
