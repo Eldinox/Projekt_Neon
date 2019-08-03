@@ -79,7 +79,6 @@ public class Projectile : MonoBehaviour
         if(this.gameObject.name == "BobFireball(Clone)" && collision.tag == "Enemy")
         {
             collision.GetComponent<Enemy>().TakeDamage(damage);
-            DestroyProjectile();
         }
         else if(this.gameObject.name == "SpiderProjectile(Clone)" && collision.tag == "Player" ||
             this.gameObject.name == "SpiderDrop1(Clone)" && collision.tag == "Player" ||
