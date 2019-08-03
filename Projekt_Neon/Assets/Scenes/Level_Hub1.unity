@@ -4653,16 +4653,6 @@ PrefabInstance:
       propertyPath: m_LocalRotation.w
       value: 0.9997975
       objectReference: {fileID: 0}
-    - target: {fileID: 1730177406714063698, guid: c7c51b4da827c6940bf857eec7a48a33,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.1809195
-      objectReference: {fileID: 0}
-    - target: {fileID: 1730177406714063698, guid: c7c51b4da827c6940bf857eec7a48a33,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.9834979
-      objectReference: {fileID: 0}
     - target: {fileID: 1730177406714063710, guid: c7c51b4da827c6940bf857eec7a48a33,
         type: 3}
       propertyPath: m_LocalRotation.z
@@ -4702,16 +4692,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.99621356
-      objectReference: {fileID: 0}
-    - target: {fileID: 6063719011086520969, guid: c7c51b4da827c6940bf857eec7a48a33,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.007585754
-      objectReference: {fileID: 0}
-    - target: {fileID: 6063719011086520969, guid: c7c51b4da827c6940bf857eec7a48a33,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9999713
       objectReference: {fileID: 0}
     - target: {fileID: 7024651676503508167, guid: c7c51b4da827c6940bf857eec7a48a33,
         type: 3}
@@ -4793,16 +4773,6 @@ PrefabInstance:
       propertyPath: m_LocalRotation.w
       value: 0.9610629
       objectReference: {fileID: 0}
-    - target: {fileID: 1730177406714063708, guid: c7c51b4da827c6940bf857eec7a48a33,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.35204536
-      objectReference: {fileID: 0}
-    - target: {fileID: 1730177406714063708, guid: c7c51b4da827c6940bf857eec7a48a33,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9359829
-      objectReference: {fileID: 0}
     - target: {fileID: 1733991402086127208, guid: c7c51b4da827c6940bf857eec7a48a33,
         type: 3}
       propertyPath: m_LocalRotation.z
@@ -4832,16 +4802,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.w
       value: -0.86783236
-      objectReference: {fileID: 0}
-    - target: {fileID: 7024651676503508181, guid: c7c51b4da827c6940bf857eec7a48a33,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.058892883
-      objectReference: {fileID: 0}
-    - target: {fileID: 7024651676503508181, guid: c7c51b4da827c6940bf857eec7a48a33,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: -0.9982644
       objectReference: {fileID: 0}
     - target: {fileID: 6122446470699891163, guid: c7c51b4da827c6940bf857eec7a48a33,
         type: 3}
@@ -4877,11 +4837,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.z
       value: -0.00000065565104
-      objectReference: {fileID: 0}
-    - target: {fileID: 3747552514696585227, guid: c7c51b4da827c6940bf857eec7a48a33,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.00000026822093
       objectReference: {fileID: 0}
     - target: {fileID: 6992433541066997796, guid: c7c51b4da827c6940bf857eec7a48a33,
         type: 3}
@@ -4962,6 +4917,51 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.z
       value: 0.004546439
+      objectReference: {fileID: 0}
+    - target: {fileID: 7024651676503508181, guid: c7c51b4da827c6940bf857eec7a48a33,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.058892883
+      objectReference: {fileID: 0}
+    - target: {fileID: 7024651676503508181, guid: c7c51b4da827c6940bf857eec7a48a33,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.9982644
+      objectReference: {fileID: 0}
+    - target: {fileID: 6063719011086520969, guid: c7c51b4da827c6940bf857eec7a48a33,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.007585754
+      objectReference: {fileID: 0}
+    - target: {fileID: 6063719011086520969, guid: c7c51b4da827c6940bf857eec7a48a33,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9999713
+      objectReference: {fileID: 0}
+    - target: {fileID: 1730177406714063698, guid: c7c51b4da827c6940bf857eec7a48a33,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.1809195
+      objectReference: {fileID: 0}
+    - target: {fileID: 1730177406714063698, guid: c7c51b4da827c6940bf857eec7a48a33,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.9834979
+      objectReference: {fileID: 0}
+    - target: {fileID: 1730177406714063708, guid: c7c51b4da827c6940bf857eec7a48a33,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.35204536
+      objectReference: {fileID: 0}
+    - target: {fileID: 1730177406714063708, guid: c7c51b4da827c6940bf857eec7a48a33,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9359829
+      objectReference: {fileID: 0}
+    - target: {fileID: 3747552514696585227, guid: c7c51b4da827c6940bf857eec7a48a33,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.00000026822093
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7c51b4da827c6940bf857eec7a48a33, type: 3}
@@ -15850,14 +15850,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     names:
-    - Tall Boi
+    - Kwokka
     - Bob
     sentences:
-    - Willkommen in unserem Dorf
+    - 'Welcome back weary traveler. '
     - 1
-    - Hallo
+    - '...'
     - 0
-    - "Viel Spa\xDF"
+    - 'Not that much luck finding those keys of yours fella? '
+    - 1
+    - '...'
+    - 0
+    - "I think this might cheer you up.\t"
+    - 'I found it inside one of the pots in the back. '
+    - I just wonder how it got there in the first place...
+    - Upss! Nevermind me, I wish you good luck on your journey.
   onlyOnce: 1
 --- !u!61 &930627063
 BoxCollider2D:
@@ -15872,7 +15879,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -5.0233574, y: 0.77282524}
+  m_Offset: {x: -0.60959816, y: 0.4071387}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -15883,7 +15890,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.8741226, y: 7.4556503}
+  m_Size: {x: 4.1061745, y: 6.7242775}
   m_EdgeRadius: 0
 --- !u!1 &930891983
 GameObject:
@@ -21596,6 +21603,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1285482188}
   - component: {fileID: 1285482187}
+  - component: {fileID: 1285482190}
+  - component: {fileID: 1285482189}
   m_Layer: 0
   m_Name: woodBoi (1)
   m_TagString: Untagged
@@ -21639,7 +21648,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: b68337d95f691b44bbbbc33b3b1cfdc2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -21659,12 +21668,61 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1285482186}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 154.195, y: 4.007, z: 0}
+  m_LocalPosition: {x: 233.41, y: 4.007, z: 0}
   m_LocalScale: {x: 1.327, y: 1.327, z: 1.7265095}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!61 &1285482189
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1285482186}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.72, y: 4.02}
+    newSize: {x: 2.72, y: 4.02}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.72, y: 4.02}
+  m_EdgeRadius: 0
+--- !u!114 &1285482190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1285482186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29ac843f081c6944e9c1b6f96cbe5442, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    names:
+    - Skwabek
+    - Bob
+    sentences:
+    - Psst!
+    - 1
+    - '...'
+    - 0
+    - Don't tell granny that I am hidding here.
+  onlyOnce: 1
 --- !u!1 &1287182610
 GameObject:
   m_ObjectHideFlags: 0
@@ -26559,11 +26617,6 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5940187323894016432, guid: 416d42989f2447a43a65805bfac09a5c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6555509209603874349, guid: 416d42989f2447a43a65805bfac09a5c,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -26572,6 +26625,11 @@ PrefabInstance:
     - target: {fileID: 6555509209603874349, guid: 416d42989f2447a43a65805bfac09a5c,
         type: 3}
       propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5940187323894016432, guid: 416d42989f2447a43a65805bfac09a5c,
+        type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5940187325798543085, guid: 416d42989f2447a43a65805bfac09a5c,
@@ -26583,6 +26641,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: DisplayNextSentence
+      objectReference: {fileID: 0}
+    - target: {fileID: 5940187325354196431, guid: 416d42989f2447a43a65805bfac09a5c,
+        type: 3}
+      propertyPath: m_Text
+      value: '>>>'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 416d42989f2447a43a65805bfac09a5c, type: 3}
@@ -29372,6 +29435,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1736139481}
   - component: {fileID: 1736139480}
+  - component: {fileID: 1736139482}
+  - component: {fileID: 1736139483}
   m_Layer: 0
   m_Name: oldLassie
   m_TagString: Untagged
@@ -29441,6 +29506,68 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &1736139482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1736139479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29ac843f081c6944e9c1b6f96cbe5442, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    names:
+    - Takka
+    - Bob
+    sentences:
+    - "That lazy little boy, didn't go out on the darned \nerrand I sent him on."
+    - How am i supposed to finish my stew now...
+    - 1
+    - '...'
+    - 0
+    - Aah! I didn't see you there my dear.
+    - 1
+    - '...'
+    - 0
+    - Maybe you could help me out.
+    - 'I am missing a few ingredients for my stew. '
+    - "Someone apparently thought they had better \nthinks to do than do their tasks. "
+    - 'Could you be a dear and collect them for me. '
+    - "You can find all the missing ingredients in the \nsurrounding area."
+    - 0
+    - '...'
+    - 1
+    - Thank you my dear, you saved the stew.
+  onlyOnce: 1
+--- !u!61 &1736139483
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1736139479}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.18969107, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4.49, y: 4.34}
+    newSize: {x: 4.49, y: 4.34}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4.869382, y: 4.34}
+  m_EdgeRadius: 0
 --- !u!1 &1736501705
 GameObject:
   m_ObjectHideFlags: 0
