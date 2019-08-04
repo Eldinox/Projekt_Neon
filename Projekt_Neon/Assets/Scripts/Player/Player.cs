@@ -523,14 +523,20 @@ public class Player : MonoBehaviour
                 switch (form)
                 {
                     case 0 : BobNormalAnimator.SetBool("isRunning",true);
+                    BobStrongAnimator.SetBool("isRunning",false);
+                    BobRangeAnimator.SetBool("isRunning",false);
                     break;
                     case 1 : BobStrongAnimator.SetBool("isRunning",true);
+                    BobNormalAnimator.SetBool("isRunning",false);
+                    BobRangeAnimator.SetBool("isRunning",false);
                     break;
                     case 2 : BobRangeAnimator.SetBool("isRunning",true);
+                    BobNormalAnimator.SetBool("isRunning",false);
+                    BobStrongAnimator.SetBool("isRunning",false);
                     break;
                 }
                 
-            }
+            } 
             
             isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
         
