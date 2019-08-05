@@ -43,7 +43,7 @@ public class DialogueManager : MonoBehaviour
     {
         if(sentences.Count == 0)
         {
-            EndDialogue();
+            StartCoroutine(EndDialogue());
             return;
         }
         string sentence = sentences.Dequeue();
@@ -75,10 +75,11 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    void EndDialogue()
+    IEnumerator EndDialogue()
     {
         anim.SetBool("isOpen", false);
         GameObject.Find("DeathCanvas").GetComponent<CanvasGroup>().blocksRaycasts = true;
+        yield return new WaitForSeconds(.05f);
         GameObject.Find("Player").GetComponent<Player>().inDialogue = false;
     }
 }

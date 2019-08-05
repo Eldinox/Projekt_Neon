@@ -23,7 +23,8 @@ public class SceneTransition : MonoBehaviour
                 //if (SceneManager.GetActiveScene().name == "Level_8 (Intro)") sceneName = "Level_6 (Nr 3)";
                 //if (SceneManager.GetActiveScene().name == "Level_8 (Intro)") sceneName = "Level_1_25";
                 //if (SceneManager.GetActiveScene().name == "Level_8 (Intro)") sceneName = "Level_1_22";
-                if (SceneManager.GetActiveScene().name == "Level_8 (Intro)") sceneName = "Level_7 (Boss)";
+                //if (SceneManager.GetActiveScene().name == "Level_8 (Intro)") sceneName = "Level_7 (Boss)";
+                if (SceneManager.GetActiveScene().name == "Level_8 (Intro)") sceneName = "Level_Hub1";
                 else if (SceneManager.GetActiveScene().name == "Level_6 (Nr 3)") sceneName = "Level_5 (Nr2)";
                 else if (SceneManager.GetActiveScene().name == "Level_5 (Nr2)") sceneName = "Level_4 (Nr1)";
                 else if (SceneManager.GetActiveScene().name == "Level_4 (Nr1)")sceneName = "Level_Hub1";
