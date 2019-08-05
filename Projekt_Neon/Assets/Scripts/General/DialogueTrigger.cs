@@ -64,6 +64,7 @@ public class DialogueTrigger : MonoBehaviour
         {
             if(this.name == "EndGameTrigger")
             {
+                GameObject.Find("DialogueBox").SetActive(false);
                 GameObject.Find("GameEnd").GetComponent<Animator>().SetTrigger("gameEnd");
             }
             if(onlyOnce == false || done == false)
