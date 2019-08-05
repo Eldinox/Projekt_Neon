@@ -19317,9 +19317,9 @@ GameObject:
   - component: {fileID: 852045440}
   - component: {fileID: 852045441}
   - component: {fileID: 852045442}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: stone2 (59)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42402,9 +42402,9 @@ GameObject:
   - component: {fileID: 2020651372}
   - component: {fileID: 2020651373}
   - component: {fileID: 2020651374}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: stone1 (40)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

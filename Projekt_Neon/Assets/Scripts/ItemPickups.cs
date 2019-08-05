@@ -8,18 +8,24 @@ public class ItemPickups : MonoBehaviour
 {
     private Inventory inventory;
     public GameObject drop;
+    private AudioClip ItemSound;
+    private AudioSource ItemAudioSource;
     //private TextMeshProUGUI coincount;
 
     void Start()
     {
         //coincount = GetComponent<TextMeshProUGUI>();
         inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
+        ItemAudioSource = GetComponent<AudioSource>();
+        ItemSound = Resources.Load<AudioClip>("Sounds/muschroomsound");
+        ItemAudioSource.clip= ItemSound;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
     	if(collision.CompareTag("Player"))
     	{
+            ItemAudioSource.Play(0);
     		for(int i = 0; i < inventory.slots.Length; i++)
             {
                 if(inventory.isFull[i] == false)
@@ -97,7 +103,15 @@ public class ItemPickups : MonoBehaviour
             //int prevAmount = int.Parse(coincount.text);
             //int newAmount = prevAmount + 1;
             //coincount.text = "hi";//newAmount.ToString();
-    		Destroy(gameObject);
+ 
     	}
+            GetComponentInChildren<SpriteRenderer>().enabled = false;
+            GetComponent<CapsuleCollider2D>().enabled =false;
+            Invoke("DestroyItem",1);
+    }
+
+    private void DestroyItem()
+    {
+        Destroy(gameObject);
     }
 }
