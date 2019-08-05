@@ -31734,6 +31734,10 @@ PrefabInstance:
       propertyPath: number
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6781557323602336, guid: 41fff0f96f9890e419208869e75e4c4d, type: 3}
+      propertyPath: coinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 96544866a60b60847b084cbabf701a3e, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41fff0f96f9890e419208869e75e4c4d, type: 3}
 --- !u!1 &1070670928
@@ -40310,7 +40314,7 @@ PrefabInstance:
     - target: {fileID: 5831624830700103174, guid: fb2aa1cd31fba1c44baf08b88ffb1538,
         type: 3}
       propertyPath: m_RootOrder
-      value: 206
+      value: 205
       objectReference: {fileID: 0}
     - target: {fileID: 5831624830700103174, guid: fb2aa1cd31fba1c44baf08b88ffb1538,
         type: 3}
@@ -50285,7 +50289,7 @@ Transform:
   m_LocalScale: {x: 5.848158, y: 5.808067, z: 1.751}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 205
+  m_RootOrder: 206
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -297.915}
 --- !u!1 &1745148012
 GameObject:
