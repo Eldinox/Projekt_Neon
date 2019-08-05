@@ -49,6 +49,10 @@ public class DialogueTrigger : MonoBehaviour
             GameObject.Find("Questfield5").GetComponent<TextMeshProUGUI>().text = "Eingesammelte Pilze " + GameObject.Find("Player").GetComponent<Inventory>().collectedMushrooms + " / 10";
             GameObject.Find("Questfield6").GetComponent<TextMeshProUGUI>().text = "Eingesammelte Steine " + GameObject.Find("Player").GetComponent<Inventory>().collectedStones + " / 3";
         }
+        else if(this.name == "tallBoi")
+        {
+            GameObject.Find("Coin").GetComponentInChildren<SpriteRenderer>().enabled = true;
+        }
         done = true;
     }
 
