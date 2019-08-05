@@ -15,6 +15,8 @@ public class Summoner : Enemy
     private int direction;
     private int randomSpot;
     private float waitTime;
+    private AudioSource SummonerAudioSource;
+    public AudioClip SummonerSound;
 
     public Enemy jumper;
 
@@ -24,6 +26,7 @@ public class Summoner : Enemy
         rb = GetComponent<Rigidbody2D>();
         randomSpot = Random.Range(0, patrolSpots.Length);
         waitTime = startWaitTime;
+        SummonerAudioSource = GetComponent<AudioSource>();
 
         /*GameObject[] allObjs = Object.FindObjectsOfType(typeof(GameObject)) as GameObject[];
 
@@ -128,6 +131,8 @@ public class Summoner : Enemy
             {
                 Instantiate(jumper, new Vector2(transform.position.x , transform.position.y), transform.rotation);
                 GetComponent<Animator>().SetTrigger("attack");
+                SummonerAudioSource.clip = SummonerSound;
+                SummonerAudioSource.Play(0);
 
             } 
             yield return new WaitForSeconds(.5f);

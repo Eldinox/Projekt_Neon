@@ -10,6 +10,8 @@ public class Rusher : Enemy
     public float knockbackForce;
     public Transform[] patrolSpots;
     public float startWaitTime;
+    public AudioClip RusherSound;
+    private AudioSource RusherAudioSource;
 
     private float attackTime;
     private Rigidbody2D rb;
@@ -27,6 +29,7 @@ public class Rusher : Enemy
         randomSpot = Random.Range(0, patrolSpots.Length);
         waitTime = startWaitTime;
         anim = GetComponent<Animator>();
+        RusherAudioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -111,6 +114,8 @@ public class Rusher : Enemy
         if(!dead && !stunned) 
         {
             rb.velocity = new Vector2(direction, 0) * dashSpeed;
+            RusherAudioSource.clip = RusherSound;
+            RusherAudioSource.Play(0);
            
         }
         yield return new WaitForSeconds(.5f);

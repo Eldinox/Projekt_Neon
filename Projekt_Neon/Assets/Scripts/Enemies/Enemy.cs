@@ -16,6 +16,9 @@ public class Enemy : MonoBehaviour
     public GameObject enemyCanvas;
     public Image healthBarImage;
     
+    public AudioClip EnemyGetHitSound;
+    private AudioSource EnemyAudioSource;
+    
     [HideInInspector]
     public Transform player;
     //[HideInInspector]
@@ -45,6 +48,8 @@ public class Enemy : MonoBehaviour
         gm = GameObject.Find("GameManager");
         health = startHealth;
         anim = GetComponent<Animator>();
+        EnemyAudioSource = gm.GetComponent<AudioSource>();
+        
    
         hitSparks = this.transform.Find("HitSparksBlau1").gameObject;
         hitSparksR= hitSparks.GetComponent<SpriteRenderer>();
@@ -89,7 +94,9 @@ public class Enemy : MonoBehaviour
 
         }
 
-    
+        EnemyGetHitSound = Resources.Load<AudioClip>("Sounds/GetHitSoundEffect");
+        EnemyAudioSource.clip = EnemyGetHitSound;
+        EnemyAudioSource.Play(0);
         
         if(gmGetScript.damageNumberDisplay)enemyCanvas.GetComponentInChildren<TextMeshProUGUI>().text = damageAmount.ToString();
         Invoke("Displaytime", 0.3f);
