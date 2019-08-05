@@ -12,6 +12,9 @@ public class Projectile : MonoBehaviour
     private Rigidbody2D rb;
     private Transform player;
 
+    public AudioClip ProjectileSound;
+    private AudioSource ProjectileAudioSource;
+
     //public GameObject explosion;
 
     // Start is called before the first frame update
@@ -19,6 +22,8 @@ public class Projectile : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
+
+        ProjectileAudioSource = GetComponent<AudioSource>();
         
         if(this.gameObject.name == "SpiderProjectile(Clone)")
         {
@@ -30,6 +35,8 @@ public class Projectile : MonoBehaviour
         else if(this.gameObject.name == "SpiderDrop1(Clone)")
         {
             rb.AddForce(new Vector2(-25, 0), ForceMode2D.Impulse);
+            ProjectileAudioSource.clip = ProjectileSound;
+            ProjectileAudioSource.Play(0);
         }
         else if(this.gameObject.name == "SpiderDrop3(Clone)")
         {

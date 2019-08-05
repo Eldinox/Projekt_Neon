@@ -21,8 +21,6 @@ public class Jumper : Enemy
     	base.Start();
         rb = GetComponent<Rigidbody2D>();
         JumperAudioSource = GetComponent<AudioSource>();
-
-        
     }
 
     // Update is called once per frame

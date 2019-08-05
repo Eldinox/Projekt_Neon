@@ -8,12 +8,16 @@ public class Spider : Enemy
     public GameObject projectile;
     public Transform shotPoint;
 
+    public AudioClip SpiderSound;
+    private AudioSource SpiderAudioSource;
+
     private float attackTime;
 
     // Start is called before the first frame update
     public override void Start()
     {
     	base.Start();
+        SpiderAudioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -52,7 +56,12 @@ public class Spider : Enemy
     IEnumerator Attack()
     {
         yield return new WaitForSeconds(.5f);
-        if(!stunned)Instantiate(projectile, shotPoint.position, transform.rotation);
+        if(!stunned)
+        {
+            Instantiate(projectile, shotPoint.position, transform.rotation);
+            SpiderAudioSource.clip = SpiderSound;
+            SpiderAudioSource.Play(0);
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)

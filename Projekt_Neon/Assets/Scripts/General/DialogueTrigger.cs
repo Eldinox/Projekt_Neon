@@ -62,6 +62,10 @@ public class DialogueTrigger : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
+            if(this.name == "EndGameTrigger")
+            {
+                GameObject.Find("GameEnd").GetComponent<Animator>().SetTrigger("gameEnd");
+            }
             if(onlyOnce == false || done == false)
             {
                 if(automatic)TriggerDialogue();
