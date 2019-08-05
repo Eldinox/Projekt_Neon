@@ -7,6 +7,9 @@ public class Jumper : Enemy
     public float stopDistance;
     public float jumpForce;
     public GameObject thisSprite;
+    public AudioClip JumperSound;
+    private AudioSource JumperAudioSource;
+
     
     private Rigidbody2D rb;
 
@@ -17,6 +20,8 @@ public class Jumper : Enemy
     {
     	base.Start();
         rb = GetComponent<Rigidbody2D>();
+        JumperAudioSource = GetComponent<AudioSource>();
+
         
     }
 
@@ -89,6 +94,8 @@ public class Jumper : Enemy
         if(player.transform.position.x < transform.position.x)direction = -.2f;
         else direction = .2f;
         thisSprite.GetComponent<Animator>().SetTrigger("isAttacking");
+        JumperAudioSource.clip = JumperSound;
+        JumperAudioSource.Play(0);
 
         if(!dead && !stunned)
         {
