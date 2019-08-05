@@ -2,26 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NormalBobAudioScript : MonoBehaviour
+public class BobRangeAudioScript : MonoBehaviour
 {
+    // Start is called before the first frame update
     AudioSource audioData;
     public AudioClip FootSteps;
     public AudioClip LightAttack;
     public AudioClip HeavyAttack;
     public AudioClip Jump;
     public AudioClip Landing;
+    public AudioClip Uppercut;
 
 
     // Start is called before the first frame update
     void Start()
     {
-      audioData = GameObject.Find("Player").GetComponent<AudioSource>(); 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+      audioData = GameObject.Find("Player").GetComponent<AudioSource>();
     }
 
     public void footsteps ()
@@ -45,7 +41,12 @@ public class NormalBobAudioScript : MonoBehaviour
         audioData.clip = HeavyAttack;
         audioData.Play(0);
     }
-    public void lightAttack ()
+    public void uppercut ()
+    {
+        audioData.clip = Uppercut;
+        audioData.Play(0);
+    }
+     public void lightAttack ()
     {
         audioData.clip = LightAttack;
         audioData.Play(0);

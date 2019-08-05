@@ -2,20 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NormalBobAudioScript : MonoBehaviour
-{
-    AudioSource audioData;
-    public AudioClip FootSteps;
-    public AudioClip LightAttack;
-    public AudioClip HeavyAttack;
-    public AudioClip Jump;
-    public AudioClip Landing;
+public class AudioPlayerSystem : MonoBehaviour
+{    AudioSource audioData;
+
+
 
 
     // Start is called before the first frame update
     void Start()
     {
-      audioData = GameObject.Find("Player").GetComponent<AudioSource>(); 
+      audioData = GetComponent<AudioSource>(); 
     }
 
     // Update is called once per frame
@@ -24,30 +20,32 @@ public class NormalBobAudioScript : MonoBehaviour
         
     }
 
-    public void footsteps ()
+    public void footsteps (AudioClip FootSteps)
     {
         audioData.clip = FootSteps;
         audioData.Play(0);
     }
 
-    public void jump ()
+    public void jump (AudioClip Jump)
     {
         audioData.clip = Jump;
         audioData.Play(0);
     }
-    public void landing ()
+    public void landing (AudioClip Landing)
     {
         audioData.clip = Landing;
         audioData.Play(0);
     }
-    public void heavyAttack ()
+    public void heavyAttack (AudioClip HeavyAttack)
     {
         audioData.clip = HeavyAttack;
         audioData.Play(0);
     }
-    public void lightAttack ()
+    public void lightAttack (AudioClip LightAttack)
     {
         audioData.clip = LightAttack;
         audioData.Play(0);
     }
+
+
 }

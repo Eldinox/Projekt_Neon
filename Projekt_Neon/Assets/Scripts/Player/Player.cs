@@ -48,10 +48,10 @@ public class Player : MonoBehaviour
     public GameObject dagger;
     public GameObject daggerPos1;
     public GameObject daggerPos2;
-
     public GameObject bobNormalform;
     public GameObject bobRangeform;
     public GameObject bobDamageform;
+
     
     private float moveInput;
     public  bool facingRight = true;
