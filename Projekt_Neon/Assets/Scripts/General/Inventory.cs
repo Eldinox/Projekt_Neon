@@ -12,9 +12,10 @@ public class Inventory : MonoBehaviour
     public int collectedCoins;
     public int collectedSticks;
     public int collectedStones;
+    public int collectedMushrooms;
     public string[] inventoryItems;
 
-    public GameObject coinIcon, stickIcon, stoneIcon;
+    public GameObject coinIcon, stickIcon, stoneIcon, mushroomIcon;
 
     void Start()
     {
@@ -30,6 +31,7 @@ public class Inventory : MonoBehaviour
         collectedCoins = 0;
         collectedSticks = 0;
         collectedStones = 0;
+        collectedMushrooms = 0;
     }
 
     private void ChangedActiveScene(Scene current, Scene next)
@@ -58,6 +60,12 @@ public class Inventory : MonoBehaviour
                     Instantiate(stoneIcon, slots[i].transform, false);
                     GameObject.Find("ItemAmount" + i.ToString()).GetComponent<TextMeshProUGUI>().text = collectedStones.ToString();
                     GameObject.Find("StoneIcon(Clone)").transform.position = slots[i].transform.position;
+                }
+                else if(inventoryItems[i] == "Mushroom")
+                {
+                    Instantiate(mushroomIcon, slots[i].transform, false);
+                    GameObject.Find("ItemAmount" + i.ToString()).GetComponent<TextMeshProUGUI>().text = collectedMushrooms.ToString();
+                    GameObject.Find("MushroomIcon(Clone)").transform.position = slots[i].transform.position;
                 }
             }
         }

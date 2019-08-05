@@ -35,6 +35,7 @@ public class Player : MonoBehaviour
     public bool isGrounded;
     public bool dialoguePossible;
     public int form = 0; //0=normal, 1=strong, 2=ranged
+    public bool sidequestActive;
     
     public Transform groundCheck;
     public Transform spawnPoint;
@@ -75,7 +76,7 @@ public class Player : MonoBehaviour
     private bool doubleJump;
     private Rigidbody2D rb;
     private Animator statusAnim;
-    private bool[] coins;
+    public bool[] coins;
     private GameObject gm;
     private Animator anim;
     private Animator BobNormalAnimator;
@@ -155,13 +156,39 @@ public class Player : MonoBehaviour
             }
             GameObject.Find("SideKick").transform.position = new Vector3(transform.position.x - 3, transform.position.y + 5, transform.position.z);
             GameObject.Find("HealthBar").GetComponent<HealthBar>().UpdateHealth(health);
+            GameObject.Find("HPValue").GetComponent<TextMeshProUGUI>().text = health.ToString();
+            GameObject.Find("Questfield2").GetComponent<TextMeshProUGUI>().text = "Schlüssel gefunden: " + this.GetComponent<Inventory>().collectedCoins + " / 5";
 
             GameObject.Find("HealIcon").GetComponent<Image>().enabled = false;
             GameObject.Find("GroundslamIcon").GetComponent<Image>().enabled = false;
             GameObject.Find("FireballIcon").GetComponent<Image>().enabled = false;
-            if(form == 0)GameObject.Find("HealIcon").GetComponent<Image>().enabled = true;
-            else if(form == 1)GameObject.Find("GroundslamIcon").GetComponent<Image>().enabled = true;
-            else if(form == 2)GameObject.Find("FireballIcon").GetComponent<Image>().enabled = true;
+            GameObject.Find("HealIconCD").GetComponent<Image>().enabled = false;
+            GameObject.Find("GroundslamIconCD").GetComponent<Image>().enabled = false;
+            GameObject.Find("FireballIconCD").GetComponent<Image>().enabled = false;
+            if(form == 0)
+            {
+                GameObject.Find("HealIcon").GetComponent<Image>().enabled = true;
+                GameObject.Find("HealIconCD").GetComponent<Image>().enabled = true;
+                GameObject.Find("FormValue").GetComponent<TextMeshProUGUI>().text = "Normal";
+                GameObject.Find("SkillValue").GetComponent<TextMeshProUGUI>().text = "Heilung";
+                GameObject.Find("SkillBeschreibung").GetComponent<TextMeshProUGUI>().text = "Heilung: Stellt über einige Sekunden Lebenspunkte wiederher";
+            }
+            else if(form == 1)
+            {
+                GameObject.Find("GroundslamIcon").GetComponent<Image>().enabled = true;
+                GameObject.Find("GroundslamIconCD").GetComponent<Image>().enabled = true;
+                GameObject.Find("FormValue").GetComponent<TextMeshProUGUI>().text = "Strong";
+                GameObject.Find("SkillValue").GetComponent<TextMeshProUGUI>().text = "Bodenschlag";
+                GameObject.Find("SkillBeschreibung").GetComponent<TextMeshProUGUI>().text = "Bodenschlag: Erschüttert die Erde und wirft Feinde zu Boden";
+            }
+            else if(form == 2)
+            {
+                GameObject.Find("FireballIcon").GetComponent<Image>().enabled = true;
+                GameObject.Find("FireballIconCD").GetComponent<Image>().enabled = true;
+                GameObject.Find("FormValue").GetComponent<TextMeshProUGUI>().text = "Range";
+                GameObject.Find("SkillValue").GetComponent<TextMeshProUGUI>().text = "Fireball";
+                GameObject.Find("SkillBeschreibung").GetComponent<TextMeshProUGUI>().text = "Fireball: Schießt einen Feuerball, der allen Feinden in einer Linie Schaden zufügt";
+            }
         }
         else
         {
@@ -618,6 +645,29 @@ public class Player : MonoBehaviour
         Scaler.x *= -1;
         transform.localScale = Scaler;
     }
+
+    public void stopAnimation()
+    {
+        inDialogue = true;
+        switch(form)
+        {
+            case 0 : BobNormalAnimator.SetTrigger("stop");
+            break;
+            case 1 : BobStrongAnimator.SetTrigger("getHitBob");
+            break;
+            case 2 : BobRangeAnimator.SetTrigger("getHitBob");
+            break;
+        }
+        switch (form)
+        {
+            case 0 : BobNormalAnimator.SetBool("isRunning",false);
+            break;
+            case 1 : BobStrongAnimator.SetBool("isRunning",false);
+            break;
+            case 2 : BobRangeAnimator.SetBool("isRunning",false);
+            break;
+        }
+    }
     
     public void TakeDamage(int damage)
     {
@@ -632,15 +682,15 @@ public class Player : MonoBehaviour
 
             if(gmGetScript.getHitAnimation)
             {
-                 switch(form)
-                    {
-                        case 0 : BobNormalAnimator.SetTrigger("getHitBob");
-                        break;
-                        case 1 : BobStrongAnimator.SetTrigger("getHitBob");
-                        break;
-                        case 2 : BobRangeAnimator.SetTrigger("getHitBob");
-                        break;
-                    }
+                switch(form)
+                {
+                    case 0 : BobNormalAnimator.SetTrigger("getHitBob");
+                    break;
+                    case 1 : BobStrongAnimator.SetTrigger("getHitBob");
+                    break;
+                    case 2 : BobRangeAnimator.SetTrigger("getHitBob");
+                    break;
+                }
             }
             if(gmGetScript.getHitColoring)
             {
@@ -688,7 +738,7 @@ public class Player : MonoBehaviour
     public void UpdateCoins(int number)
     {
         coins[number] = true;
-        /*for(int i = 0; i < coins.Length; i++)
+        /* for(int i = 0; i < coins.Length; i++)
         {
             Debug.Log(coins[i]);
         }*/
@@ -854,7 +904,6 @@ public class Player : MonoBehaviour
         Debug.Log(comboNumber);
         yield return null;
     }
-
 
     public IEnumerator HeavyAttack(int direction)
     {

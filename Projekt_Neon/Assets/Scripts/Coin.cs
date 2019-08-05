@@ -15,6 +15,10 @@ public class Coin : MonoBehaviour
     {
         //coincount = GetComponent<TextMeshProUGUI>();
         inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
+        if(GameObject.Find("Player").GetComponent<Player>().coins[number] == true)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -22,6 +26,8 @@ public class Coin : MonoBehaviour
     	if(collision.CompareTag("Player"))
     	{
     		collision.GetComponent<Player>().UpdateCoins(number);
+            int coins = GameObject.Find("Player").GetComponent<Inventory>().collectedCoins + 1;
+            GameObject.Find("Questfield2").GetComponent<TextMeshProUGUI>().text = "Schlüssel gefunden: " + coins + " / 5";
 
             for(int i = 0; i < inventory.slots.Length; i++)
             {
