@@ -11,7 +11,6 @@ public class NormalBobAudioScript : MonoBehaviour
     public AudioClip Jump;
     public AudioClip Landing;
 
-
     // Start is called before the first frame update
     void Start()
     {

@@ -72,6 +72,13 @@ public class Player : MonoBehaviour
     public int maxJumpCount;
     private int jumps = 0;
     public bool knocked;
+    public AudioClip GetHitSound;
+    public AudioClip HealingSound;
+    public AudioClip FireballSound;
+    public AudioClip GroundslamSound;
+    public AudioClip DashSound;
+    public AudioClip TransformationSound;
+    private AudioSource PlayerAudioSource;
     
     private bool doubleJump;
     private Rigidbody2D rb;
@@ -123,6 +130,7 @@ public class Player : MonoBehaviour
         deathMenuFirstButton = GameObject.Find("RespawnButton");
         SceneManager.activeSceneChanged += ChangedActiveScene;
         anim = GetComponent<Animator>();
+        PlayerAudioSource = GetComponent<AudioSource>();
         BobNormalAnimator = bobNormalform.GetComponent<Animator>();
         BobRangeAnimator = bobRangeform.GetComponent<Animator>();
         BobStrongAnimator = bobDamageform.GetComponent<Animator>();
@@ -272,6 +280,8 @@ public class Player : MonoBehaviour
 
                 if(Time.time > comboTime)
                 {
+                    PlayerAudioSource.clip = DashSound;
+                    PlayerAudioSource.Play(0);
                     if(facingRight)
                     {
                         StartCoroutine(LightAttack(1));
@@ -313,6 +323,8 @@ public class Player : MonoBehaviour
                     //var bobnormal  = this.transform.Find("Bob2").gameObject;
                     //bobnormal.GetComponent<IKManager2D>().enabled = false;
                     BobRangeAnimator.SetBool("isRunning", false);
+                    PlayerAudioSource.clip = TransformationSound;
+                    PlayerAudioSource.Play(0);
                     GameObject.Find("HealIcon").GetComponent<Image>().enabled = false;
                     GameObject.Find("FireballIcon").GetComponent<Image>().enabled = true;
                     GameObject.Find("HealIconCD").GetComponent<Image>().enabled = false;
@@ -331,6 +343,8 @@ public class Player : MonoBehaviour
                     ActivateBobSprites(bobNormalAllObjs,true);
                     ActivateBobSprites(bobRangeAllObjs,false);                                                
                     BobNormalAnimator.SetBool("isRunning", false);
+                    PlayerAudioSource.clip = TransformationSound;
+                    PlayerAudioSource.Play(0);
                     GameObject.Find("GroundslamIcon").GetComponent<Image>().enabled = false;
                     GameObject.Find("HealIcon").GetComponent<Image>().enabled = true;
                     GameObject.Find("GroundslamIconCD").GetComponent<Image>().enabled = false;
@@ -351,6 +365,8 @@ public class Player : MonoBehaviour
                     ActivateBobSprites(bobStrongAllObjs,true);
                     //dagger.SetActive(false);
                     BobStrongAnimator.SetBool("isRunning", false);
+                    PlayerAudioSource.clip = TransformationSound;
+                    PlayerAudioSource.Play(0);
                     GameObject.Find("FireballIcon").GetComponent<Image>().enabled = false;
                     GameObject.Find("GroundslamIcon").GetComponent<Image>().enabled = true;
                     GameObject.Find("FireballIconCD").GetComponent<Image>().enabled = false;
@@ -372,6 +388,8 @@ public class Player : MonoBehaviour
                     ActivateBobSprites(bobRangeAllObjs,true);
                     ActivateBobSprites(bobStrongAllObjs,false);                   
                     BobRangeAnimator.SetBool("isRunning", false);
+                    PlayerAudioSource.clip = TransformationSound;
+                    PlayerAudioSource.Play(0);
                     GameObject.Find("GroundslamIcon").GetComponent<Image>().enabled = false;
                     GameObject.Find("FireballIcon").GetComponent<Image>().enabled = true;
                     GameObject.Find("GroundslamIconCD").GetComponent<Image>().enabled = false;
@@ -391,6 +409,8 @@ public class Player : MonoBehaviour
                     ActivateBobSprites(bobStrongAllObjs,false); 
                     dagger.SetActive(true);
                     BobNormalAnimator.SetBool("isRunning", false);
+                    PlayerAudioSource.clip = TransformationSound;
+                    PlayerAudioSource.Play(0);
                     GameObject.Find("FireballIcon").GetComponent<Image>().enabled = false;
                     GameObject.Find("HealIcon").GetComponent<Image>().enabled = true;
                     GameObject.Find("FireballIconCD").GetComponent<Image>().enabled = false;
@@ -408,6 +428,8 @@ public class Player : MonoBehaviour
                     ActivateBobSprites(bobRangeAllObjs,false);
                     ActivateBobSprites(bobStrongAllObjs,true);
                     BobStrongAnimator.SetBool("isRunning", false);
+                    PlayerAudioSource.clip = TransformationSound;
+                    PlayerAudioSource.Play(0);
                     GameObject.Find("HealIcon").GetComponent<Image>().enabled = false;
                     GameObject.Find("GroundslamIcon").GetComponent<Image>().enabled = true;
                     GameObject.Find("HealIconCD").GetComponent<Image>().enabled = false;
@@ -446,16 +468,22 @@ public class Player : MonoBehaviour
                 if(form == 0) //Heal
                 {
                     StartCoroutine(Healing(1));
+                    PlayerAudioSource.clip = HealingSound;
+                    PlayerAudioSource.Play(0);
                 }
                 else if(form == 1)
                 {
                     attackState = "Groundsmash";
                     BobStrongAnimator.SetTrigger("T2_SpecialAttack");
+                    PlayerAudioSource.clip = GroundslamSound;
+                    PlayerAudioSource.Play(0);
                     if(!isGrounded)StartCoroutine(Dash(0, -.7f));
                 }
                 else if(form == 2)
                 {
                     BobRangeAnimator.SetTrigger("fireball");
+                    PlayerAudioSource.clip = FireballSound;
+                    PlayerAudioSource.Play(0);
                     Instantiate(fireball, shotPoint.transform.position, shotPoint.transform.rotation);
                 }
                 fireballCooldown = Time.time + fireballCooldownTime;
@@ -710,6 +738,8 @@ public class Player : MonoBehaviour
                 //Debug.Log ("lengthsprtiebob "+sprites.Length);
                 hitSparksR.sprite = sprites[(int)Random.Range(0.0f, 5.0f)];
                 hitSparksR.enabled = true;
+                PlayerAudioSource.clip = GetHitSound;
+                PlayerAudioSource.Play(0);
                 Invoke("showHitSparks",0.2f);
             }
 
@@ -727,7 +757,6 @@ public class Player : MonoBehaviour
             GameObject.Find("HealthBar").GetComponent<HealthBar>().UpdateHealth(health);
             GameObject.Find("HPValue").GetComponent<TextMeshProUGUI>().text = health.ToString();
         }
-        
     }
 
     private void showHitSparks()

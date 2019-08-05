@@ -13423,6 +13423,11 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 0.35
       objectReference: {fileID: 0}
+    - target: {fileID: 1646070080263158027, guid: c7c51b4da827c6940bf857eec7a48a33,
+        type: 3}
+      propertyPath: GetHitSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 7a6735ac0ba0ac4489897960654da3c1, type: 3}
     - target: {fileID: 3949104989844278339, guid: c7c51b4da827c6940bf857eec7a48a33,
         type: 3}
       propertyPath: mushroomIcon

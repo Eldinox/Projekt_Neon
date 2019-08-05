@@ -579,6 +579,12 @@ MonoBehaviour:
   facingRight: 1
   maxJumpCount: 0
   knocked: 0
+  GetHitSound: {fileID: 8300000, guid: 3451b265f2927e64e8e5092b9889f75f, type: 3}
+  HealingSound: {fileID: 8300000, guid: 2829894fcd704b145af83ded25a50c61, type: 3}
+  FireballSound: {fileID: 8300000, guid: 979ac698f8deb1843b336e02cde579b8, type: 3}
+  GroundslamSound: {fileID: 8300000, guid: f0477701619812c45b65ef2e105d64f6, type: 3}
+  DashSound: {fileID: 8300000, guid: 134aa0e3331519f42adcf906124e0490, type: 3}
+  TransformationSound: {fileID: 8300000, guid: 192288ccde3887f4c858326bffa3f772, type: 3}
   coins: 
   sprites: []
 --- !u!70 &1646070080263158026
@@ -778,8 +784,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FootSteps: {fileID: 8300000, guid: 6263fa66e8aab5344a0f96b038f0abef, type: 3}
-  LightAttack: {fileID: 8300000, guid: 8e194d6d838a1e94d80000f1aa970061, type: 3}
-  HeavyAttack: {fileID: 8300000, guid: 9ce626203a04cdd4ea126e061d2b88c1, type: 3}
+  LightAttack: {fileID: 8300000, guid: aa98982338c64ec4d933b55eb24b0925, type: 3}
+  HeavyAttack: {fileID: 8300000, guid: ff984532c737f9d42b9c3333e47e6e47, type: 3}
   Jump: {fileID: 8300000, guid: 7af6f60e36e207241a9a4e9d386a83dd, type: 3}
   Landing: {fileID: 8300000, guid: 5aa9e73b72e5a024da48f43e4bce67e0, type: 3}
   PowerWave: {fileID: 8300000, guid: 0a83e597a2a507048963ae7eab835a1f, type: 3}
