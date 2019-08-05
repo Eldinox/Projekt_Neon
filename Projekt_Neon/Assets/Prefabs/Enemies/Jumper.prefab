@@ -284,6 +284,7 @@ MonoBehaviour:
   spottingRange: 0
   enemyCanvas: {fileID: 9210429150604789263}
   healthBarImage: {fileID: 3404334978845378218}
+  EnemyGetHitSound: {fileID: 0}
   player: {fileID: 0}
   state: 
   facingRight: 0
@@ -326,7 +327,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.115
+  m_Volume: 0.064
   m_Pitch: 1
   Loop: 0
   Mute: 0
