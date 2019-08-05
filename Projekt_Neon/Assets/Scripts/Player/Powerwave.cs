@@ -14,6 +14,7 @@ public class Powerwave : MonoBehaviour
     {
         Invoke("Destroy", duration);
         rb = GetComponent<Rigidbody2D>();
+        if(GameObject.Find("Player").GetComponent<Player>().facingRight == false)speed = speed * -1;
     }
 
     // Update is called once per frame
