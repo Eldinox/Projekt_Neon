@@ -143,7 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67b8c075ffb4c394a80d353a52f99ac8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drop: {fileID: 2500218952004056322, guid: 1152291c1e216a148a2be9db06951717, type: 3}
+  drop: {fileID: 2500218952004056322, guid: 6dc6f5337bb0e9640afe036305286d2e, type: 3}
 --- !u!82 &4895384970122448028
 AudioSource:
   m_ObjectHideFlags: 0

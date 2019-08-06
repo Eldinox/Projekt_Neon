@@ -29,7 +29,31 @@ public class DialogueTrigger : MonoBehaviour
             {
                 GameObject.Find("TorTrigger1").GetComponent<BoxCollider2D>().enabled = true;
             }
-        }   
+        }  
+
+        if(this.name.Contains("Lassie"))
+        {
+            if(player.GetComponent<Player>().sidequestActive == true)
+            {
+                if(player.GetComponent<Inventory>().collectedSticks >= 8 && player.GetComponent<Inventory>().collectedMushrooms >= 10 && player.GetComponent<Inventory>().collectedStones >= 3)
+                {
+                    GameObject.Find("oldLassie2").GetComponent<BoxCollider2D>().enabled = false;
+                    GameObject.Find("oldLassie2").GetComponent<SpriteRenderer>().enabled = false;
+                }
+                else
+                {
+                    GameObject.Find("oldLassie3").GetComponent<BoxCollider2D>().enabled = false;
+                    GameObject.Find("oldLassie3").GetComponent<SpriteRenderer>().enabled = false;
+                }
+            }
+            else
+            {
+                GameObject.Find("oldLassie2").GetComponent<BoxCollider2D>().enabled = false;
+                GameObject.Find("oldLassie2").GetComponent<SpriteRenderer>().enabled = false;
+                GameObject.Find("oldLassie3").GetComponent<BoxCollider2D>().enabled = false;
+                GameObject.Find("oldLassie3").GetComponent<SpriteRenderer>().enabled = false;
+            }
+        } 
     }
 
     public void TriggerDialogue()
@@ -41,13 +65,26 @@ public class DialogueTrigger : MonoBehaviour
             GameObject.Find("Tor").GetComponent<BoxCollider2D>().enabled = false;
             GameObject.Find("OpeningDoor").GetComponent<Animator>().SetTrigger("Open");
         }
-        else if(this.name == "oldLassie")
+        else if(this.name == "oldLassie1")
         {
             GameObject.Find("Player").GetComponent<Player>().sidequestActive = true;
             GameObject.Find("Questfield3").GetComponent<TextMeshProUGUI>().text = "Nebenaufgabe: Kwokas berühmter Pilz-Eintopf";
             GameObject.Find("Questfield4").GetComponent<TextMeshProUGUI>().text = "Eingesammeltes Feuerholz " + GameObject.Find("Player").GetComponent<Inventory>().collectedSticks + " / 8";
             GameObject.Find("Questfield5").GetComponent<TextMeshProUGUI>().text = "Eingesammelte Pilze " + GameObject.Find("Player").GetComponent<Inventory>().collectedMushrooms + " / 10";
             GameObject.Find("Questfield6").GetComponent<TextMeshProUGUI>().text = "Eingesammelte Steine " + GameObject.Find("Player").GetComponent<Inventory>().collectedStones + " / 3";
+        }
+        else if(this.name == "oldLassie3")
+        {
+            GameObject.Find("Questfield3").GetComponent<TextMeshProUGUI>().text = "Nebenaufgabe: -";
+            GameObject.Find("Questfield4").GetComponent<TextMeshProUGUI>().text = "";
+            GameObject.Find("Questfield5").GetComponent<TextMeshProUGUI>().text = "";
+            GameObject.Find("Questfield6").GetComponent<TextMeshProUGUI>().text = "";
+
+            GameObject.Find("Player").GetComponent<Inventory>().collectedSticks -= 8;
+            GameObject.Find("Player").GetComponent<Inventory>().collectedMushrooms -= 10;
+            GameObject.Find("Player").GetComponent<Inventory>().collectedStones -= 3;
+
+            GameObject.Find("Player").GetComponent<Inventory>().UpdateInventory();
         }
         else if(this.name == "tallBoi")
         {
@@ -95,6 +132,15 @@ public class DialogueTrigger : MonoBehaviour
                 {
                     abutton.GetComponent<SpriteRenderer>().enabled = false;
                     player.GetComponent<Player>().dialoguePossible = false;
+                }
+            }
+            if(this.name == "oldLassie1" && player.GetComponent<Player>().sidequestActive == true)
+            {
+                if(Vector2.Distance(transform.position, player.transform.position) > 10)
+                {
+                    GameObject.Find("oldLassie1").SetActive(false);
+                    GameObject.Find("oldLassie2").GetComponent<BoxCollider2D>().enabled = true;
+                    GameObject.Find("oldLassie2").GetComponent<SpriteRenderer>().enabled = true;
                 }
             }
         }

@@ -36,6 +36,11 @@ public class Inventory : MonoBehaviour
 
     private void ChangedActiveScene(Scene current, Scene next)
     {
+        UpdateInventory();
+    }
+
+    public void UpdateInventory()
+    {
         for(int i = 0; i < slots.Length; i++)
         {
             string name = "InventorySlot" + i;
@@ -57,9 +62,16 @@ public class Inventory : MonoBehaviour
                 }
                 else if(inventoryItems[i] == "Stone")
                 {
-                    Instantiate(stoneIcon, slots[i].transform, false);
-                    GameObject.Find("ItemAmount" + i.ToString()).GetComponent<TextMeshProUGUI>().text = collectedStones.ToString();
-                    GameObject.Find("StoneIcon(Clone)").transform.position = slots[i].transform.position;
+                    if(collectedStones > 0)
+                    {
+                        Instantiate(stoneIcon, slots[i].transform, false);
+                        GameObject.Find("ItemAmount" + i.ToString()).GetComponent<TextMeshProUGUI>().text = collectedStones.ToString();
+                        GameObject.Find("StoneIcon(Clone)").transform.position = slots[i].transform.position;
+                    }
+                    else
+                    {
+                        isFull[i] = false;
+                    }
                 }
                 else if(inventoryItems[i] == "Mushroom")
                 {

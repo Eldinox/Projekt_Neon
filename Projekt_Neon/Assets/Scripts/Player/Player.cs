@@ -645,7 +645,7 @@ public class Player : MonoBehaviour
 
     private void BobJump()
     {
-        Debug.Log("doubleJump: "+doubleJump);
+        //Debug.Log("doubleJump: "+doubleJump);
         if(isGrounded)
         {
             jumps = 0;
