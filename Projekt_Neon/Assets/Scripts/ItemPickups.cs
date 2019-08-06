@@ -103,11 +103,11 @@ public class ItemPickups : MonoBehaviour
             //int prevAmount = int.Parse(coincount.text);
             //int newAmount = prevAmount + 1;
             //coincount.text = "hi";//newAmount.ToString();
- 
-    	}
             GetComponentInChildren<SpriteRenderer>().enabled = false;
             GetComponent<CapsuleCollider2D>().enabled =false;
             Invoke("DestroyItem",1);
+    	}
+            
     }
 
     private void DestroyItem()
