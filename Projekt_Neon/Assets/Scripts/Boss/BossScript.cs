@@ -18,11 +18,14 @@ public class BossScript : MonoBehaviour
     private GameObject pillar1;
     private int attackCount;
     public int eyeCountDestroy ;
+    private AudioSource BossAudioSource;
+    public AudioClip pillarSound;
     
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
+        BossAudioSource = GetComponent<AudioSource>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         animatedPillars = GameObject.FindGameObjectsWithTag("BossPillar");
         animatedPillars2 = GameObject.FindGameObjectsWithTag("BossPillar2");
@@ -96,6 +99,8 @@ public class BossScript : MonoBehaviour
     }
     private void Attack1()
     {
+        BossAudioSource.clip = pillarSound;
+        BossAudioSource.Play(0);
         if(eyeCountDestroy >= 0)
         {
             anim.SetTrigger("PillarAttack1");
@@ -118,6 +123,8 @@ public class BossScript : MonoBehaviour
     }
     private void Attack2()
     {
+        BossAudioSource.clip = pillarSound;
+        BossAudioSource.Play(0);
         if(eyeCountDestroy >= 0)
         {
             anim.SetTrigger("PillarAttack2");
