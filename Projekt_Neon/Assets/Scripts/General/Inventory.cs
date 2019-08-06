@@ -51,7 +51,7 @@ public class Inventory : MonoBehaviour
                 }
                 else if(inventoryItems[i] == "Stick")
                 {
-                    if(collectedStones > 0)
+                    if(collectedSticks > 0)
                     {
                         Instantiate(stickIcon, slots[i].transform, false);
                         GameObject.Find("ItemAmount" + i.ToString()).GetComponent<TextMeshProUGUI>().text = collectedSticks.ToString();
