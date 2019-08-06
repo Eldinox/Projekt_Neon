@@ -9664,7 +9664,7 @@ MonoBehaviour:
   getHitAnimation: 0
   getHitColoring: 1
   healthBars: 1
-  damageNumberDisplay: 1
+  damageNumberDisplay: 0
   hitSparks: 1
 --- !u!1 &857768420
 GameObject:
@@ -14310,17 +14310,6 @@ PrefabInstance:
       propertyPath: m_LocalRotation.w
       value: 0.99748844
       objectReference: {fileID: 0}
-    - target: {fileID: 1646070080263158027, guid: c7c51b4da827c6940bf857eec7a48a33,
-        type: 3}
-      propertyPath: GetHitSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 7a6735ac0ba0ac4489897960654da3c1, type: 3}
-    - target: {fileID: 3949104989844278339, guid: c7c51b4da827c6940bf857eec7a48a33,
-        type: 3}
-      propertyPath: mushroomIcon
-      value: 
-      objectReference: {fileID: 2500218952004056322, guid: 6dc6f5337bb0e9640afe036305286d2e,
-        type: 3}
     - target: {fileID: 7024651676504004805, guid: c7c51b4da827c6940bf857eec7a48a33,
         type: 3}
       propertyPath: m_IsActive
@@ -14361,6 +14350,17 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 0.35
       objectReference: {fileID: 0}
+    - target: {fileID: 1646070080263158027, guid: c7c51b4da827c6940bf857eec7a48a33,
+        type: 3}
+      propertyPath: GetHitSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 7a6735ac0ba0ac4489897960654da3c1, type: 3}
+    - target: {fileID: 3949104989844278339, guid: c7c51b4da827c6940bf857eec7a48a33,
+        type: 3}
+      propertyPath: mushroomIcon
+      value: 
+      objectReference: {fileID: 2500218952004056322, guid: 6dc6f5337bb0e9640afe036305286d2e,
+        type: 3}
     m_RemovedComponents:
     - {fileID: 7584589691977028032, guid: c7c51b4da827c6940bf857eec7a48a33, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c7c51b4da827c6940bf857eec7a48a33, type: 3}
@@ -16595,11 +16595,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MusicSource
       objectReference: {fileID: 0}
-    - target: {fileID: 3735089932651993027, guid: 6cd9e32a5bac31c4786eb1510905ecd2,
-        type: 3}
-      propertyPath: m_Volume
-      value: 0.544
-      objectReference: {fileID: 0}
     - target: {fileID: 3392444344227819259, guid: 6cd9e32a5bac31c4786eb1510905ecd2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16669,6 +16664,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Volume
       value: 0.161
+      objectReference: {fileID: 0}
+    - target: {fileID: 3735089932651993027, guid: 6cd9e32a5bac31c4786eb1510905ecd2,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.544
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6cd9e32a5bac31c4786eb1510905ecd2, type: 3}
