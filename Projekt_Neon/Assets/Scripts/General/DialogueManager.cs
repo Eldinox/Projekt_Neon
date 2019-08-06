@@ -25,7 +25,7 @@ public class DialogueManager : MonoBehaviour
         GameObject.Find("DeathCanvas").GetComponent<CanvasGroup>().blocksRaycasts = false;
 
         GameObject.Find("Player").GetComponent<Player>().inDialogue = true;
-        
+        Debug.Log("dialog");
         names = dialogue.names;
         nameText.text = names[0];
 
