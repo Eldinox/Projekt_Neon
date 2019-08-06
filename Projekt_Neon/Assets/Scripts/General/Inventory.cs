@@ -36,11 +36,6 @@ public class Inventory : MonoBehaviour
 
     private void ChangedActiveScene(Scene current, Scene next)
     {
-        UpdateInventory();
-    }
-
-    public void UpdateInventory()
-    {
         for(int i = 0; i < slots.Length; i++)
         {
             string name = "InventorySlot" + i;
@@ -56,9 +51,18 @@ public class Inventory : MonoBehaviour
                 }
                 else if(inventoryItems[i] == "Stick")
                 {
-                    Instantiate(stickIcon, slots[i].transform, false);
-                    GameObject.Find("ItemAmount" + i.ToString()).GetComponent<TextMeshProUGUI>().text = collectedSticks.ToString();
-                    GameObject.Find("StickIcon(Clone)").transform.position = slots[i].transform.position;
+                    if(collectedStones > 0)
+                    {
+                        Instantiate(stickIcon, slots[i].transform, false);
+                        GameObject.Find("ItemAmount" + i.ToString()).GetComponent<TextMeshProUGUI>().text = collectedSticks.ToString();
+                        GameObject.Find("StickIcon(Clone)").transform.position = slots[i].transform.position;
+                    }
+                    else
+                    {
+                        isFull[i] = false;
+                        GameObject.Find("ItemAmount" + i.ToString()).GetComponent<TextMeshProUGUI>().text = "";
+                        Destroy(GameObject.Find("StickIcon(Clone)"));
+                    }  
                 }
                 else if(inventoryItems[i] == "Stone")
                 {
@@ -71,13 +75,76 @@ public class Inventory : MonoBehaviour
                     else
                     {
                         isFull[i] = false;
-                    }
+                        GameObject.Find("ItemAmount" + i.ToString()).GetComponent<TextMeshProUGUI>().text = "";
+                        Destroy(GameObject.Find("StoneIcon(Clone)"));
+                    }    
                 }
                 else if(inventoryItems[i] == "Mushroom")
                 {
-                    Instantiate(mushroomIcon, slots[i].transform, false);
-                    GameObject.Find("ItemAmount" + i.ToString()).GetComponent<TextMeshProUGUI>().text = collectedMushrooms.ToString();
-                    GameObject.Find("MushroomIcon(Clone)").transform.position = slots[i].transform.position;
+                    if(collectedMushrooms > 0)
+                    {
+                        Instantiate(mushroomIcon, slots[i].transform, false);
+                        GameObject.Find("ItemAmount" + i.ToString()).GetComponent<TextMeshProUGUI>().text = collectedMushrooms.ToString();
+                        GameObject.Find("MushroomIcon(Clone)").transform.position = slots[i].transform.position;
+                    }
+                    else
+                    {
+                        isFull[i] = false;
+                        GameObject.Find("ItemAmount" + i.ToString()).GetComponent<TextMeshProUGUI>().text = "";
+                        Destroy(GameObject.Find("MushroomIcon(Clone)"));
+                    }  
+                }
+            }
+        }
+    }
+
+    public void UpdateInventory()
+    {
+        for(int i = 0; i < slots.Length; i++)
+        {
+            string name = "InventorySlot" + i;
+            slots[i] = GameObject.Find(name);
+
+            if(isFull[i] == true)
+            {
+                if(inventoryItems[i] == "Stick")
+                {
+                    if(collectedSticks > 0)
+                    {
+                        GameObject.Find("ItemAmount" + i.ToString()).GetComponent<TextMeshProUGUI>().text = collectedSticks.ToString();
+                    }
+                    else
+                    {
+                        isFull[i] = false;
+                        GameObject.Find("ItemAmount" + i.ToString()).GetComponent<TextMeshProUGUI>().text = "";
+                        Destroy(GameObject.Find("StickIcon(Clone)"));
+                    }  
+                }
+                else if(inventoryItems[i] == "Stone")
+                {
+                    if(collectedStones > 0)
+                    {
+                        GameObject.Find("ItemAmount" + i.ToString()).GetComponent<TextMeshProUGUI>().text = collectedStones.ToString();
+                    }
+                    else
+                    {
+                        isFull[i] = false;
+                        GameObject.Find("ItemAmount" + i.ToString()).GetComponent<TextMeshProUGUI>().text = "";
+                        Destroy(GameObject.Find("StoneIcon(Clone)"));
+                    }    
+                }
+                else if(inventoryItems[i] == "Mushroom")
+                {
+                    if(collectedMushrooms > 0)
+                    {
+                        GameObject.Find("ItemAmount" + i.ToString()).GetComponent<TextMeshProUGUI>().text = collectedMushrooms.ToString();
+                    }
+                    else
+                    {
+                        isFull[i] = false;
+                        GameObject.Find("ItemAmount" + i.ToString()).GetComponent<TextMeshProUGUI>().text = "";
+                        Destroy(GameObject.Find("MushroomIcon(Clone)"));
+                    }  
                 }
             }
         }

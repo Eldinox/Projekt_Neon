@@ -173,6 +173,15 @@ public class Player : MonoBehaviour
             GameObject.Find("HealIconCD").GetComponent<Image>().enabled = false;
             GameObject.Find("GroundslamIconCD").GetComponent<Image>().enabled = false;
             GameObject.Find("FireballIconCD").GetComponent<Image>().enabled = false;
+
+            if(sidequestActive)
+            {
+                GameObject.Find("Questfield3").GetComponent<TextMeshProUGUI>().text = "Nebenaufgabe: Kwokas berühmter Pilz-Eintopf";
+                GameObject.Find("Questfield4").GetComponent<TextMeshProUGUI>().text = "Eingesammeltes Feuerholz " + GameObject.Find("Player").GetComponent<Inventory>().collectedSticks + " / 8";
+                GameObject.Find("Questfield5").GetComponent<TextMeshProUGUI>().text = "Eingesammelte Pilze " + GameObject.Find("Player").GetComponent<Inventory>().collectedMushrooms + " / 10";
+                GameObject.Find("Questfield6").GetComponent<TextMeshProUGUI>().text = "Eingesammelte Steine " + GameObject.Find("Player").GetComponent<Inventory>().collectedStones + " / 3";
+            }
+
             if(form == 0)
             {
                 GameObject.Find("HealIcon").GetComponent<Image>().enabled = true;
@@ -786,6 +795,46 @@ public class Player : MonoBehaviour
         dead = false;
         GameObject.Find("HealthBar").GetComponent<HealthBar>().UpdateHealth(health);
         GameObject.Find("DeathScreen").GetComponent<Animator>().SetBool("death", false);
+
+        GameObject.Find("Questfield2").GetComponent<TextMeshProUGUI>().text = "Schlüssel gefunden: " + this.GetComponent<Inventory>().collectedCoins + " / 5";
+        if(sidequestActive)
+        {
+            GameObject.Find("Questfield3").GetComponent<TextMeshProUGUI>().text = "Nebenaufgabe: Kwokas berühmter Pilz-Eintopf";
+            GameObject.Find("Questfield4").GetComponent<TextMeshProUGUI>().text = "Eingesammeltes Feuerholz " + GameObject.Find("Player").GetComponent<Inventory>().collectedSticks + " / 8";
+            GameObject.Find("Questfield5").GetComponent<TextMeshProUGUI>().text = "Eingesammelte Pilze " + GameObject.Find("Player").GetComponent<Inventory>().collectedMushrooms + " / 10";
+            GameObject.Find("Questfield6").GetComponent<TextMeshProUGUI>().text = "Eingesammelte Steine " + GameObject.Find("Player").GetComponent<Inventory>().collectedStones + " / 3";
+        }
+        GameObject.Find("HealIcon").GetComponent<Image>().enabled = false;
+        GameObject.Find("GroundslamIcon").GetComponent<Image>().enabled = false;
+        GameObject.Find("FireballIcon").GetComponent<Image>().enabled = false;
+        GameObject.Find("HealIconCD").GetComponent<Image>().enabled = false;
+        GameObject.Find("GroundslamIconCD").GetComponent<Image>().enabled = false;
+        GameObject.Find("FireballIconCD").GetComponent<Image>().enabled = false;
+
+        if(form == 0)
+        {
+            GameObject.Find("HealIcon").GetComponent<Image>().enabled = true;
+            GameObject.Find("HealIconCD").GetComponent<Image>().enabled = true;
+            GameObject.Find("FormValue").GetComponent<TextMeshProUGUI>().text = "Normal";
+            GameObject.Find("SkillValue").GetComponent<TextMeshProUGUI>().text = "Heilung";
+            GameObject.Find("SkillBeschreibung").GetComponent<TextMeshProUGUI>().text = "Heilung: Stellt über einige Sekunden Lebenspunkte wiederher";
+        }
+        else if(form == 1)
+        {
+            GameObject.Find("GroundslamIcon").GetComponent<Image>().enabled = true;
+            GameObject.Find("GroundslamIconCD").GetComponent<Image>().enabled = true;
+            GameObject.Find("FormValue").GetComponent<TextMeshProUGUI>().text = "Strong";
+            GameObject.Find("SkillValue").GetComponent<TextMeshProUGUI>().text = "Bodenschlag";
+            GameObject.Find("SkillBeschreibung").GetComponent<TextMeshProUGUI>().text = "Bodenschlag: Erschüttert die Erde und wirft Feinde zu Boden";
+        }
+        else if(form == 2)
+        {
+            GameObject.Find("FireballIcon").GetComponent<Image>().enabled = true;
+            GameObject.Find("FireballIconCD").GetComponent<Image>().enabled = true;
+            GameObject.Find("FormValue").GetComponent<TextMeshProUGUI>().text = "Range";
+            GameObject.Find("SkillValue").GetComponent<TextMeshProUGUI>().text = "Fireball";
+            GameObject.Find("SkillBeschreibung").GetComponent<TextMeshProUGUI>().text = "Fireball: Schießt einen Feuerball, der allen Feinden in einer Linie Schaden zufügt";
+        }
         
         this.gameObject.SetActive(true);
     }

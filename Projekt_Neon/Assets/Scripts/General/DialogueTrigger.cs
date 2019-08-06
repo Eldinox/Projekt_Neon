@@ -85,6 +85,7 @@ public class DialogueTrigger : MonoBehaviour
             GameObject.Find("Player").GetComponent<Inventory>().collectedStones -= 3;
 
             GameObject.Find("Player").GetComponent<Inventory>().UpdateInventory();
+            GameObject.Find("Player").GetComponent<Player>().sidequestActive = false;
         }
         else if(this.name == "tallBoi")
         {
@@ -139,8 +140,11 @@ public class DialogueTrigger : MonoBehaviour
                 if(Vector2.Distance(transform.position, player.transform.position) > 10)
                 {
                     GameObject.Find("oldLassie1").SetActive(false);
-                    GameObject.Find("oldLassie2").GetComponent<BoxCollider2D>().enabled = true;
-                    GameObject.Find("oldLassie2").GetComponent<SpriteRenderer>().enabled = true;
+                    if(player.GetComponent<Inventory>().collectedStones < 3)
+                    {
+                        GameObject.Find("oldLassie2").GetComponent<BoxCollider2D>().enabled = true;
+                        GameObject.Find("oldLassie2").GetComponent<SpriteRenderer>().enabled = true;
+                    }
                 }
             }
         }
